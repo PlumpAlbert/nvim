@@ -48,6 +48,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 		"additionalTextEdits",
 	},
 }
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local lspconfig = require "lspconfig"
 
 local servers = {
@@ -63,6 +64,39 @@ for _, lsp in ipairs(servers) do
 		on_attach = attach,
 		capabilities = capabilities,
 	}
+end
+
+local icons = {
+   Text = "",
+   Method = "",
+   Function = "",
+   Constructor = "",
+   Field = "ﰠ",
+   Variable = "",
+   Class = "ﴯ",
+   Interface = "",
+   Module = "",
+   Property = "ﰠ",
+   Unit = "塞",
+   Value = "",
+   Enum = "",
+   Keyword = "",
+   Snippet = "",
+   Color = "",
+   File = "",
+   Reference = "",
+   Folder = "",
+   EnumMember = "",
+   Constant = "",
+   Struct = "פּ",
+   Event = "",
+   Operator = "",
+   TypeParameter = "",
+}
+
+local kinds = vim.lsp.protocol.CompletionItemKind
+for i, kind in ipairs(kinds) do
+	kinds[i] = icons[kind] or kind
 end
 
 local ts_utils = require "nvim-lsp-ts-utils"

@@ -69,7 +69,7 @@ local default = {
 		hide_root_folder = true,
 	},
 	git = {
-		enable = false,
+		enable = true,
 		ignore = false,
 	},
 }
