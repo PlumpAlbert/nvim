@@ -1,0 +1,83 @@
+-- vim:ft=lua:ts=4:sw=0
+local present, packer = pcall(require, 'packer_init')
+
+if not present then
+	return false
+end
+
+local use = packer.use
+
+return packer.startup(function()
+	use {
+		"wbthomason/packer.nvim",
+		event = "VimEnter"
+	}
+	use {
+		"nvim-lua/plenary.nvim",
+		after = "nvim-lspconfig"
+	}
+
+	-- LSP
+	use {
+		"neovim/nvim-lspconfig",
+		config = function() require "plugins.lspconfig" end
+	}
+	use {
+		"jose-elias-alvarez/null-ls.nvim",
+		after = "plenary.nvim",
+		config = function() require "plugins.null-ls" end,
+	}
+	use "jose-elias-alvarez/nvim-lsp-ts-utils"
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		event = "BufRead",
+		config = function() require "plugins.treesitter" end,
+	}
+	use {
+		"tami5/lspsaga.nvim",
+		config = function() require "plugins.lspsaga" end,
+	}
+
+	-- UI
+	use {
+		"kyazdani42/nvim-web-devicons",
+		config = function() require "plugins.icons" end,
+	}
+	use {
+		"norcalli/nvim-colorizer.lua",
+		event = "BufRead",
+		config = function() require "plugins.colorizer" end,
+	}
+
+	-- UX
+	use {
+		"lewis6991/gitsigns.nvim",
+		config = function() require "plugins.gitsigns" end,
+	}
+	use {
+		"numToStr/Comment.nvim",
+		module = "Comment",
+		config = function() require("Comment").setup() end,
+	}
+
+	-- Navigation
+	use {
+		"kyazdani42/nvim-tree.lua",
+		config = function() require "plugins.nvimtree" end,
+	}
+	use {
+		"nvim-telescope/telescope.nvim",
+		after = "plenary.nvim",
+		config = function() require "plugins.telescope" end,
+	}
+
+	-- Productivity
+	use "wakatime/vim-wakatime"
+	use "tpope/vim-surround"
+	use "tpope/vim-fugitive"
+	use "sheerun/vim-polyglot"
+	use "kkoomen/vim-doge"
+
+	-- Themes
+	use "sainnhe/everforest"
+end)
