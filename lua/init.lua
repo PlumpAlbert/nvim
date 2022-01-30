@@ -94,4 +94,5 @@ return packer.startup(function()
 
 	-- Themes
 	use "sainnhe/everforest"
+	use "danilo-augusto/vim-afterglow"
 end)

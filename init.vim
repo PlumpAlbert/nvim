@@ -3,8 +3,9 @@ if has('termguicolors')
 	set termguicolors
 endif
 set background=dark
-let g:everforest_background = 'hard'
-colorscheme everforest
+"let g:everforest_background = 'hard'
+"colorscheme everforest
+colorscheme afterglow
 
 let mapleader=' '
 
