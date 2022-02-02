@@ -1,4 +1,38 @@
 -- vim:ft=lua:ts=4:sw=0
+
+local icons = {
+   Text = "",
+   Method = "",
+   Function = "",
+   Constructor = "",
+   Field = "ﰠ",
+   Variable = "",
+   Class = "ﴯ",
+   Interface = "",
+   Module = "",
+   Property = "ﰠ",
+   Unit = "塞",
+   Value = "",
+   Enum = "",
+   Keyword = "",
+   Snippet = "",
+   Color = "",
+   File = "",
+   Reference = "",
+   Folder = "",
+   EnumMember = "",
+   Constant = "",
+   Struct = "פּ",
+   Event = "",
+   Operator = "",
+   TypeParameter = "",
+}
+
+local kinds = vim.lsp.protocol.CompletionItemKind
+for i, kind in ipairs(kinds) do
+	kinds[i] = icons[kind] or kind
+end
+
 local map = require("utils").map
 
 local function on_attach(bufnr)
@@ -56,7 +90,8 @@ local servers = {
 	"cssls",
 	"emmet_ls",
 	"intelephense",
-	"pyright"
+	"pyright",
+	"texlab"
 }
 
 for _, lsp in ipairs(servers) do
@@ -66,38 +101,15 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
-local icons = {
-   Text = "",
-   Method = "",
-   Function = "",
-   Constructor = "",
-   Field = "ﰠ",
-   Variable = "",
-   Class = "ﴯ",
-   Interface = "",
-   Module = "",
-   Property = "ﰠ",
-   Unit = "塞",
-   Value = "",
-   Enum = "",
-   Keyword = "",
-   Snippet = "",
-   Color = "",
-   File = "",
-   Reference = "",
-   Folder = "",
-   EnumMember = "",
-   Constant = "",
-   Struct = "פּ",
-   Event = "",
-   Operator = "",
-   TypeParameter = "",
+lspconfig.texlab.setup {
+	settings = {
+		latex = {
+			build = {
+				onSave = true
+			}
+		}
+	}
 }
-
-local kinds = vim.lsp.protocol.CompletionItemKind
-for i, kind in ipairs(kinds) do
-	kinds[i] = icons[kind] or kind
-end
 
 local ts_utils = require "nvim-lsp-ts-utils"
 lspconfig.tsserver.setup {
