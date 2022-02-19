@@ -7,7 +7,7 @@ local sources = {
 	b.formatting.prettier.with {
 		extra_args = { '--config', vim.fn.expand('~/.prettierrc') },
 	},
-	 -- Shell
+	-- Shell
 	b.formatting.shfmt,
 }
 

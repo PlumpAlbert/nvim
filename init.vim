@@ -2,10 +2,13 @@
 if has('termguicolors')
 	set termguicolors
 endif
+syntax enable
 set background=dark
 "let g:everforest_background = 'hard'
 "colorscheme everforest
-colorscheme afterglow
+"colorscheme afterglow
+"colorscheme nord
+colorscheme dracula
 
 let mapleader=' '
 
@@ -32,6 +35,20 @@ set undofile
 set ignorecase
 set smartcase
 nnoremap <silent> <leader>/ <cmd>nohl<CR>
+
+" spelling
+set spelllang=en,ru
+set spell
+
+" list characters
+set list
+set listchars=tab:\|\ ,space:·,trail:␣,eol:↓,nbsp:·
+
+" lightline
+set noshowmode
+let g:lightline = {
+			\ 'colorscheme': 'material',
+			\ }
 
 runtime autocmds.vim
 runtime maps.vim

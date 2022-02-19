@@ -12,10 +12,7 @@ return packer.startup(function()
 		"wbthomason/packer.nvim",
 		event = "VimEnter"
 	}
-	use {
-		"nvim-lua/plenary.nvim",
-		after = "nvim-lspconfig"
-	}
+	use "nvim-lua/plenary.nvim"
 
 	-- Autocompletion
 	use "hrsh7th/cmp-nvim-lsp"
@@ -62,10 +59,13 @@ return packer.startup(function()
 		event = "BufRead",
 		config = function() require "plugins.colorizer" end,
 	}
+	use "itchyny/lightline.vim"
+	use "onsails/lspkind-nvim"
 
 	-- UX
 	use {
 		"lewis6991/gitsigns.nvim",
+		tag = "release",
 		config = function() require "plugins.gitsigns" end,
 	}
 	use {
@@ -95,4 +95,6 @@ return packer.startup(function()
 	-- Themes
 	use "sainnhe/everforest"
 	use "danilo-augusto/vim-afterglow"
+	use "arcticicestudio/nord-vim"
+	use "dracula/vim"
 end)

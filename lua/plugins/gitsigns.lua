@@ -1,17 +1,35 @@
 -- vim:ft=lua:ts=4:sw=0
-local present, gitsigns = pcall(require, "gitsigns")
-if present then
-	local default = {
-		signs = {
-			add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-			change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-			delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-			topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-			changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
-		},
-	}
-	if override_flag then
-		default = require("core.utils").tbl_override_req("gitsigns", default)
-	end
-	gitsigns.setup(default)
-end
+require('gitsigns').setup {
+	signs = {
+		add			 = {hl = 'GitSignsAdd'	 , text = '│', numhl='GitSignsAddNr'	 , linehl='GitSignsAddLn'},
+		change		 = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+		delete		 = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+		topdelete	 = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+		changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+	},
+	signcolumn = true,	-- Toggle with `:Gitsigns toggle_signs`
+	numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+	linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+	word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+	watch_gitdir = {
+		interval = 1000,
+		follow_files = true
+	},
+	attach_to_untracked = true,
+	current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+	sign_priority = 6,
+	update_debounce = 100,
+	status_formatter = nil, -- Use default
+	max_file_length = 40000,
+	preview_config = {
+		-- Options passed to nvim_open_win
+		border = 'single',
+		style = 'minimal',
+		relative = 'cursor',
+		row = 0,
+		col = 1
+	},
+	yadm = {
+		enable = false
+	},
+}
