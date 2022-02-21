@@ -3,14 +3,20 @@ local LSP = require "plugins.lsp.init"
 local lspconfig = require "lspconfig"
 
 local servers = {
+	-- C,CPP
+	"cmake",
+	"clangd",
+	-- Web dev
 	"html",
 	"cssls",
+	"tailwindcss",
 	"emmet_ls",
+	-- PHP
 	"intelephense",
+	-- Python
 	"pyright",
+	-- LaTeX
 	"texlab",
-	"cmake",
-	"clangd"
 }
 
 for _, server in ipairs(servers) do
