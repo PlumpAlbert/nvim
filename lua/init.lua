@@ -59,7 +59,9 @@ return packer.startup(function()
 		event = "BufRead",
 		config = function() require "plugins.colorizer" end,
 	}
-	use "itchyny/lightline.vim"
+	use {"nvim-lualine/lualine.nvim",
+		config = function() require "plugins.lualine" end,
+	}
 	use "onsails/lspkind-nvim"
 
 	-- UX
@@ -72,6 +74,9 @@ return packer.startup(function()
 		"numToStr/Comment.nvim",
 		module = "Comment",
 		config = function() require("Comment").setup() end,
+	}
+	use {"akinsho/toggleterm.nvim",
+		config = function() require "plugins.toggleterm" end,
 	}
 
 	-- Navigation
