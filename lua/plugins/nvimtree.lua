@@ -57,20 +57,20 @@ local default = {
 	auto_close = false,
 	open_on_tab = false,
 	hijack_cursor = true,
-	update_cwd = true,
+	update_cwd = false,
 	update_focused_file = {
 		enable = true,
 		update_cwd = false,
 	},
 	view = {
-		allow_resize = true,
+		allow_resize = false,
 		side = "right",
 		width = 25,
 		hide_root_folder = false,
 	},
 	git = {
 		enable = true,
-		ignore = false,
+		ignore = true,
 	},
 }
 
