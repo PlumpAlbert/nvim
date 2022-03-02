@@ -4,11 +4,11 @@ if has('termguicolors')
 endif
 syntax enable
 set background=dark
-"let g:everforest_background = 'hard'
-"colorscheme everforest
-"colorscheme afterglow
-"colorscheme nord
-colorscheme dracula
+let g:everforest_background = 'hard'
+colorscheme everforest
+" colorscheme afterglow
+" colorscheme nord
+" colorscheme dracula
 
 let mapleader=' '
 
@@ -38,7 +38,7 @@ nnoremap <silent> <leader>/ <cmd>nohl<CR>
 
 " spelling
 set spelllang=en,ru
-set spell
+set nospell
 
 " list characters
 set list
