@@ -18,7 +18,6 @@ nnoremap <silent> <leader>gs <cmd>Telescope git_status<CR>
 nnoremap <silent> <leader>fw <cmd>Telescope live_grep<CR>
 
 " comment
-inoremap <silent> <leader>/ :lua require('Comment.api').toggle_current_linewise()<CR>
 nnoremap <silent> <leader>/ :lua require('Comment.api').toggle_current_linewise()<CR>
 xnoremap <silent> <leader>/ :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>
 
