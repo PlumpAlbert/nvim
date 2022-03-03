@@ -1,3 +1,8 @@
+" Save file
+inoremap <silent> <C-s> <cmd>w<CR>
+nnoremap <silent> <C-s> <cmd>w<CR>
+xnoremap <silent> <C-s> <cmd>w<CR>
+
 " Move up and down in wrapped lines
 nnoremap <silent> j gj
 nnoremap <silent> k gk
@@ -13,8 +18,9 @@ nnoremap <silent> <leader>gs <cmd>Telescope git_status<CR>
 nnoremap <silent> <leader>fw <cmd>Telescope live_grep<CR>
 
 " comment
-nnoremap <silent> <leader>c :lua require('Comment.api').toggle_current_linewise()<CR>
-vnoremap <silent> <leader>c :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>
+inoremap <silent> <leader>/ :lua require('Comment.api').toggle_current_linewise()<CR>
+nnoremap <silent> <leader>/ :lua require('Comment.api').toggle_current_linewise()<CR>
+xnoremap <silent> <leader>/ :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>
 
 " buffer resize
 nnoremap <silent> <M-h> <C-w>>
@@ -25,21 +31,21 @@ nnoremap <silent> <M-l> <C-w><
 " move around tabs
 inoremap <silent> <C-h> <cmd>tabprevious<CR>
 nnoremap <silent> <C-h> <cmd>tabprevious<CR>
-vnoremap <silent> <C-h> <cmd>tabprevious<CR>
+xnoremap <silent> <C-h> <cmd>tabprevious<CR>
 
 inoremap <silent> <C-l> <cmd>tabnext<CR>
 nnoremap <silent> <C-l> <cmd>tabnext<CR>
-vnoremap <silent> <C-l> <cmd>tabnext<CR>
+xnoremap <silent> <C-l> <cmd>tabnext<CR>
 
 " Gitsigns
 nnoremap <silent> <leader>sh <cmd>Gitsigns stage_hunk<CR>
-vnoremap <silent> <leader>sh <cmd>'<,'>Gitsigns stage_hunk<CR>
+xnoremap <silent> <leader>sh <cmd>Gitsigns stage_hunk<CR>
 
 nnoremap <silent> <leader>sb <cmd>Gitsigns stage_buffer<CR>
-vnoremap <silent> <leader>sb <cmd>'<,'>Gitsigns stage_buffer<CR>
+xnoremap <silent> <leader>sb <cmd>Gitsigns stage_buffer<CR>
 
 nnoremap <silent> <leader>su <cmd>Gitsigns undo_stage_hunk<CR>
-vnoremap <silent> <leader>su <cmd>'<,'>Gitsigns undo_stage_hunk<CR>
+xnoremap <silent> <leader>su <cmd>Gitsigns undo_stage_hunk<CR>
 
 " Git
 nnoremap <silent> <leader>cm <cmd>Git commit<CR>
