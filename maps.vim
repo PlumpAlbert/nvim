@@ -21,3 +21,16 @@ nnoremap <silent> <C-h> <C-w>>
 nnoremap <silent> <C-j> <C-w>+
 nnoremap <silent> <C-k> <C-w>-
 nnoremap <silent> <C-l> <C-w><
+
+" Gitsigns
+nnoremap <silent> <leader>sh <cmd>Gitsigns stage_hunk<CR>
+vnoremap <silent> <leader>sh <cmd>'<,'>Gitsigns stage_hunk<CR>
+
+nnoremap <silent> <leader>sb <cmd>Gitsigns stage_buffer<CR>
+vnoremap <silent> <leader>sb <cmd>'<,'>Gitsigns stage_buffer<CR>
+
+nnoremap <silent> <leader>su <cmd>Gitsigns undo_stage_hunk<CR>
+vnoremap <silent> <leader>su <cmd>'<,'>Gitsigns undo_stage_hunk<CR>
+
+" Git
+nnoremap <silent> <leader>cm <cmd>Git commit<CR>
