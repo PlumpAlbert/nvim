@@ -9,6 +9,13 @@ local sources = {
 	},
 	-- Shell
 	b.formatting.shfmt,
+	-- Python
+	b.formatting.autopep8.with {
+		extra_args = {
+			'--max-line-length', '80',
+			'--experimental'
+		}
+	},
 }
 
 
