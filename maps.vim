@@ -17,10 +17,19 @@ nnoremap <silent> <leader>c :lua require('Comment.api').toggle_current_linewise(
 vnoremap <silent> <leader>c :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>
 
 " buffer resize
-nnoremap <silent> <C-h> <C-w>>
-nnoremap <silent> <C-j> <C-w>+
-nnoremap <silent> <C-k> <C-w>-
-nnoremap <silent> <C-l> <C-w><
+nnoremap <silent> <M-h> <C-w>>
+nnoremap <silent> <M-j> <C-w>+
+nnoremap <silent> <M-k> <C-w>-
+nnoremap <silent> <M-l> <C-w><
+
+" move around tabs
+inoremap <silent> <C-h> <cmd>tabprevious<CR>
+nnoremap <silent> <C-h> <cmd>tabprevious<CR>
+vnoremap <silent> <C-h> <cmd>tabprevious<CR>
+
+inoremap <silent> <C-l> <cmd>tabnext<CR>
+nnoremap <silent> <C-l> <cmd>tabnext<CR>
+vnoremap <silent> <C-l> <cmd>tabnext<CR>
 
 " Gitsigns
 nnoremap <silent> <leader>sh <cmd>Gitsigns stage_hunk<CR>
