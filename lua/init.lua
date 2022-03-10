@@ -102,4 +102,5 @@ return packer.startup(function()
 	use "danilo-augusto/vim-afterglow"
 	use "arcticicestudio/nord-vim"
 	use "dracula/vim"
+	use "mhartington/oceanic-next"
 end)

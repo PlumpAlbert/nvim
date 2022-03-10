@@ -1,14 +1,24 @@
 " vim:ft=vim:ts=4:sw=0
+if has('win32')
+	hi Normal guibg=NONE ctermbg=NONE
+	hi LineNr guibg=NONE ctermbg=NONE
+	hi SignColumn guibg=NONE ctermbg=NONE
+	hi EndOfBuffer guibg=NONE ctermbg=NONE
+endif
 if has('termguicolors')
 	set termguicolors
 endif
 syntax enable
 set background=dark
 let g:everforest_background = 'hard'
-colorscheme everforest
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 0
+" colorscheme everforest
 " colorscheme afterglow
 " colorscheme nord
 " colorscheme dracula
+colorscheme OceanicNext
+
 
 let mapleader=' '
 
@@ -42,13 +52,7 @@ set nospell
 
 " list characters
 set list
-set listchars=tab:\|\ ,space:·,trail:␣,eol:↓,nbsp:·
-
-" lightline
-set noshowmode
-let g:lightline = {
-			\ 'colorscheme': 'material',
-			\ }
+set listchars=tab:┃\ ,space:·,trail:␣,eol:↓,nbsp:·
 
 runtime autocmds.vim
 runtime maps.vim
