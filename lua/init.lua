@@ -103,4 +103,5 @@ return packer.startup(function()
 	use "arcticicestudio/nord-vim"
 	use "dracula/vim"
 	use "mhartington/oceanic-next"
+	use "sainnhe/gruvbox-material"
 end)
