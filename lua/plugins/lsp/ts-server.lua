@@ -23,11 +23,18 @@ lspconfig.tsserver.setup {
 			import_all_scan_buffers = 100,
 			import_all_select_source = false,
 			update_imports_on_move = true,
+
+			auto_inlay_hints = false,
 		})
 
 		ts_utils.setup_client(client)
 
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ia", ":TSLspImportAll<CR>", { silent = true })
+		local opts = { silent = true }
+		local map = vim.api.nvim_buf_set_keymap
+
 		LSP.on_attach(bufnr)
+		map(bufnr, "n", "<leader>io", ":TSLspOrganize<CR>", opts)
+		map(bufnr, "n", "<leader>ia", ":TSLspImportAll<CR>", opts)
+		map(bufnr, "n", "<leader>rn", ":TSLspRenameFile<CR>", opts)
 	end
 }
