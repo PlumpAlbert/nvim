@@ -11,7 +11,7 @@ cmp.setup({
 	},
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
 		end
 	},
 	mapping = {
@@ -28,8 +28,9 @@ cmp.setup({
 	},
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' },
-	}, {
+		{ name = 'nvim_lua' },
+		{ name = 'path' },
+		{ name = 'luasnip' },
 		{ name = 'buffer' },
 	})
 })
@@ -37,7 +38,6 @@ cmp.setup({
 cmp.setup.cmdline(':', {
 	sources = cmp.config.sources({
 		{ name = 'path' },
-	}, {
 		{ name = 'cmdline' },
 	})
 })
