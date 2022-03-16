@@ -6,6 +6,8 @@ local servers = {
 	-- C,CPP
 	"cmake",
 	"clangd",
+	-- Docker
+	"dockerls",
 	-- Web dev
 	"html",
 	"cssls",
