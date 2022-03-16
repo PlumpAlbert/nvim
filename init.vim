@@ -45,6 +45,7 @@ set shiftwidth=0
 set noexpandtab
 set smartindent
 
+set completeopt=menu,menuone,noselect
 set title
 set clipboard+=unnamedplus
 set cmdheight=1
@@ -73,4 +74,5 @@ set listchars=tab:┃\ ,space:·,trail:■,eol:↲,nbsp:␣
 
 runtime autocmds.vim
 runtime maps.vim
+runtime menu_highlight.vim
 lua require "init"

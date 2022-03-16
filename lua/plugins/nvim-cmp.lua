@@ -3,11 +3,22 @@ local cmp = require "cmp"
 local lspkind = require "lspkind"
 
 cmp.setup({
+	view = {
+		entries = "native",
+	},
 	formatting = {
+		fields = { "kind", "abbr" },
 		format = lspkind.cmp_format({
-		mode = 'symbol', -- show only symbol annotations
-		maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-	 })
+			mode = 'symbol', -- show only symbol annotations
+			maxwidth = 50, -- prevent the popup from showing more than provided characters
+			menu = ({
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				luasnip = "[Snip]",
+				nvim_lua = "[Lua]",
+				latex_symbols = "[LaTeX]",
+			}),
+		 })
 	},
 	snippet = {
 		expand = function(args)
