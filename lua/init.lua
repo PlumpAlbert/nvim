@@ -58,6 +58,7 @@ return packer.startup(function()
 		config = function() require "plugins.colorizer" end,
 	}
 	use {"nvim-lualine/lualine.nvim",
+		after = "github-nvim-theme",
 		config = function() require "plugins.lualine" end,
 	}
 	use "onsails/lspkind-nvim"
@@ -102,4 +103,5 @@ return packer.startup(function()
 	use "dracula/vim"
 	use "mhartington/oceanic-next"
 	use "sainnhe/gruvbox-material"
+	use "projekt0n/github-nvim-theme"
 end)

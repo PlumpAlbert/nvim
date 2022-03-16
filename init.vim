@@ -29,7 +29,8 @@ else
 	" colorscheme nord
 	" colorscheme dracula
 	" colorscheme gruvbox-material
-	colorscheme OceanicNext
+	" colorscheme OceanicNext
+	colorscheme github_dark_default
 endif
 
 if has('termguicolors')
