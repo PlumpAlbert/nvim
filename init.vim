@@ -1,9 +1,12 @@
 " vim:ft=vim:ts=4:sw=0
 syntax enable
 set background=dark
+" everforest
 let g:everforest_background = 'hard'
+" OceanicNext
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 0
+" gruvbox-material
 let g:gruvbox_material_palette = 'material'
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_disable_italic_comment = 1
