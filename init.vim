@@ -11,6 +11,13 @@ let g:gruvbox_material_palette = 'material'
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_disable_italic_comment = 1
 let g:gruvbox_material_ui_contrast = 'high'
+" github
+let g:github_dark_float = 1
+let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
+let g:github_hide_inactive_statusline = 1
+let g:github_keyword_style = 'bold'
+let g:github_comment_style = 'none'
+let g:github_transparent = 1
 
 if has('win32')
 	hi Normal guibg=NONE ctermbg=NONE
@@ -25,7 +32,8 @@ if has('win32')
 	" Theming
 	let g:gruvbox_material_palette = 'mix'
 	let g:gruvbox_material_transparent_background = 1
-	colorscheme gruvbox-material
+	" colorscheme gruvbox-material
+	colorscheme github_dark_default
 else
 	" colorscheme everforest
 	" colorscheme afterglow
