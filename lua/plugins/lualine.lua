@@ -3,7 +3,7 @@
 
 require('lualine').setup {
 	options = {
-		theme = vim.fn.has('win32') == 1 and 'gruvbox-material' or 'auto',
+		theme = 'auto',
 		icons_enabled = true,
 		component_separators = { left = '', right = ''},
 		section_separators = { left = '', right = ''},
