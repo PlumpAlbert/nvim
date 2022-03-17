@@ -71,7 +71,8 @@ set nospell
 
 " list characters
 set list
-set listchars=tab:┃\ ,space:·,trail:■,eol:↲,nbsp:␣
+set listchars=tab:│\ ,space:·,trail:■,eol:↲,nbsp:␣
+set showbreak=↪\
 
 runtime autocmds.vim
 runtime maps.vim
