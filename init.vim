@@ -13,11 +13,19 @@ let g:gruvbox_material_disable_italic_comment = 1
 let g:gruvbox_material_ui_contrast = 'high'
 " github
 let g:github_dark_float = 1
-let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
+let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer", "nvimtree"]
 let g:github_hide_inactive_statusline = 1
 let g:github_keyword_style = 'bold'
 let g:github_comment_style = 'none'
 let g:github_transparent = 1
+" solarized
+let g:neosolarized_contrast = "high"
+let g:neosolarized_visibility = "low"
+let g:neosolarized_vertSplitBgTrans = 1
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 0
+let g:neosolarized_termBoldAsBright = 0
 
 if has('win32')
 	hi Normal guibg=NONE ctermbg=NONE
@@ -41,7 +49,9 @@ else
 	" colorscheme dracula
 	" colorscheme gruvbox-material
 	" colorscheme OceanicNext
-	colorscheme github_dark_default
+	" colorscheme github_dark_default
+	" colorscheme NeoSolarized
+	colorscheme mrkn256
 endif
 
 if has('termguicolors')

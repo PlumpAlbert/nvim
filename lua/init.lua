@@ -104,4 +104,6 @@ return packer.startup(function()
 	use "mhartington/oceanic-next"
 	use "sainnhe/gruvbox-material"
 	use "projekt0n/github-nvim-theme"
+	use "overcache/NeoSolarized"
+	use "mrkn/mrkn256.vim"
 end)
