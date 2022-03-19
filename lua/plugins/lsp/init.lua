@@ -3,12 +3,9 @@ local M = {}
 local map = require("utils").map
 
 M.on_attach = function(bufnr)
-	local function buf_set_option(...)
-		vim.api.nvim_buf_set_option(bufnr, ...)
-	end
 
 	-- Enable completion triggered by <c-x><c-o>
-	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- LspSaga
 	map("n", "gd", ":Lspsaga preview_definition<CR>")
