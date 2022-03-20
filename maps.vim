@@ -41,15 +41,5 @@ inoremap <silent> <C-l> <cmd>tabnext<CR>
 nnoremap <silent> <C-l> <cmd>tabnext<CR>
 xnoremap <silent> <C-l> <cmd>tabnext<CR>
 
-" Gitsigns
-nnoremap <silent> <leader>sh <cmd>Gitsigns stage_hunk<CR>
-xnoremap <silent> <leader>sh <cmd>Gitsigns stage_hunk<CR>
-
-nnoremap <silent> <leader>sb <cmd>Gitsigns stage_buffer<CR>
-xnoremap <silent> <leader>sb <cmd>Gitsigns stage_buffer<CR>
-
-nnoremap <silent> <leader>su <cmd>Gitsigns undo_stage_hunk<CR>
-xnoremap <silent> <leader>su <cmd>Gitsigns undo_stage_hunk<CR>
-
 " Git
 nnoremap <silent> <leader>cm <cmd>Git commit<CR>
