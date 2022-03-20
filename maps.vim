@@ -6,6 +6,11 @@ xnoremap <silent> <C-s> <cmd>w<CR>
 " Move up and down in wrapped lines
 nnoremap <silent> j gj
 nnoremap <silent> k gk
+" Scroll up and down
+nnoremap <silent> <c-j> <c-e>
+inoremap <silent> <c-j> <c-e>
+nnoremap <silent> <c-k> <c-y>
+inoremap <silent> <C-k> <C-y>
 
 " nvim-tree
 nnoremap <silent> <C-n> <cmd>NvimTreeToggle<CR>
