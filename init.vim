@@ -28,10 +28,6 @@ let g:neosolarized_italic = 0
 let g:neosolarized_termBoldAsBright = 0
 
 if has('win32')
-	hi Normal guibg=NONE ctermbg=NONE
-	hi LineNr guibg=NONE ctermbg=NONE
-	hi SignColumn guibg=NONE ctermbg=NONE
-	hi EndOfBuffer guibg=NONE ctermbg=NONE
 	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
 	let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 	let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
@@ -42,6 +38,10 @@ if has('win32')
 	let g:gruvbox_material_transparent_background = 1
 	" colorscheme gruvbox-material
 	colorscheme github_dark_default
+	hi Normal guibg=NONE ctermbg=NONE
+	hi LineNr guibg=NONE ctermbg=NONE
+	hi SignColumn guibg=NONE ctermbg=NONE
+	hi EndOfBuffer guibg=NONE ctermbg=NONE
 else
 	" colorscheme everforest
 	" colorscheme afterglow
