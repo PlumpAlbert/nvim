@@ -37,7 +37,7 @@ if has('win32')
 	let g:gruvbox_material_palette = 'mix'
 	let g:gruvbox_material_transparent_background = 1
 	" colorscheme gruvbox-material
-	colorscheme github_dark_default
+	colorscheme OceanicNext
 	hi Normal guibg=NONE ctermbg=NONE
 	hi LineNr guibg=NONE ctermbg=NONE
 	hi SignColumn guibg=NONE ctermbg=NONE
