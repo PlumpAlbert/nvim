@@ -12,9 +12,6 @@ local servers = {
 	"html",
 	"cssls",
 	"tailwindcss",
-	"emmet_ls",
-	-- PHP
-	"intelephense",
 	-- Python
 	"pyright",
 	-- LaTeX

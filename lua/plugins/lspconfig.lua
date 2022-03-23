@@ -2,3 +2,5 @@
 require "plugins.lsp.default"
 require "plugins.lsp.texlab"
 require "plugins.lsp.ts-server"
+require "plugins.lsp.emmet"
+require "plugins.lsp.intelephense"
