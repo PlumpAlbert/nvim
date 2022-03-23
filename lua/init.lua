@@ -106,4 +106,5 @@ return packer.startup(function()
 	use "projekt0n/github-nvim-theme"
 	use "overcache/NeoSolarized"
 	use "mrkn/mrkn256.vim"
+	use "nekonako/xresources-nvim"
 end)

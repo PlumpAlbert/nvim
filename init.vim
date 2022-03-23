@@ -51,7 +51,8 @@ else
 	" colorscheme OceanicNext
 	" colorscheme github_dark_default
 	" colorscheme NeoSolarized
-	colorscheme mrkn256
+	" colorscheme mrkn256
+	colorscheme xresources
 endif
 
 if has('termguicolors')
