@@ -27,6 +27,10 @@ let g:neosolarized_underline = 1
 let g:neosolarized_italic = 0
 let g:neosolarized_termBoldAsBright = 0
 
+function! CheckHost(hostname)
+	return match(system("echo -n $HOST"), a:hostname) >= 0
+endfunction
+
 if has('win32')
 	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
 	let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
@@ -43,7 +47,6 @@ if has('win32')
 	hi SignColumn guibg=NONE ctermbg=NONE
 	hi EndOfBuffer guibg=NONE ctermbg=NONE
 else
-	" colorscheme everforest
 	" colorscheme afterglow
 	" colorscheme nord
 	" colorscheme dracula
@@ -52,7 +55,11 @@ else
 	" colorscheme github_dark_default
 	" colorscheme NeoSolarized
 	" colorscheme mrkn256
-	colorscheme xresources
+	if CheckHost('foggyforest.plumpalbert.xyz')
+		colorscheme OceanicNext
+	else
+		colorscheme xresources
+	endif
 endif
 
 if has('termguicolors')
