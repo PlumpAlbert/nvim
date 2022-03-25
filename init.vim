@@ -40,23 +40,16 @@ if has('win32')
 	" Theming
 	let g:gruvbox_material_palette = 'mix'
 	let g:gruvbox_material_transparent_background = 1
-	" colorscheme gruvbox-material
 	colorscheme OceanicNext
 	hi Normal guibg=NONE ctermbg=NONE
 	hi LineNr guibg=NONE ctermbg=NONE
 	hi SignColumn guibg=NONE ctermbg=NONE
 	hi EndOfBuffer guibg=NONE ctermbg=NONE
 else
-	" colorscheme afterglow
-	" colorscheme nord
-	" colorscheme dracula
-	" colorscheme gruvbox-material
-	" colorscheme OceanicNext
-	" colorscheme github_dark_default
-	" colorscheme NeoSolarized
-	" colorscheme mrkn256
 	if CheckHost('foggyforest.plumpalbert.xyz')
 		colorscheme OceanicNext
+	elseif CheckHost('archlinux')
+		colorscheme mrkn256
 	else
 		colorscheme xresources
 	endif
