@@ -95,6 +95,7 @@ return packer.startup(function()
 	use "tpope/vim-fugitive"
 	use "sheerun/vim-polyglot"
 	use "kkoomen/vim-doge"
+	use "gpanders/editorconfig.nvim"
 
 	-- Themes
 	use "sainnhe/everforest"
