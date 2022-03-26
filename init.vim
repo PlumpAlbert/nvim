@@ -68,6 +68,7 @@ set shiftwidth=0
 set noexpandtab
 set smartindent
 
+set nowrap
 set completeopt=menu,menuone,noselect
 set title
 set clipboard+=unnamedplus
