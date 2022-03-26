@@ -51,7 +51,7 @@ else
 	elseif CheckHost('archlinux')
 		colorscheme mrkn256
 	else
-		colorscheme xresources
+		colorscheme github_dark
 	endif
 endif
 
@@ -71,16 +71,15 @@ set smartindent
 set nowrap
 set completeopt=menu,menuone,noselect
 set title
-set clipboard+=unnamedplus
+set clipboard+=unnamed,unnamedplus
 set cmdheight=1
 set number relativenumber
 set hidden
 set mouse=a
-set colorcolumn=80,100
+set colorcolumn=80
 
 " splitting
-set splitbelow
-set splitright
+set splitbelow splitright
 set undofile
 
 " searching
@@ -93,9 +92,11 @@ set spelllang=en,ru
 set nospell
 
 " list characters
-set list
-set listchars=tab:│\ ,space:·,trail:■,eol:↲,nbsp:␣
+set list listchars=tab:¦\ ,space:·,trail:■,eol:↲,nbsp:␣
 set showbreak=↪\
+" Make cursor a line in insert
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 runtime autocmds.vim
 runtime maps.vim
