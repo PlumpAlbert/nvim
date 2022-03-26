@@ -2,6 +2,12 @@
 inoremap <silent> <C-s> <cmd>w<CR>
 nnoremap <silent> <C-s> <cmd>w<CR>
 xnoremap <silent> <C-s> <cmd>w<CR>
+" Keep VisualMode after indent with > or <
+vmap < <gv
+vmap > >gv
+" Move Visual blocks with J an K
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Move up and down in wrapped lines
 nnoremap <silent> j gj
