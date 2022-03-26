@@ -1,4 +1,4 @@
--- vim:ft=lua:ts=4:sw=0
+-- vim:ft=lua:ts=2:sw=0
 local present, nvimtree = pcall(require, "nvim-tree")
 
 if not present then
@@ -7,8 +7,8 @@ end
 
 local g = vim.g
 
-g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
-g.nvim_tree_git_hl = 0
+g.nvim_tree_add_trailing = 1 -- append a trailing slash to folder names
+g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 0
 g.nvim_tree_indent_markers = 1
 g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
@@ -52,9 +52,6 @@ local default = {
 			},
 		},
 	},
-	filters = {
-		dotfiles = false,
-	},
 	disable_netrw = false,
 	hijack_netrw = true,
 	ignore_ft_on_setup = { "dashboard" },
@@ -63,7 +60,7 @@ local default = {
 	hijack_cursor = true,
 	update_cwd = false,
 	update_focused_file = {
-		enable = true,
+		enable = false,
 		update_cwd = false,
 	},
 	view = {
@@ -75,6 +72,9 @@ local default = {
 	git = {
 		enable = true,
 		ignore = true,
+	},
+	filters = {
+		dotfiles = true,
 	},
 }
 

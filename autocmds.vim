@@ -1,5 +1,5 @@
 " Open vim with dir
-autocmd BufEnter * if &buftype != "terminal" | lcd %:p:h | endif
+" autocmd BufEnter * if &buftype != "terminal" | lcd %:p:h | endif
 
 " Do not check spelling inside terminal
 autocmd TermOpen term://* setlocal nospell

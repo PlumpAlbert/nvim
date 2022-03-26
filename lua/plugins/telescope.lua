@@ -1,4 +1,4 @@
--- vim:ft=lua:ts=4:sw=0
+-- vim:ft=lua:ts=2:sw=0
 local present, telescope = pcall(require, "telescope")
 
 if not present then
