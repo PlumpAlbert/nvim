@@ -9,7 +9,6 @@ local servers = {
 	-- Docker
 	"dockerls",
 	-- Web dev
-	"html",
 	"cssls",
 	"tailwindcss",
 	-- Python
@@ -24,3 +23,11 @@ for _, server in ipairs(servers) do
 		capabilities = LSP.capabilities,
 	}
 end
+
+lspconfig.html.setup {
+	on_attach = LSP.on_attach,
+	capabilities = LSP.capabilities,
+	filetypes = {
+		'html', 'blade'
+	}
+}
