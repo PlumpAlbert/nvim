@@ -6,6 +6,10 @@ local sources = {
 	-- prettier
 	b.formatting.prettier.with {
 		extra_args = { '--config', vim.fn.expand('~/.prettierrc') },
+		filetypes = { "javascript", "javascriptreact", "typescript",
+			"typescriptreact", "vue", "css", "scss", "less", "html",
+			"json", "jsonc", "markdown", "graphql", "handlebars"
+		}
 	},
 	-- Shell
 	b.formatting.shfmt,

@@ -3,6 +3,8 @@ local LSP = require "plugins.lsp.init"
 local lspconfig = require "lspconfig"
 
 local servers = {
+	-- Ansible
+	"ansiblels",
 	-- C,CPP
 	"cmake",
 	"clangd",
