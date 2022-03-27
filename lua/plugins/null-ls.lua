@@ -16,6 +16,8 @@ local sources = {
 			'--experimental'
 		}
 	},
+	-- PHP
+	b.formatting.phpcsfixer,
 }
 
 
