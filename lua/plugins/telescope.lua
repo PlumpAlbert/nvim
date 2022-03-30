@@ -41,7 +41,8 @@ local default = {
 			"node_modules",
 			"vendor",
 			"build",
-			".venv"
+			".venv",
+			".git"
 		},
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		path_display = { "truncate" },
