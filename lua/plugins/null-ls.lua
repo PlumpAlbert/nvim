@@ -1,5 +1,8 @@
 -- vim:ft=lua:ts=4:sw=0
 local null_ls = require "null-ls"
+local h = require "null-ls.helpers"
+local cmd_resolver = require("null-ls.helpers.command_resolver")
+local methods = require("null-ls.methods")
 local b = null_ls.builtins
 
 local sources = {
@@ -21,7 +24,24 @@ local sources = {
 		}
 	},
 	-- PHP
-	b.formatting.phpcsfixer,
+	b.formatting.phpcbf.with {
+		command = vim.fn.expand("~/.local/bin/phpcbf")
+	},
+	h.make_builtin {
+		name = "blade_formatter",
+		factory = h.formatter_factory,
+		method = { methods.internal.FORMATTING },
+		filetypes = { "blade" },
+		generator_opts = {
+			command = "blade-formatter",
+			args = { "--stdin" },
+			to_stdin = true
+		},
+		meta = {
+			url = "https://github.com/shufo/blade-formatter",
+			description = "An opinionated blade template formatter for Laravel that respects readability"
+		},
+	}
 }
 
 

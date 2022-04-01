@@ -13,6 +13,7 @@ local servers = {
 	-- Web dev
 	"cssls",
 	"tailwindcss",
+	"html",
 	-- Python
 	"pyright",
 	-- LaTeX
@@ -25,11 +26,3 @@ for _, server in ipairs(servers) do
 		capabilities = LSP.capabilities,
 	}
 end
-
-lspconfig.html.setup {
-	on_attach = LSP.on_attach,
-	capabilities = LSP.capabilities,
-	filetypes = {
-		'html', 'blade'
-	}
-}
