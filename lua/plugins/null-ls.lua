@@ -4,6 +4,7 @@ local h = require "null-ls.helpers"
 local cmd_resolver = require("null-ls.helpers.command_resolver")
 local methods = require("null-ls.methods")
 local b = null_ls.builtins
+local lsp = require "plugins.lsp.init"
 
 local sources = {
 	-- prettier
@@ -54,5 +55,6 @@ null_ls.setup {
 		if client.resolved_capabilities.document_formatting then
 			vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
 		end
+		lsp.on_attach(client)
 	end,
 }
