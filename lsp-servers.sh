@@ -1,16 +1,21 @@
 #!/bin/sh
 echo '# Installing language servers'
 npm i -g typescript \
+	typescript-language-server \
 	vscode-langservers-extracted \
-	@kozer/emmet-language-server\
-	intelephense\
-	pyright\
-	prettier\
-	typescript-language-server\
-	@tailwindcss/language-server
+	@tailwindcss/language-server \
+	@kozer/emmet-language-server \
+	intelephense \
+	pyright \
+	prettier_d_slim \
+	blade-formatter
+
+echo '# Downloading phpcbf'
+! [ -d "$HOME/.local/bin" ] && mkdir -p "$HOME/.local/bin"
+curl -sL 'https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar' -o "$HOME/.local/bin/phpcs"
+curl -sL 'https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar' -o "$HOME/.local/bin/phpcbf"
 
 echo '# Installing clangd'
-echo 'y' | sudo -S pacman -Sy cmake clang llvm
+sudo -S pacman -Sy --needed --noconfirm cmake clang llvm
 echo '# Installing cmake'
 pip install --user cmake-language-server
-
