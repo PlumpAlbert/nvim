@@ -30,7 +30,7 @@ require('lualine').setup {
 			}
 		},
 		lualine_y = {'diagnostics'},
-		lualine_z = {'g:currentContainer'}
+		lualine_z = {}
 	},
 	inactive_sections = {
 		lualine_a = {},
