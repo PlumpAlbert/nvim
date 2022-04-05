@@ -19,7 +19,7 @@ require('lualine').setup {
 		lualine_c = {'filename'},
 		lualine_x = {
 			{'filetype',
-				icon_only = true
+				icon_only = false
 			},
 			{'fileformat',
 				symbols = {
@@ -41,23 +41,23 @@ require('lualine').setup {
 		lualine_z = {}
 	},
 	tabline = {
-		lualine_c = {
-			{'buffers',
-				filetype_names = {
-					TelescopePrompt = 'Telescope',
-					dashboard = 'Dashboard',
-					packer = 'Packer',
-					fzf = 'FZF',
-					alpha = 'Alpha',
-					NvimTree = 'NvimTree'
-				},
-				buffer_color = {
-					active = 'lualine_{section}_normal',
-					inactive = 'lualine_{section}_inactive',
-				}
-			}
-		},
-		lualine_x = { 'tabs' },
+		-- lualine_c = {
+		-- 	{'buffers',
+		-- 		filetype_names = {
+		-- 			TelescopePrompt = 'Telescope',
+		-- 			dashboard = 'Dashboard',
+		-- 			packer = 'Packer',
+		-- 			fzf = 'FZF',
+		-- 			alpha = 'Alpha',
+		-- 			NvimTree = 'NvimTree'
+		-- 		},
+		-- 		buffer_color = {
+		-- 			active = 'lualine_{section}_normal',
+		-- 			inactive = 'lualine_{section}_inactive',
+		-- 		}
+		-- 	}
+		-- },
+		-- lualine_x = { 'tabs' },
 	},
 	extensions = {
 		'nvim-tree',
@@ -65,3 +65,5 @@ require('lualine').setup {
 		'fugitive'
 	}
 }
+
+vim.cmd "set laststatus=3"
