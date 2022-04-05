@@ -13,7 +13,9 @@ npm i -g typescript \
 echo '# Downloading phpcbf'
 ! [ -d "$HOME/.local/bin" ] && mkdir -p "$HOME/.local/bin"
 curl -sL 'https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar' -o "$HOME/.local/bin/phpcs"
+chmod a+x "$HOME/.local/bin/phpcs"
 curl -sL 'https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar' -o "$HOME/.local/bin/phpcbf"
+chmod a+x "$HOME/.local/bin/phpcbf"
 
 echo '# Installing clangd'
 sudo -S pacman -Sy --needed --noconfirm cmake clang llvm
