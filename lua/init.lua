@@ -108,4 +108,5 @@ return packer.startup(function()
 	use "overcache/NeoSolarized"
 	use "mrkn/mrkn256.vim"
 	use "nekonako/xresources-nvim"
+	use "bluz71/vim-moonfly-colors"
 end)

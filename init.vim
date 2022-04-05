@@ -26,6 +26,8 @@ let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
 let g:neosolarized_italic = 0
 let g:neosolarized_termBoldAsBright = 0
+" moonfly
+let g:moonflyWinSeparator = 2
 
 function! CheckHost(hostname)
 	return match(system("echo -n $HOST"), a:hostname) >= 0
@@ -49,7 +51,7 @@ else
 	if CheckHost('foggyforest.plumpalbert.xyz')
 		colorscheme OceanicNext
 	elseif CheckHost('archlinux')
-		colorscheme mrkn256
+		colorscheme moonfly
 	else
 		colorscheme github_dark
 	endif
@@ -91,6 +93,8 @@ nnoremap <silent> <leader>/ <cmd>nohl<CR>
 set spelllang=en,ru
 set nospell
 
+" fill characters
+set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
 " list characters
 set list listchars=tab:¦\ ,space:·,trail:■,eol:↲,nbsp:␣
 set showbreak=↪\
