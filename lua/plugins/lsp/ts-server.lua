@@ -35,6 +35,6 @@ lspconfig.tsserver.setup {
 		LSP.on_attach(bufnr)
 		map(bufnr, "n", "<leader>io", ":TSLspOrganize<CR>", opts)
 		map(bufnr, "n", "<leader>ia", ":TSLspImportAll<CR>", opts)
-		map(bufnr, "n", "<leader>rn", ":TSLspRenameFile<CR>", opts)
+		map(bufnr, "n", "<leader>fr", ":TSLspRenameFile<CR>", opts)
 	end
 }
