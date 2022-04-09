@@ -20,6 +20,7 @@ return packer.startup(function()
 	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-buffer"
 	use "hrsh7th/cmp-path"
+	use "hrsh7th/cmp-omni"
 	use "hrsh7th/cmp-cmdline"
 	use {
 		"hrsh7th/nvim-cmp",
@@ -46,6 +47,7 @@ return packer.startup(function()
 		"tami5/lspsaga.nvim",
 		config = function() require "plugins.lspsaga" end,
 	}
+	use "lervag/vimtex"
 
 	-- UI
 	use {
