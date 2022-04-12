@@ -7,8 +7,9 @@ npm i -g typescript \
 	@kozer/emmet-language-server \
 	intelephense \
 	pyright \
-	prettier_d_slim \
-	blade-formatter
+	prettier \
+	blade-formatter \
+	dockerfile-language-server-nodejs
 
 echo '# Downloading phpcbf'
 ! [ -d "$HOME/.local/bin" ] && mkdir -p "$HOME/.local/bin"
@@ -17,7 +18,7 @@ chmod a+x "$HOME/.local/bin/phpcs"
 curl -sL 'https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar' -o "$HOME/.local/bin/phpcbf"
 chmod a+x "$HOME/.local/bin/phpcbf"
 
-echo '# Installing clangd'
-sudo -S pacman -Sy --needed --noconfirm cmake clang llvm
-echo '# Installing cmake'
+echo '# Installing clangd and shfmt'
+sudo -S pacman -Sy --needed --noconfirm cmake clang llvm shfmt
+echo '# Installing cmake-language-server'
 pip install --user cmake-language-server

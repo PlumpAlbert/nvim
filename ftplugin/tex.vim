@@ -7,10 +7,9 @@ setlocal linebreak
 setlocal spell
 
 let g:vimtex_view_method = 'general'
-let g:vimtex_view_general_viewer = 'SumatraPDF'
-let g:vimtex_view_general_options
-	\ = '-reuse-instance -forward-search @tex @line @pdf'
-let maplocalleader = '\'
+let g:vimtex_view_general_viewer = 'zathura-xrdb'
+let g:vimtex_view_general_options = '@pdf'
+let maplocalleader = ','
 
 " configure latexmk
 let g:vimtex_compiler_latexmk = {

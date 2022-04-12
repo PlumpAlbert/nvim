@@ -101,6 +101,8 @@ set showbreak=↪\
 " Make cursor a line in insert
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+" Russian language
+set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 
 runtime autocmds.vim
 runtime maps.vim

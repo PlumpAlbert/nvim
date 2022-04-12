@@ -98,6 +98,9 @@ return packer.startup(function()
 	use "sheerun/vim-polyglot"
 	use "kkoomen/vim-doge"
 	use "gpanders/editorconfig.nvim"
+	use {"Pocco81/AutoSave.nvim",
+		config = function() require "plugins.autosave" end,
+	}
 
 	-- Themes
 	use "sainnhe/everforest"
