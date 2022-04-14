@@ -76,9 +76,6 @@ return packer.startup(function()
 		module = "Comment",
 		config = function() require("Comment").setup() end,
 	}
-	use {"akinsho/toggleterm.nvim",
-		config = function() require "plugins.toggleterm" end,
-	}
 
 	-- Navigation
 	use {
