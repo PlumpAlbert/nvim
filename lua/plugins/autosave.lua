@@ -1,6 +1,6 @@
 local autosave = require('autosave')
 autosave.setup {
-	enabled = False,
+	enabled = false,
 	execution_message = function()
 		return "💾 @ " .. vim.fn.strftime("%H:%M")
 	end,
