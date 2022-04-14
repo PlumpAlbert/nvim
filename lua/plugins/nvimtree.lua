@@ -67,6 +67,12 @@ local default = {
 		side = "right",
 		width = 25,
 		hide_root_folder = false,
+		mappings = {
+			custom_only = false,
+			list = {
+				{ key = ".", action = "toggle_dotfiles" },
+			},
+		},
 	},
 	git = {
 		enable = true,
