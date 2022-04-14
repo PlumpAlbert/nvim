@@ -20,7 +20,6 @@ let g:vimtex_compiler_latexmk = {
 	\ 'hooks' : [],
 	\ 'options' : [
 	\   '-verbose',
-	\   '-auxdir=./aux',
 	\   '-file-line-error',
 	\   '-synctex=1',
 	\   '-interaction=nonstopmode',
