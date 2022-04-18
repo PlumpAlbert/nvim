@@ -7,7 +7,8 @@ let g:everforest_background = 'hard'
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 0
 " gruvbox-material
-let g:gruvbox_material_palette = 'material'
+let g:gruvbox_material_transparent_background = 1
+let g:gruvbox_material_palette = 'mix'
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_disable_italic_comment = 1
 let g:gruvbox_material_ui_contrast = 'high'
@@ -40,18 +41,16 @@ if has('win32')
 	set shellquote= shellxquote=
 	let &shellcmdflag='-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
 	" Theming
-	let g:gruvbox_material_palette = 'mix'
-	let g:gruvbox_material_transparent_background = 1
 	colorscheme OceanicNext
 	hi Normal guibg=NONE ctermbg=NONE
 	hi LineNr guibg=NONE ctermbg=NONE
 	hi SignColumn guibg=NONE ctermbg=NONE
 	hi EndOfBuffer guibg=NONE ctermbg=NONE
 else
-	if CheckHost('foggyforest.plumpalbert.xyz')
+	if CheckHost('sky.plumpalbert.xyz')
 		colorscheme OceanicNext
 	elseif CheckHost('archlinux')
-		colorscheme moonfly
+		colorscheme gruvbox-material
 	else
 		colorscheme github_dark
 	endif
@@ -96,7 +95,7 @@ set nospell
 " fill characters
 set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
 " list characters
-set list listchars=tab:¦\ ,space:·,trail:■,eol:↲,nbsp:␣
+set list listchars=tab:┇\ ,space:·,trail:■,eol:⤶,nbsp:␣
 set showbreak=↪\
 " Make cursor a line in insert
 let &t_SI = "\e[6 q"
