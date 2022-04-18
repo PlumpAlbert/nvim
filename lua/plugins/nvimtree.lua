@@ -19,24 +19,24 @@ g.nvim_tree_show_icons = {
 }
 
 g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
+	default = "📄",
+	symlink = "🔗",
 	git = {
-		deleted = "",
-		ignored = "◌",
-		renamed = "➜",
-		staged = "✓",
-		unmerged = "",
-		unstaged = "✗",
-		untracked = "★",
+		deleted = "🔴",
+		ignored = "⛔",
+		renamed = "➡️",
+		staged = "✅",
+		unmerged = "🪢",
+		unstaged = "✏️",
+		untracked = "🆕",
 	},
 	folder = {
-		default = "",
-		empty = "",
-		empty_open = "",
-		open = "",
-		symlink = "",
-		symlink_open = "",
+		default = "🗄️",
+		empty = "📁",
+		empty_open = "📂",
+		open = "🗃️",
+		symlink = "🔗",
+		symlink_open = "🖇️",
 	},
 }
 
