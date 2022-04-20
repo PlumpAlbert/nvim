@@ -17,20 +17,58 @@ ls.config.set_config {
 	updateevents = "TextChanged,TextChangedI",
 }
 
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
 -- Shorthands
 local LC = function(args, snip) return snip.env.LINE_COMMENT end
 local BS = function(args, snip) return snip.env.BLOCK_COMMENT_START end
 local BE = function(args, snip) return snip.env.BLOCK_COMMENT_END end
 
-ls.snippets = {
-	all = {
-		s({
-			trig = "@copy",
-			name = "Copyright",
-			dscr = "Insert copyright data with vim magic function"
-		}, fmt(
-			'{} vim:ft={}:ts={}:sw=0\n{} Author: Plump Albert (plumpalbert@gmail.com)',
-			{ f(LC), i(1, vim.bo.filetype), i(2, tostring(vim.bo.tabstop)), f(LC) }
-		))
-	}
-}
+ls.add_snippets("all", {
+	s({
+		trig = "@copy",
+		name = "Copyright",
+		dscr = "Insert copyright data with vim magic function"
+	}, fmt(
+		'{} vim:ft={}:ts={}:sw=0\n{} Author: Plump Albert (plumpalbert@gmail.com)',
+		{ f(LC), i(1, vim.bo.filetype), i(2, tostring(vim.bo.tabstop)), f(LC) }
+	))
+})
+ls.add_snippets("tex", {
+	s(
+		{
+			trig = "fig",
+			dscr = "Creates block for inserting image"
+		},
+		{
+			t("\\begin{figure}["), i(1, "H"), t({
+					"]",
+					"\\centering",
+					"\\includegraphics[keepaspectratio,width=\\textwidth]{"
+			}), i(2, 'image'), t({
+				"}",
+				"\\caption{"
+			}), i(3, 'Image caption'), t({
+				"}",
+				"\\label{fig:"
+			}), i(0), t({
+				"}",
+				"\\end{figure}"
+			})
+		}
+	)
+})
+
+
+return ls
