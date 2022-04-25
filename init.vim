@@ -106,4 +106,5 @@ set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁ
 runtime autocmds.vim
 runtime maps.vim
 runtime menu_highlight.vim
+runtime neovide.vim
 lua require "init"
