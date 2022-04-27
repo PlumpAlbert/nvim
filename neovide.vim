@@ -1,4 +1,5 @@
 let g:neovide_refresh_rate=60
+let g:neovide_no_idle=v:true
 let g:neovide_transparency=0.9
 let g:neovide_remember_window_size = v:true
 let g:neovide_cursor_vfx_mode = "pixiedust"
