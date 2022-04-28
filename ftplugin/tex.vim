@@ -6,6 +6,7 @@ setlocal formatoptions+=t
 setlocal linebreak
 setlocal spell
 
+
 let g:vimtex_view_method = 'general'
 let g:vimtex_view_general_viewer = 'zathura-xrdb'
 let g:vimtex_view_general_options = '@pdf'
@@ -19,6 +20,7 @@ let g:vimtex_compiler_latexmk = {
 	\ 'executable' : 'latexmk',
 	\ 'hooks' : [],
 	\ 'options' : [
+	\   '-xelatex',
 	\   '-verbose',
 	\   '-file-line-error',
 	\   '-synctex=1',
@@ -27,6 +29,7 @@ let g:vimtex_compiler_latexmk = {
 	\}
 
 " mappings
+nnoremap <F5> <cmd>10split \| te latexmk -pvc '%:p'<CR>
 call vimtex#imaps#add_map({
 			\ 'lhs' : '<m-i>',
 			\ 'rhs' : '\item ',
