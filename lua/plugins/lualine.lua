@@ -18,7 +18,7 @@ local bubbles_theme = {
 	normal = {
 		a = { fg = colors.black, bg = colors.violet },
 		b = { fg = colors.white, bg = colors.grey },
-		c = { fg = colors.black, bg = colors.black },
+		c = { fg = colors.grey, bg = colors.black },
 	},
 
 	insert = { a = { fg = colors.black, bg = colors.blue } },
@@ -35,7 +35,7 @@ local bubbles_theme = {
 require('lualine').setup {
 	options = {
 		theme = bubbles_theme,
-		component_separators = '|',
+		component_separators = { left = '/', right = '\\' },
 		section_separators = { left = '', right = '' },
 		disabled_filetypes = {
 			'TelescopePrompt',
@@ -48,12 +48,16 @@ require('lualine').setup {
 			{ 'mode', separator = { left = '' }, right_padding = 2 },
 		},
 		lualine_b = { 'filename', 'branch' },
-		lualine_c = { 'fileformat' },
+		lualine_c = {},
 		lualine_x = {},
-		lualine_y = { 'filetype', 'fileformat' },
-		lualine_z = {
-			{ 'location', separator = { right = '' }, left_padding = 2 },
+		lualine_y = {
+			'filetype',
+			{'fileformat',
+				separator = { right = '' },
+				left_padding = 2
+			}
 		},
+		lualine_z = {},
 	},
 	inactive_sections = {
 		lualine_a = {},
