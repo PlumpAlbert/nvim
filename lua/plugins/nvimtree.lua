@@ -54,7 +54,6 @@ local default = {
 	disable_netrw = false,
 	hijack_netrw = true,
 	ignore_ft_on_setup = { "dashboard" },
-	auto_close = false,
 	open_on_tab = false,
 	hijack_cursor = true,
 	update_cwd = true,
@@ -63,7 +62,6 @@ local default = {
 		update_cwd = true,
 	},
 	view = {
-		allow_resize = false,
 		side = "right",
 		width = 25,
 		hide_root_folder = false,
