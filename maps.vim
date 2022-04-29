@@ -41,6 +41,8 @@ nnoremap <silent> <leader>gs <cmd>Telescope git_status<CR>
 nnoremap <silent> <leader>пы <cmd>Telescope git_status<CR>
 nnoremap <silent> <leader>fw <cmd>Telescope live_grep<CR>
 nnoremap <silent> <leader>ац <cmd>Telescope live_grep<CR>
+nnoremap <silent> <leader>ls <cmd>Telescope projects<CR>
+nnoremap <silent> <leader>лы <cmd>Telescope projects<CR>
 
 " comment
 nnoremap <silent> <leader><Space> :lua require('Comment.api').toggle_current_linewise()<CR>

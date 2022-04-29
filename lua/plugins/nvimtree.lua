@@ -11,6 +11,7 @@ g.nvim_tree_add_trailing = 1 -- append a trailing slash to folder names
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 0
 g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+vim.g.nvim_tree_respect_buf_cwd = 1 -- Change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
 
 g.nvim_tree_show_icons = {
 	folders = 1,
@@ -56,10 +57,10 @@ local default = {
 	auto_close = false,
 	open_on_tab = false,
 	hijack_cursor = true,
-	update_cwd = false,
+	update_cwd = true,
 	update_focused_file = {
-		enable = false,
-		update_cwd = false,
+		enable = true,
+		update_cwd = true,
 	},
 	view = {
 		allow_resize = false,

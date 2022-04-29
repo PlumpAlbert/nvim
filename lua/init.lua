@@ -90,6 +90,10 @@ return packer.startup(function()
 	use {"nvim-telescope/telescope-fzf-native.nvim",
 		run = 'make'
 	}
+	use {"ahmedkhalf/project.nvim",
+		after = { "telescope.nvim" },
+		config = function() require "plugins.project" end,
+	}
 
 	-- Productivity
 	use "wakatime/vim-wakatime"
