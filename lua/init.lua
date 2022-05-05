@@ -107,15 +107,9 @@ return packer.startup(function()
 	}
 
 	-- Themes
-	use "sainnhe/everforest"
-	use "danilo-augusto/vim-afterglow"
-	use "arcticicestudio/nord-vim"
-	use "dracula/vim"
-	use "mhartington/oceanic-next"
 	use "sainnhe/gruvbox-material"
 	use "projekt0n/github-nvim-theme"
-	use "overcache/NeoSolarized"
 	use "mrkn/mrkn256.vim"
-	use "nekonako/xresources-nvim"
 	use "bluz71/vim-moonfly-colors"
+	use "chriskempson/base16-vim"
 end)

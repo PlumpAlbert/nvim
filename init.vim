@@ -1,11 +1,8 @@
 " vim:ft=vim:ts=4:sw=0
 syntax enable
+set termguicolors
+let base16colorspace=256
 set background=dark
-" everforest
-let g:everforest_background = 'hard'
-" OceanicNext
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 0
 " gruvbox-material
 let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_palette = 'mix'
@@ -19,20 +16,16 @@ let g:github_hide_inactive_statusline = 1
 let g:github_keyword_style = 'bold'
 let g:github_comment_style = 'none'
 let g:github_transparent = 1
-" solarized
-let g:neosolarized_contrast = "high"
-let g:neosolarized_visibility = "low"
-let g:neosolarized_vertSplitBgTrans = 1
-let g:neosolarized_bold = 1
-let g:neosolarized_underline = 1
-let g:neosolarized_italic = 0
-let g:neosolarized_termBoldAsBright = 0
 " moonfly
 let g:moonflyWinSeparator = 2
 
 function! CheckHost(hostname)
 	return match(system("echo -n $HOST"), a:hostname) >= 0
 endfunction
+
+if has('termguicolors')
+	set termguicolors
+endif
 
 if has('win32')
 	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
@@ -41,25 +34,21 @@ if has('win32')
 	set shellquote= shellxquote=
 	let &shellcmdflag='-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
 	" Theming
-	colorscheme OceanicNext
+	" colorscheme base16-default-dark
 	hi Normal guibg=NONE ctermbg=NONE
 	hi LineNr guibg=NONE ctermbg=NONE
 	hi SignColumn guibg=NONE ctermbg=NONE
 	hi EndOfBuffer guibg=NONE ctermbg=NONE
 else
 	if CheckHost('sky.plumpalbert.xyz')
-		colorscheme OceanicNext
+		" colorscheme base16-default-dark
 	elseif CheckHost('archlinux')
-		colorscheme gruvbox-material
+		" colorscheme base16-default-dark
 	else
-		colorscheme github_dark
+		" colorscheme gruvbox-material
 	endif
 endif
-
-if has('termguicolors')
-	set termguicolors
-endif
-
+colorscheme base16-bright
 
 let mapleader=' '
 
