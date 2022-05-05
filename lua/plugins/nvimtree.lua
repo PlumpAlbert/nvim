@@ -78,6 +78,9 @@ local default = {
 	},
 	filters = {
 		dotfiles = true,
+		exclude = {
+			'.git/'
+		},
 	},
 	renderer = {
 		indent_markers = {
