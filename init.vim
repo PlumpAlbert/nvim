@@ -92,6 +92,16 @@ let &t_EI = "\e[2 q"
 " Russian language
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 
+" Autopairs
+let g:AutoPairs = {
+	\ '(':')',
+	\ '[':']',
+	\ '{':'}',
+	\ "'":"'",
+	\ '"':'"',
+	\ '`':'`',
+	\ '<':'>',
+	\ }
 runtime autocmds.vim
 runtime maps.vim
 runtime menu_highlight.vim

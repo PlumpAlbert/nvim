@@ -64,7 +64,10 @@ return packer.startup(function()
 		config = function() require "plugins.colorizer" end,
 	}
 	use {"nvim-lualine/lualine.nvim",
-		after = "github-nvim-theme",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+			"arkav/lualine-lsp-progress"
+		},
 		config = function() require "plugins.lualine" end,
 	}
 
@@ -99,6 +102,7 @@ return packer.startup(function()
 	}
 
 	-- Productivity
+	use "vim-scripts/auto-pairs-gentle"
 	use "wakatime/vim-wakatime"
 	use "tpope/vim-surround"
 	use "tpope/vim-fugitive"

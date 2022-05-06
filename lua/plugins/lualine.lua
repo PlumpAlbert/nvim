@@ -57,7 +57,9 @@ require('lualine').setup {
 				left_padding = 2
 			}
 		},
-		lualine_z = {},
+		lualine_z = {
+			{ 'lsp_progress' }
+		},
 	},
 	inactive_sections = {
 		lualine_a = {},
