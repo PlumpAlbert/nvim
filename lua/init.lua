@@ -30,6 +30,10 @@ return packer.startup(function()
 	-- LSP
 	use {
 		"neovim/nvim-lspconfig",
+		requires = {
+			"onsails/lspkind-nvim",
+			"williamboman/nvim-lsp-installer",
+		},
 		config = function() require "plugins.lspconfig" end
 	}
 	use {
@@ -63,7 +67,6 @@ return packer.startup(function()
 		after = "github-nvim-theme",
 		config = function() require "plugins.lualine" end,
 	}
-	use "onsails/lspkind-nvim"
 
 	-- UX
 	use {

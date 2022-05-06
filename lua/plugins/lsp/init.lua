@@ -1,9 +1,15 @@
 -- vim:ft=lua:ts=4:sw=0
 local M = {}
 local map = require("utils").map
+function printtable(table, indent)
+  print(tostring(table) .. '\n')
+  for index, value in pairs(table) do 
+    print('    ' .. tostring(index) .. ' : ' .. tostring(value) .. '\n')
+  end
+end
 
-M.on_attach = function(bufnr)
-
+M.on_attach = function(client)
+	printtable(client)
 	-- Enable completion triggered by <c-x><c-o>
 	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -49,5 +55,10 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 	},
 }
 M.capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+M.handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+}
 
 return M

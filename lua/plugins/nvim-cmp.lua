@@ -5,18 +5,50 @@ local luasnip = require "luasnip"
 require "plugins.luasnip"
 
 local has_words_before = function()
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
 cmp.setup({
-	view = {
-		entries = "native",
+	window = {
+		documentation = cmp.config.window.bordered(),
 	},
 	formatting = {
-		fields = { "kind", "abbr" },
+		-- fields = { "kind", "abbr" },
 		format = lspkind.cmp_format({
 			mode = 'symbol', -- show only symbol annotations
+			preset = 'codicons',
+			symbol_map ={
+				Text = ' ',
+				Method = ' ',
+				Function = ' ',
+				Constructor = ' ',
+				Field = ' ',
+				Variable = ' ',
+				Class = ' ',
+				Interface = ' ',
+				Module = ' ',
+				Property = ' ',
+				Unit = ' ',
+				Value = ' ',
+				Enum = ' ',
+				Keyword = ' ',
+				Snippet = ' ',
+				Color = ' ',
+				File = ' ',
+				Reference = ' ',
+				Folder = ' ',
+				EnumMember = ' ',
+				Constant = ' ',
+				Struct = ' ',
+				Event = ' ',
+				Operator = ' ',
+				TypeParameter = ' ',
+			},
 			maxwidth = 50, -- prevent the popup from showing more than provided characters
 			menu = ({
 				buffer = "[Buffer]",
@@ -36,7 +68,7 @@ cmp.setup({
 		['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i','c'}),
 		['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i','c'}),
 		['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i','c'}),
-		['<Tab>'] = cmp.mapping(function(fallback)
+		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
@@ -47,7 +79,7 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-		['<S-Tab>'] = cmp.mapping(function(fallback)
+		["<S-Tab>"] = cmp.mapping(function()
 			if cmp.visible() then
 				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
@@ -64,7 +96,6 @@ cmp.setup({
 	},
 	sources = cmp.config.sources({
 		{ name = 'luasnip' },
-		{ name = 'omni' },
 		{ name = 'nvim_lsp' },
 		{ name = 'nvim_lua' },
 		{ name = 'path' },
@@ -77,4 +108,10 @@ cmp.setup.cmdline(':', {
 		{ name = 'path' },
 		{ name = 'cmdline' },
 	})
+})
+
+cmp.setup.cmdline('/', {
+	sources = {
+		{ name = 'buffer' }
+	}
 })
