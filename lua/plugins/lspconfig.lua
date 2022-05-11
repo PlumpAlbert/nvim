@@ -28,14 +28,14 @@ for _, server in ipairs(servers) do
 	local on_attach = lsp.on_attach
 	if server == 'html' then
 		on_attach = function (client)
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
+			client.server_capabilities.document_formatting = false
+			client.server_capabilities.document_range_formatting = false
 			lsp.on_attach(client)
 		end
 	elseif server == 'tsserver' then
 		on_attach = function(client, bufnr)
 			local ts_utils = require "nvim-lsp-ts-utils"
-			client.resolved_capabilities.document_formatting = false
+			client.server_capabilities.document_formatting = false
 			ts_utils.setup({
 				debug = false,
 				disable_commands = false,
