@@ -70,6 +70,9 @@ return packer.startup(function()
 		},
 		config = function() require "plugins.lualine" end,
 	}
+	use {"kdheepak/tabline.nvim",
+		config = function() require "plugins.tabline" end,
+	}
 
 	-- UX
 	use {
