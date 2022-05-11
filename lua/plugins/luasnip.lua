@@ -70,5 +70,17 @@ ls.add_snippets("tex", {
 	)
 })
 
+ls.add_snippets("tex", {
+	s(
+		{
+			trig = '"',
+			dscr = "Enquote text"
+		},
+		{
+			t("\\textquote{"), i(0, "text"), t('}'),
+		}
+	)
+})
+
 
 return ls

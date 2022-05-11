@@ -5,7 +5,14 @@ setlocal wrapmargin=0
 setlocal formatoptions+=t
 setlocal linebreak
 setlocal spell
+set expandtab
 
+let g:AutoPairs = {
+	\ '(':')',
+	\ '[':']',
+	\ '{':'}',
+	\ '<':'>',
+	\ }
 
 let g:vimtex_view_method = 'general'
 let g:vimtex_view_general_viewer = 'zathura-xrdb'
