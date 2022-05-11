@@ -73,6 +73,10 @@ return packer.startup(function()
 	use {"kdheepak/tabline.nvim",
 		config = function() require "plugins.tabline" end,
 	}
+	use {
+		"akinsho/toggleterm.nvim",
+		config = function() require "plugins.toggleterm" end,
+	}
 
 	-- UX
 	use {
