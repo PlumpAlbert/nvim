@@ -3,14 +3,16 @@
 local M = require "nvim-lsp-installer"
 
 M.setup {
-	-- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer", "sumneko_lua" }
+	-- A list of servers to automatically install if they're not already installed.
+	-- Example: { "rust_analyzer", "sumneko_lua" }
 	ensure_installed = {
 		'cssls',
 		'html',
 		'tailwindcss',
 		'pyright',
 		'tsserver',
-		'emmet'
+		'emmet',
+		"sumneko_lua",
 	},
 	-- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
 	-- Can either be:
