@@ -9,7 +9,7 @@ function printtable(table, indent)
 end
 
 M.on_attach = function(client)
-	printtable(client)
+	-- printtable(client)
 	-- Enable completion triggered by <c-x><c-o>
 	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
