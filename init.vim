@@ -33,22 +33,9 @@ if has('win32')
 	let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 	set shellquote= shellxquote=
 	let &shellcmdflag='-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-	" Theming
-	" colorscheme base16-default-dark
-	hi Normal guibg=NONE ctermbg=NONE
-	hi LineNr guibg=NONE ctermbg=NONE
-	hi SignColumn guibg=NONE ctermbg=NONE
-	hi EndOfBuffer guibg=NONE ctermbg=NONE
-else
-	if CheckHost('sky.plumpalbert.xyz')
-		" colorscheme base16-default-dark
-	elseif CheckHost('archlinux')
-		" colorscheme base16-default-dark
-	else
-		" colorscheme gruvbox-material
-	endif
 endif
-colorscheme base16-bright
+
+colorscheme base16
 
 let mapleader=' '
 
