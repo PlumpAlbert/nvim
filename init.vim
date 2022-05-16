@@ -37,6 +37,7 @@ if has('win32')
 	hi LineNr guibg=NONE ctermbg=NONE
 	hi SignColumn guibg=NONE ctermbg=NONE
 	hi EndOfBuffer guibg=NONE ctermbg=NONE
+	set fileformat=unix
 	colorscheme base16-oceanicnext
 endif
 
