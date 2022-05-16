@@ -51,7 +51,6 @@ return packer.startup(function()
 		"tami5/lspsaga.nvim",
 		config = function() require "plugins.lspsaga" end,
 	}
-	use "lervag/vimtex"
 
 	-- UI
 	use {
