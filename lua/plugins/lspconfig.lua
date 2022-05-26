@@ -23,6 +23,8 @@ local servers = {
 	"pyright",
 	-- LaTeX
 	"texlab",
+	-- Lua
+	"sumneko_lua"
 }
 
 for _, server in ipairs(servers) do
@@ -66,7 +68,7 @@ for _, server in ipairs(servers) do
 		capabilities = lsp.capabilities,
 		on_attach = on_attach,
 		settings = require("plugins.lsp.settings"),
-		handlers = handlers,
+		handlers = lsp.handlers,
 	}
 end
 
