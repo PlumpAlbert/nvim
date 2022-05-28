@@ -1,4 +1,6 @@
-local ls = require"luasnip"
+-- vim:ft=lua:ts=4:sw=0
+-- Author: Plump Albert (plumpalbert@gmail.com)
+local ls = require "luasnip"
 local s = ls.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
@@ -12,22 +14,23 @@ local events = require("luasnip.util.events")
 local ai = require("luasnip.nodes.absolute_indexer")
 local fmt = require("luasnip.extras.fmt").fmt
 
+
 -- Config for luasnip
 ls.config.set_config {
 	updateevents = "TextChanged,TextChangedI",
 }
 
 function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
+	if type(o) == 'table' then
+		local s = '{ '
+		for k, v in pairs(o) do
+			if type(k) ~= 'number' then k = '"' .. k .. '"' end
+			s = s .. '[' .. k .. '] = ' .. dump(v) .. ','
+		end
+		return s .. '} '
+	else
+		return tostring(o)
+	end
 end
 
 -- Shorthands
@@ -53,9 +56,9 @@ ls.add_snippets("tex", {
 		},
 		{
 			t("\\begin{figure}["), i(1, "H"), t({
-					"]",
-					"\\centering",
-					"\\includegraphics[keepaspectratio,width=\\textwidth]{"
+				"]",
+				"\\centering",
+				"\\includegraphics[keepaspectratio,width=\\textwidth]{"
 			}), i(2, 'image'), t({
 				"}",
 				"\\caption{"
@@ -82,5 +85,27 @@ ls.add_snippets("tex", {
 	)
 })
 
+local bufferName = function()
+	return string.match(vim.fn.expand('%:t'), '[^.]+')
+end
+
+ls.add_snippets("javascriptreact", {
+	s(
+		{ trig = 'rfc', dscr = 'Create React Functional component' },
+		{
+			t({ 'import React from "react";' }),
+			t({ '', "const " }), f(bufferName), t(" = ({"),
+				i(1, "...props"),
+			t({
+				"}) => {",
+				"\treturn null;",
+				"}",
+			}),
+			t({'', 'export default '}),
+			f(bufferName),
+			i(0)
+		}
+	)
+})
 
 return ls
