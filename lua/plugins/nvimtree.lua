@@ -5,41 +5,6 @@ if not present then
 	return
 end
 
-local g = vim.g
-
-g.nvim_tree_add_trailing = 1 -- append a trailing slash to folder names
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 0
-g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
-vim.g.nvim_tree_respect_buf_cwd = 1 -- Change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
-
-g.nvim_tree_show_icons = {
-	folders = 1,
-	files = 1,
-	git = 1,
-}
-
-g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		deleted = "",
-		ignored = "",
-		renamed = "",
-		staged = "",
-		unmerged = "",
-		unstaged = "",
-	},
-	folder = {
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-		symlink_open = "",
-	},
-}
-
 local default = {
 	actions = {
 		open_file = {
@@ -51,6 +16,8 @@ local default = {
 			},
 		},
 	},
+	-- Change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+	respect_buf_cwd = true,
 	disable_netrw = false,
 	hijack_netrw = true,
 	ignore_ft_on_setup = { "dashboard" },
@@ -83,8 +50,43 @@ local default = {
 		},
 	},
 	renderer = {
+		add_trailing = true,
+		highlight_git = true,
+		highlight_opened_files = 'icon',
+		root_folder_modifier = table.concat {
+			":t:gs?$?/..",
+			string.rep(" ", 1000),
+			"?:gs?^??"
+		},
 		indent_markers = {
 			enable = true
+		},
+		icons = {
+			show = {
+				file = true,
+				folder = true,
+				folder_arrow = true,
+			},
+			glyphs = {
+				default = "",
+				symlink = "",
+				git = {
+					deleted = "",
+					ignored = "",
+					renamed = "",
+					staged = "",
+					unmerged = "",
+					unstaged = "",
+				},
+				folder = {
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+					symlink_open = "",
+				},
+			}
 		}
 	}
 }
