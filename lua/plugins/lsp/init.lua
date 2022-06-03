@@ -1,14 +1,33 @@
 -- vim:ft=lua:ts=4:sw=0
 local M = {}
 local map = require("utils").map
-function printtable(table, indent)
-  print(tostring(table) .. '\n')
-  for index, value in pairs(table) do 
-    print('    ' .. tostring(index) .. ' : ' .. tostring(value) .. '\n')
-  end
+
+function includes(value)
+	local excluded_servers = {
+		'tsserver', 'html'
+	}
+	for _, server in ipairs(excluded_servers) do
+		if value == server then
+			return true
+		end
+	end
+	return false
 end
 
-M.on_attach = function(client)
+function format_document(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- apply whatever logic you want (in this example, we'll only use null-ls)
+			return not includes(client.name)
+		end,
+		bufnr = bufnr,
+	})
+end
+
+-- if you want to set up formatting on save, you can use this as a callback
+local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+M.on_attach = function(client, bufnr)
 	-- printtable(client)
 	-- Enable completion triggered by <c-x><c-o>
 	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -35,7 +54,17 @@ M.on_attach = function(client)
 	map("n", "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 	map("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>")
 	map("n", "D", "<cmd>lua vim.diagnostic.open_float()<CR>")
-	map("n", "<leader>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+	map("n", "<leader>fm", "<cmd>lua format_document(vim.fn.bufnr('%'))<CR>")
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = format_augroup,
+			buffer = bufnr,
+			callback = function()
+				format_document(bufnr)
+			end,
+		})
+	end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
