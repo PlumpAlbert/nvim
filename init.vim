@@ -48,7 +48,7 @@ let mapleader=' '
 " indents
 set tabstop=4
 set shiftwidth=0
-set noexpandtab
+set expandtab
 set smartindent
 
 set nowrap
