@@ -7,5 +7,5 @@ let g:neovide_cursor_vfx_mode = "pixiedust"
 set guifont=monospace,emoji:h10
 if has('win32')
 	set guifont=ComicCodeLigatures_NF,Symbols_Nerd_Font,Segoe_Fluent_Icons,Segoe_UI_Emoji:h10
+    colorscheme base16-oceanicnext
 endif
-colorscheme base16-oceanicnext
