@@ -3,6 +3,7 @@ filetype plugin indent on
 setlocal textwidth=80
 setlocal wrapmargin=0
 setlocal formatoptions+=t
+setlocal formatoptions-=l
 setlocal linebreak
 setlocal spell
 set expandtab
