@@ -78,7 +78,7 @@ set nospell
 " fill characters
 set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
 " list characters
-set list listchars=tab:┇\ ,space:·,trail:■,eol:⤶,nbsp:␣
+set list listchars=tab:\ ,space:·,trail:■,eol:﬋,nbsp:␣
 set showbreak=↪\
 " Make cursor a line in insert
 let &t_SI = "\e[6 q"
