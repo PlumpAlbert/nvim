@@ -15,15 +15,18 @@ return packer.startup(function()
     use "nvim-lua/plenary.nvim"
 
     -- Snippet engine
-    use "L3MON4D3/LuaSnip"
-    use "saadparwaiz1/cmp_luasnip"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/cmp-path"
-    use "hrsh7th/cmp-omni"
-    use "hrsh7th/cmp-cmdline"
     use {
         "hrsh7th/nvim-cmp",
+        requires = {
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-omni",
+            "hrsh7th/cmp-cmdline",
+            "f3fora/cmp-spell",
+        },
         config = function() require "plugins.nvim-cmp" end
     }
 
