@@ -128,4 +128,5 @@ return packer.startup(function()
     -- use "mrkn/mrkn256.vim"
     -- use "bluz71/vim-moonfly-colors"
     use "chriskempson/base16-vim"
+    use "tomasiser/vim-code-dark"
 end)

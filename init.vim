@@ -1,6 +1,5 @@
 " vim:ft=vim:ts=4:sw=0
 syntax enable
-set termguicolors
 let base16colorspace=256
 set background=dark
 " gruvbox-material
@@ -28,6 +27,7 @@ if has('termguicolors')
 endif
 
 
+colorscheme codedark
 if has('win32')
 	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
 	let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
@@ -39,9 +39,6 @@ if has('win32')
 	hi SignColumn guibg=NONE ctermbg=NONE
 	hi EndOfBuffer guibg=NONE ctermbg=NONE
 	set fileformat=unix
-	colorscheme base16-oceanicnext
-else
-	colorscheme base16
 endif
 
 let mapleader=' '
