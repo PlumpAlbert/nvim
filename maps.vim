@@ -17,15 +17,6 @@ nnoremap <silent> j gj
 nnoremap <silent> о gj
 nnoremap <silent> k gk
 nnoremap <silent> л gk
-" Scroll up and down
-nnoremap <silent> <c-j> <c-e>
-nnoremap <silent> <c-о> <c-e>
-inoremap <silent> <c-j> <c-e>
-inoremap <silent> <c-о> <c-e>
-nnoremap <silent> <c-k> <c-y>
-nnoremap <silent> <c-л> <c-y>
-inoremap <silent> <C-k> <C-y>
-inoremap <silent> <C-л> <C-y>
 
 " nvim-tree
 nnoremap <silent> <C-n> <cmd>NvimTreeToggle<CR>
@@ -42,9 +33,9 @@ nnoremap <silent> <leader>пы <cmd>Telescope git_status<CR>
 nnoremap <silent> <leader>fw <cmd>Telescope live_grep<CR>
 nnoremap <silent> <leader>ац <cmd>Telescope live_grep<CR>
 nnoremap <silent> <leader>ls <cmd>Telescope projects<CR>
-nnoremap <silent> <leader>лы <cmd>Telescope projects<CR>
+nnoremap <silent> <leader>ды <cmd>Telescope projects<CR>
 
-" comment
+"comment
 nnoremap <silent> <leader><Space> :lua require('Comment.api').toggle_current_linewise()<CR>
 xnoremap <silent> <leader><Space> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>
 
@@ -53,15 +44,6 @@ nnoremap <silent> <M-h> <C-w>>
 nnoremap <silent> <M-j> <C-w>+
 nnoremap <silent> <M-k> <C-w>-
 nnoremap <silent> <M-l> <C-w><
-
-" move around tabs
-inoremap <silent> <C-h> <cmd>tabprevious<CR>
-nnoremap <silent> <C-h> <cmd>tabprevious<CR>
-xnoremap <silent> <C-h> <cmd>tabprevious<CR>
-
-inoremap <silent> <C-l> <cmd>tabnext<CR>
-nnoremap <silent> <C-l> <cmd>tabnext<CR>
-xnoremap <silent> <C-l> <cmd>tabnext<CR>
 
 " Git
 nnoremap <silent> <leader>cm <cmd>Git commit<CR>
