@@ -7,8 +7,8 @@ local b = null_ls.builtins
 local lsp = require "plugins.lsp.init"
 
 local sources = {
-    b.diagnostics.codespell.with {
-        extra_args = { 'markdown', 'tex' },
+    b.diagnostics.cspell.with {
+        extra_args = { '--config', '~/.config/nvim/cspell.json' }
     },
     -- prettier
     b.formatting.prettier.with {
