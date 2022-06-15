@@ -13,7 +13,6 @@ local servers = {
     -- Docker
     "dockerls",
     -- Web dev
-    "emmet_ls",
     "cssls",
     "tailwindcss",
     "html",
@@ -71,6 +70,18 @@ for _, server in ipairs(servers) do
         handlers = lsp.handlers,
     }
 end
+
+lspconfig.emmet_ls.setup {
+    cmd = { "emmet-language-server", "--stdio" },
+    filetypes = {
+        'html', 'typescriptreact', 'javascriptreact', 'javascript',
+        'typescript', 'sass', 'css', 'scss'
+    },
+    capabilities = lsp.capabilities,
+    on_attach = lsp.on_attach,
+    settings = require "plugins.lsp.settings",
+    handlers = lsp.handlers
+}
 
 vim.diagnostic.config {
     virtual_text = false,
