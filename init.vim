@@ -17,6 +17,8 @@ let g:github_comment_style = 'none'
 let g:github_transparent = 1
 " moonfly
 let g:moonflyWinSeparator = 2
+" material
+let g:material_style = "darker"
 
 function! CheckHost(hostname)
 	return match(system("echo -n $HOST"), a:hostname) >= 0
@@ -27,7 +29,8 @@ if has('termguicolors')
 endif
 
 
-colorscheme codedark
+" colorscheme codedark
+colorscheme material
 if has('win32')
 	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
 	let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
