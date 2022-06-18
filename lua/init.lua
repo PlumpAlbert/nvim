@@ -163,7 +163,7 @@ return packer.startup(function()
                     term_colors = false, -- Prevent the theme from setting terminal colors
                     eob_lines = true -- Hide the end-of-buffer lines
                 },
-                lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
+                lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
                 async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
                 custom_highlights = {} -- Overwrite highlights with your own
             })

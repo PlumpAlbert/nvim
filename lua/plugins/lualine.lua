@@ -34,7 +34,7 @@ local bubbles_theme = {
 
 require('lualine').setup {
     options = {
-        theme = 'material-stealth',
+        theme = 'auto',
         component_separators = { left = '', right = '' },
         section_separators = { left = ' ', right = ' ' },
         disabled_filetypes = {
