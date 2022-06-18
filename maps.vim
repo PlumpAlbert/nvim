@@ -5,6 +5,15 @@ nnoremap <silent> <C-s> <cmd>w<CR>
 nnoremap <silent> <C-ы> <cmd>w<CR>
 xnoremap <silent> <C-s> <cmd>w<CR>
 xnoremap <silent> <C-ы> <cmd>w<CR>
+" move around splits
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
+nnoremap <silent> <C-р> <C-w>р
+nnoremap <silent> <C-о> <C-w>о
+nnoremap <silent> <C-л> <C-w>л
+nnoremap <silent> <C-д> <C-w>д
 " Keep VisualMode after indent with > or <
 vmap < <gv
 vmap > >gv
