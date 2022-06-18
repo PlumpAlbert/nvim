@@ -16,6 +16,7 @@ end
 
 function format_document(bufnr)
     vim.lsp.buf.format({
+        timeout_ms = 10000,
         filter = function(client)
             -- apply whatever logic you want (in this example, we'll only use null-ls)
             return not includes(client.name)
