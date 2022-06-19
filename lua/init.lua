@@ -54,6 +54,7 @@ return packer.startup(function()
         "tami5/lspsaga.nvim",
         config = function() require "plugins.lspsaga" end,
     }
+    use "RRethy/vim-illuminate"
 
     -- UI
     use {
