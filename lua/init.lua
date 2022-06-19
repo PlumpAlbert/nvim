@@ -86,6 +86,7 @@ return packer.startup(function()
         tag = "release",
         config = function() require "plugins.gitsigns" end,
     }
+    use "lewis6991/impatient.nvim"
     use {
         "numToStr/Comment.nvim",
         module = "Comment",

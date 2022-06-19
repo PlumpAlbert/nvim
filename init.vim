@@ -1,4 +1,5 @@
 " vim:ft=vim:ts=4:sw=0
+lua require'impatient'
 syntax enable
 let base16colorspace=256
 set background=dark
