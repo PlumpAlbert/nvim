@@ -18,7 +18,7 @@ let g:github_transparent = 1
 " moonfly
 let g:moonflyWinSeparator = 2
 " material
-let g:material_style = "darker"
+let g:material_style = "oceanic"
 
 function! CheckHost(hostname)
 	return match(system("echo -n $HOST"), a:hostname) >= 0
