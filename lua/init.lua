@@ -54,6 +54,7 @@ return packer.startup(function()
         "tami5/lspsaga.nvim",
         config = function() require "plugins.lspsaga" end,
     }
+    use "RRethy/vim-illuminate"
 
     -- UI
     use {
@@ -79,6 +80,12 @@ return packer.startup(function()
         "akinsho/toggleterm.nvim",
         config = function() require "plugins.toggleterm" end,
     }
+    use {
+        "goolord/alpha-nvim",
+        config = function()
+            require('alpha').setup(require('alpha.themes.startify').config)
+        end
+    }
 
     -- UX
     use {
@@ -86,6 +93,7 @@ return packer.startup(function()
         tag = "release",
         config = function() require "plugins.gitsigns" end,
     }
+    use "lewis6991/impatient.nvim"
     use {
         "numToStr/Comment.nvim",
         module = "Comment",
