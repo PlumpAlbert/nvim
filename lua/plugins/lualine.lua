@@ -1,24 +1,25 @@
 -- vim:ft=lua:ts=4:sw=0
--- Bubbles config for lualine
--- Author: lokesh-krishna
--- MIT license, see LICENSE for more details.
-
 -- stylua: ignore
 local colors = {
-    blue   = '#80a0ff',
-    cyan   = '#79dac8',
-    black  = '#080808',
-    white  = '#c6c6c6',
-    red    = '#ff5189',
-    violet = '#d183e8',
-    grey   = '#303030',
+    black = '#282c34',
+    red = '#e06c75',
+    green = '#98c379',
+    yellow = '#e5c07b',
+    blue = '#61afef',
+    magenta = '#c678dd',
+    cyan = '#56b6c2',
+    grey = '#abb2bf',
+    white = '#ffffff',
 }
 
-local bubbles_theme = {
+local theme = {
     normal = {
-        a = { fg = colors.black, bg = colors.violet },
-        b = { fg = colors.white, bg = colors.grey },
-        c = { fg = colors.grey, bg = colors.black },
+        a = { fg = colors.black, bg = colors.magenta },
+        b = { fg = colors.grey, bg = colors.black },
+        c = { fg = colors.white, bg = colors.black },
+        x = { fg = colors.white, bg = colors.black },
+        y = { fg = colors.grey, bg = colors.black },
+        z = { fg = colors.black, bg = colors.yellow },
     },
 
     insert = { a = { fg = colors.black, bg = colors.blue } },
@@ -34,9 +35,9 @@ local bubbles_theme = {
 
 require('lualine').setup {
     options = {
-        theme = 'auto',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = ' ', right = ' ' },
+        theme = theme,
+        component_separators = { left = '  ', right = '  ' },
+        section_separators = { left = ' ', right = ' ' },
         disabled_filetypes = {
             'TelescopePrompt',
             'NvimTree',
@@ -45,16 +46,32 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = {
-            { 'mode', right_padding = 2 },
+            { 'mode' },
+            { 'branch' }
         },
-        lualine_b = { 'filename', 'branch' },
+        lualine_b = {
+            'filename',
+            {
+                'lsp_progress',
+                display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' } },
+                spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
+                colors = {
+                    percentage      = colors.cyan,
+                    title           = colors.cyan,
+                    message         = colors.cyan,
+                    spinner         = colors.cyan,
+                    lsp_client_name = colors.magenta,
+                    use             = true,
+                },
+            }
+        },
         lualine_c = {},
         lualine_x = {},
-        lualine_y = {
+        lualine_y = {},
+        lualine_z = {
             'filetype',
             'fileformat',
         },
-        lualine_z = {},
     },
     inactive_sections = {
         lualine_a = {},
@@ -65,7 +82,7 @@ require('lualine').setup {
         lualine_z = {},
     },
     tabline = {},
-    extensions = {},
+    extensions = { 'toggleterm', 'nvim-tree' },
 }
 
 vim.cmd "\
