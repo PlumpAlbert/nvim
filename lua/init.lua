@@ -80,6 +80,12 @@ return packer.startup(function()
         "akinsho/toggleterm.nvim",
         config = function() require "plugins.toggleterm" end,
     }
+    use {
+        "goolord/alpha-nvim",
+        config = function()
+            require('alpha').setup(require('alpha.themes.startify').config)
+        end
+    }
 
     -- UX
     use {
