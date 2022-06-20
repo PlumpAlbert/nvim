@@ -30,7 +30,9 @@ local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 M.on_attach = function(client, bufnr)
     -- vim-illuminate
-    require('illuminate').on_attach(client)
+    if client['supports_method'] then
+        require('illuminate').on_attach(client)
+    end
     -- Enable completion triggered by <c-x><c-o>
     if bufnr then
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
