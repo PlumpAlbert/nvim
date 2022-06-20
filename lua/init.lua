@@ -178,4 +178,5 @@ return packer.startup(function()
         end
     }
     use "tomasiser/vim-code-dark"
+    use "LunarVim/darkplus.nvim"
 end)
