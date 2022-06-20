@@ -179,4 +179,27 @@ return packer.startup(function()
     }
     use "tomasiser/vim-code-dark"
     use "LunarVim/darkplus.nvim"
+    use "titanzero/zephyrium"
+    use {
+        "kvrohit/rasmus.nvim",
+        config = function()
+            vim.g.rasmus_italic_comments = true
+            vim.g.rasmus_bold_comments = true
+            -- keywords
+            vim.g.rasmus_italic_keywords = true
+            vim.g.rasmus_bold_keywords = true
+            -- booleans
+            vim.g.rasmus_italic_booleans = true
+            vim.g.rasmus_bold_booleans = true
+            -- functions
+            vim.g.rasmus_italic_functions = true
+            vim.g.rasmus_bold_functions = true
+            -- variables
+            vim.g.rasmus_italic_variables = true
+            vim.g.rasmus_bold_variables = true
+            -- configure the appearance
+            vim.g.rasmus_transparent = true
+            vim.g.rasmus_variant = 'dark'
+        end
+    }
 end)
