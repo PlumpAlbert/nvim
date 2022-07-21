@@ -10,9 +10,13 @@ local sources = {
     b.diagnostics.cspell.with {
         extra_args = { '--config', '~/.config/nvim/cspell.json' }
     },
+    b.diagnostics.eslint_d,
+    b.code_actions.eslint_d,
     -- prettier
-    b.formatting.prettier.with {
-        extra_args = { '--config', vim.fn.expand('~/.prettierrc') },
+    b.formatting.prettierd.with {
+        env = {
+            PRETTIERD_DEFAULT_CONFIG = vim.fn.expand('~/.prettierrc')
+        },
         filetypes = { "javascript", "javascriptreact", "typescript",
             "typescriptreact", "vue", "css", "scss", "less", "html",
             "json", "jsonc", "markdown", "graphql", "handlebars"

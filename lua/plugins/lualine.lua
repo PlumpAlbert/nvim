@@ -35,7 +35,7 @@ local theme = {
 
 require('lualine').setup {
     options = {
-        theme = theme,
+        theme = 'catppuccin',
         component_separators = { left = '  ', right = '  ' },
         section_separators = { left = ' ', right = ' ' },
         disabled_filetypes = {
@@ -50,10 +50,17 @@ require('lualine').setup {
             { 'branch' }
         },
         lualine_b = {
-            'filename',
+            'filename'
+        },
+        lualine_c = {},
+        lualine_x = {
             {
                 'lsp_progress',
-                display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' } },
+                display_components = {
+                    'lsp_client_name',
+                    'spinner',
+                    { 'title', 'percentage', 'message' }
+                },
                 spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
                 colors = {
                     percentage      = colors.cyan,
@@ -65,8 +72,6 @@ require('lualine').setup {
                 },
             }
         },
-        lualine_c = {},
-        lualine_x = {},
         lualine_y = {
             'filetype',
         },
