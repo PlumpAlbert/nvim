@@ -51,6 +51,13 @@ return packer.startup(function()
         config = function() require "plugins.treesitter" end,
     }
     use {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end,
+    }
+    use { "p00f/nvim-ts-rainbow" }
+    use {
         "tami5/lspsaga.nvim",
         config = function() require "plugins.lspsaga" end,
     }
@@ -111,7 +118,8 @@ return packer.startup(function()
         config = function() require "plugins.telescope" end,
     }
     use { "nvim-telescope/telescope-fzf-native.nvim",
-        run = 'make'
+        run = 'make',
+        disable = vim.fn.has('win32')
     }
     use { "ahmedkhalf/project.nvim",
         after = { "telescope.nvim" },
@@ -121,8 +129,13 @@ return packer.startup(function()
     -- Productivity
     use "vim-scripts/auto-pairs-gentle"
     use "wakatime/vim-wakatime"
-    use "tpope/vim-surround"
-    use "tpope/vim-fugitive"
+    use {
+        "tpope/vim-surround",
+        keys = { "c", "d", "y" },
+        setup = function()
+            vim.o.timeoutlen = 500
+        end
+    }
     use "sheerun/vim-polyglot"
     use "kkoomen/vim-doge"
     use "gpanders/editorconfig.nvim"
@@ -131,75 +144,14 @@ return packer.startup(function()
     }
 
     -- Themes
-    -- use "sainnhe/gruvbox-material"
-    -- use "projekt0n/github-nvim-theme"
-    -- use "mrkn/mrkn256.vim"
-    -- use "bluz71/vim-moonfly-colors"
-    use { "marko-cerovac/material.nvim",
-        config = function()
-            require('material').setup({
-                contrast = {
-                    sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-                    floating_windows = true, -- Enable contrast for floating windows
-                    line_numbers = false, -- Enable contrast background for line numbers
-                    sign_column = true, -- Enable contrast background for the sign column
-                    cursor_line = false, -- Enable darker background for the cursor line
-                    non_current_windows = false, -- Enable darker background for non-current windows
-                    popup_menu = true, -- Enable lighter background for the popup menu
-                },
-                italics = {
-                    comments = true, -- Enable italic comments
-                    keywords = false, -- Enable italic keywords
-                    functions = false, -- Enable italic functions
-                    strings = false, -- Enable italic strings
-                    variables = false -- Enable italic variables
-                },
-                contrast_filetypes = { -- Specify which filetypes get the contrasted (darker) background
-                    "terminal", -- Darker terminal background
-                    "packer", -- Darker packer background
-                    "qf", -- Darker qf list background
-                    "NvimTree",
-                },
-                high_visibility = {
-                    lighter = false, -- Enable higher contrast text for lighter style
-                    darker = true -- Enable higher contrast text for darker style
-                },
-                disable = {
-                    colored_cursor = false, -- Disable the colored cursor
-                    borders = false, -- Disable borders between verticaly split windows
-                    background = true, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
-                    term_colors = false, -- Prevent the theme from setting terminal colors
-                    eob_lines = true -- Hide the end-of-buffer lines
-                },
-                lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
-                async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
-                custom_highlights = {} -- Overwrite highlights with your own
-            })
-        end
+    use "mrkn/mrkn256.vim"
+    use { "Mofiqul/vscode.nvim",
+        config = function() require "plugins.themes.vscode" end
     }
-    use "tomasiser/vim-code-dark"
-    use "LunarVim/darkplus.nvim"
-    use "titanzero/zephyrium"
-    use {
-        "kvrohit/rasmus.nvim",
-        config = function()
-            vim.g.rasmus_italic_comments = true
-            vim.g.rasmus_bold_comments = true
-            -- keywords
-            vim.g.rasmus_italic_keywords = true
-            vim.g.rasmus_bold_keywords = true
-            -- booleans
-            vim.g.rasmus_italic_booleans = true
-            vim.g.rasmus_bold_booleans = true
-            -- functions
-            vim.g.rasmus_italic_functions = true
-            vim.g.rasmus_bold_functions = true
-            -- variables
-            vim.g.rasmus_italic_variables = true
-            vim.g.rasmus_bold_variables = true
-            -- configure the appearance
-            vim.g.rasmus_transparent = true
-            vim.g.rasmus_variant = 'dark'
-        end
+    use { "Mofiqul/dracula.nvim",
+        config = function() require "plugins.themes.dracula" end
+    }
+    use { "catppuccin/nvim",
+        config = function() require 'plugins.themes.catppuccin' end
     }
 end)
