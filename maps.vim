@@ -28,7 +28,7 @@ nnoremap <silent> k gk
 nnoremap <silent> л gk
 
 " nvim-tree
-nnoremap <silent> <C-n> <cmd>NvimTreeToggle<CR>
+nnoremap <silent> <leader>e <cmd>NvimTreeToggle<CR>
 
 " telescope
 nnoremap <silent> <leader>fb <cmd>Telescope buffers<CR>
