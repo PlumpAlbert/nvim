@@ -3,23 +3,6 @@ lua require'impatient'
 syntax enable
 let base16colorspace=256
 set background=dark
-" gruvbox-material
-let g:gruvbox_material_transparent_background = 1
-let g:gruvbox_material_palette = 'mix'
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_disable_italic_comment = 1
-let g:gruvbox_material_ui_contrast = 'high'
-" github
-let g:github_dark_float = 1
-let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer", "nvimtree"]
-let g:github_hide_inactive_statusline = 1
-let g:github_keyword_style = 'bold'
-let g:github_comment_style = 'none'
-let g:github_transparent = 1
-" moonfly
-let g:moonflyWinSeparator = 2
-" material
-let g:material_style = "oceanic"
 
 function! CheckHost(hostname)
 	return match(system("echo -n $HOST"), a:hostname) >= 0
@@ -29,9 +12,7 @@ if has('termguicolors')
 	set termguicolors
 endif
 
-
-" colorscheme codedark
-colorscheme rasmus
+colorscheme catppuccin
 if has('win32')
 	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
 	let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
@@ -48,7 +29,7 @@ endif
 let mapleader=' '
 
 " indents
-set tabstop=4
+set tabstop=2
 set shiftwidth=0
 set expandtab
 set smartindent
@@ -79,7 +60,7 @@ set nospell
 " fill characters
 set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
 " list characters
-set list listchars=tab:\ ,space:·,trail:■,eol:﬋,nbsp:␣
+set list listchars=tab:\ ,space:·,trail:-,eol:﬋,nbsp:␣
 set showbreak=↪\
 " Make cursor a line in insert
 let &t_SI = "\e[6 q"
