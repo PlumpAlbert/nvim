@@ -60,9 +60,16 @@ local default = {
       "?:gs?^??"
     },
     indent_markers = {
-      enable = true
+      enable = true,
+      icons = {
+        corner = '└',
+        edge = '',
+        none = '',
+        item = '│',
+      }
     },
     icons = {
+      git_placement = 'after',
       show = {
         file = true,
         folder = true,
