@@ -1,8 +1,10 @@
 " vim:ft=vim:ts=4:sw=0
-lua require'impatient'
+lua require"init"
+
 syntax enable
 let base16colorspace=256
 set background=dark
+let mapleader=' '
 
 function! CheckHost(hostname)
 	return match(system("echo -n $HOST"), a:hostname) >= 0
@@ -12,21 +14,6 @@ if has('termguicolors')
 	set termguicolors
 endif
 
-colorscheme catppuccin
-if has('win32')
-	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
-	let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-	let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-	set shellquote= shellxquote=
-	let &shellcmdflag='-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-	hi Normal guibg=NONE ctermbg=NONE
-	hi LineNr guibg=NONE ctermbg=NONE
-	hi SignColumn guibg=NONE ctermbg=NONE
-	hi EndOfBuffer guibg=NONE ctermbg=NONE
-	set fileformat=unix
-endif
-
-let mapleader=' '
 
 " indents
 set tabstop=2
@@ -80,9 +67,24 @@ let g:AutoPairs = {
 	\ '`':'`',
 	\ '<':'>',
 	\ }
+
 runtime autocmds.vim
 runtime maps.vim
 runtime menu_highlight.vim
 runtime neovide.vim
 runtime spell.vim
-lua require "init"
+lua require'impatient'
+
+colorscheme catppuccin
+if has('win32')
+	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
+	let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+	let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+	set shellquote= shellxquote=
+	let &shellcmdflag='-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+	hi Normal guibg=NONE ctermbg=NONE
+	hi LineNr guibg=NONE ctermbg=NONE
+	hi SignColumn guibg=NONE ctermbg=NONE
+	hi EndOfBuffer guibg=NONE ctermbg=NONE
+	set fileformat=unix
+endif
