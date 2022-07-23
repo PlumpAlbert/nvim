@@ -152,6 +152,7 @@ return packer.startup(function()
         config = function() require "plugins.themes.dracula" end
     }
     use { "catppuccin/nvim",
+        as = 'catppuccin',
         config = function() require 'plugins.themes.catppuccin' end
     }
 end)
