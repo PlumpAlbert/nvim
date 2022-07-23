@@ -61,16 +61,6 @@ M.on_attach = function(client, bufnr)
     map("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>")
     map("n", "D", "<cmd>lua vim.diagnostic.open_float()<CR>")
     map("n", "<leader>fm", "<cmd>lua format_document(vim.fn.bufnr('%'))<CR>")
-    if client.supports_method ~= nil and client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            group = format_augroup,
-            buffer = bufnr,
-            callback = function()
-                format_document(bufnr)
-            end,
-        })
-    end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
