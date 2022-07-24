@@ -1,21 +1,24 @@
--- vim:ft=lua:ts=4:sw=0
+-- vim:ft=lua:ts=2:sw=0:et
 local present, ts_config = pcall(require, "nvim-treesitter.configs")
 
 if not present then
-	return
+  return
 end
 
 local default = {
-	ensure_installed = {
-		"lua",
-		"vim",
-		"typescript",
-		"php",
-	},
-	highlight = {
-		enable = true,
-		use_languagetree = true,
-	},
+  auto_install = true,
+  ensure_installed = {
+    "lua",
+    "vim",
+    "bash",
+    "javascript",
+    "typescript",
+    "jsdoc",
+  },
+  highlight = {
+    enable = true,
+    use_languagetree = true,
+  },
 }
 
 ts_config.setup(default)
