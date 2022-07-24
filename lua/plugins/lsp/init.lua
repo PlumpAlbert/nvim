@@ -60,7 +60,7 @@ M.on_attach = function(client, bufnr)
     map("n", "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     map("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>")
     map("n", "D", "<cmd>lua vim.diagnostic.open_float()<CR>")
-    map("n", "<leader>fm", "<cmd>lua format_document(vim.fn.bufnr('%'))<CR>")
+    map("n", "<leader>fm", string.format("<cmd>lua format_document(%s)<CR>", bufnr))
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
