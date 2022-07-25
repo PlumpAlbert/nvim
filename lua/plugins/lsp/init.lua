@@ -2,7 +2,7 @@
 local M = {}
 local map = require("utils").map
 
-function includes(value)
+local includes = function(value)
     local excluded_servers = {
         'tsserver', 'html'
     }
@@ -16,16 +16,19 @@ end
 
 function format_document(bufnr, range)
     if range then
-        vim.lsp.buf.range_formatting()
+        vim.lsp.buf.range_formatting({
+            timeout_ms = 10000,
+            bufnr = bufnr,
+        })
         return
     end
     vim.lsp.buf.format({
         timeout_ms = 10000,
+        bufnr = bufnr,
         filter = function(client)
             -- apply whatever logic you want (in this example, we'll only use null-ls)
             return not includes(client.name)
         end,
-        bufnr = bufnr,
     })
 end
 
