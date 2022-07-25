@@ -14,7 +14,11 @@ function includes(value)
     return false
 end
 
-function format_document(bufnr)
+function format_document(bufnr, range)
+    if range then
+        vim.lsp.buf.range_formatting()
+        return
+    end
     vim.lsp.buf.format({
         timeout_ms = 10000,
         filter = function(client)
@@ -60,7 +64,8 @@ M.on_attach = function(client, bufnr)
     map("n", "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     map("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>")
     map("n", "D", "<cmd>lua vim.diagnostic.open_float()<CR>")
-    map("n", "<leader>fm", string.format("<cmd>lua format_document(%s)<CR>", bufnr))
+    map("n", "<leader>fm", string.format("<cmd>lua format_document(%s, false)<CR>", bufnr))
+    map("v", "<leader>fm", string.format("<cmd>lua format_document(%s, true)<CR>", bufnr))
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
