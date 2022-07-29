@@ -155,4 +155,7 @@ return packer.startup(function()
         as = 'catppuccin',
         config = function() require 'plugins.themes.catppuccin' end
     }
+    use { "ellisonleao/gruvbox.nvim",
+        config = function() require 'plugins.themes.gruvbox' end
+    }
 end)
