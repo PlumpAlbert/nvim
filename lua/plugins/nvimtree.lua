@@ -63,8 +63,8 @@ local default = {
       enable = true,
       icons = {
         corner = '└',
-        edge = '',
-        none = '',
+        edge = '│',
+        none = ' ',
         item = '│',
       }
     },
