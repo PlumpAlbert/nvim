@@ -18,6 +18,7 @@ local servers = {
     "html",
     "intelephense",
     "tsserver",
+    "volar",
     -- Python
     "pyright",
     -- LaTeX
