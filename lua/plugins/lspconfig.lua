@@ -76,11 +76,10 @@ lspconfig.emmet_ls.setup {
     cmd = { "emmet-language-server", "--stdio" },
     filetypes = {
         'html', 'typescriptreact', 'javascriptreact', 'javascript',
-        'typescript', 'sass', 'css', 'scss'
+        'typescript', 'sass', 'css', 'scss', 'php'
     },
     capabilities = lsp.capabilities,
     on_attach = lsp.on_attach,
-    settings = require "plugins.lsp.settings",
     handlers = lsp.handlers
 }
 
