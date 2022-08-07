@@ -158,4 +158,7 @@ return packer.startup(function()
     use { "ellisonleao/gruvbox.nvim",
         config = function() require 'plugins.themes.gruvbox' end
     }
+    use { "navarasu/onedark.nvim",
+        config = function() require 'plugins.themes.onedark' end
+    }
 end)
