@@ -89,9 +89,7 @@ return packer.startup(function()
     }
     use {
         "goolord/alpha-nvim",
-        config = function()
-            require('alpha').setup(require('alpha.themes.startify').config)
-        end
+        config = function() require "plugins.alpha" end
     }
 
     -- UX
