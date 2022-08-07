@@ -29,7 +29,7 @@ local default = {
     update_cwd = true,
   },
   view = {
-    adaptive_size = true,
+    adaptive_size = false,
     side = "right",
     width = 25,
     hide_root_folder = false,
