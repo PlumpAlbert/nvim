@@ -32,6 +32,9 @@ set number relativenumber
 set hidden
 set mouse=a
 set colorcolumn=81 " draw line after 80 characters
+" set single statusbar
+set laststatus=3
+hi WinSeparator ctermfg=none guifg=none"
 
 " splitting
 set splitbelow splitright

@@ -90,7 +90,3 @@ require('lualine').setup {
     tabline = {},
     extensions = { 'toggleterm', 'nvim-tree' },
 }
-
-vim.cmd "\
-set laststatus=3\
-hi WinSeparator ctermfg=none guifg=none"
