@@ -142,7 +142,7 @@ return packer.startup(function()
     }
 
     -- Themes
-    use "mrkn/mrkn256.vim"
+    use "bluz71/vim-nightfly-guicolors"
     use { "Mofiqul/vscode.nvim",
         config = function() require "plugins.themes.vscode" end
     }
