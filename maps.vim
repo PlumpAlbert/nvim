@@ -57,3 +57,6 @@ nnoremap <silent> <M-l> <C-w><
 " Git
 nnoremap <silent> <leader>cm <cmd>Git commit<CR>
 nnoremap <silent> <leader>сь <cmd>Git commit<CR>
+
+" close buffer
+nnoremap <silent> <leader>q <cmd>bdelete<CR>
