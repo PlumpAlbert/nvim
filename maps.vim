@@ -11,7 +11,7 @@ nnoremap <silent> <C-l> <cmd>bnext<CR>
 nnoremap <silent> <C-р> <cmd>bprevious<CR>
 nnoremap <silent> <C-д> <cmd>bnext<CR>
 " close buffer
-nnoremap <silent> <leader>q <cmd>bdelete<CR>
+nnoremap <silent> <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 " Keep VisualMode after indent with > or <
 vmap < <gv
 vmap > >gv
