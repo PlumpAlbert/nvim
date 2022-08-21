@@ -5,15 +5,13 @@ nnoremap <silent> <C-s> <cmd>w<CR>
 nnoremap <silent> <C-ы> <cmd>w<CR>
 xnoremap <silent> <C-s> <cmd>w<CR>
 xnoremap <silent> <C-ы> <cmd>w<CR>
-" move around splits
-nnoremap <silent> <C-h> <C-w>h
-nnoremap <silent> <C-j> <C-w>j
-nnoremap <silent> <C-k> <C-w>k
-nnoremap <silent> <C-l> <C-w>l
-nnoremap <silent> <C-р> <C-w>р
-nnoremap <silent> <C-о> <C-w>о
-nnoremap <silent> <C-л> <C-w>л
-nnoremap <silent> <C-д> <C-w>д
+" move around buffers
+nnoremap <silent> <C-h> <cmd>bprevious<CR>
+nnoremap <silent> <C-l> <cmd>bnext<CR>
+nnoremap <silent> <C-р> <cmd>bprevious<CR>
+nnoremap <silent> <C-д> <cmd>bnext<CR>
+" close buffer
+nnoremap <silent> <leader>q <cmd>bdelete<CR>
 " Keep VisualMode after indent with > or <
 vmap < <gv
 vmap > >gv
@@ -55,8 +53,4 @@ nnoremap <silent> <M-k> <C-w>-
 nnoremap <silent> <M-l> <C-w><
 
 " Git
-nnoremap <silent> <leader>cm <cmd>Git commit<CR>
-nnoremap <silent> <leader>сь <cmd>Git commit<CR>
-
-" close buffer
-nnoremap <silent> <leader>q <cmd>bdelete<CR>
+nnoremap <silent> <leader>hp <cmd>Gitsigns preview_hunk<CR>
