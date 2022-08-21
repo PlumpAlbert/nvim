@@ -81,7 +81,7 @@ lua require'impatient'
 if CheckHost('plumpbook')
     colorscheme onedark
 else
-    colorscheme nightfly
+    colorscheme moonfly
 endif
 if has('win32')
 	let &shell='C:/Users/fedin/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe'
