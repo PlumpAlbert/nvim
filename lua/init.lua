@@ -56,7 +56,7 @@ return packer.startup(function()
         config = function() require "plugins.lspsaga" end,
     }
     use { "RRethy/vim-illuminate",
-        config = function () require "plugins.illuminate" end
+        config = function() require "plugins.illuminate" end
     }
 
     -- UI
@@ -138,7 +138,9 @@ return packer.startup(function()
     }
 
     -- Themes
-    use "bluz71/vim-moonfly-colors"
+    use { "bluz71/vim-moonfly-colors",
+        config = function() require "plugins.themes.moonfly" end,
+    }
     use "bluz71/vim-nightfly-guicolors"
     use { "Mofiqul/vscode.nvim",
         config = function() require "plugins.themes.vscode" end
