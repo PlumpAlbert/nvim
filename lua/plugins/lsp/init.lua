@@ -53,7 +53,7 @@ M.on_attach = function(client, bufnr)
     -- scroll down hover doc or scroll in definition preview
     map("n", "<C-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>")
     -- scroll up hover doc
-    map("n", "<C-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>")
+    map("n", "<C-S-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>")
     map("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>")
     map("n", "]d", ":Lspsaga diagnostic_jump_next<CR>")
 
@@ -62,7 +62,7 @@ M.on_attach = function(client, bufnr)
     map("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>")
     map("n", "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     map("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>")
-    map("n", "D", "<cmd>lua vim.diagnostic.open_float()<CR>")
+    map("n", "D", "<cmd>Telescope diagnostics<CR>")
     map("n", "<leader>fm", string.format("<cmd>lua format_document(%s, false)<CR>", bufnr))
     map("v", "<leader>fm", string.format("<cmd>lua format_document(%s, true)<CR>", bufnr))
 end
