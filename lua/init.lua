@@ -60,12 +60,10 @@ return packer.startup(function()
     }
 
     -- UI
-    use {
-        "kyazdani42/nvim-web-devicons",
+    use { "kyazdani42/nvim-web-devicons",
         config = function() require "plugins.icons" end,
     }
-    use {
-        "norcalli/nvim-colorizer.lua",
+    use { "norcalli/nvim-colorizer.lua",
         event = "BufRead",
         config = function() require "plugins.colorizer" end,
     }
@@ -79,12 +77,10 @@ return packer.startup(function()
     use { "kdheepak/tabline.nvim",
         config = function() require "plugins.tabline" end,
     }
-    use {
-        "akinsho/toggleterm.nvim",
+    use { "akinsho/toggleterm.nvim",
         config = function() require "plugins.toggleterm" end,
     }
-    use {
-        "goolord/alpha-nvim",
+    use { "goolord/alpha-nvim",
         config = function() require "plugins.alpha" end
     }
 
