@@ -85,25 +85,21 @@ return packer.startup(function()
     }
 
     -- UX
-    use {
-        "lewis6991/gitsigns.nvim",
+    use { "lewis6991/gitsigns.nvim",
         tag = "release",
         config = function() require "plugins.gitsigns" end,
     }
     use "lewis6991/impatient.nvim"
-    use {
-        "numToStr/Comment.nvim",
+    use { "numToStr/Comment.nvim",
         module = "Comment",
         config = function() require("Comment").setup() end,
     }
 
     -- Navigation
-    use {
-        "kyazdani42/nvim-tree.lua",
+    use { "kyazdani42/nvim-tree.lua",
         config = function() require "plugins.nvimtree" end,
     }
-    use {
-        "nvim-telescope/telescope.nvim",
+    use { "nvim-telescope/telescope.nvim",
         after = "plenary.nvim",
         config = function() require "plugins.telescope" end,
     }
@@ -119,8 +115,7 @@ return packer.startup(function()
     -- Productivity
     use "vim-scripts/auto-pairs-gentle"
     use "wakatime/vim-wakatime"
-    use {
-        "tpope/vim-surround",
+    use { "tpope/vim-surround",
         keys = { "c", "d", "y" },
         setup = function()
             vim.o.timeoutlen = 500
