@@ -19,6 +19,11 @@ local default = {
     enable = true,
     use_languagetree = true,
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = 5000,
+  }
 }
 
 ts_config.setup(default)
