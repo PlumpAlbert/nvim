@@ -10,8 +10,8 @@ local sources = {
     b.diagnostics.cspell.with {
         extra_args = { '--config', '~/.config/nvim/cspell.json' }
     },
-    -- b.diagnostics.eslint_d,
-    -- b.code_actions.eslint_d,
+    b.diagnostics.eslint_d,
+    b.code_actions.eslint_d,
     -- prettier
     b.formatting.prettierd.with {
         env = {
