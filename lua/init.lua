@@ -39,6 +39,14 @@ return packer.startup(function()
         config = function() require "plugins.null-ls" end,
     }
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
+    use { "tami5/lspsaga.nvim",
+        config = function() require "plugins.lspsaga" end,
+    }
+    use { "RRethy/vim-illuminate",
+        config = function() require "plugins.illuminate" end
+    }
+
+    -- Treesitter
     use { "nvim-treesitter/nvim-treesitter",
         event = "BufRead",
         config = function() require "plugins.treesitter" end,
@@ -52,11 +60,17 @@ return packer.startup(function()
     use { "p00f/nvim-ts-rainbow",
         after = "nvim-treesitter",
     }
-    use { "tami5/lspsaga.nvim",
-        config = function() require "plugins.lspsaga" end,
+    use { "nvim-treesitter/nvim-treesitter-context",
+        after = "nvim-treesitter"
     }
-    use { "RRethy/vim-illuminate",
-        config = function() require "plugins.illuminate" end
+    use { "nvim-treesitter/nvim-treesitter-context",
+        after = "nvim-treesitter"
+    }
+    use { "JoosepAlviste/nvim-ts-context-commentstring",
+        after = "nvim-treesitter"
+    }
+    use { "lewis6991/spellsitter.nvim",
+        after = "nvim-treesitter"
     }
 
     -- UI
@@ -82,6 +96,9 @@ return packer.startup(function()
     }
     use { "goolord/alpha-nvim",
         config = function() require "plugins.alpha" end
+    }
+    use { "anuvyklack/pretty-fold.nvim",
+        config = function() require "plugins.pretty-fold" end
     }
 
     -- UX
