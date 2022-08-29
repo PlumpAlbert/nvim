@@ -20,8 +20,6 @@ set tabstop=2
 set shiftwidth=0
 set expandtab
 set smartindent
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 
 set nowrap
 set completeopt=menu,menuone,noselect
