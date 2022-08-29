@@ -49,6 +49,7 @@ return packer.startup(function()
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter",
         event = "BufRead",
+        run = ":TSUpdate",
         config = function() require "plugins.treesitter" end,
     }
     use { "windwp/nvim-ts-autotag",
