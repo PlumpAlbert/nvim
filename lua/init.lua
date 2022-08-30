@@ -21,6 +21,7 @@ return packer.startup(function()
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-omni",
             "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp-document-symbol",
             "f3fora/cmp-spell",
         },
         config = function() require "plugins.nvim-cmp" end
@@ -50,25 +51,14 @@ return packer.startup(function()
     use { "nvim-treesitter/nvim-treesitter",
         event = "BufRead",
         run = ":TSUpdate",
+        requires = {
+            "windwp/nvim-ts-autotag",
+            "p00f/nvim-ts-rainbow",
+            "nvim-treesitter/nvim-treesitter-context",
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            "lewis6991/spellsitter.nvim"
+        },
         config = function() require "plugins.treesitter" end,
-    }
-    use { "windwp/nvim-ts-autotag",
-        after = "nvim-treesitter",
-        config = function()
-            require("nvim-ts-autotag").setup()
-        end,
-    }
-    use { "p00f/nvim-ts-rainbow",
-        after = "nvim-treesitter",
-    }
-    use { "nvim-treesitter/nvim-treesitter-context",
-        after = "nvim-treesitter"
-    }
-    use { "JoosepAlviste/nvim-ts-context-commentstring",
-        after = "nvim-treesitter"
-    }
-    use { "lewis6991/spellsitter.nvim",
-        after = "nvim-treesitter"
     }
 
     -- UI
@@ -86,8 +76,8 @@ return packer.startup(function()
         },
         config = function() require "plugins.lualine" end,
     }
-    use { "kdheepak/tabline.nvim",
-        config = function() require "plugins.tabline" end,
+    use { "romgrk/barbar.nvim",
+        config = function() require "plugins.barbar" end,
     }
     use { "akinsho/toggleterm.nvim",
         config = function() require "plugins.toggleterm" end,
@@ -97,6 +87,10 @@ return packer.startup(function()
     }
     use { "anuvyklack/pretty-fold.nvim",
         config = function() require "plugins.pretty-fold" end
+    }
+    use { "rcarriga/nvim-notify",
+        event = "VimEnter",
+        config = function() require "plugins.notify" end,
     }
 
     -- UX

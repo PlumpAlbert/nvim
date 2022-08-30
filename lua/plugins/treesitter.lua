@@ -15,6 +15,9 @@ local default = {
     "typescript",
     "jsdoc",
   },
+  context_commentstring = {
+    enable = true
+  },
   highlight = {
     enable = true,
     use_languagetree = true,
@@ -35,3 +38,9 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'Buf
     vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
   end
 })
+
+require("nvim-ts-autotag").setup()
+require("treesitter-context").setup {
+  enable = true,
+  trim_scope = 'outer',
+}
