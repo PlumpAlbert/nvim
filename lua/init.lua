@@ -95,7 +95,7 @@ return packer.startup(function()
 
     -- UX
     use { "lewis6991/gitsigns.nvim",
-        tag = "release",
+        -- tag = "release",
         config = function() require "plugins.gitsigns" end,
     }
     use "lewis6991/impatient.nvim"
