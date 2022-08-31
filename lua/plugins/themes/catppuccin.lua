@@ -1,4 +1,4 @@
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
 require('catppuccin').setup({
   dim_inactive = {
@@ -7,9 +7,9 @@ require('catppuccin').setup({
     percentage = 0.15,
   },
   transparent_background = true,
-  term_colors = false,
+  term_colors = true,
   compile = {
-    enabled = false,
+    enabled = true,
     path = vim.fn.stdpath "cache" .. "/catppuccin",
     suffix = "_compiled"
   },
@@ -44,11 +44,8 @@ require('catppuccin').setup({
         information = { "underline" },
       },
     },
-    coc_nvim = false,
-    lsp_trouble = false,
     cmp = true,
-    lsp_saga = false,
-    gitgutter = false,
+    lsp_saga = true,
     gitsigns = true,
     telescope = true,
     nvimtree = {
@@ -56,33 +53,37 @@ require('catppuccin').setup({
       show_root = true,
       transparent_panel = false,
     },
+    indent_blankline = {
+      enabled = true,
+      colored_indent_levels = true,
+    },
+    dashboard = true,
+    barbar = true,
+    markdown = true,
+    ts_rainbow = true,
+    notify = true,
+    symbols_outline = true,
+    -- off
+    telekasten = false,
+    coc_nvim = false,
+    lsp_trouble = false,
+    gitgutter = false,
     neotree = {
       enabled = false,
-      show_root = true,
+      show_root = false,
       transparent_panel = false,
     },
     dap = {
       enabled = false,
       enable_ui = false,
     },
-    which_key = true,
-    indent_blankline = {
-      enabled = true,
-      colored_indent_levels = false,
-    },
-    dashboard = true,
+    which_key = false,
     neogit = false,
     vim_sneak = false,
     fern = false,
-    barbar = false,
-    bufferline = true,
-    markdown = true,
+    bufferline = false,
     lightspeed = false,
-    ts_rainbow = true,
     hop = false,
-    notify = true,
-    telekasten = true,
-    symbols_outline = true,
     mini = false,
   }
 })
