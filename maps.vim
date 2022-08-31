@@ -5,13 +5,19 @@ nnoremap <silent> <C-s> <cmd>w<CR>
 nnoremap <silent> <C-ы> <cmd>w<CR>
 xnoremap <silent> <C-s> <cmd>w<CR>
 xnoremap <silent> <C-ы> <cmd>w<CR>
-" move around buffers
-nnoremap <silent> <C-h> <cmd>bprevious<CR>
-nnoremap <silent> <C-l> <cmd>bnext<CR>
-nnoremap <silent> <C-р> <cmd>bprevious<CR>
-nnoremap <silent> <C-д> <cmd>bnext<CR>
+" swap buffers
+nnoremap <silent> <A-.> <cmd>BufferPrevious<CR>
+nnoremap <silent> <A-,> <cmd>BufferNext<CR>
+nnoremap <silent> <A-б> <cmd>BufferPrevious<CR>
+nnoremap <silent> <A-ю> <cmd>BufferNext<CR>
+" move buffers around
+nnoremap <silent> <A-<> <cmd>BufferMovePrevious<CR>
+nnoremap <silent> <A->> <cmd>BufferMoveNext<CR>
+nnoremap <silent> <A-Ю> <cmd>BufferMovePrevious<CR>
+nnoremap <silent> <A-Б> <cmd>BufferMoveNext<CR>
 " close buffer
-nnoremap <silent> <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <silent> <leader>q <cmd>BufferClose<CR>
+nnoremap <silent> <A-q> <cmd>BufferClose<CR>
 " Keep VisualMode after indent with > or <
 vmap < <gv
 vmap > >gv
