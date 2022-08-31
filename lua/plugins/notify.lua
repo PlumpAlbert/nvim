@@ -3,7 +3,7 @@
 local notify = require("notify")
 
 notify.setup {
-  background_colour = "Normal",
+  background_colour = "#0a0a0a",
   fps = 60,
   icons = {
     DEBUG = " ",
@@ -14,9 +14,9 @@ notify.setup {
   },
   level = 2,
   minimum_width = 50,
-  render = "default",
+  render = "minimal",
   stages = "fade_in_slide_out",
-  timeout = 3000
+  timeout = 3000,
 }
 
 vim.notify = notify
