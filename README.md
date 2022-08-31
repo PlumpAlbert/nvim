@@ -1,5 +1,12 @@
 # NeoVIM setup
+
+My personal setup for NeoVIM text editor. Feel free to use it! But I'd suggest
+you visit something like [LuvarVIM](https://lunarvim.org).
+
+![Preview of setup on React.JS project](.github/example.png)
+
 ## Plugins
+
 - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
@@ -15,7 +22,5 @@
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [wakatime/vim-wakatime](https://github.com/wakatime/vim-wakatime)
 - [tpope/vim-surround](https://github.com/tpope/vim-surround)
-- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [sheerun/vim-polyglot](https://github.com/sheerun/vim-polyglot)
 - [kkoomen/vim-doge](https://github.com/kkoomen/vim-doge)
-- [sainnhe/everforest](https://github.com/sainnhe/everforest)
