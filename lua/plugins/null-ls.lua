@@ -17,7 +17,8 @@ local sources = {
         env = {
             PRETTIERD_DEFAULT_CONFIG = vim.fn.expand('~/.prettierrc')
         },
-        filetypes = { "javascript", "javascriptreact", "typescript",
+        extra_filetypes = {
+            "javascript", "javascriptreact", "typescript",
             "typescriptreact", "vue", "css", "scss", "less", "html",
             "json", "jsonc", "markdown", "graphql", "handlebars"
         }
