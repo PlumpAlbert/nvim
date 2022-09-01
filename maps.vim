@@ -48,10 +48,6 @@ nnoremap <silent> <leader>ац <cmd>Telescope live_grep<CR>
 nnoremap <silent> <leader>ls <cmd>Telescope projects<CR>
 nnoremap <silent> <leader>ды <cmd>Telescope projects<CR>
 
-"comment
-nnoremap <silent> <leader><Space> :lua require('Comment.api').toggle.current_linewise(nil)<CR>
-xnoremap <silent> <leader><Space> :lua require('Comment.api').toggle.linewise(nil, vim.fn.visualmode())<CR>
-
 " buffer resize
 nnoremap <silent> <M-h> <C-w>>
 nnoremap <silent> <M-j> <C-w>+

@@ -100,8 +100,14 @@ return packer.startup(function()
     }
     use "lewis6991/impatient.nvim"
     use { "numToStr/Comment.nvim",
-        module = "Comment",
-        config = function() require("Comment").setup() end,
+        config = function()
+            require("Comment").setup {
+                opleader = {
+                    line = '<leader><Space>',
+                    block = 'gbc',
+                }
+            }
+        end,
     }
 
     -- Navigation
