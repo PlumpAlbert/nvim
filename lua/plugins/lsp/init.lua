@@ -4,7 +4,7 @@ local map = require("utils").map
 
 local includes = function(value)
     local excluded_servers = {
-        'tsserver', 'html'
+        'tsserver', 'html', 'volar'
     }
     for _, server in ipairs(excluded_servers) do
         if value == server then
