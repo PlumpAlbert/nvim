@@ -56,3 +56,6 @@ nnoremap <silent> <M-l> <C-w><
 
 " Git
 nnoremap <silent> <leader>hp <cmd>Gitsigns preview_hunk<CR>
+
+" Code screenshots
+nnoremap <silent> <leader>cp <cmd>Rayso<CR> 
