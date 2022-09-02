@@ -53,4 +53,59 @@ M.map = function(mode, keys, command, opt)
   map_wrapper(mode, keys, command, options)
 end
 
+local function wait(seconds)
+  local start = os.clock()
+  while os.clock() - start <= seconds do end
+end
+
+M.rayso = function(opts)
+  local bufnr = vim.fn.bufnr('%')
+  local title = vim.api.nvim_buf_get_name(bufnr)
+  local text = table.concat(
+    vim.api.nvim_buf_get_lines(bufnr, opts.line1 or 0, opts.line2 or -1, false),
+    "\n"
+  )
+  local base64proc = io.popen('base64 > /tmp/rayso.base64', 'w')
+  if base64proc == nil then
+    vim.notify("Couldn't start `base64` process", "error")
+    return
+  end
+  base64proc:write(text)
+  base64proc:close()
+  local base64 = io.open('/tmp/rayso.base64', 'r')
+  if base64 == nil then
+    vim.notify("Couldn't open base64 encoded file", "error")
+    return
+  end
+  local code = base64:read("*a"):gsub('%+', "%%2B")
+  local url = string.format(
+    "open 'https://ray.so/?colors=midnight&background=true&darkMode=true&padding=64&language=%s&title=%s&code=%s'",
+    vim.api.nvim_buf_get_option(bufnr, 'filetype'),
+    title,
+    code
+  )
+  local rayso = io.popen(url)
+  if rayso == nil then
+    vim.notify("Couldn't open `rayso`", "error")
+    return
+  end
+  rayso:close()
+end
+
+vim.api.nvim_create_user_command('Rayso', M.rayso, { nargs = 0, range = '%' })
+
+function char_to_hex(c)
+  return string.format("%%%02X", string.byte(c))
+end
+
+function urlencode(url)
+  if url == nil then
+    return
+  end
+  url = url:gsub("\n", "\r\n")
+  url = url:gsub("([^%w ])", char_to_hex)
+  url = url:gsub(" ", "+")
+  return url
+end
+
 return M
