@@ -6,10 +6,10 @@ nnoremap <silent> <C-ы> <cmd>w<CR>
 xnoremap <silent> <C-s> <cmd>w<CR>
 xnoremap <silent> <C-ы> <cmd>w<CR>
 " swap buffers
-nnoremap <silent> <A-.> <cmd>BufferPrevious<CR>
-nnoremap <silent> <A-,> <cmd>BufferNext<CR>
-nnoremap <silent> <A-б> <cmd>BufferPrevious<CR>
-nnoremap <silent> <A-ю> <cmd>BufferNext<CR>
+nnoremap <silent> <A-.> <cmd>BufferNext<CR>
+nnoremap <silent> <A-,> <cmd>BufferPrevious<CR>
+nnoremap <silent> <A-б> <cmd>BufferNext<CR>
+nnoremap <silent> <A-ю> <cmd>BufferPrevious<CR>
 " move buffers around
 nnoremap <silent> <A-<> <cmd>BufferMovePrevious<CR>
 nnoremap <silent> <A->> <cmd>BufferMoveNext<CR>
