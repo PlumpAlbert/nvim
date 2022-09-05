@@ -28,11 +28,3 @@ require("Comment").setup {
     }
   end
 }
-
-local function comment(mode)
-  return string.format("<cmd>lua require('Comment.api').locked('%s')()<CR>", mode)
-end
-
-vim.api.nvim_set_keymap(
-  'n', '<leader><Space>', comment 'toggle.linewise.current', { noremap = true }
-)

@@ -70,7 +70,6 @@ let g:AutoPairs = {
 	\ }
 
 runtime autocmds.vim
-runtime maps.vim
 runtime menu_highlight.vim
 runtime neovide.vim
 runtime spell.vim

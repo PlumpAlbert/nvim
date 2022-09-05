@@ -14,7 +14,8 @@ local includes = function(value)
     return false
 end
 
-function format_document(bufnr, range)
+function format_document(range)
+    local bufnr = vim.fn.bufnr('%')
     if range then
         vim.lsp.buf.range_formatting({
             timeout_ms = 10000,
@@ -32,39 +33,13 @@ function format_document(bufnr, range)
     })
 end
 
--- if you want to set up formatting on save, you can use this as a callback
-local format_augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+M.format = format_document
 
 M.on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     if bufnr then
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
     end
-
-    -- LspSaga
-    map("n", "gd", ":Lspsaga preview_definition<CR>")
-    map("n", "<leader>rn", ":Lspsaga rename<CR>")
-    map("n", "gh", ":Lspsaga lsp_finder<CR>")
-    map("n", "<leader>ca", ":Lspsaga code_action<CR>")
-    map("n", "<leader>k", ":Lspsaga signature_help<CR>")
-    map("i", "<C-space>", "<cmd>Lspsaga signature_help<CR>")
-    map("s", "<C-space>", "<cmd>Lspsaga signature_help<CR>")
-    map("n", "K", ":Lspsaga hover_doc<CR>")
-    -- scroll down hover doc or scroll in definition preview
-    map("n", "<C-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>")
-    -- scroll up hover doc
-    map("n", "<C-S-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>")
-    map("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>")
-    map("n", "]d", ":Lspsaga diagnostic_jump_next<CR>")
-
-    -- LSP
-    map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-    map("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-    map("n", "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-    map("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>")
-    map("n", "D", "<cmd>Telescope diagnostics<CR>")
-    map("n", "<leader>fm", string.format("<cmd>lua format_document(%s, false)<CR>", bufnr))
-    map("v", "<leader>fm", string.format("<cmd>lua format_document(%s, true)<CR>", bufnr))
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

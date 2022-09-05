@@ -56,7 +56,7 @@ for _, server in ipairs(servers) do
                 auto_inlay_hints = false,
             })
             ts_utils.setup_client(client)
-            local opts = { silent = true }
+            local opts = { }
             local map = vim.api.nvim_buf_set_keymap
             lsp.on_attach { client = client, bufnr = bufnr }
             map(bufnr, "n", "<leader>io", ":TSLspOrganize<CR>", opts)

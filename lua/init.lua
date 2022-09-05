@@ -92,6 +92,9 @@ return packer.startup(function()
         event = "VimEnter",
         config = function() require "plugins.notify" end,
     }
+    use { "folke/which-key.nvim",
+        config = function() require 'plugins.mappings' end
+    }
 
     -- UX
     use { "lewis6991/gitsigns.nvim",
