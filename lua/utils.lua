@@ -62,7 +62,7 @@ M.rayso = function(opts)
   local bufnr = vim.fn.bufnr('%')
   local title = vim.api.nvim_buf_get_name(bufnr)
   local text = table.concat(
-    vim.api.nvim_buf_get_lines(bufnr, opts.line1 or 0, opts.line2 or -1, false),
+    vim.api.nvim_buf_get_lines(bufnr, opts.line1 - 1 or 0, opts.line2 or -1, false),
     "\n"
   )
   local base64proc = io.popen('base64 > /tmp/rayso.base64', 'w')
