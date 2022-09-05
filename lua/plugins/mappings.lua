@@ -75,6 +75,7 @@ local mappings = {
   ["q"] = { "<cmd>BufferClose<CR>", "Close buffer" },
   ["<Space>"] = { "<cmd>lua require('Comment.api').locked'toggle.linewise.current'", "Comment toggle current line" },
   ["/"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  e = { "<cmd>NvimTreeToggle<CR>", "Open file explorer" },
   f = {
     name = "Find",
     b = { "<cmd>Telescope buffers<cr>", "Switch buffers" },
