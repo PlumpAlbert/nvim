@@ -78,8 +78,20 @@ M.rayso = function(opts)
     return
   end
   local code = base64:read("*a"):gsub('%+', "%%2B")
+  math.randomseed(os.clock())
+  local colors = {
+    'breeze',
+    'candy',
+    'crimson',
+    'falcon',
+    'meadow',
+    'midnight',
+    'raindrop',
+    'sunset'
+  }
   local url = string.format(
-    "open 'https://ray.so/?colors=midnight&background=true&darkMode=true&padding=64&language=%s&title=%s&code=%s'",
+    "open 'https://ray.so/?colors=%s&background=true&darkMode=true&padding=64&language=%s&title=%s&code=%s'",
+    colors[math.random(#colors)],
     vim.api.nvim_buf_get_option(bufnr, 'filetype'),
     title,
     code
