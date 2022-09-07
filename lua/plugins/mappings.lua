@@ -73,7 +73,7 @@ local vopts = {
 local mappings = {
   [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
   ["q"] = { "<cmd>BufferClose<CR>", "Close buffer" },
-  ["<Space>"] = { "<cmd>lua require('Comment.api').locked'toggle.linewise.current'", "Comment toggle current line" },
+  ["<Space>"] = { "<cmd>lua require('Comment.api').locked'toggle.linewise.current'<CR>", "Comment toggle current line" },
   ["/"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   e = { "<cmd>NvimTreeToggle<CR>", "Open file explorer" },
   f = {
@@ -150,8 +150,8 @@ local mappings = {
     f = { function() require("plugins.lsp.init").format(false) end, "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>Mason<cr>", "Mason Info" },
-    j = { "<cmd>Lspsaga diagnostics_jump_next", "Next Diagnostic", },
-    k = { "<cmd>Lspsaga diagnostics_jump_prev", "Previous Diagnostic", },
+    j = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic", },
+    k = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Previous Diagnostic", },
     l = { vim.lsp.codelens.run, "CodeLens Action" },
     p = {
       name = "Go to",
@@ -178,7 +178,7 @@ local mappings = {
 -- see https://neovim.io/doc/user/map.html#:map-cmd
 local vmappings = {
   l = {
-    f = { function() require 'plugins.lsp.init'.format(true) end }
+    f = { function() require 'plugins.lsp.init'.format(true) end, "Format range" }
   }
 }
 
