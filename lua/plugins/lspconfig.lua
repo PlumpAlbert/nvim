@@ -1,6 +1,6 @@
 -- vim:ft=lua:ts=4:sw=0
 
-require "plugins.lsp.installer"
+require "plugins.lsp.mason"
 local lsp = require "plugins.lsp.init"
 local lspconfig = require "lspconfig"
 
