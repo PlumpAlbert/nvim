@@ -31,7 +31,6 @@ return packer.startup(function()
     use { "neovim/nvim-lspconfig",
         requires = {
             "onsails/lspkind-nvim",
-            "williamboman/nvim-lsp-installer",
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim"
         },
