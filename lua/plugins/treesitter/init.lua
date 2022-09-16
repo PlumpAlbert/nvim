@@ -32,9 +32,13 @@ local default = {
 ts_config.setup(default)
 
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter' }, {
-  pattern = { "*.[!scss]" },
   group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
   callback = function()
+    if vim.bo.filetype == 'scss' then
+      vim.opt.foldmethod = 'syntax'
+      vim.bo.syntax = 'on'
+      return
+    end
     vim.opt.foldmethod = 'expr'
     vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
   end
