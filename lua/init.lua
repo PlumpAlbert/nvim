@@ -125,7 +125,6 @@ return packer.startup(function()
     }
 
     -- Productivity
-    use "vim-scripts/auto-pairs-gentle"
     use "wakatime/vim-wakatime"
     use { "tpope/vim-surround",
         keys = { "c", "d", "y" },
