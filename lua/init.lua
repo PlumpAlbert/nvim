@@ -160,4 +160,7 @@ return packer.startup(function()
     use { "navarasu/onedark.nvim",
         config = function() require 'plugins.themes.onedark' end
     }
+    use { "folke/tokyonight.nvim",
+        config = function() require "plugins.themes.tokionight" end
+    }
 end)
