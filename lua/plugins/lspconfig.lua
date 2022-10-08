@@ -13,6 +13,7 @@ local servers = {
     -- Docker
     "dockerls",
     -- Web dev
+    "angularls",
     "cssls",
     "tailwindcss",
     "html",
