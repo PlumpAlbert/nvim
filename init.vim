@@ -25,7 +25,7 @@ set nowrap
 set completeopt=menu,menuone,noselect
 set title
 set clipboard+=unnamed,unnamedplus
-set cmdheight=1
+set cmdheight=0
 set number relativenumber
 set hidden
 set mouse=a
@@ -41,7 +41,6 @@ set undofile
 " searching
 set ignorecase
 set smartcase
-nnoremap <silent> <leader>/ <cmd>nohl<CR>
 
 " spelling
 set spelllang=en,ru
@@ -60,7 +59,9 @@ set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁ
 
 runtime autocmds.vim
 runtime menu_highlight.vim
-runtime neovide.vim
+if exists('g:neovide')
+    runtime neovide.vim
+endif
 runtime spell.vim
 lua require'impatient'
 
