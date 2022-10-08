@@ -73,7 +73,6 @@ local vopts = {
 local mappings = {
   [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
   ["q"] = { "<cmd>BufferClose<CR>", "Close buffer" },
-  ["<Space>"] = { "<cmd>lua require('Comment.api').locked'toggle.linewise.current'<CR>", "Comment toggle current line" },
   ["/"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   e = { "<cmd>NvimTreeToggle<CR>", "Open file explorer" },
   f = {
@@ -88,7 +87,8 @@ local mappings = {
     w = { "<cmd>Telescope live_grep<cr>", "Find word" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
-    p = {
+    p = { "<cmd>Telescope projects<cr>", "Projects" },
+    P = {
       "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
     },
