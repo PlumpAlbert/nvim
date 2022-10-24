@@ -15,6 +15,6 @@ chmod a+x "$HOME/.local/bin/phpcbf"
 
 which pacman >/dev/null 2>&1
 if [ $? -eq 0 ]; then
-  echo '# Installing clangd and shfmt'
-  sudo -S pacman -Sy --needed --noconfirm cmake clang llvm shfmt
+  echo '# Installing clangd'
+  sudo -S pacman -Sy --needed --noconfirm cmake clang llvm
 fi
