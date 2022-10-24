@@ -42,23 +42,22 @@ M.on_attach = function(client, bufnr)
     end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.preselectSupport = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-capabilities.textDocument.completion.completionItem.resolveSupport = {
+M.capabilities = require('cmp_nvim_lsp').default_capabilities()
+M.capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities.textDocument.completion.completionItem.preselectSupport = true
+M.capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+M.capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+M.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+M.capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+M.capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+M.capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {
         "documentation",
         "detail",
         "additionalTextEdits",
     },
 }
-M.capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 M.handlers = {
     ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
