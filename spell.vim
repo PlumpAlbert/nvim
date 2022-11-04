@@ -6,4 +6,5 @@ hi SpellCap gui=undercurl term=undercurl cterm=undercurl
 hi SpellRare gui=undercurl term=undercurl cterm=undercurl
 hi SpellLocal gui=undercurl term=undercurl cterm=undercurl
 
+" vim:spell
 " is it worhs
