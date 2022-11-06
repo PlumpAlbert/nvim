@@ -163,4 +163,5 @@ return packer.startup(function()
     use { "folke/tokyonight.nvim",
         config = function() require "plugins.themes.tokionight" end
     }
+    use { "doums/darcula" }
 end)

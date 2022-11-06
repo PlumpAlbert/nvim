@@ -66,7 +66,7 @@ runtime spell.vim
 lua require'impatient'
 
 if CheckHost('plumpbook')
-    colorscheme tokyonight
+    colorscheme darcula
 else
     colorscheme moonfly
 endif
