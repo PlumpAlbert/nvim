@@ -2,18 +2,19 @@
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
-local wk = require'which-key'
-wk.setup { }
+local wk = require 'which-key'
+wk.setup {}
 
 -- leader
 wk.register({
-    e = { vim.cmd.NeoTreeFocusToggle , 'NeoTree', },
+    e = { vim.cmd.NeoTreeFocusToggle, 'NeoTree', },
     l = {
         name = 'LSP',
         j = { vim.diagnostic.goto_next, 'Next diagnostic' },
         k = { vim.diagnostic.goto_prev, 'Previous diagnostic' },
         a = { vim.lsp.buf.code_action, 'Code actions' },
         r = { vim.lsp.buf.rename, 'Rename symbol' },
+        f = { vim.lsp.buf.format, 'Format document', mode = { 'n', 'v' } },
     },
     g = {
         name = 'Go to',
@@ -27,8 +28,6 @@ wk.register({
 
 -- global
 wk.register({
-    ['<C-h>'] = { vim.lsp.buf.signature_help, 'Signature help',  mode = 'i'  },
+    ['<C-h>'] = { vim.lsp.buf.signature_help, 'Signature help', mode = 'i' },
     K = { vim.lsp.buf.hover, 'Hover information' }
 })
-
-vim.pretty_print()
