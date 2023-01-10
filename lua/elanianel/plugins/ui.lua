@@ -5,6 +5,7 @@ return {
   "lewis6991/gitsigns.nvim",
   "stevearc/dressing.nvim",
   "ahmedkhalf/project.nvim",
+  "nvim-lualine/lualine.nvim",
   { 'nvim-telescope/telescope.nvim', version = '0.1.x' },
   { "nvim-neo-tree/neo-tree.nvim",
     lazy = false,
