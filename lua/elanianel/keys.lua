@@ -23,11 +23,29 @@ wk.register({
         r = { vim.lsp.buf.references, 'List references' },
         t = { vim.lsp.buf.type_definition, 'Go to type definition' },
         D = { vim.lsp.buf.type_definition, 'Go to declaration' },
+    },
+    G = {
+        name = 'Git',
+        p = {
+            function() vim.cmd.Gitsigns 'preview_hunk' end,
+            'Preview hunk'
+        },
+        s = {
+            function() vim.cmd.Gitsigns 'stage_hunk' end,
+            'Stage hunk',
+            mode = { 'v', 'n' }
+        },
+        v = {
+            function() vim.cmd.Gitsigns 'select_hunk' end,
+            'Select hunk',
+        }
     }
 }, { prefix = '<leader>' })
 
 -- global
 wk.register({
     ['<C-h>'] = { vim.lsp.buf.signature_help, 'Signature help', mode = 'i' },
-    K = { vim.lsp.buf.hover, 'Hover information' }
+    K = { vim.lsp.buf.hover, 'Hover information' },
+    [']c'] = { function() vim.cmd.Gitsigns 'next_hunk' end, 'Next hunk' },
+    ['[c'] = { function() vim.cmd.Gitsigns 'prev_hunk' end, 'Previous hunk' }
 })
