@@ -39,6 +39,29 @@ wk.register({
             function() vim.cmd.Gitsigns 'select_hunk' end,
             'Select hunk',
         }
+    },
+    L = {
+        name = 'Lazy',
+        i = {
+            function() vim.cmd.Lazy 'install' end,
+            'Install plugins'
+        },
+        u = {
+            function() vim.cmd.Lazy 'update' end,
+            'Update plugins'
+        },
+        s = {
+            function() vim.cmd.Lazy 'sync' end,
+            'Sync plugins'
+        },
+        x = {
+            function() vim.cmd.Lazy 'clean' end,
+            'Clean plugins'
+        },
+        c = {
+            function() vim.cmd.Lazy 'check' end,
+            'Check plugins'
+        },
     }
 }, { prefix = '<leader>' })
 
