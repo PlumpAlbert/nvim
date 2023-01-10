@@ -9,12 +9,14 @@ wk.setup { }
 wk.register({
     e = { vim.cmd.NeoTreeFocusToggle , 'NeoTree', },
     l = {
+        name = 'LSP',
         j = { vim.diagnostic.goto_next, 'Next diagnostic' },
         k = { vim.diagnostic.goto_prev, 'Previous diagnostic' },
         a = { vim.lsp.buf.code_action, 'Code actions' },
         r = { vim.lsp.buf.rename, 'Rename symbol' },
     },
     g = {
+        name = 'Go to',
         d = { vim.lsp.buf.definition, 'Go to definition' },
         i = { vim.lsp.buf.implementation, 'Go to implementation' },
         r = { vim.lsp.buf.references, 'List references' },
