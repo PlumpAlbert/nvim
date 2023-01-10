@@ -17,5 +17,13 @@ vim.opt.rtp:prepend(lazypath)
 require"lazy".setup('elanianel.plugins', {
     defaults = {
         lazy = true
+    },
+    install = {
+        missing = true,
+        colorscheme = { 'catppuccin', 'habamax' }
+    },
+    change_detection = {
+        enabled = true,
+        notify = false,
     }
 })
