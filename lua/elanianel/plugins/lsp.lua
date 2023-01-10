@@ -18,6 +18,4 @@ return {
   'jose-elias-alvarez/null-ls.nvim',
   { 'kevinhwang91/nvim-ufo', dependencies = 'promise-async' },
   'kevinhwang91/promise-async',
-  'windwp/nvim-autopairs'
-
 }
