@@ -18,7 +18,17 @@ wk.register({
         k = { vim.diagnostic.goto_prev, 'Previous diagnostic' },
         a = { vim.lsp.buf.code_action, 'Code actions' },
         r = { vim.lsp.buf.rename, 'Rename symbol' },
-        f = { vim.lsp.buf.format, 'Format document', mode = { 'n', 'v' } },
+        f = {
+            function()
+                vim.lsp.buf.format {
+                    filter = function(client)
+                        return client.name ~= 'tsserver'
+                    end
+                }
+            end,
+            'Format document',
+            mode = { 'n', 'v' }
+        },
     },
     g = {
         name = 'Go to',

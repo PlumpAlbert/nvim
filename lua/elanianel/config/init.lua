@@ -6,6 +6,7 @@ require(configPath .. ".dressing")
 require(configPath .. ".lualine")
 require(configPath .. ".barbar")
 require(configPath .. ".alpha")
+require(configPath .. ".treesitter")
 
 require 'mini.pairs'.setup {}
 require 'mini.comment'.setup {}

@@ -66,17 +66,6 @@ lsp.configure('sumneko_lua', {
     },
 })
 
-lsp.on_attach(function(client, bufnr)
-    if client.name == "eslint_d" then
-        return
-    end
-
-    if client.name == 'tsserver' then
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.range_formatting = false
-    end
-end)
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
