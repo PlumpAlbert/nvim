@@ -1,6 +1,10 @@
--- vim:ft=lua:ts=4:sw=0:et
+-- vim:ft=lua:ts=4:sw=0:et:foldlevel=9999
 vim.o.timeout = true
 vim.o.timeoutlen = 300
+
+local presets = require 'which-key.plugins.presets'
+presets.operators['zM'] = nil
+presets.operators['zR'] = nil
 
 local wk = require 'which-key'
 wk.setup {}
@@ -62,7 +66,14 @@ wk.register({
             function() vim.cmd.Lazy 'check' end,
             'Check plugins'
         },
-    }
+    },
+    s = {
+        name = 'Telescope',
+        f = { require 'telescope.builtin'.find_files, 'Find files in CWD' },
+        t = { require 'telescope.builtin'.live_grep, 'Search text' },
+        p = { function() vim.cmd.Telescope 'projects' end, 'Find projects' },
+    },
+    f = { require 'telescope.builtin'.git_files, 'Find Git files' },
 }, { prefix = '<leader>' })
 
 -- global
@@ -70,5 +81,8 @@ wk.register({
     ['<C-h>'] = { vim.lsp.buf.signature_help, 'Signature help', mode = 'i' },
     K = { vim.lsp.buf.hover, 'Hover information' },
     [']c'] = { function() vim.cmd.Gitsigns 'next_hunk' end, 'Next hunk' },
-    ['[c'] = { function() vim.cmd.Gitsigns 'prev_hunk' end, 'Previous hunk' }
+    ['[c'] = { function() vim.cmd.Gitsigns 'prev_hunk' end, 'Previous hunk' },
+    ['zM'] = { require'ufo'.closeAllFolds, 'Close all folds' },
+    ['zR'] = { require'ufo'.openAllFolds, 'Open all folds' },
 })
+
