@@ -20,7 +20,7 @@ require"lazy".setup('elanianel.plugins', {
     },
     install = {
         missing = true,
-        colorscheme = { 'catppuccin', 'habamax' }
+        colorscheme = { 'everforest', 'catppuccin', 'habamax' }
     },
     change_detection = {
         enabled = true,
