@@ -5,6 +5,7 @@ return {
   "lewis6991/gitsigns.nvim",
   "stevearc/dressing.nvim",
   { "ahmedkhalf/project.nvim",
+    lazy = false,
     config = function()
       require 'project_nvim'.setup {
         manual_mode = false,
@@ -23,6 +24,12 @@ return {
     end
   },
   "nvim-lualine/lualine.nvim",
+  { 'j-hui/fidget.nvim',
+    lazy = false,
+    config = function()
+      require'fidget'.setup {}
+    end
+  },
   "romgrk/barbar.nvim",
   "goolord/alpha-nvim",
   { "norcalli/nvim-colorizer.lua",
