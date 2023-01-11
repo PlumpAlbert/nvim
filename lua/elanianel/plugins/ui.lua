@@ -4,7 +4,24 @@ return {
   "MunifTanjim/nui.nvim",
   "lewis6991/gitsigns.nvim",
   "stevearc/dressing.nvim",
-  "ahmedkhalf/project.nvim",
+  { "ahmedkhalf/project.nvim",
+    config = function()
+      require 'project_nvim'.setup {
+        manual_mode = false,
+        detection_methods = { 'pattern' },
+        patterns = {
+          ".git", "_darcs", ".hg", ".bzr", ".svn",
+          "Makefile", "package.json", "vendor", ".venv",
+          "node_modules"
+        },
+        ignore_lsp = {},
+        exclude_dirs = {},
+        show_hidden = true,
+        silent_chdir = true,
+        datapath = vim.fn.stdpath("data")
+      }
+    end
+  },
   "nvim-lualine/lualine.nvim",
   "romgrk/barbar.nvim",
   "goolord/alpha-nvim",
