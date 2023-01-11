@@ -10,4 +10,4 @@ if vim.g.neovide ~= nil then
   require 'elanianel.neovide'
 end
 
-vim.cmd.colorscheme 'catppuccin'
+vim.cmd.colorscheme 'everforest'
