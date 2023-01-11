@@ -84,7 +84,8 @@ wk.register({
         p = { function() vim.cmd.Telescope 'projects' end, 'Find projects' },
     },
     f = { require 'telescope.builtin'.git_files, 'Find Git files' },
-    r = { require 'ssr'.open, 'Find and replace', mode = { 'n', 'x' } }
+    r = { require 'ssr'.open, 'Find and replace', mode = { 'n', 'x' } },
+    c = { vim.cmd.BufferClose, 'Close buffer' }
 }, { prefix = '<leader>' })
 
 -- global
@@ -95,4 +96,12 @@ wk.register({
     ['[c'] = { function() vim.cmd.Gitsigns 'prev_hunk' end, 'Previous hunk' },
     ['zM'] = { require 'ufo'.closeAllFolds, 'Close all folds' },
     ['zR'] = { require 'ufo'.openAllFolds, 'Open all folds' },
+    ['<M-h>'] = {
+        function() require'bufferline.api'.goto_buffer_relative(-1) end,
+        'Go to previous buffer'
+    },
+    ['<M-l>'] = {
+        function() require'bufferline.api'.goto_buffer_relative(1) end,
+        'Go to next buffer'
+    },
 })
