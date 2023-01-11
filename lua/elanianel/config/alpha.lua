@@ -32,7 +32,7 @@ local header = {
 
 local heading = {
   type = "text",
-  val = "Welcome back, " .. vim.fn.expand('$USER'),
+  val = "Welcome back!",
   opts = {
     position = "center",
     hl = "DashboardShortCut",
@@ -54,7 +54,7 @@ local buttons = {
 
 require 'alpha'.setup({
   layout = {
-    { type = 'padding', val = 5 },
+    { type = 'padding', val = 3 },
     header,
     { type = 'padding', val = 2 },
     heading,
