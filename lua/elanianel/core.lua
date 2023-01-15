@@ -22,7 +22,7 @@ vim.opt.isfname:append('@-@')
 vim.o.updatetime = 50
 
 vim.o.signcolumn = 'yes'
-vim.o.foldcolumn = '0'
+vim.o.foldcolumn = '1'
 vim.o.foldlevel = 9999
 vim.o.foldlevelstart = 9999
 vim.o.foldenable = true
