@@ -31,14 +31,6 @@ wk.register({
         },
     },
     g = {
-        name = 'Go to',
-        d = { vim.lsp.buf.definition, 'Go to definition' },
-        i = { vim.lsp.buf.implementation, 'Go to implementation' },
-        r = { vim.lsp.buf.references, 'List references' },
-        t = { vim.lsp.buf.type_definition, 'Go to type definition' },
-        D = { vim.lsp.buf.type_definition, 'Go to declaration' },
-    },
-    G = {
         name = 'Git',
         p = {
             function() vim.cmd.Gitsigns 'preview_hunk' end,
@@ -103,5 +95,13 @@ wk.register({
     ['<M-l>'] = {
         function() require'bufferline.api'.goto_buffer_relative(1) end,
         'Go to next buffer'
+    },
+    g = {
+        name = 'Go to',
+        d = { vim.lsp.buf.definition, 'Go to definition' },
+        i = { vim.lsp.buf.implementation, 'Go to implementation' },
+        r = { vim.lsp.buf.references, 'List references' },
+        t = { vim.lsp.buf.type_definition, 'Go to type definition' },
+        D = { vim.lsp.buf.type_definition, 'Go to declaration' },
     },
 })
