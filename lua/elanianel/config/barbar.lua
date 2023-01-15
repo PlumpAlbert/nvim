@@ -20,13 +20,13 @@ require 'bufferline'.setup {
     { enabled = false }, -- INFO
     { enabled = true }, -- HINT
     -- OR `vim.diagnostic.severity`
-    [vim.diagnostic.severity.ERROR] = { enabled = true, icon = 'ﬀ' },
+    [vim.diagnostic.severity.ERROR] = { enabled = true, icon = '❗' },
     [vim.diagnostic.severity.WARN] = { enabled = false },
     [vim.diagnostic.severity.INFO] = { enabled = false },
     [vim.diagnostic.severity.HINT] = { enabled = true },
   },
   -- Excludes buffers from the tabline
-  exclude_ft = { 'netrw' },
+  exclude_ft = { 'netrw', 'alpha'  },
 
   -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
   hide = { extensions = true, inactive = false },

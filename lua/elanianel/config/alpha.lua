@@ -54,7 +54,7 @@ local buttons = {
 
 require 'alpha'.setup({
   layout = {
-    { type = 'padding', val = 3 },
+    { type = 'padding', val = 2 },
     header,
     { type = 'padding', val = 2 },
     heading,
