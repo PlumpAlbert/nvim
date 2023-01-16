@@ -80,6 +80,9 @@ lsp.setup_servers {
 lsp.setup()
 require 'ufo'.setup()
 
+require 'mason-null-ls'.setup {
+    ensure_installed = { 'prettier', 'eslint_d' }
+}
 local null_ls = require "null-ls"
 local null_opts = lsp.build_options('null-ls', {})
 local b = null_ls.builtins;
@@ -92,7 +95,7 @@ null_ls.setup {
         b.diagnostics.eslint_d,
         b.code_actions.eslint_d,
         -- prettier
-        b.formatting.prettierd.with {
+        b.formatting.prettier.with {
             env = { PRETTIERD_DEFAULT_CONFIG = vim.fn.expand('~/.prettierrc') },
             extra_filetypes = {
                 "javascript", "javascriptreact", "typescript",
