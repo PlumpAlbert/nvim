@@ -4,35 +4,24 @@ return {
   "MunifTanjim/nui.nvim",
   "lewis6991/gitsigns.nvim",
   "stevearc/dressing.nvim",
-  { "ahmedkhalf/project.nvim",
-    lazy = false,
-    config = function()
-      require 'project_nvim'.setup {
-        manual_mode = false,
-        detection_methods = { 'pattern' },
-        patterns = {
-          ".git", "_darcs", ".hg", ".bzr", ".svn",
-          "Makefile", "package.json", "vendor", ".venv",
-          "node_modules"
-        },
-        ignore_lsp = {},
-        exclude_dirs = {},
-        show_hidden = true,
-        silent_chdir = true,
-        datapath = vim.fn.stdpath("data")
-      }
-    end
-  },
   "nvim-lualine/lualine.nvim",
   { 'j-hui/fidget.nvim',
     lazy = false,
     config = function()
-      require'fidget'.setup {}
+      require 'fidget'.setup {
+        text = {
+          spinner = 'earth'
+        },
+        timer = {
+          spinner_rate = 250
+        }
+      }
     end
   },
   "romgrk/barbar.nvim",
   "goolord/alpha-nvim",
   { "norcalli/nvim-colorizer.lua",
+    lazy = false,
     config = function()
       local defaults = {
         RGB = true, -- #RGB hex codes
@@ -55,7 +44,10 @@ return {
       }
     end
   },
-  { 'nvim-telescope/telescope.nvim', version = '0.1.x' },
+  'nvim-telescope/telescope-project.nvim',
+  { 'nvim-telescope/telescope.nvim',
+    version = '0.1.x',
+  },
   { "nvim-neo-tree/neo-tree.nvim",
     lazy = false,
     branch = 'v2.x',
