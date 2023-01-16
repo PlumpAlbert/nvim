@@ -84,7 +84,12 @@ wk.register({
         name = 'Telescope',
         f = { require 'telescope.builtin'.find_files, 'Find files in CWD' },
         t = { require 'telescope.builtin'.live_grep, 'Search text' },
-        p = { function() vim.cmd.Telescope 'projects' end, 'Find projects' },
+        p = {
+            function()
+                require 'telescope'.extensions.project.project {}
+            end,
+            'Find projects'
+        },
     },
     f = { require 'telescope.builtin'.git_files, 'Find Git files' },
     r = { require 'ssr'.open, 'Find and replace', mode = { 'n', 'x' } },
