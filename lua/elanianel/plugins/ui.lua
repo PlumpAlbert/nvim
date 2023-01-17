@@ -5,6 +5,7 @@ return {
   "lewis6991/gitsigns.nvim",
   "stevearc/dressing.nvim",
   "nvim-lualine/lualine.nvim",
+  "onsails/lspkind.nvim",
   { 'j-hui/fidget.nvim',
     lazy = false,
     config = function()

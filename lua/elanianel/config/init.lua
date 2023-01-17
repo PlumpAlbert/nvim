@@ -1,5 +1,5 @@
 local configPath = 'elanianel.config'
-require(configPath .. ".lsp")
+require'elanianel.config.lsp'
 require(configPath .. ".dap")
 require(configPath .. ".neotree")
 require(configPath .. ".gitsigns")
