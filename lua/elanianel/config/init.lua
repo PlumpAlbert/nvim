@@ -1,15 +1,15 @@
 local configPath = 'elanianel.config'
-require'elanianel.config.lsp'
 require(configPath .. ".dap")
-require(configPath .. ".neotree")
-require(configPath .. ".gitsigns")
-require(configPath .. ".dressing")
-require(configPath .. ".lualine")
-require(configPath .. ".barbar")
+require(configPath .. ".lsp")
 require(configPath .. ".alpha")
+require(configPath .. ".barbar")
+require(configPath .. ".dressing")
+require(configPath .. ".gitsigns")
+require(configPath .. ".lualine")
+require(configPath .. ".neotree")
+require(configPath .. ".telescope")
 require(configPath .. ".treesitter")
 
 require 'mini.pairs'.setup {}
 require 'mini.comment'.setup {}
 require 'mini.surround'.setup {}
-

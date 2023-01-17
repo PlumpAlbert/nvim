@@ -13,7 +13,7 @@ wk.setup {
         text_objects = false,
     },
     triggers_blacklist = {
-        i = { 's' }
+        v = { 's' }
     },
     disable = {
         filetypes = { "TelescopePrompt" }
@@ -85,9 +85,7 @@ wk.register({
         f = { require 'telescope.builtin'.find_files, 'Find files in CWD' },
         t = { require 'telescope.builtin'.live_grep, 'Search text' },
         p = {
-            function()
-                require 'telescope'.extensions.project.project {}
-            end,
+            require'telescope'.extensions.project.project,
             'Find projects'
         },
     },
