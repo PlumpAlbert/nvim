@@ -1,4 +1,5 @@
 return {
   { "catppuccin/nvim", name = "catppuccin" },
-  "sainnhe/everforest"
+  "sainnhe/everforest",
+  'savq/melange-nvim',
 }
