@@ -11,4 +11,4 @@ if vim.g.neovide ~= nil then
 end
 
 require 'elanianel.config.themes.catppuccin'
-vim.cmd.colorscheme 'catppuccin'
+vim.cmd.colorscheme 'gruvbox-material'
