@@ -1,12 +1,13 @@
 local cmp = require 'cmp'
 local select = { behaviour = cmp.SelectBehavior.Select }
 
+local completeKeymap = vim.fn.has('win32') == 1 and '<C-p>' or '<C-Space>'
 local mappings = {
   ['<C-k>'] = cmp.mapping.select_prev_item(select),
   ['<C-j>'] = cmp.mapping.select_next_item(select),
   ['<CR>'] = cmp.mapping.confirm({ select = true }),
-  ['<C-Space>'] = cmp.mapping.complete {},
-}
+  [completeKeymap] = cmp.mapping.complete {},
+};
 
 cmp.setup {
   window = {
@@ -42,7 +43,6 @@ cmp.setup {
   }, {
     { name = 'buffer' },
     { name = 'path' },
-    { name = '' },
   }
 }
 
