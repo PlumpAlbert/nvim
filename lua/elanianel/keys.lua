@@ -115,6 +115,12 @@ wk.register({
         x = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
         u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
     },
+    y = {
+        name = 'Surround',
+        a = { MiniSurround.add, 'Add' },
+        d = { MiniSurround.delete, 'Delete' },
+        r = { MiniSurround.replace, 'Replace' },
+    }
 }, { prefix = '<leader>' })
 
 -- global
