@@ -49,10 +49,6 @@ require("catppuccin").setup({
     },
 })
 
-local sign = vim.fn.sign_define
-
-sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+vim.cmd.colorscheme 'catppuccin'
 
 -- vim:ft=lua:ts=4:sw=0:et
