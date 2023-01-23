@@ -85,7 +85,7 @@ wk.register({
         f = { require 'telescope.builtin'.find_files, 'Find files in CWD' },
         t = { require 'telescope.builtin'.live_grep, 'Search text' },
         p = {
-            require'telescope'.extensions.project.project,
+            require 'telescope'.extensions.project.project,
             'Find projects'
         },
     },
@@ -115,12 +115,6 @@ wk.register({
         x = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
         u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
     },
-    y = {
-        name = 'Surround',
-        a = { MiniSurround.add, 'Add' },
-        d = { MiniSurround.delete, 'Delete' },
-        r = { MiniSurround.replace, 'Replace' },
-    }
 }, { prefix = '<leader>' })
 
 -- global
