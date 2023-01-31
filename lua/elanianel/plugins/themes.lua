@@ -5,4 +5,5 @@ return {
   'sainnhe/gruvbox-material',
   'JoosepAlviste/palenightfall.nvim',
   { 'projekt0n/github-nvim-theme', branch = '0.0.x' },
+  'shaunsingh/solarized.nvim',
 }
