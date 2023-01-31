@@ -22,7 +22,7 @@ wk.setup {
 
 -- leader
 wk.register({
-    e = { vim.cmd.NeoTreeFocusToggle, 'NeoTree', },
+    e = { vim.cmd.NeoTreeFloatToggle, 'NeoTree', },
     l = {
         name = 'LSP',
         j = { vim.diagnostic.goto_next, 'Next diagnostic' },
