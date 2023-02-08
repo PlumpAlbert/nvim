@@ -23,7 +23,6 @@ M.setup = function(plugins)
   require"lazy".setup(
     utils.concat(core_plugins, plugins or {}),
     {
-      defaults = { lazy = true },
       install = {
         missing = true,
         colorscheme = { 'habamax' }
