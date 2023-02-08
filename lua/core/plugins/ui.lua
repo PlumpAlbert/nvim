@@ -1,4 +1,5 @@
 return {
+    "nvim-lua/plenary.nvim",
     { "goolord/alpha-nvim",
         lazy = false,
         name = "alpha",
@@ -9,7 +10,6 @@ return {
           require "alpha".setup(opts)
         end
     },
-    "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
     "lewis6991/gitsigns.nvim",
