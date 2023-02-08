@@ -1,24 +1,7 @@
 return {
-  'VonHeikemen/lsp-zero.nvim',
-  -- LSP Support
-  'neovim/nvim-lspconfig',
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'jay-babu/mason-null-ls.nvim',
-  -- Autocompletion
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'saadparwaiz1/cmp_luasnip',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-nvim-lua',
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-  'hrsh7th/cmp-cmdline',
-  -- Snippets
-  'L3MON4D3/LuaSnip',
-  'rafamadriz/friendly-snippets',
-  -- Null.ls
-  'jose-elias-alvarez/null-ls.nvim',
-  { 'kevinhwang91/nvim-ufo', dependencies = 'promise-async' },
-  'kevinhwang91/promise-async',
+    { 'jose-elias-alvarez/null-ls.nvim',
+        opts = function()
+          return require "elanianel.config.null"
+        end
+    },
 }

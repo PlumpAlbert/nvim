@@ -2,6 +2,7 @@
 local M = {}
 
 local luaLibrary = vim.api.nvim_get_runtime_file("", true)
+
 local function addLibrary(path)
     for _, p in pairs(vim.fn.expand(path, false, true)) do
         p = vim.loop.fs_realpath(p)
@@ -26,6 +27,7 @@ M.configure = function(lsp)
                 workspace = {
                     -- Make the server aware of Neovim runtime files
                     library = luaLibrary,
+                    checkThirdParty = false,
                 },
                 -- Do not send telemetry data containing a randomized but unique identifier
                 telemetry = { enable = false, },

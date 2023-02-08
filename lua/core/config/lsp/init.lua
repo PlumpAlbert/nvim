@@ -1,5 +1,4 @@
 -- vim:ft=lua:ts=4:sw=0:et
-require 'elanianel.config.lsp.completion'
 require 'neodev'.setup {}
 local lsp = require 'lsp-zero'
 lsp.set_preferences({
@@ -18,12 +17,11 @@ lsp.set_preferences({
     }
 })
 
-
 vim.diagnostic.config({
     virtual_text = true
 })
 
-require 'elanianel.config.lsp.servers.lua'.configure(lsp)
+require 'core.config.lsp.servers.lua'.configure(lsp)
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.foldingRange = {
@@ -34,5 +32,3 @@ lsp.setup_servers { opts = { capabilities = capabilities } }
 lsp.setup {}
 
 require 'ufo'.setup {}
-
-require 'elanianel.config.lsp.null'

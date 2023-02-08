@@ -1,5 +1,6 @@
 return {
     "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
     "nvim-tree/nvim-web-devicons",
     "onsails/lspkind.nvim",
     { "goolord/alpha-nvim",
@@ -38,10 +39,10 @@ return {
     },
     { "nvim-neo-tree/neo-tree.nvim",
         branch = 'v2.x',
-        dependecies = {
-            'plenary',
-            'nvim-web-devicons',
-            'nui'
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'MunifTanjim/nui.nvim'
         },
         keys = {
             { "<leader>e", "<cmd>Neotree float toggle<CR>", desc = "Open file explorer" }
@@ -50,7 +51,6 @@ return {
           return vim.tbl_extend('force', require 'core.config.neotree', opts)
         end
     },
-    "MunifTanjim/nui.nvim",
     { 'j-hui/fidget.nvim',
         lazy = false,
         opts = function(_, opts)
