@@ -17,7 +17,7 @@
   "github-nvim-theme": { "branch": "0.0.x", "commit": "a93fc4cd3c16b91cf29a1387015e6e925c416efb" },
   "gitsigns.nvim": { "branch": "main", "commit": "7b37bd5c2dd4d7abc86f2af096af79120608eeca" },
   "gruvbox-material": { "branch": "master", "commit": "13b7eb4589d9ab0f388ca51047051f7158c930e5" },
-  "lazy.nvim": { "branch": "main", "commit": "cab4682d22a0451bc36a648694235621b5dd808e" },
+  "lazy.nvim": { "branch": "main", "commit": "48c9b37294f31e3875435bca41d0c923fdd6eea4" },
   "lsp-zero.nvim": { "branch": "main", "commit": "0b312c34372ec2b0daec722d1b7fad77b84bef5b" },
   "lspkind.nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },
   "lualine.nvim": { "branch": "master", "commit": "0050b308552e45f7128f399886c86afefc3eb988" },
