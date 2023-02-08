@@ -22,7 +22,6 @@ wk.setup {
 
 -- leader
 wk.register({
-    e = { vim.cmd.NeoTreeFloatToggle, 'NeoTree', },
     l = {
         name = 'LSP',
         j = { vim.diagnostic.goto_next, 'Next diagnostic' },
@@ -84,13 +83,8 @@ wk.register({
         name = 'Telescope',
         f = { require 'telescope.builtin'.find_files, 'Find files in CWD' },
         t = { require 'telescope.builtin'.live_grep, 'Search text' },
-        p = {
-            require 'telescope'.extensions.project.project,
-            'Find projects'
-        },
     },
     f = { require 'telescope.builtin'.git_files, 'Find Git files' },
-    r = { require 'ssr'.open, 'Find and replace', mode = { 'n', 'x' } },
     c = { vim.cmd.BufferClose, 'Close buffer' },
     d = {
         name = "Debug",

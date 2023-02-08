@@ -1,4 +1,4 @@
-require'neo-tree'.setup {
+return {
   window = {
     position = 'right',
     width = 25,

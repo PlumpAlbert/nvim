@@ -1,4 +1,4 @@
-require 'lualine'.setup {
+return {
   theme = 'auto',
   sections = {
     lualine_a = { 'mode' },

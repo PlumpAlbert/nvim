@@ -30,36 +30,11 @@ local header = {
     },
 }
 
-local heading = {
-    type = "text",
-    val = "Welcome back!",
-    opts = {
-        position = "center",
-        hl = "DashboardShortCut",
-    },
-}
-
-local buttons = {
-    type = 'group',
-    val = {
-        db.button('SPC f', " Find files", "<cmd>Telescope find_files<CR>"),
-        db.button('SPC s p', " Open projects", "<cmd>Telescope projects<CR>"),
-        db.button('SPC s t', " Find word", "<cmd>Telescope live_grep<CR>"),
-    },
-    opts = {
-        position = 'center',
-        hl = 'DashboardCenter'
-    }
-}
-
 return {
     layout = {
-        { type = 'padding', val = 2 },
+        { type = 'padding', val = 4 },
         header,
-        { type = 'padding', val = 2 },
-        heading,
-        { type = 'padding', val = 2 },
-        buttons
+        { type = 'padding', val = 4 },
     }
 }
 --vim:ft=lua:ts=2:sw=0:et

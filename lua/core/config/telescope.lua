@@ -1,5 +1,4 @@
-local telescope = require("telescope")
-telescope.setup {
+return {
     prompt_prefix = " ",
     selection_caret = " ",
     entry_prefix = "  ",
@@ -9,6 +8,3 @@ telescope.setup {
         preview = { " " },
     },
 }
-telescope.load_extension("project")
-
--- vim:ft=lua:ts=4:sw=0:et

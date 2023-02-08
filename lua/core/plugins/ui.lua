@@ -1,41 +1,69 @@
 return {
     "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "onsails/lspkind.nvim",
     { "goolord/alpha-nvim",
-        lazy = false,
         name = "alpha",
         opts = function(_, opts)
-          return vim.tbl_extend('force', opts, require "core.config.alpha")
-        end,
-        config = function(_, opts)
-          require "alpha".setup(opts)
+          return vim.tbl_extend('force', require "core.config.alpha", opts)
         end
     },
-    "nvim-tree/nvim-web-devicons",
+    { "romgrk/barbar.nvim",
+        opts = function(_, opts)
+          return vim.tbl_extend('force', require "core.config.barbar", opts)
+        end
+    },
+    { "stevearc/dressing.nvim",
+        opts = function(_, opts)
+          return vim.tbl_extend(
+                  'force',
+                  {
+                      select = {
+                          backend = { "nui", "telescope", "fzf_lua", "fzf", "builtin", }
+                      }
+                  },
+                  opts
+              )
+        end
+    },
+    { "lewis6991/gitsigns.nvim",
+        opts = function(_, opts)
+          return vim.tbl_extend('force', require 'core.config.gitsigns', opts)
+        end
+    },
+    { "nvim-lualine/lualine.nvim",
+        opts = function(_, opts)
+          return vim.tbl_extend('force', require 'core.config.lualine', opts)
+        end
+    },
+    { "nvim-neo-tree/neo-tree.nvim",
+        branch = 'v2.x',
+        dependecies = {
+            'plenary',
+            'nvim-web-devicons',
+            'nui'
+        },
+        keys = {
+            { "<leader>e", "<cmd>Neotree float toggle<CR>", desc = "Open file explorer" }
+        },
+        opts = function(_, opts)
+          return vim.tbl_extend('force', require 'core.config.neotree', opts)
+        end
+    },
     "MunifTanjim/nui.nvim",
-    "lewis6991/gitsigns.nvim",
-    "stevearc/dressing.nvim",
-    "nvim-lualine/lualine.nvim",
-    "onsails/lspkind.nvim",
     { 'j-hui/fidget.nvim',
         lazy = false,
-        config = function()
-          require 'fidget'.setup {
-              window = {
-                  blend = 0,
-              },
-              text = {
-                  spinner = 'earth'
-              },
-              timer = {
-                  spinner_rate = 250
-              }
-          }
+        opts = function(_, opts)
+          return vim.tbl_extend('force', {
+                  window = { blend = 0, },
+                  text = { spinner = 'earth' },
+                  timer = { spinner_rate = 250 }
+              }, opts)
         end
     },
-    "romgrk/barbar.nvim",
     { "norcalli/nvim-colorizer.lua",
         lazy = false,
-        config = function()
+        opts = function(_, opts)
           local defaults = {
               RGB = true, -- #RGB hex codes
               RRGGBB = true, -- #RRGGBB hex codes
@@ -48,25 +76,13 @@ return {
               -- Available modes: foreground, background
               mode = "background", -- Set the display mode.
           }
-          require 'colorizer'.setup {
-              "*",
-              css = defaults,
-              html = defaults,
-              sass = defaults,
-          }
+          return vim.tbl_extend('force', {
+                  "*",
+                  css = defaults,
+                  html = defaults,
+                  sass = defaults,
+              }, opts)
         end
     },
-    'nvim-telescope/telescope-project.nvim',
-    { 'nvim-telescope/telescope.nvim',
-        version = '0.1.x',
-    },
-    { "nvim-neo-tree/neo-tree.nvim",
-        lazy = false,
-        branch = 'v2.x',
-        dependecies = {
-            'plenary',
-            'nvim-web-devicons',
-            'nui'
-        }
-    }
+
 }

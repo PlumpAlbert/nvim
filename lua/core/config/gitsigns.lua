@@ -1,4 +1,4 @@
-require 'gitsigns'.setup {
+return {
   numhl = true,
   linehl = false,
   word_diff = false,
