@@ -5,7 +5,12 @@ return {
         name = 'telescope',
         opts = function(_, opts)
           return vim.tbl_extend('force', require "core.config.telescope", opts)
-        end
+        end,
+        keys = {
+            { '<leader>f',  '<cmd>Telescope git_files<CR>',  desc = 'Find files' },
+            { '<leader>sf', '<cmd>Telescope find_files<CR>', desc = 'Find files in CWD' },
+            { '<leader>st', '<cmd>Telescope live_grep<CR>',  desc = 'Search text' },
+        }
     },
     { 'nvim-telescope/telescope-project.nvim',
         dependencies = { 'telescope' },

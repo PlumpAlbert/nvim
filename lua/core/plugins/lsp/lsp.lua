@@ -7,6 +7,7 @@ return {
         dependencies = { 'williamboman/mason.nvim', }
     },
     { 'VonHeikemen/lsp-zero.nvim',
+        event = 'BufEnter',
         dependencies = {
             -- LSP Support
             'neovim/nvim-lspconfig',

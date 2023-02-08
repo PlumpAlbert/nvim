@@ -1,5 +1,3 @@
-local db = require 'alpha.themes.dashboard'
-
 local header = {
     type = "text",
     val = {

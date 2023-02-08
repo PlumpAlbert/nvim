@@ -2,19 +2,22 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "nvim-tree/nvim-web-devicons",
-    "onsails/lspkind.nvim",
+    { "onsails/lspkind.nvim", lazy = false },
     { "goolord/alpha-nvim",
         name = "alpha",
+        event = "VimEnter",
         opts = function(_, opts)
           return vim.tbl_extend('force', require "core.config.alpha", opts)
         end
     },
     { "romgrk/barbar.nvim",
+        event = "VimEnter",
         opts = function(_, opts)
           return vim.tbl_extend('force', require "core.config.barbar", opts)
         end
     },
     { "stevearc/dressing.nvim",
+        event = "VimEnter",
         opts = function(_, opts)
           return vim.tbl_extend(
                   'force',
@@ -28,11 +31,21 @@ return {
         end
     },
     { "lewis6991/gitsigns.nvim",
+        event = "VimEnter",
         opts = function(_, opts)
           return vim.tbl_extend('force', require 'core.config.gitsigns', opts)
-        end
+        end,
+        keys = {
+            { '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>',    desc = 'Preview hunk',  mode = 'n', },
+            { '<leader>gs', '<cmd>Gitsigns stage_hunk<CR>',      desc = 'Stage hunk',    mode = { 'v', 'n' }, },
+            { '<leader>gu', '<cmd>Gitsigns undo_stage_hunk<CR>', desc = 'Undo staging',  mode = { 'v', 'n' }, },
+            { '<leader>gv', '<cmd>Gitsigns select_hunk<CR>',     desc = 'Select hunk',   mode = 'n', },
+            { ']c',         '<cmd>Gitsigns next_hunk<CR>',       desc = 'Next hunk',     mode = 'n', },
+            { '[c',         '<cmd>Gitsigns prev_hunk<CR>',       desc = 'Previous hunk', mode = 'n', },
+        }
     },
     { "nvim-lualine/lualine.nvim",
+        event = "VimEnter",
         opts = function(_, opts)
           return vim.tbl_extend('force', require 'core.config.lualine', opts)
         end
@@ -52,7 +65,7 @@ return {
         end
     },
     { 'j-hui/fidget.nvim',
-        lazy = false,
+        event = "VimEnter",
         opts = function(_, opts)
           return vim.tbl_extend('force', {
                   window = { blend = 0, },
@@ -62,7 +75,7 @@ return {
         end
     },
     { "norcalli/nvim-colorizer.lua",
-        lazy = false,
+        event = "BufEnter",
         opts = function(_, opts)
           local defaults = {
               RGB = true, -- #RGB hex codes

@@ -1,12 +1,9 @@
 return {
     { 'jose-elias-alvarez/null-ls.nvim',
         dependencies = { 'VonHeikemen/lsp-zero.nvim' },
-        opts = function(_, opts)
-          return vim.tbl_extend(
-                  'force',
-                  require "lsp-zero".build_options('null-ls', {}),
-                  opts
-              )
+        event = 'BufEnter',
+        opts = function()
+          return require "lsp-zero".build_options('null-ls', {})
         end
     },
     'kevinhwang91/promise-async',
@@ -18,6 +15,7 @@ return {
             'jose-elias-alvarez/null-ls.nvim',
             'williamboman/mason.nvim',
         },
+        event = 'BufEnter',
         opts = function(_, opts)
           return vim.tbl_extend(
                   'force',
