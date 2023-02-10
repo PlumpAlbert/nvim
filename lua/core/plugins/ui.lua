@@ -97,5 +97,33 @@ return {
               }, opts)
         end
     },
+    { "s1n7ax/nvim-window-picker",
+        opts = {
+            autoselect_one = true,
+            include_current_win = false,
+            selection_chars = 'FJDKSLA;CMRUEIWOQP',
+            -- whether you want to use winbar instead of the statusline
+            use_winbar = 'never', -- "always" | "never" | "smart"
+            show_prompt = true,
+            filter_rules = {
+                -- filter using buffer options
+                bo = {
+                    -- if the file type is one of following, the window will be ignored
+                    filetype = { 'NvimTree', "neo-tree", "notify" },
 
+                    -- if the buffer type is one of following, the window will be ignored
+                    buftype = { 'terminal' },
+                },
+                -- filter using window options
+                wo = {},
+                file_path_contains = {},
+                file_name_contains = {},
+            },
+            fg_color = '#ededed',
+            -- You can change the display string in status bar.
+            -- It supports '%' printf style. Such as `return char .. ': %f'` to display
+            -- buffer filepath. See :h 'stl' for details.
+            selection_display = function(char) return char end,
+        }
+    }
 }
