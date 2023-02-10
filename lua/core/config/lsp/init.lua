@@ -6,7 +6,7 @@ lsp.set_preferences({
     configure_diagnostics = true,
     cmp_capabilities = true,
     manage_nvim_cmp = false,
-    suggest_lsp_servers = false,
+    suggest_lsp_servers = true,
     set_lsp_keymaps = false,
     call_servers = 'local',
     sign_icons = {
@@ -29,37 +29,40 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true
 }
 lsp.setup_servers { opts = { capabilities = capabilities, } }
-lsp.on_attach(function(client, buf)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Symbol info', noremap = true, })
+lsp.on_attach(function(_, bufnr)
+    local function get_opts(opts)
+        return vim.tbl_extend('force', { noremap = true, buffer = bufnr }, opts)
+    end
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, get_opts { desc = 'Symbol info' })
     vim.keymap.set(
         { 'i', 'x' },
         '<C-h>',
         vim.lsp.buf.signature_help,
-        { desc = 'Signature help', noremap = true, }
+        get_opts { desc = 'Signature help' }
     )
     vim.keymap.set(
         'n',
         '<leader>lj',
         vim.diagnostic.goto_next,
-        { desc = 'Next warning', noremap = true, }
+        get_opts { desc = 'Next warning' }
     )
     vim.keymap.set(
         'n',
         '<leader>lk',
         vim.diagnostic.goto_prev,
-        { desc = 'Previous warning', noremap = true, }
+        get_opts { desc = 'Previous warning' }
     )
     vim.keymap.set(
         'n',
         '<leader>la',
         vim.lsp.buf.code_action,
-        { desc = 'Code actions', noremap = true, }
+        get_opts { desc = 'Code actions' }
     )
     vim.keymap.set(
         'n',
         '<leader>lr',
         vim.lsp.buf.rename,
-        { desc = 'Rename symbol', noremap = true, }
+        get_opts { desc = 'Rename symbol' }
     )
     vim.keymap.set(
         { 'n', 'v' },
@@ -71,45 +74,47 @@ lsp.on_attach(function(client, buf)
                 end
             }
         end,
-        { desc = 'Format document', noremap = true, }
+        get_opts { desc = 'Format document' }
     )
     vim.keymap.set(
         'n',
         'zM', require 'ufo'.closeAllFolds,
-        { desc = "Close all folds", noremap = true }
+        get_opts { desc = "Close all folds" }
     )
     vim.keymap.set(
         'n',
         'zR', require 'ufo'.openAllFolds,
-        { desc = "Close all folds", noremap = true }
+        get_opts { desc = "Close all folds" }
     )
     -- navigation
     vim.keymap.set(
         'n',
         'gd', vim.lsp.buf.definition,
-        { desc = "Go to definition", noremap = true }
+        get_opts { desc = "Go to definition" }
     )
     vim.keymap.set(
         'n',
         'gi', vim.lsp.buf.implementation,
-        { desc = "Go to implementation", noremap = true }
+        get_opts { desc = "Go to implementation" }
     )
     vim.keymap.set(
         'n',
         'gr', vim.lsp.buf.references,
-        { desc = "Go to references", noremap = true }
+        get_opts { desc = "Go to references" }
     )
     vim.keymap.set(
         'n',
         'gt', vim.lsp.buf.type_definition,
-        { desc = "Go to type definition", noremap = true }
+        get_opts { desc = "Go to type definition" }
     )
     vim.keymap.set(
         'n',
         'gD', vim.lsp.buf.declaration,
-        { desc = "Go to declaration", noremap = true }
+        get_opts { desc = "Go to declaration" }
     )
 end)
 lsp.setup()
 
 require 'ufo'.setup {}
+
+return lsp
