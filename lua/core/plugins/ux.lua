@@ -1,4 +1,13 @@
 return {
+    { "folke/which-key.nvim",
+        lazy = false,
+        config = function(_, keys)
+          local wk = require "core.config.which_key"
+          if keys ~= nil then
+            wk.register(keys)
+          end
+        end
+    },
     { 'echasnovski/mini.pairs',
         lazy = false,
         config = function(_, opts)

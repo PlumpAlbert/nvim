@@ -78,3 +78,5 @@ wk.register({
         'Go to next buffer'
     },
 })
+
+return wk
