@@ -1,3 +1,4 @@
 require "core".setup(require "elanianel.plugins")
-
-vim.cmd.colorscheme 'moonfly'
+require "elanianel.commands"
+require "elanianel.config.lsp"
+require "elanianel.config.themes.moonfly"

@@ -2,6 +2,12 @@ return {
     -- LSP Support
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
+    { 'williamboman/mason-lspconfig.nvim',
+        opts = {
+            automatic_installation = true,
+            ensure_installed = { 'sumneko_lua' }
+        }
+    },
     "folke/neodev.nvim",
     { 'jay-babu/mason-null-ls.nvim',
         dependencies = { 'williamboman/mason.nvim', }
