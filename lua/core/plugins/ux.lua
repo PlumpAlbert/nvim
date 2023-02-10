@@ -34,13 +34,6 @@ return {
         keys = {
             { '<leader>R',
                 function()
-                  require "spectre".open_visual()
-                end,
-                desc = "Find and replace",
-                mode = { "n", "x" }
-            },
-            { '<leader>Rw',
-                function()
                   require "spectre".open_visual { select_word = true }
                 end,
                 desc = "Find and replace",
