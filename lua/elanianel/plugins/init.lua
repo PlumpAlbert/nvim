@@ -10,5 +10,4 @@ local M = {
 
 M = utils.concat(M, require "elanianel.plugins.themes")
 
-
 return M
