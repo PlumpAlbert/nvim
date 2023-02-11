@@ -5,7 +5,7 @@ return {
               require 'dap'.toggle_breakpoint()
             end, desc = "Toggle breakpoint" },
             { '<leader>ds', function()
-              require 'dap'.run()
+              require 'dap'.continue()
             end, desc = 'Start debugging' },
         }
     },
