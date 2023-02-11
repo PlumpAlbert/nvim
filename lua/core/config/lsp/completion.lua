@@ -1,13 +1,32 @@
 local cmp = require 'cmp'
+local luasnip = require "luasnip"
 local lspkind = require "lspkind"
 local select = { behaviour = cmp.SelectBehavior.Select }
 
 local completeKeymap = vim.fn.has('win32') == 1 and '<C-p>' or '<C-Space>'
 local mappings = {
-    ['<C-k>'] = cmp.mapping.select_prev_item(select),
-    ['<C-j>'] = cmp.mapping.select_next_item(select),
+    ['<C-k>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable( -1) then
+        luasnip.jump( -1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<C-j>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
     [completeKeymap] = cmp.mapping.complete {},
+    ['<M-j>'] = cmp.mapping.scroll_docs(3),
+    ['<M-k>'] = cmp.mapping.scroll_docs( -3),
 };
 
 cmp.setup {
@@ -63,3 +82,5 @@ cmp.setup.cmdline(':', {
             }
         })
 })
+
+require 'luasnip.loaders.from_vscode'.lazy_load {}
