@@ -41,7 +41,6 @@ wk.register({
             'Check plugins'
         },
     },
-    c = { vim.cmd.BufferClose, 'Close buffer' },
     d = {
         name = "Debug",
         R = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor" },
@@ -66,17 +65,5 @@ wk.register({
         u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
     },
 }, { prefix = '<leader>' })
-
--- global
-wk.register({
-    ['<M-h>'] = {
-        function() require 'bufferline.api'.goto_buffer_relative( -1) end,
-        'Go to previous buffer'
-    },
-    ['<M-l>'] = {
-        function() require 'bufferline.api'.goto_buffer_relative(1) end,
-        'Go to next buffer'
-    },
-})
 
 return wk

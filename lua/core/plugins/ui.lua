@@ -12,6 +12,15 @@ return {
     },
     { "romgrk/barbar.nvim",
         event = "VimEnter",
+        keys = {
+            { '<leader>c', vim.cmd.BufferClose, desc = 'Close buffer' },
+            { '<M-h>', function()
+              require 'bufferline.api'.goto_buffer_relative( -1)
+            end, desc = 'Go to previous buffer', mode = { 'n', 'v', 'x' } },
+            { '<M-l>', function()
+              require 'bufferline.api'.goto_buffer_relative(1)
+            end, desc = 'Go to next buffer', mode = { 'n', 'v', 'x' } },
+        },
         opts = function(_, opts)
           return vim.tbl_extend('force', require "core.config.barbar", opts)
         end
