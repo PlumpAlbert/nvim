@@ -2,7 +2,7 @@ return {
     { 'nvim-telescope/telescope.nvim',
         lazy = true,
         version = '0.1.x',
-        name = 'telescope',
+        cmd = 'Telescope',
         opts = function(_, opts)
           return vim.tbl_extend('force', require "core.config.telescope", opts)
         end,
@@ -13,7 +13,7 @@ return {
         }
     },
     { 'nvim-telescope/telescope-project.nvim',
-        dependencies = { 'telescope' },
+        dependencies = { 'nvim-telescope/telescope.nvim' },
         keys = {
             { '<leader>sp', "<cmd>Telescope project<CR>", desc = "Search projects" }
         },
