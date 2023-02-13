@@ -66,8 +66,9 @@ return {
             'nvim-tree/nvim-web-devicons',
             'MunifTanjim/nui.nvim'
         },
+        cmd = "Neotree",
         keys = {
-            { "<leader>e", "<cmd>Neotree float toggle<CR>", desc = "Open file explorer" }
+            { "<leader>e", "<cmd>Neotree float toggle reveal_force_cwd<CR>", desc = "Open file explorer" }
         },
         opts = function(_, opts)
           return vim.tbl_extend('force', require 'core.config.neotree', opts)
