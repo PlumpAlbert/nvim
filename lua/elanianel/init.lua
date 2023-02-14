@@ -3,8 +3,8 @@ require "elanianel.commands"
 require "elanianel.config.lsp"
 
 local current_hour = tonumber(os.date("%H"))
-if current_hour > 8 or current_hour < 17 then
-  require 'elanianel.config.themes.github'
+if current_hour > 8 and current_hour < 17 then
+  vim.cmd.colorscheme "github_light"
 else
-  require 'elanianel.config.themes.moonfly'
+  vim.cmd.colorscheme "nordic"
 end
