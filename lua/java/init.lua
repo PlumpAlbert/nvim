@@ -9,3 +9,7 @@ vim.fn.system({
   '-o',
   vim.fn.stdpath('data') .. '/eclipse/eclipse-java-google-style.xml'
 })
+
+local lsp = require "lsp-zero"
+
+lsp.configure('lemminx', {})
