@@ -5,7 +5,7 @@ return {
     { 'williamboman/mason-lspconfig.nvim',
         opts = {
             automatic_installation = true,
-            ensure_installed = { 'sumneko_lua' }
+            ensure_installed = { 'lua_ls' }
         }
     },
     "folke/neodev.nvim",
