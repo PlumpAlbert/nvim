@@ -17,7 +17,7 @@ if vim.fn.has('unix') == 1 then
 end
 
 M.configure = function(lsp)
-    lsp.configure('sumneko_lua', {
+    lsp.configure('lua_ls', {
         settings = {
             Lua = {
                 runtime = {
