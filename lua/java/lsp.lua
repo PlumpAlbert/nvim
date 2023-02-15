@@ -14,3 +14,4 @@ if not ok then
 end
 
 lsp.configure('lemminx', {})
+lsp.skip_server_setup({ 'jdtls' })
