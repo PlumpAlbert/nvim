@@ -1,15 +1,11 @@
-require "core".setup(require "java.plugins")
+require "java.lsp"
 
-vim.fn.mkdir(vim.fn.stdpath('data') .. '/eclipse', 'p')
+local M = {}
 
-vim.fn.system({
-  'curl',
-  '-L',
-  'https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml',
-  '-o',
-  vim.fn.stdpath('data') .. '/eclipse/eclipse-java-google-style.xml'
-})
+M.plugins = require "java.plugins"
 
-local lsp = require "lsp-zero"
+M.setup = function()
+  require "core".setup(M.plugins)
+end
 
-lsp.configure('lemminx', {})
+return M
