@@ -2,7 +2,7 @@
 require 'neodev'.setup {}
 local lsp = require 'lsp-zero'
 lsp.set_preferences({
-    setup_servers_on_start = false,
+    setup_servers_on_start = true,
     configure_diagnostics = true,
     cmp_capabilities = true,
     manage_nvim_cmp = false,
