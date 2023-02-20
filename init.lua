@@ -1,8 +1,20 @@
--- local java = require 'java'
-local js = require 'javascript'
--- local golang = require 'golang'
+-- core
+local utils = require "core.lazy.util"
+-- languages
+local languages = {
+    require 'java',
+    require 'javascript',
+    require 'golang',
+}
 
-js.setup()
+local plugins = {}
+for _, lang in ipairs(languages) do
+    plugins = utils.concat(plugins, lang.plugins)
+end
+require "core".setup(plugins)
 
+for _, lang in ipairs(languages) do
+    lang.setup()
+end
 
 vim.cmd.colorscheme 'nordic'

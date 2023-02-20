@@ -1,12 +1,9 @@
-require "javascript.commands"
-require "javascript.config.lsp"
-
 local M = {}
 
 M.plugins = require "javascript.plugins"
 
 M.setup = function()
-  require "core".setup(M.plugins)
+    require "javascript.config.lsp"
 end
 
 return M
