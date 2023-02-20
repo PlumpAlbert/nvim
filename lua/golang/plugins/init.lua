@@ -1,21 +1,4 @@
-local M = {
-    { 'Mofiqul/vscode.nvim',
-        opts = {
-            -- Enable transparent background
-            transparent = true,
-            -- Enable italic comment
-            italic_comments = true,
-            -- Disable nvim-tree background color
-            disable_nvimtree_bg = true,
-            -- Override colors (see ./lua/vscode/colors.lua)
-            color_overrides = {},
-            -- Override highlight groups (see ./lua/vscode/theme.lua)
-            group_overrides = {
-                -- this supports the same val table as vim.api.nvim_set_hl
-                -- use colors from this colorscheme by requiring vscode.colors!
-            }
-        }
-    },
+return {
     { "leoluz/nvim-dap-go",
         dependencies = { 'mfussenegger/nvim-dap' },
         ft = { 'go' },
@@ -41,9 +24,10 @@ local M = {
             },
         }
     },
-    { 'jay-babu/mason-nvim-dap.nvim', opts = {
-        ensure_installed = { 'delve' }
-    } }
+    { 'jay-babu/mason-nvim-dap.nvim',
+        ft = { 'go' },
+        opts = {
+            ensure_installed = { 'delve' }
+        }
+    }
 }
-
-return M
