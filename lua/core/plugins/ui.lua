@@ -2,12 +2,18 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "nvim-tree/nvim-web-devicons",
+    { "xiyaowong/nvim-transparent",
+        cmd = { "TransparentEnable", "TransparentDisable", "TransparentToggle" },
+        keys = {
+            { '<leader>t', vim.cmd.TransparentToggle, desc = "Toggle transparency" }
+        }
+    },
     { "onsails/lspkind.nvim", lazy = false },
     { "goolord/alpha-nvim",
         name = "alpha",
         event = "VimEnter",
         opts = function(_, opts)
-          return vim.tbl_extend('force', require "core.config.alpha", opts)
+            return vim.tbl_extend('force', require "core.config.alpha", opts)
         end
     },
     { "romgrk/barbar.nvim",
@@ -15,34 +21,34 @@ return {
         keys = {
             { '<leader>c', vim.cmd.BufferClose, desc = 'Close buffer' },
             { '<M-h>', function()
-              require 'bufferline.api'.goto_buffer_relative( -1)
+                require 'bufferline.api'.goto_buffer_relative( -1)
             end, desc = 'Go to previous buffer', mode = { 'n', 'v', 'x' } },
             { '<M-l>', function()
-              require 'bufferline.api'.goto_buffer_relative(1)
+                require 'bufferline.api'.goto_buffer_relative(1)
             end, desc = 'Go to next buffer', mode = { 'n', 'v', 'x' } },
         },
         opts = function(_, opts)
-          return vim.tbl_extend('force', require "core.config.barbar", opts)
+            return vim.tbl_extend('force', require "core.config.barbar", opts)
         end
     },
     { "stevearc/dressing.nvim",
         event = "VimEnter",
         opts = function(_, opts)
-          return vim.tbl_extend(
-                  'force',
-                  {
-                      select = {
-                          backend = { "nui", "telescope", "fzf_lua", "fzf", "builtin", }
-                      }
-                  },
-                  opts
-              )
+            return vim.tbl_extend(
+                'force',
+                {
+                    select = {
+                        backend = { "nui", "telescope", "fzf_lua", "fzf", "builtin", }
+                    }
+                },
+                opts
+            )
         end
     },
     { "lewis6991/gitsigns.nvim",
         event = "VimEnter",
         opts = function(_, opts)
-          return vim.tbl_extend('force', require 'core.config.gitsigns', opts)
+            return vim.tbl_extend('force', require 'core.config.gitsigns', opts)
         end,
         keys = {
             { '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>',    desc = 'Preview hunk',  mode = 'n', },
@@ -56,7 +62,7 @@ return {
     { "nvim-lualine/lualine.nvim",
         event = "VimEnter",
         opts = function(_, opts)
-          return vim.tbl_extend('force', require 'core.config.lualine', opts)
+            return vim.tbl_extend('force', require 'core.config.lualine', opts)
         end
     },
     { "nvim-neo-tree/neo-tree.nvim",
@@ -71,40 +77,40 @@ return {
             { "<leader>e", "<cmd>Neotree float toggle reveal_force_cwd<CR>", desc = "Open file explorer" }
         },
         opts = function(_, opts)
-          return vim.tbl_extend('force', require 'core.config.neotree', opts)
+            return vim.tbl_extend('force', require 'core.config.neotree', opts)
         end
     },
     { 'j-hui/fidget.nvim',
         event = "VimEnter",
         opts = function(_, opts)
-          return vim.tbl_extend('force', {
-                  window = { blend = 0, },
-                  text = { spinner = 'earth' },
-                  timer = { spinner_rate = 250 }
-              }, opts)
+            return vim.tbl_extend('force', {
+                window = { blend = 0, },
+                text = { spinner = 'earth' },
+                timer = { spinner_rate = 250 }
+            }, opts)
         end
     },
     { "norcalli/nvim-colorizer.lua",
         event = "BufEnter",
         opts = function(_, opts)
-          local defaults = {
-              RGB = true, -- #RGB hex codes
-              RRGGBB = true, -- #RRGGBB hex codes
-              names = false, -- "Name" codes like Blue
-              RRGGBBAA = false, -- #RRGGBBAA hex codes
-              rgb_fn = false, -- CSS rgb() and rgba() functions
-              hsl_fn = false, -- CSS hsl() and hsla() functions
-              css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-              css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-              -- Available modes: foreground, background
-              mode = "background", -- Set the display mode.
-          }
-          return vim.tbl_extend('force', {
-                  "*",
-                  css = defaults,
-                  html = defaults,
-                  sass = defaults,
-              }, opts)
+            local defaults = {
+                RGB = true, -- #RGB hex codes
+                RRGGBB = true, -- #RRGGBB hex codes
+                names = false, -- "Name" codes like Blue
+                RRGGBBAA = false, -- #RRGGBBAA hex codes
+                rgb_fn = false, -- CSS rgb() and rgba() functions
+                hsl_fn = false, -- CSS hsl() and hsla() functions
+                css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+                css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+                -- Available modes: foreground, background
+                mode = "background", -- Set the display mode.
+            }
+            return vim.tbl_extend('force', {
+                "*",
+                css = defaults,
+                html = defaults,
+                sass = defaults,
+            }, opts)
         end
     },
     { "s1n7ax/nvim-window-picker",
