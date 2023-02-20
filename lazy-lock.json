@@ -15,7 +15,6 @@
   "github-nvim-theme": { "branch": "0.0.x", "commit": "a93fc4cd3c16b91cf29a1387015e6e925c416efb" },
   "gitsigns.nvim": { "branch": "main", "commit": "5f1451ea7d9a9005b3f0bedeab20cef7a4c65993" },
   "gruvbox-material": { "branch": "master", "commit": "13b7eb4589d9ab0f388ca51047051f7158c930e5" },
-  "guess-indent.nvim": { "branch": "main", "commit": "c37467baa1a51b74ed767cbe0540fce44e03d828" },
   "lazy.nvim": { "branch": "main", "commit": "e916f41df26e33b01f1b3ebe28881090da3a7281" },
   "lsp-zero.nvim": { "branch": "main", "commit": "d6af8aebb8b64877323f859d842eabdd79d021c3" },
   "lspkind.nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },
@@ -55,5 +54,6 @@
   "promise-async": { "branch": "main", "commit": "7fa127fa80e7d4d447e0e2c78e99af4355f4247b" },
   "telescope-project.nvim": { "branch": "master", "commit": "8e8ee37b7210761502cdf2c3a82b5ba8fb5b2972" },
   "telescope.nvim": { "branch": "master", "commit": "c1a2af0af69e80e14e6b226d3957a064cd080805" },
+  "vim-wakatime": { "branch": "master", "commit": "62113bb063aa1923146e59270d71563441ceabe5" },
   "which-key.nvim": { "branch": "main", "commit": "5224c261825263f46f6771f1b644cae33cd06995" }
 }
