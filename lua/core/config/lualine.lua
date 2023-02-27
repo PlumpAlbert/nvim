@@ -9,10 +9,10 @@ return {
                 require 'lazy.status'.updates,
                 cond = require 'lazy.status'.has_updates,
                 color = { fg = '#ff9e64' }
-            }
+            },
         },
-        lualine_y = {},
-        lualine_z = { 'diagnostics', 'filetype' },
+        lualine_y = { 'diagnostics', 'filetype' },
+        lualine_z = {},
     },
     extensions = {
         'neo-tree',
