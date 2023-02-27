@@ -58,6 +58,7 @@
   "promise-async": { "branch": "main", "commit": "7fa127fa80e7d4d447e0e2c78e99af4355f4247b" },
   "telescope-project.nvim": { "branch": "master", "commit": "8e8ee37b7210761502cdf2c3a82b5ba8fb5b2972" },
   "telescope.nvim": { "branch": "master", "commit": "c1a2af0af69e80e14e6b226d3957a064cd080805" },
+  "vim-doge": { "branch": "master", "commit": "c340d02379da17d051399f0cc1c87e7d2c1cefeb" },
   "vim-wakatime": { "branch": "master", "commit": "62113bb063aa1923146e59270d71563441ceabe5" },
   "vscode.nvim": { "branch": "main", "commit": "db9ee339b5556aa832ca58871fd18f9467a18520" },
   "which-key.nvim": { "branch": "main", "commit": "5224c261825263f46f6771f1b644cae33cd06995" }
