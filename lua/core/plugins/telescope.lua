@@ -3,6 +3,7 @@ return {
         lazy = true,
         version = '0.1.x',
         cmd = 'Telescope',
+        config = true,
         opts = function(_, opts)
           return vim.tbl_extend('force', require "core.config.telescope", opts)
         end,

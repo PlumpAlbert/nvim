@@ -3,6 +3,7 @@ return {
   'neovim/nvim-lspconfig',
   'williamboman/mason.nvim',
   { 'williamboman/mason-lspconfig.nvim',
+    dependencies = { 'williamboman/mason.nvim', },
     opts = {
       automatic_installation = false,
       ensure_installed = { 'lua_ls' }

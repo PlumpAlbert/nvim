@@ -1,5 +1,5 @@
 return {
-    { "RRethy/nvim-base16", event = "ColorScheme" },
+    { "RRethy/nvim-base16",      event = "ColorScheme" },
     { 'projekt0n/github-nvim-theme',
         branch = '0.0.x',
         event = "ColorScheme",

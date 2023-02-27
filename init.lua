@@ -17,4 +17,4 @@ for _, lang in ipairs(languages) do
     lang.setup()
 end
 
-vim.cmd.colorscheme 'base16-tomorrow-night'
+vim.cmd.colorscheme 'nordic'

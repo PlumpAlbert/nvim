@@ -7,4 +7,9 @@ return {
         results = { " " },
         preview = { " " },
     },
+    pickers = {
+        colorscheme = {
+            enable_preview = true
+        }
+    }
 }
