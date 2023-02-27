@@ -6,7 +6,7 @@ vim.o.wrap = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.o.tabstop = 2
+vim.o.tabstop = 4
 vim.o.softtabstop = 0
 vim.o.shiftwidth = 0
 vim.o.expandtab = true
