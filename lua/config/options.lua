@@ -24,12 +24,12 @@ vim.o.scrolloff = 8
 vim.opt.isfname:append("@-@")
 vim.o.updatetime = 50
 
-vim.o.signcolumn = "yes"
-vim.o.foldcolumn = "1"
-vim.o.foldlevel = 9999
-vim.o.foldlevelstart = 9999
-vim.o.foldenable = true
-vim.o.colorcolumn = "81"
+vim.wo.signcolumn = "yes"
+vim.wo.foldcolumn = "1"
+vim.wo.foldlevel = 9999
+vim.go.foldlevelstart = 9999
+vim.wo.foldenable = true
+vim.wo.colorcolumn = "81"
 
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
