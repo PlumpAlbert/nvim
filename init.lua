@@ -17,4 +17,16 @@ for _, lang in ipairs(languages) do
     lang.setup()
 end
 
-vim.cmd.colorscheme 'nordic'
+local ok, vscode = pcall(require, 'vscode')
+if not ok then
+    return
+end
+
+local c = require "vscode.colors".get_colors()
+vscode.setup {
+    transparent = true,
+    italic_comments = true,
+    group_overrides = {
+        Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+    }
+}
