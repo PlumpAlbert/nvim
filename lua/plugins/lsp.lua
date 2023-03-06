@@ -12,6 +12,10 @@ return {
     {
         "jay-babu/mason-null-ls.nvim",
         dependencies = { "williamboman/mason.nvim" },
+        ---@type MasonNullLsSettings
+        opts = {
+            ensure_installed = { 'stylua' }
+        }
     },
     --#endregion
 
@@ -40,6 +44,9 @@ return {
     --#region LSP
     {
         'neovim/nvim-lspconfig',
+        opts = {
+            autoformat = false
+        },
         init = function()
             local keys = require("lazyvim.plugins.lsp.keymaps").get()
 
