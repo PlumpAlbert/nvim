@@ -4,7 +4,7 @@ return {
         ---@param opts notify.Config
         opts = function(_, opts)
             return vim.tbl_extend('force', opts, {
-                level = vim.log.levels.WARN,
+                level = vim.log.levels.INFO,
                 timeout = 1000,
                 top_down = false
             })
