@@ -53,4 +53,6 @@ vim.o.showbreak = "↪"
 vim.opt.langmap =
   "ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\\"ZXCVBNM<>"
 
+vim.opt.clipboard = 'unnamed'
+
 vim.g.mapleader = " "
