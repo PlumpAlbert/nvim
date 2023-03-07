@@ -124,4 +124,11 @@ return {
       })
     end,
   },
+  {
+    "akinsho/bufferline.nvim",
+    keys = {
+      { "<M-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Switch to previous window" },
+      { "<M-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Switch to next window" },
+    },
+  },
 }
