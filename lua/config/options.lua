@@ -36,7 +36,7 @@ vim.o.laststatus = 3
 
 vim.o.list = true
 vim.opt.listchars = {
-  tab = "󰄾 ",
+  tab = "  󰄾",
   space = "·",
   trail = "-",
   eol = "",
@@ -53,6 +53,6 @@ vim.o.showbreak = "↪"
 vim.opt.langmap =
   "ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\\"ZXCVBNM<>"
 
-vim.opt.clipboard = 'unnamed'
+vim.opt.clipboard = "unnamed"
 
 vim.g.mapleader = " "
