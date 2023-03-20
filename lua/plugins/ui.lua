@@ -120,7 +120,7 @@ return {
       include_current_win = false,
       selection_chars = "FJDKSLA;CMRUEIWOQP",
       -- whether you want to use winbar instead of the statusline
-      use_winbar = "smart", -- "always" | "never" | "smart"
+      use_winbar = "never", -- "always" | "never" | "smart"
       show_prompt = true,
       filter_rules = {
         -- filter using buffer options
