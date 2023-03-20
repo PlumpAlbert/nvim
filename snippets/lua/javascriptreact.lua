@@ -40,4 +40,23 @@ export default {};
   )
 )
 
+table.insert(
+  SNIPPETS,
+  s(
+    { trig = "styles", dscr = "Module styles" },
+    fmt(
+      [[
+// styles
+import styles from "{}";
+import {{sassBuilder}} from "common/SassModule";
+
+const SC = sassBuilder(styles, false);
+        ]],
+      {
+        i(1, "./styles.module.scss"),
+      }
+    )
+  )
+)
+
 return SNIPPETS
