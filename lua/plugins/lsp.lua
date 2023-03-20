@@ -3,6 +3,7 @@ return {
   {
     "williamboman/mason.nvim",
     keys = {
+      { "<leader>cm", false },
       { "<leader>lm", "<cmd>Mason<cr>", desc = "Open Mason" },
     },
     opts = {
@@ -56,12 +57,13 @@ return {
 
       -- disable default keys
       keys[#keys + 1] = { "<leader>cd", false }
+      keys[#keys + 1] = { "<leader>cl", false }
       keys[#keys + 1] = { "<leader>ca", false }
       keys[#keys + 1] = { "<leader>ca", false, mode = { "v" } }
+      keys[#keys + 1] = { "<leader>cA", false }
       keys[#keys + 1] = { "<leader>cf", false }
       keys[#keys + 1] = { "<leader>cf", false, mode = { "v" } }
       keys[#keys + 1] = { "<leader>cr", false }
-      keys[#keys + 1] = { "<leader>cl", false }
 
       keys[#keys + 1] =
         { "<leader>lr", vim.lsp.buf.rename, desc = "Rename symbol" }
