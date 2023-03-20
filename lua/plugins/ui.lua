@@ -6,6 +6,11 @@ return {
       level = vim.log.levels.INFO,
       timeout = 1000,
       top_down = false,
+      render = "compact",
+      fps = 60,
+      max_width = 120,
+      background_colour = "#000000",
+      stages = "fade_in_slide_out",
     },
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function(_, opts)
@@ -20,16 +25,52 @@ return {
       return {
         { "<leader>,", "<cmd>Telescope buffers<CR>", desc = "Switch buffer" },
         { "<leader>/", "<cmd>Telescope live_grep<CR>", desc = "Search word" },
-        { "<leader><leader>", "<cmd>Telescope find_files<CR>", desc = "Search files" },
-        { "<leader>f", "<cmd>Telescope git_files<CR>", desc = "Search files (Git)" },
-        { "<leader>sr", "<cmd>Telescope resume<CR>", desc = "Resume telescope" },
+        {
+          "<leader><leader>",
+          "<cmd>Telescope find_files<CR>",
+          desc = "Search files",
+        },
+        {
+          "<leader>f",
+          "<cmd>Telescope git_files<CR>",
+          desc = "Search files (Git)",
+        },
+        {
+          "<leader>sr",
+          "<cmd>Telescope resume<CR>",
+          desc = "Resume telescope",
+        },
         { "<leader>sk", "<cmd>Telescope keymaps<CR>", desc = "Search keymaps" },
-        { "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Search symbols (document)" },
-        { "<leader>sS", "<cmd>Telescope lsp_workspace_symbols<CR>", desc = "Search symbols (workspace)" },
-        { "<leader>gl", "<cmd>Telescope git_commits<CR>", desc = "View git log" },
-        { "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "View git branches" },
-        { "<leader>ld", "<cmd>Telescope diagnostics<CR>", desc = "View diagnostics" },
-        { "<leader>uh", "<cmd>Telescope notify<CR>", desc = "View notification history" },
+        {
+          "<leader>ss",
+          "<cmd>Telescope lsp_document_symbols<CR>",
+          desc = "Search symbols (document)",
+        },
+        {
+          "<leader>sS",
+          "<cmd>Telescope lsp_workspace_symbols<CR>",
+          desc = "Search symbols (workspace)",
+        },
+        {
+          "<leader>gl",
+          "<cmd>Telescope git_commits<CR>",
+          desc = "View git log",
+        },
+        {
+          "<leader>gb",
+          "<cmd>Telescope git_branches<CR>",
+          desc = "View git branches",
+        },
+        {
+          "<leader>ld",
+          "<cmd>Telescope diagnostics<CR>",
+          desc = "View diagnostics",
+        },
+        {
+          "<leader>uh",
+          "<cmd>Telescope notify<CR>",
+          desc = "View notification history",
+        },
       }
     end,
   },
@@ -37,7 +78,11 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     keys = function()
       return {
-        { "<leader>e", "<cmd>Neotree float reveal_force_cwd<cr>", desc = "Open file explorer" },
+        {
+          "<leader>e",
+          "<cmd>Neotree float reveal_force_cwd<cr>",
+          desc = "Open file explorer",
+        },
       }
     end,
   },
@@ -127,8 +172,16 @@ return {
   {
     "akinsho/bufferline.nvim",
     keys = {
-      { "<M-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Switch to previous window" },
-      { "<M-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Switch to next window" },
+      {
+        "<M-h>",
+        "<cmd>BufferLineCyclePrev<cr>",
+        desc = "Switch to previous window",
+      },
+      {
+        "<M-l>",
+        "<cmd>BufferLineCycleNext<cr>",
+        desc = "Switch to next window",
+      },
     },
   },
 }
