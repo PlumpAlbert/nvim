@@ -3,3 +3,19 @@
 -- Add any additional keymaps here
 vim.keymap.del("n", "<leader>l")
 vim.keymap.set("n", "<leader>c", vim.cmd.bdelete, { desc = "Close buffer" })
+
+--#region LuaSnip
+vim.keymap.set({ "n", "x", "v" }, "<C-n>", function()
+  local ls = require("luasnip")
+  if ls.expand_or_locally_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { desc = "Jump to next snippet position" })
+
+vim.keymap.set({ "n", "x", "v" }, "<C-p>", function()
+  local ls = require("luasnip")
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { desc = "Jump to previous snippet position" })
+--#endregion
