@@ -136,7 +136,7 @@ return {
         file_name_contains = {},
       },
       fg_color = "#ededed",
-      other_win_hl_color = "#44cc4166",
+      other_win_hl_color = "#44cc41",
       -- You can change the display string in status bar.
       -- It supports '%' printf style. Such as `return char .. ': %f'` to display
       -- buffer filepath. See :h 'stl' for details.
