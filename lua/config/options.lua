@@ -36,7 +36,7 @@ vim.o.laststatus = 3
 
 vim.o.list = true
 vim.opt.listchars = {
-  tab = "  󰄾",
+  tab = "󰄾  ",
   space = "·",
   trail = "-",
   eol = "",
