@@ -58,7 +58,7 @@ return {
       -- disable default keys
       keys[#keys + 1] = { "<leader>cd", false }
       keys[#keys + 1] = { "<leader>cl", false }
-      keys[#keys + 1] = { "<leader>ca", false }
+      keys[#keys + 1] = { "<leader>ca", false, mode = { 'n' } }
       keys[#keys + 1] = { "<leader>ca", false, mode = { "v" } }
       keys[#keys + 1] = { "<leader>cA", false }
       keys[#keys + 1] = { "<leader>cf", false }
