@@ -4,6 +4,13 @@
 vim.keymap.del("n", "<leader>l")
 vim.keymap.set("n", "<leader>c", vim.cmd.bdelete, { desc = "Close buffer" })
 
+vim.keymap.set(
+  { "n", "v" },
+  "Y",
+  '"+y<CR>',
+  { desc = "Yank to system clipboard" }
+)
+
 --#region LuaSnip
 vim.keymap.set({ "n", "x", "v" }, "<C-n>", function()
   local ls = require("luasnip")
