@@ -22,6 +22,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
+    enabled = false,
     opts = {
       theme = "dragon",
       background = {
@@ -33,6 +34,7 @@ return {
   },
   {
     "shaunsingh/nord.nvim",
+    enabled = false,
     config = function()
       -- Example config in lua
       vim.g.nord_contrast = true
