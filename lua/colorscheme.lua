@@ -1,2 +1,2 @@
-vim.g.background = "light"
-vim.cmd.colorscheme "everforest"
+vim.g.background = "dark"
+vim.cmd.colorscheme "vscode"
