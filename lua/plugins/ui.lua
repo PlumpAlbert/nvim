@@ -184,13 +184,4 @@ return {
       },
     },
   },
-  {
-    "projekt0n/circles.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      icons = { empty = "", filled = "", lsp_prefix = "" },
-      -- override lsp_diagnostic virtual-text icon with `icons.lsp_prefix`
-      lsp = true,
-    },
-  },
 }
