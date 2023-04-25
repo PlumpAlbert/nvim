@@ -19,7 +19,7 @@ require("lazy").setup({
     { import = "plugins.lang.javascript" },
     { import = "plugins.lang.golang" },
     { import = "plugins.lang.php" },
-    { import = "plugins.lang.docker" },
+    { import = "plugins.lang.devops" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
