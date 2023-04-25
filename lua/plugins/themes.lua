@@ -21,31 +21,6 @@ return {
     end,
   },
   {
-    "rebelot/kanagawa.nvim",
-    enabled = false,
-    opts = {
-      theme = "dragon",
-      background = {
-        dark = "dragon",
-        light = "lotus",
-      },
-    },
-    config = true,
-  },
-  {
-    "shaunsingh/nord.nvim",
-    enabled = false,
-    config = function()
-      -- Example config in lua
-      vim.g.nord_contrast = true
-      vim.g.nord_borders = false
-      vim.g.nord_disable_background = true
-      vim.g.nord_italic = true
-      vim.g.nord_uniform_diff_background = true
-      vim.g.nord_bold = false
-    end,
-  },
-  {
     "sainnhe/everforest",
     init = function()
       vim.g.everforest_background = "hard"
@@ -62,20 +37,20 @@ return {
     end,
   },
   {
-    "bluz71/vim-nightfly-colors",
+    "bluz71/vim-moonfly-colors",
     name = "nightfly",
     priority = 1000,
     lazy = false,
     config = function()
-      vim.g.nightflyCursorColor = true
-      vim.g.nightflyItalics = true
-      vim.g.nightflyNormalFloat = false
-      vim.g.nightflyTerminalColors = true
-      vim.g.nightflyTransparent = true
-      vim.g.nightflyUndercurls = true
-      vim.g.nightflyUnderlineMatchParen = true
-      vim.g.nightflyVirtualTextColor = true
-      vim.g.nightflyWinSeparator = 2
+      vim.g.moonflyCursorColor = true
+      vim.g.moonflyItalics = true
+      vim.g.moonflyNormalFloat = false
+      vim.g.moonflyTerminalColors = true
+      vim.g.moonflyTransparent = true
+      vim.g.moonflyUndercurls = true
+      vim.g.moonflyUnderlineMatchParen = true
+      vim.g.moonflyVirtualTextColor = true
+      vim.g.moonflyWinSeparator = 2
     end,
   },
 }

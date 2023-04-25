@@ -100,7 +100,6 @@ return {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ---@type MasonNullLsSettings
     opts = function(_, opts)
       local b = require("null-ls.builtins")
 
