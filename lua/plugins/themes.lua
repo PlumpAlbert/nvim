@@ -38,7 +38,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    name = "nightfly",
+    name = "moonfly",
     priority = 1000,
     lazy = false,
     config = function()
@@ -51,6 +51,23 @@ return {
       vim.g.moonflyUnderlineMatchParen = true
       vim.g.moonflyVirtualTextColor = true
       vim.g.moonflyWinSeparator = 2
+    end,
+  },
+  {
+    "bluz71/vim-nightfly-colors",
+    name = "nightfly",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      vim.g.nightflyCursorColor = true
+      vim.g.nightflyItalics = true
+      vim.g.nightflyNormalFloat = false
+      vim.g.nightflyTerminalColors = true
+      vim.g.nightflyTransparent = true
+      vim.g.nightflyUndercurls = true
+      vim.g.nightflyUnderlineMatchParen = true
+      vim.g.nightflyVirtualTextColor = true
+      vim.g.nightflyWinSeparator = 2
     end,
   },
 }
