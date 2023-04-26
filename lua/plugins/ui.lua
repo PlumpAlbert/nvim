@@ -36,7 +36,7 @@ return {
           desc = "Search files (Git)",
         },
         {
-          "<leader>sr",
+          "<leader>sR",
           "<cmd>Telescope resume<CR>",
           desc = "Resume telescope",
         },
