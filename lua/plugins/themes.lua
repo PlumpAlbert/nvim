@@ -70,4 +70,50 @@ return {
       vim.g.nightflyWinSeparator = 2
     end,
   },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      background = { -- :h background
+        light = "latte",
+        dark = "macchiato",
+      },
+      transparent_background = true,
+      show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+      term_colors = true,
+      styles = {
+        comments = { "italic" },
+        conditionals = { "italic" },
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+      },
+      integrations = {
+        alpha = true,
+        cmp = true,
+        gitsigns = true,
+        neotree = true,
+        telescope = true,
+        notify = true,
+        mini = true,
+        markdown = true,
+        mason = true,
+        noice = true,
+        treesitter = true,
+        ts_rainbow = true,
+        ts_rainbow2 = true,
+        which_key = true,
+        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+      },
+    },
+  },
 }
