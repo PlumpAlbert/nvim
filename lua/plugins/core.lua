@@ -13,7 +13,7 @@ return {
 		branch = "v2.x",
 		opts = require("config.neotree"),
 		keys = {
-			{ "<leader><space>", "<cmd>Neotree toggle<cr>", desc = "Open neotree" },
+			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Open neotree" },
 		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
