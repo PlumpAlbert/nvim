@@ -1,9 +1,13 @@
 -- vim:ft=lua:ts=4:sw=0:noet
 return {
-	{ "folke/which-key.nvim",  config = false },
-	{ "folke/neoconf.nvim",    cmd = "Neoconf", config = false },
-	{ "folke/neodev.nvim",     config = false },
-	{ "wakatime/vim-wakatime", lazy = false,    config = false },
+	{
+		"folke/which-key.nvim",
+		lazy = false,
+		config = true,
+	},
+	{ "folke/neoconf.nvim", cmd = "Neoconf", lazy = false },
+	{ "folke/neodev.nvim", ft = "lua" },
+	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -37,14 +41,17 @@ return {
 		},
 	},
 	{
+		"neovim/nvim-lspconfig",
+		lazy = false,
+		config = function()
+			require("config.lsp").init()
+		end,
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
+		lazy = false,
 		dependencies = {
-			{
-				"neovim/nvim-lspconfig",
-				config = function()
-					require("config.lsp")
-				end,
-			},
+			"neovim/nvim-lspconfig",
 			{
 				"williamboman/mason.nvim",
 				config = false,
@@ -73,10 +80,12 @@ return {
 	},
 	{
 		"jay-babu/mason-null-ls.nvim",
+		lazy = false,
 		dependencies = {
 			"williamboman/mason.nvim",
 			{
 				"jose-elias-alvarez/null-ls.nvim",
+				lazy = false,
 				config = function()
 					require("config.nullls")
 				end,
@@ -89,18 +98,16 @@ return {
 	},
 	{
 		"kevinhwang91/nvim-ufo",
+		lazy = false,
 		dependencies = {
 			"kevinhwang91/promise-async",
 			"neovim/nvim-lspconfig",
 		},
-		config = function()
-			-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-		end,
+		config = false,
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		lazy = false,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"onsails/lspkind.nvim",

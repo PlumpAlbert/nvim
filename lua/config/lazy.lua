@@ -19,7 +19,7 @@ require("lazy").setup({
 		{ import = "plugins.themes" },
 	},
 	defaults = {
-		lazy = false,
+		lazy = true,
 		version = nil,
 		config = true,
 	},
