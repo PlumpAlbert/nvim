@@ -6,14 +6,14 @@ return {
 			{
 				"<leader><space>",
 				function()
-					require("telescope.builtin").git_files(require("telescope.themes").get_dropdown({}))
+					require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))
 				end,
 				desc = "Find files (Git)",
 			},
 			{
 				"<leader>ff",
 				function()
-					require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))
+					require("telescope.builtin").git_files(require("telescope.themes").get_dropdown({}))
 				end,
 				desc = "Find files (CWD)",
 			},
