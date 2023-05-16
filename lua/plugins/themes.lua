@@ -1,5 +1,6 @@
 return {
-	{ 'catppuccin/nvim',
+	{
+		"catppuccin/nvim",
 		name = "catppuccin",
 		opts = {
 			transparent_background = true,
@@ -13,6 +14,6 @@ return {
 				conditionals = { "italic" },
 			},
 		},
-		config = true
-	}
+		config = true,
+	},
 }

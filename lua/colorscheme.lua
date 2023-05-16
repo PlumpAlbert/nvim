@@ -1,2 +1,2 @@
 vim.g.background = "dark"
-vim.cmd.colorscheme "habamax"
+vim.cmd.colorscheme("habamax")
