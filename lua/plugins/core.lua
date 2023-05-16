@@ -42,8 +42,8 @@ return {
 			{
 				"neovim/nvim-lspconfig",
 				config = function()
-					require "config.lsp"
-				end
+					require("config.lsp")
+				end,
 			},
 			{
 				"williamboman/mason.nvim",
@@ -69,7 +69,7 @@ return {
 		},
 		opts = {
 			ensure_installed = { "lua_ls" },
-		}
+		},
 	},
 	{
 		"jay-babu/mason-null-ls.nvim",
@@ -86,5 +86,17 @@ return {
 			ensure_installed = { "stylua", "jq" },
 			automatic_installation = true,
 		},
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = {
+			"kevinhwang91/promise-async",
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+		end,
 	},
 }
