@@ -16,6 +16,7 @@ require("lazy").setup({
 	---@type LazySpec
 	spec = {
 		{ import = "plugins.core" },
+		{ import = "plugins.git" },
 		{ import = "plugins.themes" },
 		{ import = "plugins.languages.ts" },
 		{ import = "plugins.languages.docker" },
