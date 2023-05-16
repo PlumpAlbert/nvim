@@ -5,8 +5,8 @@ return {
 		lazy = false,
 		config = true,
 	},
-	{ "folke/neoconf.nvim",    cmd = "Neoconf", lazy = false },
-	{ "folke/neodev.nvim",     ft = "lua" },
+	{ "folke/neoconf.nvim", cmd = "Neoconf", lazy = false },
+	{ "folke/neodev.nvim", ft = "lua" },
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -164,13 +164,15 @@ return {
 						return kind
 					end,
 				},
-				mapping = cmp.mapping.preset.insert({
+				mapping = {
 					["<M-[>"] = cmp.mapping.scroll_docs(-4),
 					["<M-]>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-c>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-				}),
+					["<C-j>"] = cmp.mapping.select_next_item(),
+					["<C-k>"] = cmp.mapping.select_prev_item(),
+				},
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
