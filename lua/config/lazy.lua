@@ -17,6 +17,8 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins.core" },
 		{ import = "plugins.themes" },
+		{ import = "plugins.languages.ts" },
+		{ import = "plugins.languages.docker" },
 	},
 	defaults = {
 		lazy = true,

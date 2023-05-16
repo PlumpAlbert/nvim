@@ -5,8 +5,8 @@ return {
 		lazy = false,
 		config = true,
 	},
-	{ "folke/neoconf.nvim", cmd = "Neoconf", lazy = false },
-	{ "folke/neodev.nvim", ft = "lua" },
+	{ "folke/neoconf.nvim",    cmd = "Neoconf", lazy = false },
+	{ "folke/neodev.nvim",     ft = "lua" },
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -74,9 +74,24 @@ return {
 				},
 			},
 		},
-		opts = {
-			ensure_installed = { "lua_ls" },
-		},
+		config = function(_, opts)
+			local ensure_installed = { "lua_ls" }
+
+			if opts then
+				ensure_installed = vim.list_extend(ensure_installed, opts.ensure_installed or {})
+			end
+
+			require("mason-lspconfig").setup({
+				ensure_installed = ensure_installed,
+			})
+			require("mason-lspconfig").setup_handlers({
+				function(server_name)
+					require("lspconfig")[server_name].setup({
+						capabilities = require("config.lsp").capabilities,
+					})
+				end,
+			})
+		end,
 	},
 	{
 		"jay-babu/mason-null-ls.nvim",
