@@ -17,6 +17,9 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins.core" },
 		{ import = "plugins.git" },
+		{ import = "plugins.treesitter" },
+		{ import = "plugins.telescope" },
+		{ import = "plugins.ui" },
 		{ import = "plugins.themes" },
 		{ import = "plugins.languages.ts" },
 		{ import = "plugins.languages.docker" },
