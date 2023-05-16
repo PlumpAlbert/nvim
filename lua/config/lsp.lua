@@ -17,10 +17,10 @@ M.init = function()
 
 			-- Buffer local mappings.
 			-- See `:help vim.lsp.*` for documentation on any of the below functions
-			vim.keymap.set("n", "zR", require("ufo").openAllFolds, opts('Open all folds'))
-			vim.keymap.set("n", "zM", require("ufo").closeAllFolds, opts('Close all folds'))
-			vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds, opts('Open folds but not kinds'))
-			vim.keymap.set("n", "zm", require("ufo").closeFoldsWith, opts('Close folds with'))
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds, opts("Open all folds"))
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds, opts("Close all folds"))
+			vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds, opts("Open folds but not kinds"))
+			vim.keymap.set("n", "zm", require("ufo").closeFoldsWith, opts("Close folds with"))
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
@@ -42,7 +42,12 @@ M.init = function()
 			vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts("Code actions"))
 			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts("Go to references"))
 			vim.keymap.set("n", "<space>lf", function()
-				vim.lsp.buf.format({ async = true })
+				vim.lsp.buf.format({
+					async = true,
+					filter = function(client)
+						return client.name ~= "tsserver"
+					end,
+				})
 			end, opts("Format document"))
 		end,
 	})
