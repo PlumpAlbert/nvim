@@ -127,6 +127,8 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"onsails/lspkind.nvim",
 			"saadparwaiz1/cmp_luasnip",
+			"FelipeLema/cmp-async-path",
+			"pontusk/cmp-sass-variables",
 			{
 				"L3MON4D3/LuaSnip",
 				build = "make install_jsregexp",
@@ -176,6 +178,8 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "async_path" },
+					{ name = "sass-variables" },
 				}),
 			}
 		end,
