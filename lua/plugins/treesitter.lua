@@ -81,4 +81,38 @@ return {
 			},
 		},
 	},
+	{
+		"nvim-pack/nvim-spectre",
+		keys = {
+			{
+				"<leader>sr",
+				function()
+					require("spectre").open()
+				end,
+				desc = "Find and replace",
+			},
+			{
+				"<leader>sw",
+				function()
+					require("spectre").open_visual({ select_word = true })
+				end,
+				desc = "Find current word",
+			},
+			{
+				"<leader>sw",
+				function()
+					require("spectre").open_visual()
+				end,
+				desc = "Find current word",
+				mode = { "v" },
+			},
+			{
+				"<leader>sw",
+				function()
+					require("spectre").open_file_search({ select_word = true })
+				end,
+				desc = "Search on current file",
+			},
+		},
+	},
 }
