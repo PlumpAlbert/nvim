@@ -24,6 +24,7 @@ M.init = function()
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts("Go to references"))
 			vim.keymap.set("n", "K", function()
 				local winid = require("ufo").peekFoldedLinesUnderCursor()
 				if not winid then
@@ -39,8 +40,7 @@ M.init = function()
 			end, opts("Print workspace folders"))
 			vim.keymap.set("n", "<space>gt", vim.lsp.buf.type_definition, opts("Go to type definition"))
 			vim.keymap.set("n", "<space>lr", vim.lsp.buf.rename, opts("Rename symbol"))
-			vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts("Code actions"))
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts("Go to references"))
+			vim.keymap.set({ "n", "v" }, "<space>la", vim.lsp.buf.code_action, opts("Code actions"))
 			vim.keymap.set("n", "<space>lf", function()
 				vim.lsp.buf.format({
 					async = true,
