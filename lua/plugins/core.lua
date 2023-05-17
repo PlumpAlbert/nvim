@@ -6,7 +6,20 @@ return {
 		config = true,
 	},
 	{ "folke/neoconf.nvim", cmd = "Neoconf", lazy = false },
-	{ "folke/neodev.nvim", ft = "lua" },
+	{ "folke/neodev.nvim", ft = "lua", lazy = false },
+	{
+		"klen/nvim-config-local",
+		lazy = false,
+		opts = {
+			silent = true,
+			config_files = {
+				".nvim.lua",
+				".nvimrc",
+				".vimrc.lua",
+				".vimrc",
+			},
+		},
+	},
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"nvim-neo-tree/neo-tree.nvim",

@@ -1,7 +1,24 @@
 local M = {}
 
 M.init = function()
-	local lsp = require("lspconfig")
+	require("neoconf").setup({
+		local_settings = ".neoconf.jsonc",
+		import = {
+			vscode = true,
+			coc = true,
+			nlsp = true,
+		},
+		live_reload = true,
+		filetype_jsonc = true,
+		plugins = {
+			lspconfig = { enabled = true },
+			jsonls = { enabled = true, configured_servers_only = true },
+			lua_ls = {
+				enabled_for_neovim_config = true,
+				enabled = true,
+			},
+		},
+	})
 
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -27,6 +44,12 @@ M.init = function()
 				"]d",
 				vim.diagnostic.goto_prev,
 				opts("Go to next diagnostic")
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>d",
+				vim.diagnostic.open_float,
+				opts("Get line diagnostics")
 			)
 			-- Folds
 			vim.keymap.set(
