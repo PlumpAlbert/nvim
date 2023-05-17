@@ -2,6 +2,9 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.x",
+		dependencies = {
+			"kdheepak/lazygit.nvim",
+		},
 		keys = {
 			{
 				"<leader><space>",
@@ -46,5 +49,9 @@ return {
 				desc = "",
 			},
 		},
+		config = function(_, opts)
+			require("telescope").setup(opts)
+			require("telescope").load_extension("lazygit")
+		end,
 	},
 }
