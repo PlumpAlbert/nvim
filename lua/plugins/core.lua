@@ -29,7 +29,11 @@ return {
 						-- filter using buffer options
 						bo = {
 							-- if the file type is one of following, the window will be ignored
-							filetype = { "neo-tree", "neo-tree-popup", "notify" },
+							filetype = {
+								"neo-tree",
+								"neo-tree-popup",
+								"notify",
+							},
 
 							-- if the buffer type is one of following, the window will be ignored
 							buftype = { "terminal", "quickfix" },
@@ -43,6 +47,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
+		dependencies = { "folke/neoconf.nvim" },
 		config = function()
 			require("config.lsp").init()
 		end,
@@ -78,7 +83,10 @@ return {
 			local ensure_installed = { "lua_ls" }
 
 			if opts then
-				ensure_installed = vim.list_extend(ensure_installed, opts.ensure_installed or {})
+				ensure_installed = vim.list_extend(
+					ensure_installed,
+					opts.ensure_installed or {}
+				)
 			end
 
 			require("mason-lspconfig").setup({
@@ -105,7 +113,10 @@ return {
 								},
 								workspace = {
 									-- Make the server aware of Neovim runtime files
-									library = vim.api.nvim_get_runtime_file("", true),
+									library = vim.api.nvim_get_runtime_file(
+										"",
+										true
+									),
 									checkThirdParty = false,
 								},
 								-- Do not send telemetry data containing a randomized but unique identifier
@@ -183,9 +194,12 @@ return {
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = function(entry, vim_item)
-						local kind =
-							require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-						local strings = vim.split(kind.kind, "%s", { trimempty = true })
+						local kind = require("lspkind").cmp_format({
+							mode = "symbol_text",
+							maxwidth = 50,
+						})(entry, vim_item)
+						local strings =
+							vim.split(kind.kind, "%s", { trimempty = true })
 						kind.kind = " " .. (strings[1] or "") .. " "
 						kind.menu = "    (" .. (strings[2] or "") .. ")"
 

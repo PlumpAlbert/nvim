@@ -1,2 +1,2 @@
-vim.g.background = "dark"
-vim.cmd.colorscheme("catppuccin")
+vim.g.background = "light"
+vim.cmd.colorscheme("catppuccin-latte")

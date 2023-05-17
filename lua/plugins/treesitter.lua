@@ -25,9 +25,18 @@ return {
 			}
 		end,
 	},
-	{ "HiPhish/nvim-ts-rainbow2", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{ "windwp/nvim-ts-autotag", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{ "JoosepAlviste/nvim-ts-context-commentstring", dependencies = "nvim-treesitter/nvim-treesitter" },
+	{
+		"HiPhish/nvim-ts-rainbow2",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+	},
 	{
 		"echasnovski/mini.comment",
 		version = "*",
@@ -49,15 +58,16 @@ return {
 	{
 		"echasnovski/mini.surround",
 		version = "*",
+		lazy = false,
 		opts = {
 			mappings = {
-				add = "<leader>gza", -- Add surrounding in Normal and Visual modes
-				delete = "<leader>gzd", -- Delete surrounding
-				find = "<leader>gzf", -- Find surrounding (to the right)
-				find_left = "<leader>gzF", -- Find surrounding (to the left)
-				highlight = "<leader>gzh", -- Highlight surrounding
-				replace = "<leader>gzr", -- Replace surrounding
-				update_n_lines = "<leader>gzn", -- Update `n_lines`
+				add = "gza", -- Add surrounding in Normal and Visual modes
+				delete = "gzd", -- Delete surrounding
+				find = "gzf", -- Find surrounding (to the right)
+				find_left = "gzF", -- Find surrounding (to the left)
+				highlight = "gzh", -- Highlight surrounding
+				replace = "gzr", -- Replace surrounding
+				update_n_lines = "gzn", -- Update `n_lines`
 			},
 		},
 	},

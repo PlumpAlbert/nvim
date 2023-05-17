@@ -83,11 +83,15 @@ return {
 		"kdheepak/lazygit.nvim",
 		keys = {
 			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "Open LazyGit" },
-			{ "<leader>gc", "<cmd>LazyGitConfig<cr>", desc = "Edit LazyGit configuration" },
+			{
+				"<leader>gc",
+				"<cmd>LazyGitConfig<cr>",
+				desc = "Edit LazyGit configuration",
+			},
 		},
 		config = function()
 			vim.g.lazygit_floating_window_scaling_factor = 0.92
 			vim.g.lazygit_use_custom_config_file_path = false
-		end
+		end,
 	},
 }
