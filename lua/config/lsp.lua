@@ -15,8 +15,20 @@ M.init = function()
 				return { noremap = true, buffer = ev.buf, desc = description }
 			end
 
-			-- Buffer local mappings.
-			-- See `:help vim.lsp.*` for documentation on any of the below functions
+			-- Diagnostics
+			vim.keymap.set(
+				'n',
+				'[d',
+				vim.lsp.diagnostics.goto_prev,
+				opts('Go to previous diagnostic')
+			)
+			vim.keymap.set(
+				'n',
+				']d',
+				vim.lsp.diagnostics.goto_prev,
+				opts('Go to next diagnostic')
+			)
+			-- Folds
 			vim.keymap.set(
 				"n",
 				"zR",
