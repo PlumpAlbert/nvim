@@ -17,16 +17,16 @@ M.init = function()
 
 			-- Diagnostics
 			vim.keymap.set(
-				'n',
-				'[d',
-				vim.lsp.diagnostics.goto_prev,
-				opts('Go to previous diagnostic')
+				"n",
+				"[d",
+				vim.diagnostic.goto_prev,
+				opts("Go to previous diagnostic")
 			)
 			vim.keymap.set(
-				'n',
-				']d',
-				vim.lsp.diagnostics.goto_prev,
-				opts('Go to next diagnostic')
+				"n",
+				"]d",
+				vim.diagnostic.goto_prev,
+				opts("Go to next diagnostic")
 			)
 			-- Folds
 			vim.keymap.set(
