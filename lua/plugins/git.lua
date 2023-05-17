@@ -73,6 +73,20 @@ return {
 				end,
 				desc = "Undo stage hunk",
 			},
+			{
+				"[c",
+				function()
+					require("gitsigns").prev_hunk()
+				end,
+				desc = "Go to previous hunk",
+			},
+			{
+				"]c",
+				function()
+					require("gitsigns").next_hunk()
+				end,
+				desc = "Go to next hunk",
+			},
 		},
 	},
 	{
