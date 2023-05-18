@@ -1,8 +1,17 @@
 return {
 	{
+		"echasnovski/mini.indentscope",
+		version = "*",
+		lazy = false,
+		config = true,
+		opts = {
+			symbol = "",
+		},
+	},
+	{
 		"echasnovski/mini.cursorword",
 		version = "*",
-		event = "BufEnter",
+		lazy = false,
 	},
 	{
 		"akinsho/bufferline.nvim",
@@ -57,7 +66,7 @@ return {
 	},
 	{
 		"j-hui/fidget.nvim",
-		lazy = false,
+		event = "LspAttach",
 		dependencies = { "neovim/nvim-lspconfig" },
 		opts = {
 			text = {
