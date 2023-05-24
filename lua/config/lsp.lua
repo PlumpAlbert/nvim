@@ -114,7 +114,7 @@ M.init = function()
 				end
 			end, opts("Symbol info"))
 			vim.keymap.set(
-				"n",
+				{ "n", "i" },
 				"<C-k>",
 				vim.lsp.buf.signature_help,
 				opts("Signature help")
