@@ -24,7 +24,10 @@ return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
-		opts = require("config.neotree"),
+		config = true,
+		opts = function()
+			return require("config.neotree")
+		end,
 		keys = {
 			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Open neotree" },
 		},
