@@ -25,12 +25,6 @@ return {
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		config = true,
-		opts = function()
-			return require("config.neotree")
-		end,
-		keys = {
-			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Open neotree" },
-		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			-- "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -57,6 +51,85 @@ return {
 					},
 					-- other_win_hl_color = '#e35e4f',
 				},
+			},
+		},
+		opts = {
+			popup_border_style = "rounded",
+			enable_git_status = true,
+			enable_diagnostics = true,
+			sort_case_insensitive = true, -- used when sorting files and directories in the tree
+			default_component_configs = {
+				icon = {
+					folder_closed = "",
+					folder_open = "",
+					folder_empty = "󰜌",
+					folder_empty_open = "󰜌",
+					default = "*",
+					highlight = "NeoTreeFileIcon",
+				},
+				name = {
+					trailing_slash = true,
+					use_git_status_colors = true,
+					highlight = "NeoTreeFileName",
+				},
+			},
+			window = {
+				position = "float",
+				mapping_options = {
+					noremap = true,
+					nowait = true,
+				},
+			},
+			filesystem = {
+				filtered_items = {
+					hide_dotfiles = true,
+					hide_gitignored = true,
+					hide_hidden = true, -- only works on Windows for hidden files/directories
+					always_show = { -- remains visible even if other settings would normally hide it
+						".gitignored",
+						".env",
+						".env.local",
+					},
+					never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+						".DS_Store",
+						"thumbs.db",
+					},
+				},
+				follow_current_file = true,
+				group_empty_dirs = false,
+			},
+			buffers = {
+				follow_current_file = true,
+				group_empty_dirs = false,
+				show_unloaded = true,
+			},
+			git_status = {
+				window = {
+					position = "float",
+				},
+			},
+			sources = {
+				"filesystem",
+				"buffers",
+				"document_symbols",
+				"git_status",
+			},
+		},
+		keys = {
+			{
+				"<leader>e",
+				"<cmd>Neotree toggle<cr>",
+				desc = "Open neotree",
+			},
+			{
+				"<leader>ge",
+				"<cmd>Neotree git_status toggle<cr>",
+				desc = "Browse changes",
+			},
+			{
+				"<leader>le",
+				"<cmd>Neotree document_symbols toggle<cr>",
+				desc = "Browse symbols",
 			},
 		},
 	},
