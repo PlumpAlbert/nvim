@@ -118,12 +118,12 @@ return {
 		keys = {
 			{
 				"<leader>e",
-				"<cmd>Neotree toggle<cr>",
+				"<cmd>Neotree filesystem toggle reveal<cr>",
 				desc = "Open neotree",
 			},
 			{
 				"<leader>ge",
-				"<cmd>Neotree git_status toggle<cr>",
+				"<cmd>Neotree git_status toggle reveal<cr>",
 				desc = "Browse changes",
 			},
 			{
