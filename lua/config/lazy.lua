@@ -23,6 +23,7 @@ require("lazy").setup({
 		{ import = "plugins.themes" },
 		{ import = "plugins.languages.ts" },
 		{ import = "plugins.languages.docker" },
+		{ import = "plugins.languages.yaml" },
 	},
 	defaults = {
 		lazy = true,
