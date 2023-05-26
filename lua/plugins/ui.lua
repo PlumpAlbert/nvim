@@ -2,6 +2,7 @@ return {
 	{
 		"echasnovski/mini.indentscope",
 		version = "*",
+		enabled = false,
 		lazy = false,
 		config = true,
 		opts = {
@@ -87,8 +88,6 @@ return {
 					["cmp.entry.get_documentation"] = true,
 				},
 			},
-			messages = { enabled = false },
-			notify = { enabled = false },
 			-- you can enable a preset for easier configuration
 			presets = {
 				bottom_search = true, -- use a classic bottom cmdline for search
