@@ -4,6 +4,8 @@ vim.g.maplocalleader = " "
 
 local opt = vim.opt
 
+vim.cmd("autocmd CmdlineEnter /,? :set hlsearch")
+vim.cmd("autocmd CmdlineLeave /,? :set nohlsearch")
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamed" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
