@@ -6,7 +6,7 @@ return {
 		config = true,
 	},
 	{ "folke/neoconf.nvim", cmd = "Neoconf", lazy = false },
-	{ "folke/neodev.nvim", ft = "lua", lazy = false },
+	{ "folke/neodev.nvim",  ft = "lua",      lazy = false },
 	{
 		"klen/nvim-config-local",
 		lazy = false,
@@ -170,6 +170,7 @@ return {
 		},
 		config = function(_, opts)
 			local ensure_installed = { "lua_ls" }
+			print("core")
 
 			if opts then
 				ensure_installed = vim.list_extend(
@@ -181,42 +182,15 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = ensure_installed,
 			})
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = require("config.lsp").capabilities,
-					})
-				end,
-				lua_ls = function()
-					require("lspconfig").lua_ls.setup({
-						capabilities = require("config.lsp").capabilities,
-						settings = {
-							Lua = {
-								runtime = {
-									-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-									version = "LuaJIT",
-								},
-								diagnostics = {
-									-- Get the language server to recognize the `vim` global
-									globals = { "vim", "awesome" },
-								},
-								workspace = {
-									-- Make the server aware of Neovim runtime files
-									library = vim.api.nvim_get_runtime_file(
-										"",
-										true
-									),
-									checkThirdParty = false,
-								},
-								-- Do not send telemetry data containing a randomized but unique identifier
-								telemetry = {
-									enable = false,
-								},
-							},
-						},
-					})
-				end,
-			})
+			require("mason-lspconfig").setup_handlers(
+				vim.tbl_extend("force", opts.setup_handlers or {}, {
+					function(server_name)
+						require("lspconfig")[server_name].setup({
+							capabilities = require("config.lsp").capabilities,
+						})
+					end,
+				})
+			)
 		end,
 	},
 	{
@@ -312,5 +286,15 @@ return {
 				}),
 			}
 		end,
+	},
+	{
+		"aserowy/tmux.nvim",
+		lazy = false,
+		config = true,
+		opts = {
+			resize = {
+				enable_default_keybindings = false
+			}
+		},
 	},
 }
