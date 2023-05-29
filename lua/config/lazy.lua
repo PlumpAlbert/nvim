@@ -24,6 +24,7 @@ require("lazy").setup({
 		{ import = "plugins.languages.ts" },
 		{ import = "plugins.languages.docker" },
 		{ import = "plugins.languages.yaml" },
+		{ import = "plugins.languages.shell" },
 	},
 	defaults = {
 		lazy = true,

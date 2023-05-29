@@ -12,6 +12,7 @@ ns.setup({
 		-- FORMATTING
 		ns.builtins.formatting.stylua,
 		ns.builtins.formatting.prettier,
+		ns.builtins.formatting.shfmt,
 		--
 	},
 })

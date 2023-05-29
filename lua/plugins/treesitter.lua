@@ -1,6 +1,11 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"HiPhish/nvim-ts-rainbow2",
+			"windwp/nvim-ts-autotag",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		opts = function(_, opts)
 			opts = opts or {}
 			return {
@@ -24,18 +29,6 @@ return {
 				},
 			}
 		end,
-	},
-	{
-		"HiPhish/nvim-ts-rainbow2",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-	},
-	{
-		"windwp/nvim-ts-autotag",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-	},
-	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
 	{
 		"echasnovski/mini.comment",

@@ -7,7 +7,7 @@ return {
 					opts.ensure_installed,
 					{ "yamlls" }
 				),
-				handlers = vim.tbl_extend("force", opts.setup_handlers or {}, {
+				setup_handlers = vim.tbl_extend("force", opts.setup_handlers or {}, {
 					docker_compose_language_service = function()
 						require("lspconfig").yamlls.setup({
 							capabilities = require("config.lsp").capabilities,
