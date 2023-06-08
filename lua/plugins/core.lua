@@ -1,12 +1,10 @@
 -- vim:ft=lua:ts=4:sw=0:noet
-return {
+local plugins = {
 	{
 		"folke/which-key.nvim",
 		lazy = false,
 		config = true,
 	},
-	{ "folke/neoconf.nvim", cmd = "Neoconf", lazy = false },
-	{ "folke/neodev.nvim",  ft = "lua",      lazy = false },
 	{
 		"klen/nvim-config-local",
 		lazy = false,
@@ -134,84 +132,6 @@ return {
 		},
 	},
 	{
-		"neovim/nvim-lspconfig",
-		lazy = false,
-		dependencies = { "folke/neoconf.nvim" },
-		config = function()
-			require("config.lsp").init()
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		lazy = false,
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			{
-				"williamboman/mason.nvim",
-				config = false,
-				build = ":MasonUpdate",
-				opts = {
-					max_concurrent_installers = 2,
-					ui = {
-						border = "rounded",
-						width = 0.8,
-						height = 0.8,
-						icons = {
-							-- The list icon to use for installed packages.
-							package_installed = "",
-							-- The list icon to use for packages that are installing, or queued for installation.
-							package_pending = "",
-							-- The list icon to use for packages that are not installed.
-							package_uninstalled = "",
-						},
-					},
-				},
-			},
-		},
-		config = function(_, opts)
-			local ensure_installed = { "lua_ls" }
-			print("core")
-
-			if opts then
-				ensure_installed = vim.list_extend(
-					ensure_installed,
-					opts.ensure_installed or {}
-				)
-			end
-
-			require("mason-lspconfig").setup({
-				ensure_installed = ensure_installed,
-			})
-			require("mason-lspconfig").setup_handlers(
-				vim.tbl_extend("force", opts.setup_handlers or {}, {
-					function(server_name)
-						require("lspconfig")[server_name].setup({
-							capabilities = require("config.lsp").capabilities,
-						})
-					end,
-				})
-			)
-		end,
-	},
-	{
-		"jay-babu/mason-null-ls.nvim",
-		lazy = false,
-		dependencies = {
-			"williamboman/mason.nvim",
-			{
-				"jose-elias-alvarez/null-ls.nvim",
-				lazy = false,
-				config = function()
-					require("config.nullls")
-				end,
-			},
-		},
-		opts = {
-			ensure_installed = { "stylua", "jq" },
-			automatic_installation = true,
-		},
-	},
-	{
 		"kevinhwang91/nvim-ufo",
 		lazy = false,
 		dependencies = {
@@ -293,8 +213,10 @@ return {
 		config = true,
 		opts = {
 			resize = {
-				enable_default_keybindings = false
-			}
+				enable_default_keybindings = false,
+			},
 		},
 	},
 }
+
+return vim.list_extend(plugins, require("plugins.servers"))

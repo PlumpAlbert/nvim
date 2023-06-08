@@ -16,15 +16,15 @@ require("lazy").setup({
 	---@type LazySpec
 	spec = {
 		{ import = "plugins.core" },
+		{ import = "plugins.languages.ts" },
+		{ import = "plugins.languages.docker" },
+		{ import = "plugins.languages.yaml" },
+		{ import = "plugins.languages.shell" },
 		{ import = "plugins.git" },
 		{ import = "plugins.treesitter" },
 		{ import = "plugins.telescope" },
 		{ import = "plugins.ui" },
 		{ import = "plugins.themes" },
-		{ import = "plugins.languages.ts" },
-		{ import = "plugins.languages.docker" },
-		{ import = "plugins.languages.yaml" },
-		{ import = "plugins.languages.shell" },
 	},
 	defaults = {
 		lazy = true,
