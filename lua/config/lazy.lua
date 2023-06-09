@@ -17,6 +17,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins.core" },
 		{ import = "plugins.languages.ts" },
+		{ import = "plugins.languages.ansible" },
 		{ import = "plugins.languages.docker" },
 		{ import = "plugins.languages.yaml" },
 		{ import = "plugins.languages.shell" },
