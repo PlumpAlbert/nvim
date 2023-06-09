@@ -45,4 +45,16 @@ return {
 			},
 		},
 	},
+	{
+		"neanias/everforest-nvim",
+		priority = 9999,
+		name = "everforest",
+		config = function()
+			require("everforest").setup({
+				background = "hard",
+				disable_italic_comments = true,
+				transparent_background_level = 2,
+			})
+		end,
+	},
 }
