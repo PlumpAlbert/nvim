@@ -28,4 +28,21 @@ return {
 		},
 		config = true,
 	},
+	{
+		"rebelot/kanagawa.nvim",
+		name = "kanagawa",
+		priority = 9999,
+		config = true,
+		opts = {
+			undercurl = true,
+			commentStyle = { italic = true },
+			transparent = true,
+			dimInactive = false,
+			terminalColors = true,
+			background = {
+				dark = "dragon",
+				light = "lotus",
+			},
+		},
+	},
 }
