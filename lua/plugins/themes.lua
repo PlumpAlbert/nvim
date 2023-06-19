@@ -57,4 +57,15 @@ return {
 			})
 		end,
 	},
+	{
+		"Mofiqul/vscode.nvim",
+		name = "vscode",
+		priority = 9999,
+		lazy = false,
+		config = true,
+		opts = {
+			transparent = true,
+			italic_comments = true,
+		},
+	},
 }
