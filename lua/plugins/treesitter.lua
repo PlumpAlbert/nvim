@@ -6,9 +6,9 @@ return {
 			"windwp/nvim-ts-autotag",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
-		opts = function(_, opts)
-			opts = opts or {}
-			return {
+		event = "VeryLazy",
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup({
 				auto_install = true,
 				ensure_installed = vim.list_extend({
 					"markdown_inline",
@@ -17,17 +17,18 @@ return {
 					"vimdoc",
 					"query",
 				}, opts.ensure_installed or {}),
-				highlight = { enabled = true },
-				autotag = { enabled = true },
-				context_commentstring = { enabled = true },
+				highlight = { enable = true },
+				indent = { enable = true },
+				autotag = { enable = true },
+				context_commentstring = { enable = true },
 				rainbow = {
-					enabled = true,
+					enable = true,
 					-- Which query to use for finding delimiters
 					query = "rainbow-parens",
 					-- Highlight the entire buffer all at once
 					strategy = require("ts-rainbow").strategy.global,
 				},
-			}
+			})
 		end,
 	},
 	{
@@ -67,6 +68,7 @@ return {
 	{
 		"m4xshen/autoclose.nvim",
 		lazy = false,
+		config = true,
 		opts = {
 			options = {
 				disabled_filetypes = { "text", "markdown" },
