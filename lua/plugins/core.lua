@@ -142,12 +142,12 @@ local plugins = {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		lazy = false,
+		event = "LspAttach",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"onsails/lspkind.nvim",
 			"saadparwaiz1/cmp_luasnip",
-			"FelipeLema/cmp-async-path",
+			"hrsh7th/cmp-path",
 			"pontusk/cmp-sass-variables",
 			{
 				"L3MON4D3/LuaSnip",
@@ -155,12 +155,15 @@ local plugins = {
 				dependencies = { "rafamadriz/friendly-snippets" },
 				config = function()
 					require("luasnip.loaders.from_vscode").lazy_load()
+					require("luasnip.loaders.from_lua").load({
+						paths = vim.fn.stdpath("config") .. "/snippets",
+					})
 				end,
 			},
 		},
-		opts = function()
+		config = function()
 			local cmp = require("cmp")
-			return {
+			cmp.setup({
 				snippet = {
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
@@ -185,7 +188,6 @@ local plugins = {
 							vim.split(kind.kind, "%s", { trimempty = true })
 						kind.kind = " " .. (strings[1] or "") .. " "
 						kind.menu = "    (" .. (strings[2] or "") .. ")"
-
 						return kind
 					end,
 				},
@@ -201,10 +203,10 @@ local plugins = {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
-					{ name = "async_path" },
+					{ name = "path" },
 					{ name = "sass-variables" },
 				}),
-			}
+			})
 		end,
 	},
 	{

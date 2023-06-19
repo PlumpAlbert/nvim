@@ -13,8 +13,6 @@ return {
 		config = function()
 			local M = require("config.servers.null")
 
-			print("null-ls")
-			-- print(vim.inspect(M.sources))
 			require("null-ls").setup({
 				sources = M.sources,
 			})

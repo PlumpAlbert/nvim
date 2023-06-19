@@ -1,35 +1,36 @@
 return {
 	{
+		"folke/neoconf.nvim",
+		cmd = "Neoconf",
+		lazy = false,
+		config = true,
+		opts = {
+			local_settings = ".neoconf.jsonc",
+			import = {
+				vscode = true,
+				coc = true,
+				nlsp = true,
+			},
+			live_reload = true,
+			filetype_jsonc = true,
+			plugins = {
+				lspconfig = { enabled = true },
+				jsonls = {
+					enabled = true,
+					configured_servers_only = true,
+				},
+				lua_ls = {
+					enabled_for_neovim_config = true,
+					enabled = true,
+				},
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		event = "BufEnter",
 		dependencies = {
-			{
-				"folke/neoconf.nvim",
-				cmd = "Neoconf",
-				lazy = false,
-				config = true,
-				opts = {
-					local_settings = ".neoconf.jsonc",
-					import = {
-						vscode = true,
-						coc = true,
-						nlsp = true,
-					},
-					live_reload = true,
-					filetype_jsonc = true,
-					plugins = {
-						lspconfig = { enabled = true },
-						jsonls = {
-							enabled = true,
-							configured_servers_only = true,
-						},
-						lua_ls = {
-							enabled_for_neovim_config = true,
-							enabled = true,
-						},
-					},
-				},
-			},
+			"folke/neoconf.nvim",
 		},
 	},
 	{
@@ -93,5 +94,4 @@ return {
 			require("mason-lspconfig").setup_handlers(handlers)
 		end,
 	},
-	--- NULL_LS
 }
