@@ -5,6 +5,7 @@ return {
 		dependencies = {
 			"kdheepak/lazygit.nvim",
 		},
+		cmd = "Telescope",
 		keys = {
 			{
 				"<leader><space>",
