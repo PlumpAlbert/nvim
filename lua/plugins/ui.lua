@@ -71,7 +71,7 @@ return {
 		dependencies = { "neovim/nvim-lspconfig" },
 		opts = {
 			text = {
-				spinner = "hamburger",
+				spinner = "meter",
 			},
 		},
 	},
@@ -96,6 +96,28 @@ return {
 				inc_rename = true, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
+		},
+	},
+	{
+		"chrisgrieser/nvim-early-retirement",
+		config = true,
+		event = "VeryLazy",
+		opts = {
+			retirementAgeMins = 5,
+			minimumBufferNum = 1,
+			ignoreUnsavedChangesBufs = true,
+			ignoreSpecialBuftypes = true,
+			ignoreVisibleBufs = true,
+		},
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = true,
+		event = "BufEnter",
+		opts = {
+			"*",
+			css = { rgb_fn = true },
+			html = { name = false },
 		},
 	},
 }
