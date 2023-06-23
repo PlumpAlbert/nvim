@@ -79,7 +79,16 @@ return {
 	{
 		"folke/noice.nvim",
 		lazy = false,
-		dependencies = { "MunifTanjim/nui.nvim" },
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			{
+				"rcarriga/nvim-notify",
+				opts = {
+					background_colour = "#00000088",
+					top_down = false,
+				},
+			},
+		},
 		opts = {
 			lsp = {
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -112,13 +121,24 @@ return {
 		},
 	},
 	{
-		"norcalli/nvim-colorizer.lua",
+		"NvChad/nvim-colorizer.lua",
 		config = true,
 		event = "BufEnter",
 		opts = {
-			"*",
-			css = { rgb_fn = true },
-			html = { name = false },
+			user_default_options = {
+				css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+				-- Available modes for `mode`: foreground, background,  virtualtext
+				mode = "virtualtext", -- Set the display mode.
+				-- Available methods are false / true / "normal" / "lsp" / "both"
+				-- True is same as normal
+				tailwind = true, -- Enable tailwind colors
+				-- parsers can contain values used in |user_default_options|
+				sass = { enable = true, parsers = { "css" } }, -- Enable sass colors
+				virtualtext = "■",
+				-- update color values even if buffer is not focused
+				-- example use: cmp_menu, cmp_docs
+				always_update = true,
+			},
 		},
 	},
 }
