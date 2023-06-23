@@ -67,6 +67,7 @@ return {
 	},
 	{
 		"j-hui/fidget.nvim",
+		branch = "legacy",
 		event = "LspAttach",
 		dependencies = { "neovim/nvim-lspconfig" },
 		opts = {
