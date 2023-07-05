@@ -182,6 +182,11 @@ local plugins = {
 				"<cmd>Neotree document_symbols toggle<cr>",
 				desc = "Browse symbols",
 			},
+			{
+				"<C-b>",
+				"<cmd>Neotree filesystem toggle right<cr>",
+				desc = "Neotree (sidepanel)"
+			}
 		},
 	},
 	{
