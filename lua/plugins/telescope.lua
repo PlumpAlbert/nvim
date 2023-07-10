@@ -40,7 +40,7 @@ return {
 				function()
 					require("telescope.builtin").buffers()
 				end,
-				desc = "",
+				desc = "Search buffers",
 			},
 			{
 				"<leader>ld",
