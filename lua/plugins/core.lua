@@ -169,7 +169,7 @@ local plugins = {
 		keys = {
 			{
 				"<leader>e",
-				"<cmd>Neotree filesystem toggle reveal<cr>",
+				"<cmd>Neotree filesystem toggle float reveal<cr>",
 				desc = "Open neotree",
 			},
 			{
