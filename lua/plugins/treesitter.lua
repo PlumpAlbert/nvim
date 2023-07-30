@@ -2,7 +2,6 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
-            "HiPhish/nvim-ts-rainbow2",
             "windwp/nvim-ts-autotag",
             "JoosepAlviste/nvim-ts-context-commentstring",
         },
@@ -10,12 +9,9 @@ return {
             return {
                 autotag = { enable = true },
                 context_commentstring = { enable = true },
-                rainbow = {
+                highlight = {
                     enable = true,
-                    -- Which query to use for finding delimiters
-                    query = "rainbow-parens",
-                    -- Highlight the entire buffer all at once
-                    strategy = require("ts-rainbow").strategy.global,
+                    additional_vim_regex_highlighting = false,
                 },
             }
         end,
