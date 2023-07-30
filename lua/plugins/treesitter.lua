@@ -1,19 +1,27 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = { "lua", "vim", "bash" },
-      auto_install = true,
-      indent = { enable = true },
-    },
-  },
-  {
     "HiPhish/nvim-ts-rainbow2",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      local rainbow = require("ts-rainbow")
-      require("nvim-treesitter.configs").setup({
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function()
+      return {
+        ensure_installed = { "lua", "vim", "bash" },
+        auto_install = true,
+        indent = { enable = true },
+        highlight = { enable = true },
+        autotag = { enable = true },
         rainbow = {
+          enable = true,
           query = {
             "rainbow-parens",
             html = "rainbow-tags",
@@ -21,28 +29,7 @@ return {
             jsx = "rainbow-tags",
             tsx = "rainbow-tags",
           },
-          strategy = {
-            rainbow.strategy.global,
-            commonlisp = rainbow.strategy["local"],
-          },
         },
-      })
-    end,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        autotag = { enable = true },
-      })
-    end,
-  },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("nvim-treesitter.configs").setup({
         context_commentstring = {
           enable = true,
           enable_autocmd = false,
@@ -56,7 +43,7 @@ return {
             },
           },
         },
-      })
+      }
     end,
   },
 }
