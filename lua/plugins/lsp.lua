@@ -9,7 +9,10 @@ return {
             "neovim/nvim-lspconfig",
         },
         keys = function()
-            local ufo = require("ufo")
+            local ok, ufo = pcall(require,"ufo")
+	    if not ok then
+		    return {}
+	    end
             return {
                 {
                     "zM",
