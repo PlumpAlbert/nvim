@@ -1,0 +1,102 @@
+return {
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    {
+        "kevinhwang91/nvim-ufo",
+        lazy = false,
+        config = false,
+        dependencies = {
+            "kevinhwang91/promise-async",
+            "neovim/nvim-lspconfig",
+        },
+        keys = function()
+            local ufo = require("ufo")
+            return {
+                {
+                    "zM",
+                    ufo.closeAllFolds,
+                    desc = "Close all folds",
+                },
+                {
+                    "zR",
+                    ufo.openAllFolds,
+                    desc = "Open all folds",
+                },
+                {
+                    "zm",
+                    ufo.closeFoldsWith,
+                    desc = "Close fold",
+                },
+                {
+                    "zr",
+                    ufo.openFoldsExceptKinds,
+                    desc = "Open folds, except kings",
+                },
+            }
+        end,
+    },
+
+    -- lspconfig
+    {
+        "neovim/nvim-lspconfig",
+        init = function()
+            require("ufo").setup()
+        end,
+    },
+
+    -- mason
+    {
+        "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = {
+                "eslint_d",
+                "prettierd",
+                "stylua",
+            },
+        },
+    },
+
+    -- null-ls
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        opts = function()
+            local nls = require("null-ls.builtins")
+            return {
+                root_dir = require("null-ls.utils").root_pattern(
+                    ".null-ls-root",
+                    ".neoconf.json",
+                    "Makefile",
+                    ".git"
+                ),
+                sources = {
+                    nls.formatting.stylua,
+                    nls.formatting.prettierd,
+                    nls.code_actions.eslint_d,
+                    nls.diagnostics.eslint_d,
+                },
+            }
+        end,
+    },
+
+    -- nvim-cmp
+    {
+        "hrsh7th/nvim-cmp",
+        ---@param opts cmp.ConfigSchema
+        opts = function(_, opts)
+            local cmp = require("cmp")
+
+            opts.mapping = cmp.mapping.preset.insert({
+                ["<M-[>"] = cmp.mapping.scroll_docs(-4),
+                ["<M-]>"] = cmp.mapping.scroll_docs(4),
+                ["<C-Space>"] = cmp.mapping.complete(),
+                ["<C-c>"] = cmp.mapping.abort(),
+                ["<CR>"] = cmp.mapping.confirm({
+                    select = true,
+                }),
+                ["<C-j>"] = cmp.mapping.select_next_item(),
+                ["<C-k>"] = cmp.mapping.select_prev_item(),
+            })
+
+            return opts
+        end,
+    },
+}
