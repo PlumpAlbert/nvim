@@ -9,10 +9,10 @@ return {
             "neovim/nvim-lspconfig",
         },
         keys = function()
-            local ok, ufo = pcall(require,"ufo")
-	    if not ok then
-		    return {}
-	    end
+            local ok, ufo = pcall(require, "ufo")
+            if not ok then
+                return {}
+            end
             return {
                 {
                     "zM",
@@ -41,8 +41,23 @@ return {
     -- lspconfig
     {
         "neovim/nvim-lspconfig",
+        dependencies = { "b0o/schemastore.nvim" },
         init = function()
             require("ufo").setup()
+        end,
+        opts = function(_, opts)
+            opts.servers = vim.tbl_extend("force", opts.servers, {
+                jsonls = {
+                    settings = {
+                        json = {
+                            schemas = require("schemastore").json.schemas(),
+                            validate = { enable = true },
+                        },
+                    },
+                },
+            })
+
+            return opts
         end,
     },
 
