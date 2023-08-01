@@ -43,4 +43,31 @@ return {
             },
         },
     },
+
+    {
+        "NvChad/nvim-colorizer.lua",
+        event = "VeryLazy",
+        opts = function()
+            local config = {
+                css = true,
+                tailwind = true,
+            }
+
+            return {
+                filetypes = {
+                    "*",
+                    javascriptreact = config,
+                    typescriptreact = config,
+                    css = config,
+                    scss = config,
+                    sass = config,
+                    html = config,
+                },
+                user_default_options = {
+                    mode = "virtualtext",
+                    sass = { enable = true, parsers = { "css" } },
+                },
+            }
+        end,
+    },
 }
