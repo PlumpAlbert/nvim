@@ -14,6 +14,27 @@ return {
             window = {
                 position = "float",
             },
+            filesystem = {
+                follow_current_file = {
+                    enable = true,
+                    leave_dirs_open = false,
+                },
+                always_show = {
+                    ".gitignore",
+                    ".prettierrc",
+                    ".prettierrc.json",
+                    ".prettierrc.yml",
+                    ".prettierrc.yaml",
+                    ".eslintrc.json",
+                    ".eslintrc.yml",
+                    ".eslintrc.yaml",
+                    ".env",
+                    ".env.local",
+                    ".env.production",
+                    ".env.development",
+                    ".env.test",
+                },
+            },
         },
     },
 }
