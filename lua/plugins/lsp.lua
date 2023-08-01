@@ -66,8 +66,7 @@ return {
         "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
-                "eslint_d",
-                "prettierd",
+                "prettier",
                 "stylua",
             },
         },
@@ -87,9 +86,9 @@ return {
                 ),
                 sources = {
                     nls.formatting.stylua,
-                    nls.formatting.prettierd,
-                    nls.code_actions.eslint_d,
-                    nls.diagnostics.eslint_d,
+                    nls.formatting.prettier,
+                    nls.code_actions.eslint,
+                    nls.diagnostics.eslint,
                 },
             }
         end,
