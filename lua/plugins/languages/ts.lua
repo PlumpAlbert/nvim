@@ -17,10 +17,10 @@ return {
 			local M = require("config.servers.null")
 
 			M.install[#M.install + 1] = "eslint_d"
-			M.install[#M.install + 1] = "prettier"
+			M.install[#M.install + 1] = "prettierd"
 
 			vim.list_extend(M.sources, {
-				null.builtins.formatting.prettier,
+				null.builtins.formatting.prettierd,
 				null.builtins.diagnostics.eslint_d,
 				null.builtins.code_actions.eslint_d,
 			})
