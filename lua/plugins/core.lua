@@ -31,9 +31,10 @@ local plugins = {
 				-- only needed if you want to use the commands with "_with_window_picker" suffix
 				"s1n7ax/nvim-window-picker",
 				opts = {
-					autoselect_one = true,
-					include_current = false,
+					hint = 'floating-big-letter',
 					filter_rules = {
+						autoselect_one = true,
+						include_current = false,
 						-- filter using buffer options
 						bo = {
 							-- if the file type is one of following, the window will be ignored
@@ -41,10 +42,11 @@ local plugins = {
 								"neo-tree",
 								"neo-tree-popup",
 								"notify",
+								"fidget"
 							},
 
 							-- if the buffer type is one of following, the window will be ignored
-							buftype = { "terminal", "quickfix" },
+							buftype = { "terminal", "quickfix", "nofile" },
 						},
 					},
 					-- other_win_hl_color = '#e35e4f',
