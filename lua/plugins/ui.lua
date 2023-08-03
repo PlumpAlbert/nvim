@@ -87,6 +87,15 @@ return {
 					background_colour = "#00000088",
 					top_down = false,
 				},
+				keys = {
+					{
+						"<leader>un",
+						function()
+							require("notify").dismiss()
+						end,
+						desc = 'Dismiss notification'
+					},
+				},
 			},
 		},
 		opts = {
