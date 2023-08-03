@@ -47,7 +47,7 @@ return {
 				function()
 					require("telescope.builtin").diagnostics({ bufnr = 0 })
 				end,
-				desc = "",
+				desc = "Open buffer diagnostics",
 			},
 		},
 		config = function()
@@ -57,10 +57,18 @@ return {
 					sorting_strategy = "ascending",
 					layout_strategy = "vertical",
 					layout_config = {
-						height = 0.7,
-						width = 0.5,
-						preview_height = 0.2,
+						height = 0.97,
+						width = 0.64,
+						preview_height = 0.4,
 						prompt_position = "top",
+					},
+					find_command = {
+						"rg",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--smart-case",
 					},
 				},
 			})
