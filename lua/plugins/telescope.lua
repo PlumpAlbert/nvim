@@ -54,16 +54,25 @@ return {
 		},
 		config = function()
 			require("telescope").setup({
+				pickers = {
+					find_files = {
+						theme = "dropdown",
+						layout_strategy = "horizontal",
+						layout_config = {
+							width = vim.o.columns,
+							height = vim.o.lines,
+							prompt_position = "bottom",
+							preview_cutoff = 120,
+							preview_width = 0.5,
+						},
+					},
+				},
 				defaults = {
 					border = true,
 					sorting_strategy = "ascending",
-					layout_strategy = "vertical",
-					layout_config = {
-						height = 0.97,
-						width = 0.64,
-						preview_height = 0.4,
-						prompt_position = "top",
-					},
+					selection_strategy = "closest",
+					wrap_results = true,
+					prompt_prefix = '🔭 ',
 					find_command = {
 						"rg",
 						"--no-heading",
@@ -75,7 +84,11 @@ return {
 				},
 				extensions = {
 					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
+						require("telescope.themes").get_cursor({
+							layout_config = {
+								width = 64,
+							},
+						}),
 					},
 				},
 			})
