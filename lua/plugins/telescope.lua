@@ -3,7 +3,9 @@ return {
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.x",
 		dependencies = {
+			"nvim-lua/plenary.nvim",
 			"kdheepak/lazygit.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		cmd = "Telescope",
 		keys = {
@@ -71,8 +73,15 @@ return {
 						"--smart-case",
 					},
 				},
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown({}),
+					},
+				},
 			})
+			-- load extensions
 			require("telescope").load_extension("lazygit")
+			require("telescope").load_extension("ui-select")
 		end,
 	},
 }
