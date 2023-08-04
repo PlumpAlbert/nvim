@@ -35,11 +35,11 @@ return {
 		end,
 		keys = {
 			{
-				"<M-h>",
+				"<S-h>",
 				"<cmd>BufferLineCyclePrev<cr>",
 				desc = "Previous buffer",
 			},
-			{ "<M-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+			{ "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
 		},
 	},
 	{
@@ -93,7 +93,7 @@ return {
 						function()
 							require("notify").dismiss()
 						end,
-						desc = 'Dismiss notification'
+						desc = "Dismiss notification",
 					},
 				},
 			},
