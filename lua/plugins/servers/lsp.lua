@@ -73,10 +73,6 @@ return {
 
 			local lsp = require("lspconfig")
 
-			require("mason-lspconfig").setup({
-				ensure_installed = M.install,
-			})
-
 			local handlers = {
 				function(server_name)
 					lsp[server_name].setup({
@@ -84,6 +80,7 @@ return {
 					})
 				end,
 			}
+
 			for k, v in pairs(M.options) do
 				handlers[k] = function()
 					lsp[k].setup(vim.tbl_extend("force", v, {
@@ -91,7 +88,11 @@ return {
 					}))
 				end
 			end
-			require("mason-lspconfig").setup_handlers(handlers)
+
+			require("mason-lspconfig").setup({
+				ensure_installed = M.install,
+				handlers = handlers
+			})
 		end,
 	},
 }
