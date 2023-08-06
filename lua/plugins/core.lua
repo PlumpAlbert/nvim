@@ -1,7 +1,7 @@
 -- vim:ft=lua:ts=4:sw=0:noet
 return {
-	{ import = 'plugins.languages' },
-	{ import = 'plugins.servers' },
+	{ import = "plugins.languages" },
+	{ import = "plugins.servers" },
 
 	{
 		"folke/which-key.nvim",
@@ -9,17 +9,8 @@ return {
 		config = true,
 	},
 	{
-		"klen/nvim-config-local",
-		lazy = false,
-		opts = {
-			silent = true,
-			config_files = {
-				".nvim.lua",
-				".nvimrc",
-				".vimrc.lua",
-				".vimrc",
-			},
-		},
+		"direnv/direnv.vim",
+		event = "VeryLazy",
 	},
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
@@ -34,7 +25,7 @@ return {
 				-- only needed if you want to use the commands with "_with_window_picker" suffix
 				"s1n7ax/nvim-window-picker",
 				opts = {
-					hint = 'floating-big-letter',
+					hint = "floating-big-letter",
 					filter_rules = {
 						autoselect_one = true,
 						include_current = false,
@@ -45,7 +36,7 @@ return {
 								"neo-tree",
 								"neo-tree-popup",
 								"notify",
-								"fidget"
+								"fidget",
 							},
 
 							-- if the buffer type is one of following, the window will be ignored
@@ -190,8 +181,8 @@ return {
 			{
 				"<C-b>",
 				"<cmd>Neotree filesystem toggle right<cr>",
-				desc = "Neotree (sidepanel)"
-			}
+				desc = "Neotree (sidepanel)",
+			},
 		},
 	},
 	{
