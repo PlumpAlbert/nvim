@@ -1,5 +1,8 @@
 -- vim:ft=lua:ts=4:sw=0:noet
-local plugins = {
+return {
+	{ import = 'plugins.languages' },
+	{ import = 'plugins.servers' },
+
 	{
 		"folke/which-key.nvim",
 		lazy = false,
@@ -280,5 +283,3 @@ local plugins = {
 		},
 	},
 }
-
-return vim.list_extend(plugins, require("plugins.servers"))
