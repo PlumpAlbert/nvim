@@ -2,7 +2,7 @@ return {
 	{
 		"folke/neoconf.nvim",
 		cmd = "Neoconf",
-		lazy = false,
+		event = "VeryLazy",
 		config = true,
 		opts = {
 			local_settings = ".neoconf.jsonc",
@@ -28,13 +28,14 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		event = "BufEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"folke/neoconf.nvim",
 		},
 	},
 	{
 		"williamboman/mason.nvim",
+		event = "VeryLazy",
 		command = "Mason",
 		build = ":MasonUpdate",
 		config = true,
@@ -57,21 +58,22 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		lazy = false,
+		event = "VeryLazy",
+		config = true,
 		dependencies = {
 			"neovim/nvim-lspconfig",
 			"williamboman/mason.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
-		config = function()
+		opts = function(_, opts)
+			local lsp = require("lspconfig")
 			local M = require("config.servers.lsp")
+
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			capabilities.textDocument.foldingRange = {
 				dynamicRegistration = false,
 				lineFoldingOnly = true,
 			}
-
-			local lsp = require("lspconfig")
 
 			local handlers = {
 				function(server_name)
@@ -89,9 +91,9 @@ return {
 				end
 			end
 
-			require("mason-lspconfig").setup({
+			return vim.tbl_extend("force", opts, {
 				ensure_installed = M.install,
-				handlers = handlers
+				handlers = handlers,
 			})
 		end,
 	},
