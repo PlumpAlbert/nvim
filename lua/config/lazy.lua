@@ -15,17 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	---@type LazySpec
 	spec = {
-		{ import = "plugins.core" },
-		{ import = "plugins.languages.ts" },
-		{ import = "plugins.languages.ansible" },
-		{ import = "plugins.languages.docker" },
-		{ import = "plugins.languages.yaml" },
-		{ import = "plugins.languages.shell" },
-		{ import = "plugins.git" },
-		{ import = "plugins.treesitter" },
-		{ import = "plugins.telescope" },
-		{ import = "plugins.ui" },
-		{ import = "plugins.themes" },
+		{ import = "plugins" },
 	},
 	defaults = {
 		lazy = true,
@@ -44,7 +34,7 @@ require("lazy").setup({
 		-- install missing plugins on startup. This doesn't increase startup time.
 		missing = true,
 		-- try to load one of these colorschemes when starting an installation during startup
-		colorscheme = { "catppuccin", "wildcharm", "habamax" },
+		colorscheme = { "nightfly", "catppuccin", "wildcharm", "habamax" },
 	},
 	ui = {
 		-- a number <1 is a percentage., >1 is a fixed size
@@ -123,7 +113,7 @@ require("lazy").setup({
 		rtp = {
 			reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
 			---@type string[]
-			paths = {},  -- add any custom paths here that you want to includes in the rtp
+			paths = {}, -- add any custom paths here that you want to includes in the rtp
 			---@type string[] list any plugins you want to disable here
 			disabled_plugins = {
 				"gzip",
