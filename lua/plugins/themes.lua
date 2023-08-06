@@ -68,4 +68,19 @@ return {
 			italic_comments = true,
 		},
 	},
+	{
+		"bluz71/vim-nightfly-colors",
+		name = 'nightfly',
+		priority = 1000,
+		lazy = false,
+		init = function()
+			local g = vim.g
+
+			g.nightflyCursorColor = true
+			g.nightflyNormalFloat = false
+			g.nightflyTransparent = true
+			g.nightflyVirtualTextColor = true
+			g.nightflyWinSeparator = 2
+		end
+	}
 }
