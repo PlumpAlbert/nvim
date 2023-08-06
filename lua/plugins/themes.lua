@@ -70,17 +70,25 @@ return {
 	},
 	{
 		"bluz71/vim-nightfly-colors",
-		name = 'nightfly',
+		name = "nightfly",
 		priority = 1000,
 		lazy = false,
 		init = function()
 			local g = vim.g
 
 			g.nightflyCursorColor = true
-			g.nightflyNormalFloat = false
 			g.nightflyTransparent = true
 			g.nightflyVirtualTextColor = true
 			g.nightflyWinSeparator = 2
-		end
-	}
+			g.nightflyNormalFloat = true
+
+			vim.lsp.handlers["textDocument/hover"] =
+				vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+				vim.lsp.handlers.signatureHelp,
+				{ border = "single" }
+			)
+			vim.diagnostic.config({ float = { border = "single" } })
+		end,
+	},
 }
