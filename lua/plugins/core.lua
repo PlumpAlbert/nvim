@@ -15,7 +15,7 @@ return {
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		config = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -142,11 +142,15 @@ return {
 						"thumbs.db",
 					},
 				},
-				follow_current_file = true,
+				follow_current_file = {
+					enabled = true,
+				},
 				group_empty_dirs = false,
 			},
 			buffers = {
-				follow_current_file = true,
+				follow_current_file = {
+					enabled = true,
+				},
 				group_empty_dirs = false,
 				show_unloaded = true,
 			},
@@ -261,8 +265,8 @@ return {
 					{ name = "sass-variables" },
 				}),
 				experimental = {
-					ghost_text = true
-				}
+					ghost_text = true,
+				},
 			})
 		end,
 	},
