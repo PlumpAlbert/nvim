@@ -87,6 +87,13 @@ return {
 				end,
 				desc = "Go to next hunk",
 			},
+			{
+				"<leader>gb",
+				function()
+					require("gitsigns").blame_line({ full = true })
+				end,
+				desc = "Preview hunk",
+			},
 		},
 	},
 	{
@@ -96,15 +103,22 @@ return {
 	{
 		"kdheepak/lazygit.nvim",
 		keys = {
-			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "Open LazyGit" },
+			{
+				"<leader>gg",
+				"<cmd>LazyGit<cr>",
+				desc = "Open LazyGit",
+				silent = true,
+			},
 			{
 				"<leader>gc",
 				"<cmd>LazyGitConfig<cr>",
 				desc = "Edit LazyGit configuration",
+				silent = true,
 			},
 		},
 		config = function()
-			vim.g.lazygit_floating_window_scaling_factor = 0.92
+			vim.g.lazygit_floating_window_scaling_factor = 1
+			vim.g.lazygit_floating_window_use_plenary = true
 			vim.g.lazygit_use_custom_config_file_path = false
 		end,
 	},
