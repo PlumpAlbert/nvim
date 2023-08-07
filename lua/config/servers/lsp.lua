@@ -123,7 +123,14 @@ M.keys = {
 	},
 	{
 		key = "gT",
-		action = vim.lsp.buf.type_definition,
+		action = function(...)
+			local hasTelescope, builtins = pcall(require, "telescope.builtin")
+			if hasTelescope then
+				builtins.lsp_type_definitions()
+				return
+			end
+			vim.lsp.buf.type_definition(...)
+		end,
 		desc = "Go to type definition",
 	},
 	--#endregion
