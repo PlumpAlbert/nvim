@@ -35,20 +35,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
-
-vim.api.nvim_create_autocmd("LspDetach", {
-	group = LspGroup,
-	callback = function(ev)
-		---@type LspKeymap[]
-		local keys = require("config.servers.lsp").keys
-
-		for _, keymap in pairs(keys) do
-			vim.keymap.del(
-				keymap.mode or { "n" },
-				keymap.key,
-				{ buffer = ev.buf }
-			)
-		end
-	end,
-})
 --#endregion
