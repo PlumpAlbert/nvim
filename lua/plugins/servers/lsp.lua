@@ -64,6 +64,7 @@ return {
 			"neovim/nvim-lspconfig",
 			"williamboman/mason.nvim",
 			"hrsh7th/cmp-nvim-lsp",
+			"jubnzv/virtual-types.nvim",
 		},
 		opts = function(_, opts)
 			local lsp = require("lspconfig")
@@ -79,6 +80,7 @@ return {
 				function(server_name)
 					lsp[server_name].setup({
 						capabilities = capabilities,
+						on_attach = require("virtualtypes").on_attach,
 					})
 				end,
 			}
@@ -87,6 +89,7 @@ return {
 				handlers[k] = function()
 					lsp[k].setup(vim.tbl_extend("force", v, {
 						capabilities = capabilities,
+						on_attach = require("virtualtypes").on_attach,
 					}))
 				end
 			end
