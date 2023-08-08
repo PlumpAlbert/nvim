@@ -16,10 +16,18 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
+		after = "catppuccin",
 		version = "*",
 		lazy = false,
 		dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin" },
 		opts = function()
+			local highlights = {}
+
+			if string.find(vim.cmd.colorscheme(), "catppuccin") then
+				highlights =
+					require("catppuccin.groups.integrations.bufferline").get()
+			end
+
 			return {
 				options = {
 					mode = "buffers",
@@ -27,9 +35,7 @@ return {
 					numbers = "none",
 					separator_style = "thick",
 					always_show_bufferline = false,
-					highlights = require(
-						"catppuccin.groups.integrations.bufferline"
-					).get(),
+					highlights = highlights or {},
 				},
 			}
 		end,
@@ -116,7 +122,7 @@ return {
 		},
 		opts = {
 			lsp = {
-				progress = {enabled = false},
+				progress = { enabled = false },
 				hover = { silent = true },
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {
@@ -158,7 +164,7 @@ return {
 				mode = "virtualtext", -- Set the display mode.
 				-- Available methods are false / true / "normal" / "lsp" / "both"
 				-- True is same as normal
-				tailwind = true, -- Enable tailwind colors
+				tailwind = true,                   -- Enable tailwind colors
 				-- parsers can contain values used in |user_default_options|
 				sass = { enable = true, parsers = { "css" } }, -- Enable sass colors
 				virtualtext = "■",
