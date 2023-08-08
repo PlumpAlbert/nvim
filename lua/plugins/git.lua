@@ -119,6 +119,7 @@ return {
 		config = function()
 			vim.g.lazygit_floating_window_scaling_factor = 1
 			vim.g.lazygit_floating_window_use_plenary = true
+			vim.g.lazygit_floating_window_winblend = 20
 			vim.g.lazygit_use_custom_config_file_path = false
 		end,
 	},
