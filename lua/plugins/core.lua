@@ -139,21 +139,29 @@ return {
 						".github",
 						--#region prettier
 						".prettierrc",
+						".prettierrc.cjs",
+						".prettierrc.js",
 						".prettierrc.json",
 						".prettierrc.yaml",
 						".prettierrc.yml",
 						"prettierrc.json",
 						"prettierrc.yaml",
 						"prettierrc.yml",
+						"prettier.config.cjs",
+						"prettier.config.js",
 						--#endregion
 						--#region eslint
 						".eslintrc",
+						".eslintrc.cjs",
+						".eslintrc.js",
 						".eslintrc.json",
 						".eslintrc.yaml",
 						".eslintrc.yml",
 						"eslintrc.json",
 						"eslintrc.yaml",
 						"eslintrc.yml",
+						"eslint.config.cjs",
+						"eslint.config.js",
 						--#endregion
 					},
 					never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
