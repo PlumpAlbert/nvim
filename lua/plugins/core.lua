@@ -136,6 +136,25 @@ return {
 						".gitignored",
 						".env",
 						".env.local",
+						".github",
+						--#region prettier
+						".prettierrc",
+						".prettierrc.json",
+						".prettierrc.yaml",
+						".prettierrc.yml",
+						"prettierrc.json",
+						"prettierrc.yaml",
+						"prettierrc.yml",
+						--#endregion
+						--#region eslint
+						".eslintrc",
+						".eslintrc.json",
+						".eslintrc.yaml",
+						".eslintrc.yml",
+						"eslintrc.json",
+						"eslintrc.yaml",
+						"eslintrc.yml",
+						--#endregion
 					},
 					never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
 						".DS_Store",
