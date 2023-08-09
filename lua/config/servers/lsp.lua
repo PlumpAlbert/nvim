@@ -10,11 +10,6 @@ libraries = vim.list_extend(libraries, {
 	"/usr/share/awesome/lib",
 })
 
-local library = {}
-for key, value in pairs(libraries) do
-	library[value] = true
-end
-
 ---@type table Table with custom LSP server options
 M.options = {
 	lua_ls = {
@@ -30,7 +25,7 @@ M.options = {
 				},
 				workspace = {
 					-- Make the server aware of Neovim runtime files
-					library = library,
+					library = libraries,
 					checkThirdParty = false,
 				},
 				-- Do not send telemetry data containing a randomized but unique identifier
