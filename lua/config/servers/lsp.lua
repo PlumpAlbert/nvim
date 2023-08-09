@@ -107,7 +107,7 @@ M.keys = {
 		desc = "Go to declaration",
 	},
 	{
-		key = "gD",
+		key = "gd",
 		action = vim.lsp.buf.definition,
 		desc = "Go to definition",
 	},
