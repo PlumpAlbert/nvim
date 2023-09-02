@@ -76,11 +76,20 @@ return {
 				lineFoldingOnly = true,
 			}
 
+			local function on_attach(c, b)
+				if
+					c.server_capabilities.textDocument
+					and c.server_capabilities.textDocument.codeLens
+				then
+					require("virtualtypes").on_attach(c, b)
+				end
+			end
+
 			local handlers = {
 				function(server_name)
 					lsp[server_name].setup({
 						capabilities = capabilities,
-						on_attach = require("virtualtypes").on_attach,
+						on_attach = on_attach,
 					})
 				end,
 			}
@@ -89,7 +98,7 @@ return {
 				handlers[k] = function()
 					lsp[k].setup(vim.tbl_extend("force", v, {
 						capabilities = capabilities,
-						on_attach = require("virtualtypes").on_attach,
+						on_attach = on_attach,
 					}))
 				end
 			end
