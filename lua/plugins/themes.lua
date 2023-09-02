@@ -5,7 +5,7 @@ return {
 		name = "catppuccin",
 		opts = function()
 			return {
-				transparent_background = false,
+				transparent_background = true,
 				term_colors = true,
 				compile = {
 					enabled = true,
