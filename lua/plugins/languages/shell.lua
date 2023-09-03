@@ -1,13 +1,10 @@
 return {
 	{
-		"nvim-treesitter/nvim-treesitter",
-		init = function()
-			vim.treesitter.language.register("bash", "zsh")
-		end,
-	},
-	{
 		"williamboman/mason-lspconfig.nvim",
 		opts = function()
+			if vim.treesitter then
+				vim.treesitter.language.register("bash", "zsh")
+			end
 			local M = require("config.servers.lsp")
 
 			M.install[#M.install + 1] = "bashls"
