@@ -112,24 +112,38 @@ return {
 		end,
 	},
 	{
-		"segeljakt/vim-silicon",
-		cmd = 'Silicon',
-		init = function()
-			vim.g.silicon = {
-				theme = "Dracula",
-				font = "monospace",
-				background = "#AAAAFF",
-				["shadow-color"] = "#555555",
-				["line-pad"] = 2,
-				["pad-horiz"] = 80,
-				["pad-vert"] = 100,
-				["shadow-blur-radius"] = 6,
-				["shadow-offset-x"] = 1,
-				["shadow-offset-y"] = 3,
-				["line-number"] = true,
-				["round-corner"] = true,
-				["window-controls"] = true,
-			}
+		"michaelrommel/nvim-silicon",
+		lazy = true,
+		cmd = "Silicon",
+		config = function()
+			require("silicon").setup({
+				-- Configuration here, or leave empty to use defaults
+				font = "Iosevka=14",
+				theme = "gruvbox-dark",
+				background = "#076678",
+				pad_horiz = 100,
+				pad_vert = 80,
+				line_offset = 1,
+				line_pad = 0,
+				tab_width = 4,
+				language = function()
+					return vim.bo.filetype
+				end,
+				shadow_blur_radius = 16,
+				shadow_offset_x = 8,
+				shadow_offset_y = 8,
+				shadow_color = "#100808",
+				gobble = true,
+				to_clipboard = false,
+				command = "silicon",
+				no_window_controls = true,
+				-- window_title = function()
+				-- 	return vim.fn.fnamemodify(
+				-- 		vim.fn.bufname(vim.fn.bufnr()),
+				-- 		":~:."
+				-- 	)
+				-- end,
+			})
 		end,
 	},
 }
