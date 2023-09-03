@@ -111,4 +111,25 @@ return {
 			vim.g.mkdp_theme = "dark"
 		end,
 	},
+	{
+		"segeljakt/vim-silicon",
+		cmd = 'Silicon',
+		init = function()
+			vim.g.silicon = {
+				theme = "Dracula",
+				font = "monospace",
+				background = "#AAAAFF",
+				["shadow-color"] = "#555555",
+				["line-pad"] = 2,
+				["pad-horiz"] = 80,
+				["pad-vert"] = 100,
+				["shadow-blur-radius"] = 6,
+				["shadow-offset-x"] = 1,
+				["shadow-offset-y"] = 3,
+				["line-number"] = true,
+				["round-corner"] = true,
+				["window-controls"] = true,
+			}
+		end,
+	},
 }
