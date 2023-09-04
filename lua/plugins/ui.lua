@@ -70,4 +70,41 @@ return {
             }
         end,
     },
+
+    {
+        "narutoxy/silicon.lua",
+        config = true,
+        keys = {
+            {
+                "<leader>cs",
+                function()
+                    require("silicon").visualise_api({
+                        to_clip = true,
+                        show_buf = true,
+                    })
+                end,
+                mode = "n",
+            },
+        },
+        opts = {
+            theme = "Visual Studio Dark+",
+            output = "${year}-${month}-${date}_${time}.png", -- auto generate file name based on time (absolute or relative to cwd)
+            bgColor = vim.g.terminal_color_5,
+            bgImage = "", -- path to image, must be png
+            roundCorner = true,
+            windowControls = false,
+            lineNumber = true,
+            font = "Iosevka Nerd Font",
+            lineOffset = 1, -- from where to start line number
+            linePad = 0, -- padding between lines
+            padHoriz = 64, -- Horizontal padding
+            padVert = 32, -- vertical padding
+            shadowBlurRadius = 10,
+            shadowColor = "#1a1a1a",
+            shadowOffsetX = 8,
+            shadowOffsetY = 8,
+            gobble = true, -- enable lsautogobble like feature
+            debug = false, -- enable debug output
+        },
+    },
 }
