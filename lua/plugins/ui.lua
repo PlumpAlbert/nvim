@@ -84,15 +84,24 @@ return {
                     })
                 end,
                 mode = "n",
+                desc = "Code snapshot",
+            },
+            {
+                "<leader>cs",
+                function()
+                    require("silicon").visualise_api({ to_clip = true })
+                end,
+                mode = "v",
+                desc = "Code snapshot",
             },
         },
         opts = {
             theme = "Visual Studio Dark+",
             output = "${year}-${month}-${date}_${time}.png", -- auto generate file name based on time (absolute or relative to cwd)
-            bgColor = vim.g.terminal_color_5,
+            bgColor = vim.g.terminal_color_4,
             bgImage = "", -- path to image, must be png
             roundCorner = true,
-            windowControls = false,
+            windowControls = true,
             lineNumber = true,
             font = "Iosevka Nerd Font",
             lineOffset = 1, -- from where to start line number
