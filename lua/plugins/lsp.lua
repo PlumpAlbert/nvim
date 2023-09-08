@@ -69,6 +69,7 @@ return {
                 "eslint_d",
                 "prettierd",
                 "stylua",
+                "cspell",
             },
         },
     },
