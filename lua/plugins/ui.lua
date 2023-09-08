@@ -14,6 +14,12 @@ return {
         event = "VeryLazy",
         opts = {
             hint = "floating-big-letter",
+            filter_rules = {
+                bo = {
+                    filetype = { "neo-tree", "notify" },
+                    buftype = { "terminal" },
+                },
+            },
 
             highlights = {
                 statusline = {
