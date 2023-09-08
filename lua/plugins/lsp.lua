@@ -76,7 +76,14 @@ return {
     -- null-ls
     {
         "jose-elias-alvarez/null-ls.nvim",
+        dependencies = { "davidmh/cspell.nvim" },
         opts = function()
+            local cspell = require("cspell")
+            local cspellConfig = {
+                find_json = function()
+                    return vim.fn.stdpath("config") .. "/cspell.json"
+                end,
+            }
             local nls = require("null-ls.builtins")
             return {
                 root_dir = require("null-ls.utils").root_pattern(
@@ -90,6 +97,8 @@ return {
                     nls.formatting.prettierd,
                     nls.code_actions.eslint_d,
                     nls.diagnostics.eslint_d,
+                    cspell.diagnostics.with({ config = cspellConfig }),
+                    cspell.code_actions.with({ config = cspellConfig }),
                 },
             }
         end,
