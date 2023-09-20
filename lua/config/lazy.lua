@@ -41,7 +41,7 @@ require("lazy").setup({
     size = { width = 0.9, height = 0.9 },
     wrap = false, -- wrap the lines in the ui
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-    border = "none",
+    border = "rounded",
     icons = {
       cmd = " ",
       config = "",
@@ -103,7 +103,7 @@ require("lazy").setup({
   change_detection = {
     -- automatically check for config file changes and reload the ui
     enabled = true,
-    notify = true, -- get a notification when changes are found
+    notify = false, -- get a notification when changes are found
   },
   performance = {
     cache = {
