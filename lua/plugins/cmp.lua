@@ -48,6 +48,24 @@ function M.config()
 				c = cmp.mapping.close(),
 			},
 			["<CR>"] = cmp.mapping.confirm({select = true}),
+		},
+		sources = {
+			{ name = "nvim_lsp" },
+			{ name = "nvim_lua" },
+			{ name = "luasnip" },
+			{ name = "buffer" },
+			{ name = "path" },
+		},
+		confirm_opts = {
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = false,
+		},
+		window = {
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
+		},
+		experimental = {
+			ghost_text = true
 		}
 	}
 end
