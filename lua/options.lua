@@ -19,17 +19,17 @@ opt.inccommand = "nosplit" -- preview incremental substitute
 opt.laststatus = 3
 opt.list = true -- Show some invisible characters (tabs...
 opt.listchars = {
-  tab = "󰄾  ",
-  space = "·",
-  trail = "-",
-  eol = "",
-  nbsp = "␣",
+	tab = "󰄾  ",
+	space = "·",
+	trail = "-",
+	eol = "",
+	nbsp = "␣",
 }
 opt.fillchars = {
-  fold = " ",
-  foldopen = "",
-  foldsep = "│",
-  foldclose = "",
+	fold = " ",
+	foldopen = "",
+	foldsep = "│",
+	foldclose = "",
 }
 vim.o.showbreak = "↪"
 opt.mouse = "a" -- Enable mouse mode
@@ -61,8 +61,8 @@ opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 
 if vim.fn.has("nvim-0.9.0") == 1 then
-  opt.splitkeep = "screen"
-  opt.shortmess:append({ C = true })
+	opt.splitkeep = "screen"
+	opt.shortmess:append({ C = true })
 end
 
 -- Fix markdown indentation settings
@@ -79,9 +79,9 @@ vim.wo.foldcolumn = "1"
 vim.wo.foldlevel = 9999
 vim.go.foldlevelstart = 9999
 vim.wo.foldenable = true
-vim.wo.colorcolumn = "81"
+vim.wo.colorcolumn = "120"
 
 vim.o.cmdheight = 0
 
 vim.opt.langmap =
-  "ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\\"ZXCVBNM<>"
+	"ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\\"ZXCVBNM<>"
