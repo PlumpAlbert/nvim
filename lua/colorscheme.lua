@@ -1,2 +1,2 @@
 vim.g.background = "dark"
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("github_dark")
