@@ -57,9 +57,9 @@ M.opts = {
 			},
 			follow_current_file = true,
 		},
-		buffers = {
-			follow_current_file = true,
-		},
+	},
+	buffers = {
+		follow_current_file = true,
 	},
 }
 
