@@ -5,15 +5,35 @@ local M = {
 		"hrsh7th/cmp-nvim-lsp",
 		{
 			"kevinhwang91/nvim-ufo",
-			dependencies = {"kevinhwang91/promise-async"},
+			dependencies = { "kevinhwang91/promise-async" },
 			keys = {
-				{ "zM", function() require"ufo".closeAllFolds() end },
-				{ "zR", function() require"ufo".openAllFolds() end },
-				{ "zm", function() require"ufo".closeFoldsWith(-1) end },
-				{ "zr", function() require"ufo".closeFoldsWith(1) end },
-			}
-		}
-	}
+				{
+					"zM",
+					function()
+						require("ufo").closeAllFolds()
+					end,
+				},
+				{
+					"zR",
+					function()
+						require("ufo").openAllFolds()
+					end,
+				},
+				{
+					"zm",
+					function()
+						require("ufo").closeFoldsWith(-1)
+					end,
+				},
+				{
+					"zr",
+					function()
+						require("ufo").closeFoldsWith(1)
+					end,
+				},
+			},
+		},
+	},
 }
 
 return M

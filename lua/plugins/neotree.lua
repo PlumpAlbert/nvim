@@ -1,6 +1,6 @@
 local M = {
 	"nvim-neo-tree/neo-tree.nvim",
-branch = "v2.x",
+	branch = "v2.x",
 	config = true,
 }
 
@@ -8,34 +8,34 @@ M.dependencies = {
 	"nvim-lua/plenary.nvim",
 	"MunifTanjim/nui.nvim",
 	{
-		's1n7ax/nvim-window-picker',
-		name = 'window-picker',
-		event = 'VeryLazy',
-		version = '2.x',
+		"s1n7ax/nvim-window-picker",
+		name = "window-picker",
+		event = "VeryLazy",
+		version = "2.x",
 		opts = {
-			hint = 'floating-big-letter',
+			hint = "floating-big-letter",
 			filter_rules = {
 				autoselect_one = true,
 				include_current_win = false,
 				-- filter using buffer options
 				bo = {
 					-- if the file type is one of following, the window will be ignored
-					filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+					filetype = { "neo-tree", "neo-tree-popup", "notify" },
 					-- if the buffer type is one of following, the window will be ignored
-					buftype = { 'terminal', "quickfix" },
+					buftype = { "terminal", "quickfix" },
 				},
 			},
 		},
-	}
+	},
 }
 
 M.opts = {
 	window = {
-		position = 'float',
+		position = "float",
 		mapping_options = {
 			noremap = true,
 			nowait = true,
-		}
+		},
 	},
 	filesystem = {
 		filtered_items = {
@@ -44,52 +44,64 @@ M.opts = {
 			hide_gitignored = true,
 			hide_hidden = true,
 			always_show = {
-				'.gitignore',
-				'.env',
-				'.env.local',
-				'.eslintrc.json',
-				'.prettierrc',
+				".gitignore",
+				".env",
+				".env.local",
+				".eslintrc.json",
+				".prettierrc",
 			},
 			never_show = {
-				'.DS_Store',
-				'thumbs.db',
-				'node_modules'
+				".DS_Store",
+				"thumbs.db",
+				"node_modules",
 			},
 			follow_current_file = true,
 		},
 		buffers = {
 			follow_current_file = true,
 		},
-	}
+	},
 }
 
 M.keys = {
 	-- file explorer
-	{ '<leader>e', function()
-		require("neo-tree.command").execute({
-			toggle = true,
-			source = "filesystem",
-			position = "float",
-		})
-	end, desc = 'Open neotree' },
+	{
+		"<leader>e",
+		function()
+			require("neo-tree.command").execute({
+				toggle = true,
+				source = "filesystem",
+				position = "float",
+			})
+		end,
+		desc = "Open neotree",
+	},
 
 	-- buffer explorer
-	{ '<leader>b', function()
-		require("neo-tree.command").execute({
-			toggle = true,
-			source = "buffers",
-			position = "float",
-		})
-	end, desc = 'View buffers' },
+	{
+		"<leader>b",
+		function()
+			require("neo-tree.command").execute({
+				toggle = true,
+				source = "buffers",
+				position = "float",
+			})
+		end,
+		desc = "View buffers",
+	},
 
 	-- git status
-	{ '<leader>gs', function()
-		require("neo-tree.command").execute({
-			toggle = true,
-			source = "git_status",
-			position = "float",
-		})
-	end, desc = 'Git status' },
+	{
+		"<leader>gs",
+		function()
+			require("neo-tree.command").execute({
+				toggle = true,
+				source = "git_status",
+				position = "float",
+			})
+		end,
+		desc = "Git status",
+	},
 }
 
 return M
