@@ -72,6 +72,31 @@ M.opts = function()
 					end,
 				})
 			end,
+
+			lua_ls = function()
+				lspconfig.lua_ls.setup({
+					capabilities = capabilities,
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+								path = vim.split(package.path, ";"),
+							},
+							diagnostics = {
+								globals = { "vim" },
+							},
+							workspace = {
+								library = vim.api.nvim_get_runtime_file("", true),
+								checkThirdParty = false,
+							},
+							telemetry = { enable = false },
+						},
+					},
+					on_attach = function(_, bufnr)
+						lsp_keymap(bufnr)
+					end,
+				})
+			end,
 		},
 	}
 end
