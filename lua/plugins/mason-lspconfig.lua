@@ -1,5 +1,6 @@
 local M = {
 	"williamboman/mason-lspconfig.nvim",
+	event = "BufEnter",
 	dependencies = {
 		"williamboman/mason.nvim",
 	},
@@ -21,7 +22,22 @@ local function lsp_keymap(bufnr)
 	vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
 	vim.keymap.set("n", "<leader>ls", vim.lsp.buf.signature_help, opts)
 	vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-	vim.keymap.set("i", "<leader>lq", vim.diagnostic.setloclist, opts)
+	vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, opts)
+
+	-- display diagnostics on hover
+	vim.api.nvim_create_autocmd("CursorHold", {
+		buffer = bufnr,
+		callback = function()
+			vim.diagnostic.open_float(nil, {
+				focusable = false,
+				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				border = "rounded",
+				source = "always",
+				prefix = " ",
+				scope = "cursor",
+			})
+		end,
+	})
 end
 
 local ensure_installed = {
