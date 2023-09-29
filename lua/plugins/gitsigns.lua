@@ -21,8 +21,8 @@ local M = {
 			mode = { "v", "n" },
 			desc = "Stage hunk",
 		},
-		{ "]c", "<cmd>Gitsigns next_hunk" },
-		{ "[c", "<cmd>Gitsigns prev_hunk" },
+		{ "]c", "<cmd>Gitsigns next_hunk<cr>" },
+		{ "[c", "<cmd>Gitsigns prev_hunk<cr>" },
 	},
 }
 
