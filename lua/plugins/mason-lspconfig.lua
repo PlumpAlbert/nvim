@@ -43,6 +43,7 @@ end
 local ensure_installed = {
 	"lua_ls",
 	"tsserver",
+	"eslint",
 	"emmet_ls",
 	"cssls",
 	"html",

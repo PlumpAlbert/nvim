@@ -3,10 +3,7 @@ local M = {
 }
 
 function M.config()
-	local js = {
-		"cspell",
-		"eslint_d",
-	}
+	local js = { "cspell" }
 	require("lint").linters_by_ft = {
 		javascript = js,
 		javascriptreact = js,
