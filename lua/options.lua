@@ -76,8 +76,8 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 vim.wo.foldcolumn = "1"
-vim.wo.foldlevel = 9999
-vim.go.foldlevelstart = 9999
+vim.wo.foldlevel = 99
+vim.go.foldlevelstart = -1
 vim.wo.foldenable = true
 vim.wo.colorcolumn = "120"
 
