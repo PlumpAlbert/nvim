@@ -10,8 +10,17 @@ local M = {
 			"nvim-tree/nvim-web-devicons",
 			event = "VeryLazy",
 		},
+		{
+			"windwp/nvim-ts-autotag",
+			event = "VeryLazy",
+		},
+		{
+			"nvim-treesitter/nvim-treesitter-refactor",
+			event = "VeryLazy",
+		},
 	},
 }
+
 function M.config()
 	require("nvim-treesitter.install").prefer_git = false
 	local configs = require("nvim-treesitter.configs")
@@ -30,6 +39,17 @@ function M.config()
 		context_commentstring = {
 			enable = true,
 			enable_autocmd = false,
+		},
+
+		autotag = {
+			enable = true,
+		},
+
+		refactor = {
+			highlight_definitions = {
+				enable = true,
+				clear_on_cursor_move = false,
+			},
 		},
 	})
 end
