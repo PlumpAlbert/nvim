@@ -17,19 +17,9 @@ return {
 		},
 	},
 	{
-		"folke/tokyonight.nvim",
-		name = "tokyonight",
-		lazy = false,
+		"LunarVim/darkplus.nvim",
+		event = "VeryLazy",
 		priority = 1000,
-		config = true,
-		opts = {
-			style = "night",
-			light_style = "day",
-			transparent = true,
-			terminal_colors = true,
-			sidebars = { "qf", "help", "lazy", "neo-tree" },
-			hide_inactive_statusline = true,
-		},
 	},
 	{
 		"projekt0n/github-nvim-theme",
