@@ -10,7 +10,7 @@ local M = {
 
 function M.opts()
 	local js = {
-		require("formatter.defaults.prettierd"),
+		require("formatter.defaults.prettier"),
 	}
 
 	return {
