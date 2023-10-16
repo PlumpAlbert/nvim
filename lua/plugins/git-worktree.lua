@@ -2,6 +2,7 @@ local M = {
 	"ThePrimeagen/git-worktree.nvim",
 	dependencies = { "nvim-telescope/telescope.nvim" },
 	name = "git-worktree",
+	event = "VeryLazy",
 	config = function()
 		require("telescope").load_extension("git_worktree")
 
