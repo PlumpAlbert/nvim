@@ -4,4 +4,11 @@ local schemes = {
 	"catppuccin",
 	"github_dark",
 }
-vim.cmd.colorscheme(schemes[math.random(#schemes)])
+
+local function set_colorscheme()
+	local scheme = schemes[math.random(#schemes)]
+	vim.cmd.colorscheme(scheme)
+end
+
+set_colorscheme()
+vim.keymap.set("n", "<leader><F5>", set_colorscheme, { desc = "Random colorscheme" })
