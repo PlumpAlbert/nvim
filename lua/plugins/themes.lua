@@ -17,9 +17,14 @@ return {
 		},
 	},
 	{
-		"LunarVim/darkplus.nvim",
+		"Mofiqul/vscode.nvim",
 		event = "VeryLazy",
 		priority = 1000,
+		opts = {
+			transparent = true,
+			italic_comments = true,
+		},
+		config = true,
 	},
 	{
 		"projekt0n/github-nvim-theme",

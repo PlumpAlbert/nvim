@@ -1,6 +1,6 @@
 vim.g.background = "dark"
 local schemes = {
-	"darkplus",
+	"vscode",
 	"catppuccin",
 	"github_dark",
 }
