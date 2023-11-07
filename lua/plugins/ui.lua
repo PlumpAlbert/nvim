@@ -109,7 +109,7 @@ return {
             roundCorner = true,
             windowControls = true,
             lineNumber = true,
-            font = "Iosevka Nerd Font",
+            font = "monospace",
             lineOffset = 1, -- from where to start line number
             linePad = 0, -- padding between lines
             padHoriz = 64, -- Horizontal padding
