@@ -9,9 +9,7 @@ local M = {
 }
 
 function M.opts()
-	local js = {
-		require("formatter.defaults.prettier"),
-	}
+	local js = { require("formatter.defaults.prettier") }
 
 	return {
 		logging = true,
@@ -28,6 +26,8 @@ function M.opts()
 			html = js,
 			markdown = js,
 			json = js,
+			yaml = { require("formatter.filetypes.yaml").prettier },
+			["yaml.ansible"] = { require("formatter.filetypes.yaml").prettier },
 		},
 	}
 end
