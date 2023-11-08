@@ -26,29 +26,50 @@ function M.config()
 	local configs = require("nvim-treesitter.configs")
 
 	configs.setup({
-		ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "typescript" }, -- put the language you want in this array
-		-- ensure_installed = "all", -- one of "all" or a list of languages
-		sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+		auto_install = true,
+		sync_install = false,
+		modules = {},
+		ignore_install = {},
+		ensure_installed = {
+			"lua",
+			"markdown",
+			"markdown_inline",
+			"bash",
+			"typescript",
+			"tsx",
+		},
 
 		highlight = {
-			enable = true, -- false will disable the whole extension
-			disable = { "css" }, -- list of language that will be disabled
+			enable = true,
+			disable = {},
 		},
-		indent = { enable = true, disable = { "python", "css" } },
+
+		indent = {
+			enable = true,
+			disable = { "python", "css" },
+		},
 
 		context_commentstring = {
 			enable = true,
 			enable_autocmd = false,
 		},
 
-		autotag = {
-			enable = true,
-		},
+		autotag = { enable = true },
 
 		refactor = {
 			highlight_definitions = {
 				enable = true,
 				clear_on_cursor_move = false,
+			},
+			navigation = {
+				enable = true,
+				keymaps = {
+					goto_definition_lsp_fallback = "gd",
+					list_definitions = "<leader>lD",
+					list_definitions_toc = "<leader>lO",
+					goto_next_usage = "<a-]>",
+					goto_previous_usage = "<a-[>",
+				},
 			},
 		},
 	})
