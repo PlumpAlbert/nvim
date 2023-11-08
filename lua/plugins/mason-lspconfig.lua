@@ -3,13 +3,27 @@ local M = {
 	event = { "BufReadPre", "VeryLazy" },
 	dependencies = {
 		"williamboman/mason.nvim",
+		{
+			"SmiteshP/nvim-navic",
+			config = function(_, opts)
+				require("nvim-navic").setup(opts)
+				vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+			end,
+			opts = {
+				highlight = true,
+				separator = "  ",
+				depth_limit = 4,
+				depth_limit_indicator = " 󰇘",
+				safe_output = true,
+				click = true,
+			},
+		},
 	},
 }
 
 local function lsp_keymap(bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
@@ -40,6 +54,14 @@ local function lsp_keymap(bufnr)
 	})
 end
 
+local function on_attach(client, bufnr)
+	lsp_keymap(bufnr)
+
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
+	end
+end
+
 local ensure_installed = {
 	"lua_ls",
 	"tsserver",
@@ -67,9 +89,7 @@ M.opts = function()
 			function(server_name)
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
-					on_attach = function(_, bufnr)
-						lsp_keymap(bufnr)
-					end,
+					on_attach = on_attach,
 				})
 			end,
 
@@ -92,9 +112,7 @@ M.opts = function()
 							telemetry = { enable = false },
 						},
 					},
-					on_attach = function(_, bufnr)
-						lsp_keymap(bufnr)
-					end,
+					on_attach = on_attach,
 				})
 			end,
 		},
