@@ -11,7 +11,7 @@ return {
 					show_buf = true,
 				})
 			end,
-			desc = "Code snapshot",
+			desc = "Buffer snapshot",
 		},
 		{
 			"<leader>cs",
@@ -21,25 +21,36 @@ return {
 			mode = "v",
 			desc = "Code snapshot",
 		},
+		{
+			"<leader>cv",
+			function()
+				require("silicon").visualise_api({
+					to_clip = true,
+					show_buf = true,
+				})
+			end,
+			mode = "v",
+			desc = "Buffer snapshot (highlight selected)",
+		},
 	},
 	opts = {
 		theme = "OneHalfDark",
 		output = "${year}-${month}-${date}T${time}.png",
-		bgColor = vim.g.terminal_color_4,
+		bgColor = vim.g.terminal_color_12,
 		bgImage = "",
 		roundCorner = true,
 		windowControls = true,
 		lineNumber = true,
-		font = "Iosevka Nerd Font",
+		font = vim.fn.has("macunix") and "monospace" or "Iosevka Nerd Font",
 		lineOffset = 1,
 		linePad = 0,
 
 		padHoriz = 64,
-		padVert = 32,
-		shadowBlurRadius = 0,
+		padVert = 36,
+		shadowBlurRadius = 12,
 		shadowColor = "#1a1a1a",
-		shadowOffsetX = 8,
-		shadowOffsetY = 8,
+		shadowOffsetX = 1,
+		shadowOffsetY = 3,
 		gobble = true,
 		debug = false,
 	},
