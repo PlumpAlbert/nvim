@@ -79,7 +79,7 @@ M.keys = {
 
 	-- buffer explorer
 	{
-		"<leader>b",
+		"<leader>.",
 		function()
 			require("neo-tree.command").execute({
 				toggle = true,
