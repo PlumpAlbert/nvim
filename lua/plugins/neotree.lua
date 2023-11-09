@@ -32,6 +32,7 @@ M.dependencies = {
 M.opts = {
 	window = {
 		position = "float",
+		reveal = true,
 		mapping_options = {
 			noremap = true,
 			nowait = true,
@@ -56,6 +57,7 @@ M.opts = {
 				"node_modules",
 			},
 			follow_current_file = true,
+			bind_to_cwd = true,
 		},
 	},
 	buffers = {
@@ -72,6 +74,7 @@ M.keys = {
 				toggle = true,
 				source = "filesystem",
 				position = "float",
+				reveal = true,
 			})
 		end,
 		desc = "Open neotree",
