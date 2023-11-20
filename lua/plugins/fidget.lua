@@ -9,7 +9,7 @@ local M = {
 			right = true,
 		},
 		text = {
-			spinner = "clock",
+			spinner = "dots_pulse",
 			done = "✔ ",
 			commenced = " ",
 			completed = " ",
