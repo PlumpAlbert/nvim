@@ -26,6 +26,7 @@ function M.opts()
 			html = js,
 			markdown = js,
 			json = js,
+			jsonc = js,
 			yaml = { require("formatter.filetypes.yaml").prettier },
 			["yaml.ansible"] = { require("formatter.filetypes.yaml").prettier },
 		},
