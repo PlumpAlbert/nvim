@@ -80,6 +80,8 @@ vim.wo.foldlevel = 99
 vim.go.foldlevelstart = -1
 vim.wo.foldenable = true
 vim.wo.colorcolumn = "120"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.o.cmdheight = 1
 
