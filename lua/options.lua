@@ -25,12 +25,6 @@ opt.listchars = {
 	eol = "",
 	nbsp = "␣",
 }
-opt.fillchars = {
-	fold = " ",
-	foldopen = "",
-	foldsep = "│",
-	foldclose = "",
-}
 vim.o.showbreak = "↪"
 opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Print line number
@@ -75,10 +69,6 @@ vim.o.wrap = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.wo.foldcolumn = "1"
-vim.wo.foldlevel = 99
-vim.go.foldlevelstart = -1
-vim.wo.foldenable = true
 vim.wo.colorcolumn = "120"
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
