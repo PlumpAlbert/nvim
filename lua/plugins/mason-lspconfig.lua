@@ -3,6 +3,7 @@ local M = {
 	event = { "BufReadPre", "VeryLazy" },
 	dependencies = {
 		"williamboman/mason.nvim",
+		"pierreglaser/folding-nvim",
 		{
 			"SmiteshP/nvim-navic",
 			config = function(_, opts)
@@ -56,6 +57,11 @@ end
 
 local function on_attach(client, bufnr)
 	lsp_keymap(bufnr)
+	local success, folding = pcall(require, "folding")
+
+	if success then
+		folding.on_attach(client, bufnr)
+	end
 
 	if client.server_capabilities.documentSymbolProvider then
 		require("nvim-navic").attach(client, bufnr)
