@@ -1,6 +1,6 @@
 local M = {
 	"kevinhwang91/nvim-ufo",
-	enabled = false,
+	enabled = true,
 	event = "VeryLazy",
 	dependencies = {
 		"kevinhwang91/promise-async",
@@ -28,40 +28,23 @@ local M = {
 			foldclose = "",
 		}
 		vim.o.foldcolumn = "1" -- '0' is not bad
-		vim.o.foldlevel = 9999 -- Using ufo provider need a large value, feel free to decrease the value
-		vim.o.foldlevelstart = 9999
+		vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+		vim.o.foldlevelstart = 99
 		vim.o.foldenable = true
 
-		require("ufo").setup({
-			close_fold_kinds = { "imports", "comment" },
-		})
+		local ufo = require("ufo")
+
+		vim.keymap.set("n", "zR", ufo.openAllFolds)
+		vim.keymap.set("n", "zM", ufo.closeAllFolds)
+		vim.keymap.set("n", "zr", ufo.openFoldsExceptKinds)
+		vim.keymap.set("n", "zm", ufo.closeFoldsWith)
+		vim.keymap.set("n", "K", function()
+			local winid = require("ufo").peekFoldedLinesUnderCursor()
+			if not winid then
+				vim.lsp.buf.hover()
+			end
+		end)
 	end,
-	keys = {
-		{
-			"zM",
-			function()
-				require("ufo").closeAllFolds()
-			end,
-		},
-		{
-			"zR",
-			function()
-				require("ufo").openAllFolds()
-			end,
-		},
-		{
-			"zm",
-			function()
-				require("ufo").closeFoldsWith(0)
-			end,
-		},
-		{
-			"zr",
-			function()
-				require("ufo").openFoldsExceptKinds({ "imports", "comment" })
-			end,
-		},
-	},
 }
 
 return M

@@ -3,7 +3,7 @@ local M = {
 	event = { "BufReadPre", "VeryLazy" },
 	dependencies = {
 		"williamboman/mason.nvim",
-		"pierreglaser/folding-nvim",
+		-- "pierreglaser/folding-nvim",
 		{
 			"SmiteshP/nvim-navic",
 			config = function(_, opts)
@@ -28,7 +28,17 @@ local function lsp_keymap(bufnr)
 	vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "K", function()
+		local ufoInstalled = pcall(require, "ufo")
+		if ufoInstalled then
+			local winid = require("ufo").peekFoldedLinesUnderCursor()
+			if winid then
+				return
+			end
+		end
+		-- fallback
+		vim.lsp.buf.hover()
+	end, opts)
 	vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 	vim.keymap.set("n", "<leader>lI", "<cmd>Mason<cr>", opts)
 	vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, opts)
@@ -57,9 +67,14 @@ end
 
 local function on_attach(client, bufnr)
 	lsp_keymap(bufnr)
-	local success, folding = pcall(require, "folding")
+	local foldingInstalled, folding = pcall(require, "folding")
+	local ufoInstalled, ufo = pcall(require, "ufo")
 
-	if success then
+	if ufoInstalled then
+		ufo.setup({
+			close_fold_kinds = { "imports", "comment" },
+		})
+	elseif foldingInstalled then
 		folding.on_attach(client, bufnr)
 	end
 
@@ -83,6 +98,10 @@ M.opts = function()
 
 	local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 	capabilities.textDocument.completion.completionItem.snippetSupport = true
+	capabilities.textDocument.foldingRange = {
+		dynamicRegistration = false,
+		lineFoldingOnly = true,
+	}
 
 	return {
 		ensure_installed = ensure_installed,
