@@ -13,7 +13,7 @@ M.opts = {
 
 M.keys = {
 	{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Find word" },
-	{ "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find file" },
+	{ "<leader><space>", "<cmd>Telescope fd<cr>", desc = "Find file" },
 }
 
 return M
