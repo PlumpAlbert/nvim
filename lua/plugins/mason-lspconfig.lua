@@ -4,6 +4,7 @@ local M = {
 	dependencies = {
 		"williamboman/mason.nvim",
 		-- "pierreglaser/folding-nvim",
+		"kevinhwang91/nvim-ufo",
 		{
 			"SmiteshP/nvim-navic",
 			config = function(_, opts)
@@ -24,14 +25,11 @@ local M = {
 
 local function lsp_keymap(bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-	vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
 	vim.keymap.set("n", "K", function()
-		local ufoInstalled = pcall(require, "ufo")
+		local ufoInstalled, ufo = pcall(require, "ufo")
 		if ufoInstalled then
-			local winid = require("ufo").peekFoldedLinesUnderCursor()
+			local winid = ufo.peekFoldedLinesUnderCursor()
 			if winid then
 				return
 			end
@@ -50,19 +48,19 @@ local function lsp_keymap(bufnr)
 	vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, opts)
 
 	-- display diagnostics on hover
-	vim.api.nvim_create_autocmd("CursorHold", {
-		buffer = bufnr,
-		callback = function()
-			vim.diagnostic.open_float(nil, {
-				focusable = false,
-				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-				border = "rounded",
-				source = "always",
-				prefix = " ",
-				scope = "cursor",
-			})
-		end,
-	})
+	-- vim.api.nvim_create_autocmd("CursorHold", {
+	-- 	buffer = bufnr,
+	-- 	callback = function()
+	-- 		vim.diagnostic.open_float(nil, {
+	-- 			focusable = false,
+	-- 			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+	-- 			border = "rounded",
+	-- 			source = "always",
+	-- 			prefix = " ",
+	-- 			scope = "cursor",
+	-- 		})
+	-- 	end,
+	-- })
 end
 
 local function on_attach(client, bufnr)

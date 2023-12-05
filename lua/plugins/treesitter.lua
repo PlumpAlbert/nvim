@@ -59,7 +59,7 @@ function M.config()
 			navigation = {
 				enable = true,
 				keymaps = {
-					goto_definition_lsp_fallback = "gd",
+					goto_definition_lsp_fallback = "gD",
 					list_definitions = "<leader>lD",
 					list_definitions_toc = "<leader>lO",
 					goto_next_usage = "<a-]>",
