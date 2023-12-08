@@ -31,7 +31,7 @@ M.dependencies = {
 
 M.opts = {
 	window = {
-		position = "float",
+		position = "right",
 		reveal = true,
 		mapping_options = {
 			noremap = true,
@@ -73,8 +73,7 @@ M.keys = {
 			require("neo-tree.command").execute({
 				toggle = true,
 				source = "filesystem",
-				position = "float",
-				reveal = true,
+				reveal = not vim.fn.has("win32"),
 			})
 		end,
 		desc = "Open neotree",

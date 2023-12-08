@@ -9,7 +9,7 @@ return {
 		enable_progress_notifications = true,
 		flags = {
 			noEmit = true,
-			watch = false,
+			watch = true,
 			incremental = true,
 		},
 		hide_progress_notifications_from_history = true,

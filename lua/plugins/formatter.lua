@@ -40,7 +40,7 @@ M.keys = {
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	group = vim.api.nvim_create_augroup("FormatAutogroup", {}),
-	command = "FormatWriteLock",
+	command = "FormatWrite",
 })
 
 return M

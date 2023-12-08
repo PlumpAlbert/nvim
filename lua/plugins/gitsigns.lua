@@ -31,6 +31,8 @@ local M = {
 	keys = {
 		{ "<leader>ghp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview git hunk" },
 		{ "<leader>ghs", "<cmd>Gitsigns stage_hunk<cr>", mode = { "v", "n" }, desc = "Stage hunk" },
+		{ "<leader>ghu", "<cmd>Gitsigns undo_stage_hunk<cr>", mode = { "v", "n" }, desc = "Stage hunk" },
+		{ "<leader>ghr", "<cmd>Gitsigns reset_hunk<cr>", mode = { "v", "n" }, desc = "Reset hunk" },
 		{
 			"<leader>gb",
 			function()
