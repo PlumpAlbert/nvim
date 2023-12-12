@@ -3,6 +3,7 @@ local schemes = {
 	"vscode",
 	"github_dark",
 	"catppuccin",
+	"gruvbox",
 }
 
 math.randomseed(os.time())
