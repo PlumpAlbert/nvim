@@ -31,7 +31,7 @@ M.dependencies = {
 
 M.opts = {
 	window = {
-		position = "right",
+		position = vim.fn.has("win32") == 1 and "right" or "float",
 		reveal = true,
 		mapping_options = {
 			noremap = true,
