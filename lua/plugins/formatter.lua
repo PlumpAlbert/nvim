@@ -29,6 +29,7 @@ function M.opts()
 			jsonc = js,
 			yaml = { require("formatter.filetypes.yaml").prettier },
 			["yaml.ansible"] = { require("formatter.filetypes.yaml").prettier },
+			go = { require("formatter.filetypes.go").gofmt },
 		},
 	}
 end
