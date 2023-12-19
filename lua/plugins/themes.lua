@@ -81,4 +81,22 @@ return {
 			transparent_mode = true,
 		},
 	},
+	{
+		"loctvl842/monokai-pro.nvim",
+		priority = 1000,
+		config = true,
+		opts = {
+			transparent_background = true,
+			terminal_colors = true,
+			devicons = true,
+			filter = "pro",
+			inc_search = "underline",
+			background_clear = {
+				"float_win",
+				"telescope",
+				"which-key",
+				"neo-tree",
+			},
+		},
+	},
 }

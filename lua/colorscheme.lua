@@ -4,6 +4,7 @@ local schemes = {
 	"github_dark",
 	"catppuccin",
 	"gruvbox",
+	"monokai-pro",
 }
 
 math.randomseed(os.time())
