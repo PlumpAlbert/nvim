@@ -22,11 +22,10 @@ return {
 				textDocument = {
 					foldingRange = {
 						dynamicRegistration = false,
-						lineFoldingOnly = true
-					}
-				}
-			}
+						lineFoldingOnly = true,
+					},
+				},
+			},
 		})
-
 	end,
 }
