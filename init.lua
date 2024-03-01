@@ -1,5 +1,9 @@
 require('neowim/options')
-require('neowim/vscode-options')
+
+if vim.g.vscode then
+	require('neowim/vscode-options')
+	return
+end
 
 -- #region package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
