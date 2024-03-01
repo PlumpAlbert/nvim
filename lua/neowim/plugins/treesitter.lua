@@ -20,6 +20,8 @@ return {
 	},
 	build = ":TSUpdate",
 	config = function(_, opts)
+		opts = opts or {}
+
 		require("nvim-treesitter.install").prefer_git = false
 
 		local ensure_installed = vim.list_extend({
