@@ -16,5 +16,17 @@ return {
 		lsp_zero.on_attach(function(client, bufnr)
 			lsp_zero.default_keymaps({ buffer = bufnr })
 		end)
+
+		lsp_zero.set_server_config({
+			capabilities = {
+				textDocument = {
+					foldingRange = {
+						dynamicRegistration = false,
+						lineFoldingOnly = true
+					}
+				}
+			}
+		})
+
 	end,
 }
