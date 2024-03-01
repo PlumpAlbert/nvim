@@ -18,17 +18,21 @@ return {
 	init = function()
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 	end,
-	config = function(_, opts)
+	opts = function(_, opts)
 		opts = opts or {}
-		local formatters_by_ft = vim.tbl_extend("force", { lua = { "stylua" } }, opts.formatters_by_ft or {})
 
-		require("conform").setup(vim.tbl_extend("force", opts, {
+		local formatters_by_ft = vim.tbl_extend("force", opts.formatters_by_ft or {}, { lua = { "stylua" } })
+
+		return vim.tbl_extend("force", opts, {
 			formatters_by_ft = formatters_by_ft,
 			format_on_save = {
 				async = true,
 				timeout_ms = 1000,
 				lsp_fallback = true,
 			},
-		}))
+		})
+	end,
+	config = function(_, opts)
+		require("conform").setup(opts)
 	end,
 }
