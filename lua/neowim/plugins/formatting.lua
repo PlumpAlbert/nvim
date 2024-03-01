@@ -20,11 +20,7 @@ return {
 	end,
 	config = function(_, opts)
 		opts = opts or {}
-		local formatters_by_ft = vim.tbl_extend(
-			"force",
-			{ lua = { "stylua" } },
-			opts.formatters_by_ft or {}
-		)
+		local formatters_by_ft = vim.tbl_extend("force", { lua = { "stylua" } }, opts.formatters_by_ft or {})
 
 		require("conform").setup(vim.tbl_extend("force", opts, {
 			formatters_by_ft = formatters_by_ft,

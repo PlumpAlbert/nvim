@@ -1,20 +1,20 @@
 return {
-	'VonHeikemen/lsp-zero.nvim',
-	branch = 'v3.x',
+	"VonHeikemen/lsp-zero.nvim",
+	branch = "v3.x",
 	dependencies = {
-		'neovim/nvim-lspconfig',
-		'williamboman/mason.nvim',
-		'williamboman/mason-lspconfig.nvim',
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/nvim-cmp',
-		'L3MON4D3/LuaSnip',
+		"neovim/nvim-lspconfig",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/nvim-cmp",
+		"L3MON4D3/LuaSnip",
 	},
-	event = { 'BufReadPre', 'BufNewFile' },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function(_, opts)
-		local lsp_zero = require('lsp-zero')
+		local lsp_zero = require("lsp-zero")
 
 		lsp_zero.on_attach(function(client, bufnr)
-			lsp_zero.default_keymaps({buffer = bufnr})
+			lsp_zero.default_keymaps({ buffer = bufnr })
 		end)
-	end
+	end,
 }
