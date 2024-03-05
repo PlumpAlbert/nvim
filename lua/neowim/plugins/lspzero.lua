@@ -11,10 +11,10 @@ return {
 			"L3MON4D3/LuaSnip",
 			config = function()
 				require("luasnip.loaders.from_vscode").lazy_load({
-					paths = { '.vscode' }
+					paths = { ".vscode" },
 				})
-			end
-		}
+			end,
+		},
 	},
 	event = { "BufReadPre", "BufNewFile" },
 	config = function(_, opts)
@@ -36,4 +36,3 @@ return {
 		})
 	end,
 }
-
