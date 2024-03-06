@@ -26,8 +26,15 @@ require("lazy").setup({
 		{ import = "neowim/plugins" },
 		{
 			"plumpalbert/nvim",
-			branch = 'typescript',
-			import = "plump-typescript"
+			name = "plump-typescript",
+			branch = "typescript",
+			import = "plump-typescript",
+		},
+		{
+			"plumpalbert/nvim",
+			name = "plump-golang",
+			branch = "golang",
+			import = "plump-golang",
 		},
 	},
 	lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
