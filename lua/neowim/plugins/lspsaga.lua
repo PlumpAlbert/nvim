@@ -26,6 +26,21 @@ return {
 			":Lspsaga rename<CR>",
 			desc = "Rename",
 		},
+		{
+			"gd",
+			":Lspsaga goto_definition<CR>",
+			desc = "Go to definition",
+		},
+		{
+			"gt",
+			":Lspsaga goto_type_definition<CR>",
+			desc = "Go to type definition",
+		},
+		{
+			"<leader>d",
+			":Lspsaga show_cursor_diagnostics<CR>",
+			desc = "Show line diagnostics",
+		},
 	},
 	config = function()
 		require("lspsaga").setup({
