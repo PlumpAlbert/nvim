@@ -10,6 +10,7 @@ return {
 				"html-lsp",
 				"css-lsp",
 				"emmet-ls",
+				"eslint",
 			},
 		},
 	},
