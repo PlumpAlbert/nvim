@@ -24,7 +24,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "neowim/plugins" },
-		{ "plumpalbert/nvim-typescript", import = "plump-typescript" },
+		{
+			"plumpalbert/nvim",
+			branch = 'typescript',
+			import = "plump-typescript"
+		},
 	},
 	lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
 	install = { colorscheme = { "onedark", "habamax", "default" } },
