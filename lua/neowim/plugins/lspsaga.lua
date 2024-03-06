@@ -22,8 +22,13 @@ return {
 			desc = "Next diagnostic",
 		},
 		{
+			"<leader>lo",
+			":Lspsaga outline<CR>",
+			desc = "Show code outline",
+		},
+		{
 			"<F2>",
-			":Lspsaga rename<CR>",
+			":Lspsaga rename ++project<CR>",
 			desc = "Rename",
 		},
 		{
@@ -37,9 +42,14 @@ return {
 			desc = "Go to type definition",
 		},
 		{
-			"<leader>d",
-			":Lspsaga show_cursor_diagnostics<CR>",
-			desc = "Show line diagnostics",
+			"<leader>ld",
+			":Lspsaga show_buf_diagnostics<CR>",
+			desc = "Show buffer diagnostics",
+		},
+		{
+			"<leader>lD",
+			":Lspsaga show_workspace_diagnostics<CR>",
+			desc = "Show workspace diagnostics",
 		},
 	},
 	config = function()
