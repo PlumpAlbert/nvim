@@ -10,7 +10,7 @@ local M = {
 		})
 
 		return vim.tbl_extend("force", opts, {
-			formatters_by_ft,
+			formatters_by_ft = formatters_by_ft,
 		})
 	end,
 }
