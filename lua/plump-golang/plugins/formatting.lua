@@ -1,6 +1,5 @@
 local M = {
 	"stevearc/conform.nvim",
-	config = true,
 	---@param opts table|nil
 	opts = function(_, opts)
 		opts = opts or {}
