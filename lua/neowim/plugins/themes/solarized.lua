@@ -1,21 +1,20 @@
 return {
-	'maxmx03/solarized.nvim',
+	"maxmx03/solarized.nvim",
 	priority = 1000,
 	lazy = false,
 	config = function()
-		vim.o.background = 'dark'
+		vim.o.background = "dark"
 
-		require('solarized').setup({
+		require("solarized").setup({
 			transparent = false,
-			palette = 'solarized',
+			palette = "solarized",
 			styles = {
 				comments = { italic = true },
 				keywords = { italic = true },
 			},
-			theme = 'neo',
-			autocmd = true
+			theme = "neo",
 		})
 
-		vim.cmd('colorscheme solarized')
-	end
+		vim.cmd("colorscheme solarized")
+	end,
 }
