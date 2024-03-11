@@ -38,8 +38,15 @@ require("lazy").setup({
 		},
 	},
 	lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
-	install = { colorscheme = { "onedark", "habamax", "default" } },
-	checker = { enabled = true, notify = false }, -- automatically check for plugin updates
+	install = {
+		colorscheme = {
+			"solarized",
+			"onedark",
+			"habamax",
+			"default"
+		}
+	},
+	checker = { enabled = true, notify = false },       -- automatically check for plugin updates
 	change_detection = { enabled = true, notify = false }, -- automatically check for configuration update
 	performance = {
 		rtp = {
