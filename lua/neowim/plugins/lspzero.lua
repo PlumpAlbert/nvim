@@ -7,16 +7,9 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/nvim-cmp",
-		{
-			"L3MON4D3/LuaSnip",
-			config = function()
-				require("luasnip.loaders.from_vscode").lazy_load({
-					paths = { ".vscode" },
-				})
-			end,
-		},
+		"L3MON4D3/LuaSnip",
 	},
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPre" },
 	config = function(_, opts)
 		local lsp_zero = require("lsp-zero")
 
