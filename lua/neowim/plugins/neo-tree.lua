@@ -18,7 +18,7 @@ return {
 				else
 					local f = io.open(current_file, "r")
 					if f then
-						f.close()
+						f:close()
 					else
 						current_file = vim.fn.getcwd()
 					end
