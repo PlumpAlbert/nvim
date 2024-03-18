@@ -12,7 +12,7 @@ return {
 		{
 			"<leader><Space>",
 			function()
-				require("fzf-lua").files({ resume = true })
+				require("fzf-lua").files({ resume = false })
 			end,
 		},
 		{
