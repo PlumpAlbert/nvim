@@ -1,4 +1,5 @@
 require("neowim/options")
+require("neowim/neovide")
 
 if vim.g.vscode then
 	require("neowim/vscode-options")

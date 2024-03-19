@@ -41,6 +41,8 @@ vim.opt.updatetime = 200
 vim.cmd("autocmd CmdlineEnter /,? :set hlsearch")
 vim.cmd("autocmd CmdlineLeave /,? :set nohlsearch")
 
+vim.keymap.set({ "n", "v" }, "Y", '"+y', { desc = "Copy to system clipboard" })
+
 vim.opt.guifont = {
 	"Iosevka:h12",
 }
