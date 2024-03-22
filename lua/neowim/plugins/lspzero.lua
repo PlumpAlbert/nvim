@@ -9,7 +9,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		"L3MON4D3/LuaSnip",
 	},
-	event = { "BufReadPre" },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function(_, opts)
 		local lsp_zero = require("lsp-zero")
 
