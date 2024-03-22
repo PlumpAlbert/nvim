@@ -1,17 +1,32 @@
 return {
 	"kevinhwang91/nvim-ufo",
 	-- disable for neovim 0.10.0+
-	enabled = vim.version().api_level < 12,
+	-- enabled = vim.version().api_level < 12,
 	event = { "BufRead", "BufNewFile" },
 	dependencies = {
 		"kevinhwang91/promise-async",
 		"hrsh7th/nvim-cmp",
+		{
+			"luukvbaal/statuscol.nvim",
+			config = function()
+				local builtin = require('statuscol.builtin')
+				require('statuscol').setup({
+					relculright = true,
+					segments = {
+						{ text = { builtin.foldfunc },    cleck = "v:lua.ScFa" },
+						{ text = { "%s" },                cleck = "v:lua.ScSa" },
+						{ text = { builtin.lnumfunc, " " }, cleck = "v:lua.ScLa" },
+					}
+				})
+			end
+		}
 	},
 	init = function()
-		vim.o.foldcolumn = "1"
-		vim.o.foldlevel = 99
-		vim.o.foldlevelstart = 99
-		vim.o.foldenable = true
+		vim.opt.foldcolumn = '1'
+		vim.opt.foldlevel = 99
+		vim.opt.foldlevelstart = 99
+		vim.opt.foldenable = true
+		vim.o.fillchars = [[eob: ,fold: ,foldopen:-,foldsep: ,foldclose:+]]
 	end,
 	keys = {
 		{
