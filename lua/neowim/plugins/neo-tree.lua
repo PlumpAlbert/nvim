@@ -33,6 +33,17 @@ return {
 			end,
 			desc = "Open file explorer",
 		},
+		{
+			"<leader>,",
+			function()
+				require("neo-tree.command").execute({
+					action = "focus",
+					source = "buffers",
+					position = "float",
+				})
+			end,
+			desc = "View open buffers",
+		},
 	},
 	config = function(_, opts)
 		require("neo-tree").setup(vim.tbl_deep_extend("force", {

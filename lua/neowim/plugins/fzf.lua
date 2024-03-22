@@ -16,12 +16,6 @@ return {
 			end,
 		},
 		{
-			"<leader>,",
-			function()
-				require("fzf-lua").buffers()
-			end,
-		},
-		{
 			"<leader>/",
 			function()
 				require("fzf-lua").live_grep()
