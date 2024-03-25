@@ -2,12 +2,12 @@ return {
 	"lewis6991/gitsigns.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	keys = {
-		{ "n", "]c", "<cmd>Gitsigns next_hunk<cr>", desc = "Jump to next hunk" },
-		{ "n", "[c", "<cmd>Gitsigns prev_hunk<cr>", desc = "Jump to previous hunk" },
-		{ "n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", desc = "Blame current line" },
-		{ "n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage selection" },
-		{ "s", "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", desc = "Preview hunk (inline)" },
-		{ "s", "<leader>gP", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview hunk" },
+		{ mode = "n", "]c", "<cmd>Gitsigns next_hunk<cr>", desc = "Jump to next hunk" },
+		{ mode = "n", "[c", "<cmd>Gitsigns prev_hunk<cr>", desc = "Jump to previous hunk" },
+		{ mode = "n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", desc = "Blame current line" },
+		{ mode = "n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage selection" },
+		{ mode = "v", "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", desc = "Preview hunk (inline)" },
+		{ mode = "v", "<leader>gP", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview hunk" },
 	},
 	opts = {
 		signcolumn = true,
