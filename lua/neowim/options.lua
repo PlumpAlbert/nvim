@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 vim.opt.langmap =
-"ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\\"ZXCVBNM<>"
+	"ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\\"ZXCVBNM<>"
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -38,8 +38,8 @@ vim.opt.undofile = true
 vim.opt.undolevels = 10000
 vim.opt.updatetime = 200
 
-vim.cmd("autocmd CmdlineEnter /,? :set hlsearch")
-vim.cmd("autocmd CmdlineLeave /,? :set nohlsearch")
+vim.cmd("autocmd CmdlineEnter /,?,: :set hlsearch")
+vim.cmd("autocmd CmdlineLeave /,?,: :set nohlsearch")
 
 vim.keymap.set({ "n", "v" }, "Y", '"+y', { desc = "Copy to system clipboard" })
 
