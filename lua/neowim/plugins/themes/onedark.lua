@@ -5,7 +5,7 @@ return {
 	config = function()
 		require('onedark').setup({
 			style = 'warmer',
-			transparent = true,
+			transparent = false,
 			ending_tildes = false,
 			term_colors = true,
 			cmp_itemkind_reverse = true,
@@ -24,6 +24,6 @@ return {
 
 		})
 
-		-- vim.cmd('colorscheme onedark')
+		vim.cmd('colorscheme onedark')
 	end,
 }
