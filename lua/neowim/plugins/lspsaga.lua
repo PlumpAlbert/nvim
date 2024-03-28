@@ -37,9 +37,19 @@ return {
 			desc = "Go to definition",
 		},
 		{
+			"gD",
+			":Lspsaga peek_definition<CR>",
+			desc = "Peek definition",
+		},
+		{
 			"gt",
 			":Lspsaga goto_type_definition<CR>",
 			desc = "Go to type definition",
+		},
+		{
+			"gT",
+			":Lspsaga peek_type_definition<CR>",
+			desc = "Peek type definition",
 		},
 		{
 			"<leader>ld",
@@ -51,6 +61,11 @@ return {
 			":Lspsaga show_workspace_diagnostics<CR>",
 			desc = "Show workspace diagnostics",
 		},
+		{
+			"<leader>ls",
+			":Lspsaga finder<CR>",
+			desc = "Find usages",
+		},
 	},
 	config = function()
 		require("lspsaga").setup({
@@ -60,6 +75,13 @@ return {
 			implement = {
 				enable = true,
 			},
+			finder = {
+				max_height = 0.8,
+				keys = {
+					split = 's',
+					vsplit = 'v'
+				}
+			}
 		})
 	end,
 }
