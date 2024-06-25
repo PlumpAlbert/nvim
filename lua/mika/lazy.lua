@@ -17,4 +17,5 @@ require("lazy").setup({
   install = { colorscheme = { "retrobox", "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+  lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
 })
