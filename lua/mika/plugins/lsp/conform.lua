@@ -5,7 +5,7 @@ local defaultFormatters = {
 local M = {
 	"stevearc/conform.nvim",
 	dependencies = { "folke/neoconf.nvim" },
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPre", "LspAttach" },
 	cmd = "ConformInfo",
 }
 
@@ -72,5 +72,3 @@ M.config = function(_, opts)
 end
 
 return M
-
-
