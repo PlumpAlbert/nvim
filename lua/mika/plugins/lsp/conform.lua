@@ -69,6 +69,7 @@ M.config = function(_, opts)
 	})
 
 	require("conform").setup(opts)
+	require("mason-conform").setup()
 end
 
 return M
