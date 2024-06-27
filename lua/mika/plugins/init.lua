@@ -4,4 +4,5 @@ return {
 	{ import = "mika.plugins.treesitter" },
 	{ import = "mika.plugins.mini" },
 	{ import = "mika.plugins.lsp" },
+	{ import = "mika.plugins.themes" },
 }
