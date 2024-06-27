@@ -51,8 +51,10 @@ M.config = function(_, linters_by_ft)
 		group = vim.api.nvim_create_augroup("linting", { clear = true }),
 		callback = lint_callback,
 	})
+
+	require("mason-nvim-lint").setup({
+		automatic_installation = true,
+	})
 end
 
 return M
-
-
