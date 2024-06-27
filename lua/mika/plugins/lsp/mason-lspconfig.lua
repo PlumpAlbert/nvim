@@ -23,7 +23,7 @@ local function setup_ufo(bufnr)
 		local ufo = require("ufo")
 		ufo.setup({
 			close_fold_kinds_for_ft = {
-				default = { "region", "comment", "imports" },
+				default = { "comment", "imports" },
 			},
 		})
 
