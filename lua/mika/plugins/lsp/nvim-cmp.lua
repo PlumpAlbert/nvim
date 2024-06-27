@@ -19,9 +19,8 @@ M.config = function()
 
 	cmp.setup({
 		formatting = zero.cmp_format({ details = false, max_width = 20 }),
-		preselect = "item",
 		completion = {
-			autocomplete = false,
+			autocomplete = { "InsertEnter" },
 			completeopt = "menu,menuone,noinsert",
 		},
 		mapping = cmp.mapping.preset.insert({
@@ -33,6 +32,13 @@ M.config = function()
 				require("luasnip").lsp_expand(args.body)
 			end,
 		},
+		sources = cmp.config.sources({
+			{ name = "path" },
+			{ name = "lazydev" },
+			{ name = "nvim_lsp" },
+			{ name = "luasnip", keyword_length = 2 },
+			{ name = "buffer", keyword_length = 3 },
+		}),
 	})
 end
 
