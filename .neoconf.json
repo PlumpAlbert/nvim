@@ -1,0 +1,15 @@
+{
+	"neovim": {
+		"theme": "oldworld"
+	},
+	"lspconfig": {
+		"lua_ls": {
+			"Lua.diagnostics.globals": [
+				"vim"
+			],
+			"Lua.diagnostics.globalsRegex": [
+				"vim"
+			]
+		}
+	}
+}
