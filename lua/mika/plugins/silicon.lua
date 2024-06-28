@@ -48,7 +48,7 @@ return {
 		no_window_controls = true,
 		no_line_number = false,
 		line_offset = function(args)
-			if args.range == 2 then
+			if args.range == 1 then
 				return args.line1
 			end
 
