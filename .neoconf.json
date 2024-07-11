@@ -1,6 +1,6 @@
 {
 	"neovim": {
-		"theme": "oldworld"
+		"theme": "tokyonight-night"
 	},
 	"lspconfig": {
 		"lua_ls": {
