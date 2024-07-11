@@ -1,4 +1,1 @@
-vim.cmd("colorscheme retrobox")
-
-require("mika.options")
-require("mika.lazy")
+require("mika")
