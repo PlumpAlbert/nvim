@@ -11,6 +11,19 @@ local M = {
 	},
 }
 
+local function get_capabilities()
+	local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+	return vim.tbl_deep_extend("force", default_capabilities, {
+		textDocument = {
+			foldingRange = {
+				dynamicRegistration = true,
+				lineFoldingOnly = true,
+			},
+		},
+	})
+end
+
 --- @param bufnr number
 local function setup_ufo(bufnr)
 	local opts = require("neoconf").get("ufo", { enable = true })
@@ -50,37 +63,32 @@ local function setup_ufo(bufnr)
 	end
 end
 
+local function on_attach(client, bufnr)
+	require("lsp-zero").default_keymaps({ buffer = bufnr })
+
+	if client.server_capabilities.inlayHintProvider then
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+	end
+
+	vim.keymap.set(
+		"i",
+		"<C-k>",
+		vim.lsp.buf.signature_help,
+		{ desc = "Signature help", buffer = bufnr }
+	)
+
+	setup_ufo(bufnr)
+end
+
 M.config = function(_, opts)
 	opts = opts or {}
 
 	local zero = require("lsp-zero")
-	zero.extend_lspconfig()
-
-	zero.on_attach(function(client, bufnr)
-		if client.server_capabilities.inlayHintProvider then
-			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-		end
-
-		zero.default_keymaps({ buffer = bufnr })
-		vim.keymap.set(
-			"i",
-			"<C-k>",
-			vim.lsp.buf.signature_help,
-			{ desc = "Signature help", buffer = bufnr }
-		)
-
-		setup_ufo(bufnr)
-	end)
-
-	zero.set_server_config({
-		capabilities = {
-			textDocument = {
-				foldingRange = {
-					dynamicRegistration = true,
-					lineFoldingOnly = true,
-				},
-			},
-		},
+	zero.extend_lspconfig({
+		capabilities = get_capabilities(),
+		lsp_attach = on_attach,
+		float_border = "rounded",
+		sign_text = true,
 	})
 
 	local ensure_installed = vim.list_extend(
@@ -89,15 +97,12 @@ M.config = function(_, opts)
 	)
 
 	local handlers = vim.tbl_extend("force", opts.handlers or {}, {
-		zero.default_setup,
-
-		lua_ls = function(server_name)
-			local opts = zero.nvim_lua_ls()
-			require("lspconfig")[server_name].setup(opts)
+		function(server_name)
+			require("lspconfig")[server_name].setup({})
 		end,
 
 		jsonls = function(server_name)
-			local opts = zero.build_options(server_name, {
+			zero.configure(server_name, {
 				settings = {
 					json = {
 						schemas = require("schemastore").json.schemas(),
@@ -105,11 +110,11 @@ M.config = function(_, opts)
 					},
 				},
 			})
-			require("lspconfig")[server_name].setup(opts)
+			require("lspconfig")[server_name].setup({})
 		end,
 
 		yamlls = function(server_name)
-			local opts = zero.build_options(server_name, {
+			zero.configure(server_name, {
 				settings = {
 					json = {
 						schemaStore = {
@@ -121,7 +126,7 @@ M.config = function(_, opts)
 				},
 			})
 
-			require("lspconfig")[server_name].setup(opts)
+			require("lspconfig")[server_name].setup({})
 		end,
 	})
 

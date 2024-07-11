@@ -10,15 +10,13 @@ local M = {
 
 M.config = function()
 	local zero = require("lsp-zero")
-	zero.extend_cmp()
-
 	local cmp = require("cmp")
 	local action = zero.cmp_action()
 
 	require("luasnip.loaders.from_vscode").lazy_load()
 
 	cmp.setup({
-		formatting = zero.cmp_format({ details = false, max_width = 20 }),
+		formatting = zero.cmp_format({ details = false, max_width = 48 }),
 		completion = {
 			autocomplete = { "InsertEnter" },
 			completeopt = "menu,menuone,noinsert",
@@ -33,9 +31,9 @@ M.config = function()
 			end,
 		},
 		sources = cmp.config.sources({
-			{ name = "path" },
 			{ name = "lazydev" },
 			{ name = "nvim_lsp" },
+			{ name = "path" },
 			{ name = "luasnip", keyword_length = 2 },
 			{ name = "buffer", keyword_length = 3 },
 		}),
