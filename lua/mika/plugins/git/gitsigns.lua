@@ -61,10 +61,9 @@ M.opts = {
 		delay = 3000,
 		ignore_whitespace = true,
 	},
-	current_line_blame_formatter = "<author>| <summary>",
+	current_line_blame_formatter = "[ <author> ] 󰗦 <summary>",
 	sign_priority = 10,
 	update_debounce = 1000,
 }
 
 return M
-
