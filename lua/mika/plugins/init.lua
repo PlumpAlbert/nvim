@@ -5,4 +5,5 @@ return {
 	{ import = "mika.plugins.mini" },
 	{ import = "mika.plugins.lsp" },
 	{ import = "mika.plugins.themes" },
+	{ import = "mika.plugins.ui" },
 }
