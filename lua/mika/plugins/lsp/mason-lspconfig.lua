@@ -12,16 +12,28 @@ local M = {
 }
 
 local function get_capabilities()
-	local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local ufo_options = require("neoconf").get("ufo", { enable = true })
 
-	return vim.tbl_deep_extend("force", default_capabilities, {
-		textDocument = {
-			foldingRange = {
-				dynamicRegistration = true,
-				lineFoldingOnly = true,
+	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+	if ufo_options.enable then
+		capabilities = vim.tbl_deep_extend("force", capabilities, {
+			textDocument = {
+				foldingRange = {
+					dynamicRegistration = true,
+					lineFoldingOnly = true,
+				},
 			},
-		},
-	})
+		})
+	end
+
+	capabilities = vim.tbl_deep_extend(
+		"force",
+		capabilities,
+		require("lsp-file-operations").default_capabilities()
+	)
+
+	return capabilities
 end
 
 --- @param bufnr number
