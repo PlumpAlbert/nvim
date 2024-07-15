@@ -4,9 +4,9 @@ return {
 	config = true,
 	opts = {
 		options = {
-			break_line = {
-				enabled = true,
-				after = 30,
+			softwrap = 30,
+			overflow = {
+				mode = "none",
 			},
 		},
 	},
