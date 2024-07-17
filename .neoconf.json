@@ -9,7 +9,8 @@
 			],
 			"Lua.diagnostics.globalsRegex": [
 				"vim"
-			]
+			],
+			"Lua.format.enable": false
 		}
 	}
 }
