@@ -9,6 +9,7 @@ local defaultOptions = {
 	useTabs = true,
 	ruler = { 80 },
 	theme = "retrobox",
+	wrap = false,
 }
 
 M.init = function()
@@ -33,10 +34,10 @@ M.opts = {
 		},
 		jsonls = {
 			enabled = true,
-			configured_servers_only = true,
+			configured_servers_only = false,
 		},
 		lua_ls = {
-			enabled = true,
+			enabled = false,
 			enabled_for_neovim_config = true,
 		},
 	},
@@ -51,8 +52,8 @@ M.config = function(_, opts)
 	vim.opt.tabstop = config.indent
 	vim.opt.expandtab = not config.useTabs
 	vim.opt.colorcolumn = config.ruler
+	vim.opt.wrap = config.wrap
 	vim.cmd("colorscheme " .. config.theme)
 end
 
 return M
-
