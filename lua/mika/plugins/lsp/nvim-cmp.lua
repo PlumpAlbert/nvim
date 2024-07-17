@@ -19,7 +19,7 @@ M.config = function()
 		formatting = zero.cmp_format({ details = false, max_width = 48 }),
 		completion = {
 			autocomplete = { "InsertEnter" },
-			completeopt = "menu,menuone,noinsert",
+			completeopt = "menu,menuone,noinsert,popup",
 		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-f>"] = action.luasnip_jump_forward(),
