@@ -2,9 +2,7 @@ local function lint_callback()
 	require("lint").try_lint()
 end
 
-local defaultLinters = {
-	lua = { "luacheck" },
-}
+local defaultLinters = {}
 
 local M = {
 	"mfussenegger/nvim-lint",

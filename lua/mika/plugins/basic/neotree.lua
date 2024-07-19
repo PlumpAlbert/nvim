@@ -1,11 +1,11 @@
-local get_filepath = require('mika.utils.get_filepath')
+local get_filepath = require("mika.utils.get_filepath")
 
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+		"echasnovski/mini.icons",
 		"MunifTanjim/nui.nvim",
 		{
 			"s1n7ax/nvim-window-picker",
@@ -15,7 +15,7 @@ return {
 			opts = {
 				hint = "statusline-winbar",
 				picker_config = {
-					statusline_winbar_picker = { use_winbar = "smart", },
+					statusline_winbar_picker = { use_winbar = "smart" },
 				},
 				filter_rules = {
 					autoselect_one = true,

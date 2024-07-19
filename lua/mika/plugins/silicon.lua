@@ -1,11 +1,7 @@
 local function window_title()
 	local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 
-	local icon = require("nvim-web-devicons").get_icon(
-		vim.fn.expand("%:t:r"),
-		vim.fn.expand("%:t:e"),
-		{ default = true }
-	)
+	local icon, hl, is_default = MiniIcons.get("file", vim.fn.expand("%:t:r"))
 
 	return string.format(
 		"[%s] %s %s",
