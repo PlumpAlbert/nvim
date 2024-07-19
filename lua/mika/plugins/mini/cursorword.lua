@@ -7,4 +7,3 @@ return {
 		delay = 250,
 	},
 }
-

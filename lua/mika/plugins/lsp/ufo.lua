@@ -4,7 +4,7 @@ local M = {
 	config = false,
 	dependencies = {
 		"kevinhwang91/promise-async",
-		"folke/neoconf.nvim"
+		"folke/neoconf.nvim",
 	},
 }
 
@@ -15,9 +15,9 @@ M.init = function()
 			schema:import("ufo", { enable = true })
 			schema:set("ufo.enable", {
 				description = "Enable LSP foldings",
-				type = "boolean"
+				type = "boolean",
 			})
-		end
+		end,
 	})
 end
 
