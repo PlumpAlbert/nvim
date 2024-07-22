@@ -34,7 +34,7 @@ return {
 		},
 	},
 	opts = {
-		font = "Maple Mono=24;Symbols Nerd Font=24;Segoe UI Emoji=24",
+		font = "Iosevka=24;Symbols Nerd Font=24;Segoe UI Emoji=24",
 		theme = "Visual Studio Dark+",
 		background = "#98C379",
 		background_image = nil,
@@ -53,7 +53,13 @@ return {
 		line_pad = 0,
 		tab_width = 4,
 		language = function()
-			return vim.bo.filetype
+			local ft = vim.bo.filetype
+
+			if ft == "jsonc" then
+				return "json"
+			end
+
+			return ft
 		end,
 		shadow_blur_radius = 16,
 		shadow_offset_x = 8,
