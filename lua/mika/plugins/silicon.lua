@@ -1,7 +1,7 @@
 local function window_title()
 	local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 
-	local icon, hl, is_default = MiniIcons.get("file", vim.fn.expand("%:t:r"))
+	local icon, hl, is_default = MiniIcons.get("file", vim.fn.expand("%:t"))
 
 	return string.format(
 		"[%s] %s %s",
