@@ -34,7 +34,7 @@ return {
 		},
 	},
 	opts = {
-		font = "Iosevka=24;Symbols Nerd Font=24;Segoe UI Emoji=24",
+		font = "Iosevka=48;Symbols Nerd Font=48;Segoe UI Emoji=48",
 		theme = "Visual Studio Dark+",
 		background = "#98C379",
 		background_image = nil,
