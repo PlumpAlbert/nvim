@@ -11,6 +11,14 @@ local function window_title()
 	)
 end
 
+local function get_font()
+	if vim.fn.has("win32") == 1 then
+		return "Iosevka=48;Symbols Nerd Font=48;Segoe UI Emoji=48"
+	end
+
+	return "monospace=48;Symbols Nerd Font=48"
+end
+
 return {
 	"michaelrommel/nvim-silicon",
 	lazy = true,
@@ -34,8 +42,8 @@ return {
 		},
 	},
 	opts = {
-		font = "Iosevka=48;Symbols Nerd Font=48;Segoe UI Emoji=48",
-		theme = "Visual Studio Dark+",
+		font = get_font(),
+		theme = "gruvbox-dark",
 		background = "#98C379",
 		background_image = nil,
 		pad_horiz = 96,
@@ -61,7 +69,7 @@ return {
 
 			return ft
 		end,
-		shadow_blur_radius = 16,
+		shadow_blur_radius = 24,
 		shadow_offset_x = 8,
 		shadow_offset_y = 8,
 		shadow_color = "#100808",
