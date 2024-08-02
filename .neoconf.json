@@ -1,6 +1,6 @@
 {
 	"options": {
-		"theme": "tokyonight-night"
+		"theme": "tokyonight-moon"
 	},
 	"formatters": {
 		"lua": [
