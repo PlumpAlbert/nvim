@@ -8,6 +8,18 @@ local M = {
 			winopts = {
 				fullscreen = true,
 			},
+			keymap = {
+				builtin = {
+					true,
+					["<up>"] = "preview-up",
+					["<down>"] = "preview-down",
+				},
+				fzf = {
+					true,
+					["up"] = "preview-up",
+					["down"] = "preview-down",
+				},
+			},
 		})
 	end,
 }
