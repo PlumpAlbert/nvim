@@ -3,6 +3,10 @@ local M = {
 	event = "InsertEnter",
 	dependencies = {
 		"saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-buffer",
+		"onsails/lspkind.nvim",
 		"rafamadriz/friendly-snippets",
 		"L3MON4D3/LuaSnip",
 	},
@@ -16,7 +20,15 @@ M.config = function()
 	require("luasnip.loaders.from_vscode").lazy_load()
 
 	cmp.setup({
-		formatting = zero.cmp_format({ details = false, max_width = 48 }),
+		formatting = {
+			fields = { "kind", "menu", "abbr" },
+			expandable_indicator = true,
+			format = require("lspkind").cmp_format({
+				mode = "symbol",
+				maxwidth = 50,
+				ellipsis_char = "...",
+			}),
+		},
 		completion = {
 			autocomplete = { "InsertEnter" },
 			completeopt = "menu,menuone,noinsert,popup",
