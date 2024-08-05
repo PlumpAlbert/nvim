@@ -59,6 +59,7 @@ M.keys = {
 	},
 	--#endregion
 
+	--#region LSP
 	-- LSP finder
 	{
 		"<leader>ls",
@@ -67,6 +68,8 @@ M.keys = {
 		end,
 		desc = "LSP Finder",
 	},
+	--#endregion
+
 	-- buffers
 	{
 		"<leader>,",
