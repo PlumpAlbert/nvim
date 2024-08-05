@@ -49,6 +49,16 @@ M.keys = {
 		end,
 		desc = "Resume fzf",
 	},
+	--#region GIT
+	{
+		"<leader>gl",
+		function()
+			require("fzf-lua").git_bcommits()
+		end,
+		desc = "Git log (buffer)",
+	},
+	--#endregion
+
 	-- LSP finder
 	{
 		"<leader>ls",
