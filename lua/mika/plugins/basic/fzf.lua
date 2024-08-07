@@ -60,13 +60,27 @@ M.keys = {
 	--#endregion
 
 	--#region LSP
-	-- LSP finder
+	-- references
 	{
 		"<leader>ls",
 		function()
-			require("fzf-lua").lsp_finder()
+			require("fzf-lua").lsp_references()
 		end,
-		desc = "LSP Finder",
+		desc = "LSP references",
+	},
+	{
+		"<leader>ld",
+		function()
+			require("fzf-lua").lsp_definitions()
+		end,
+		desc = "LSP definitions",
+	},
+	{
+		"<leader>ld",
+		function()
+			require("fzf-lua").lsp_workspace_symbols()
+		end,
+		desc = "LSP workspace symbols",
 	},
 	--#endregion
 
