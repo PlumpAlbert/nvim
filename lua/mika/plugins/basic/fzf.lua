@@ -5,8 +5,14 @@ local M = {
 	config = function()
 		require("fzf-lua").setup({
 			"max-perf",
+			fzf_colors = true,
 			winopts = {
+				border = "border",
+				title = false,
 				fullscreen = true,
+				preview = {
+					default = "builtin",
+				},
 			},
 			keymap = {
 				builtin = {
