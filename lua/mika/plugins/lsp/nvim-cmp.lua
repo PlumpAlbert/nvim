@@ -21,7 +21,7 @@ M.config = function()
 
 	cmp.setup({
 		formatting = {
-			fields = { "kind", "menu", "abbr" },
+			fields = { "kind", "abbr", "menu" },
 			expandable_indicator = true,
 			format = require("lspkind").cmp_format({
 				mode = "symbol",
