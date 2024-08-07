@@ -22,6 +22,7 @@ end
 return {
 	"michaelrommel/nvim-silicon",
 	lazy = true,
+	enabled = vim.fn.has("win32") == 1,
 	cmd = "Silicon",
 	main = "nvim-silicon",
 	keys = {
