@@ -29,6 +29,11 @@ NVIM_APPNAME=PlumpAlbert/nvim/ nvim
 + [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
 + [loctvl842/monokai-pro.nvim](https://dotfyle.com/plugins/loctvl842/monokai-pro.nvim)
 + [dgox16/oldworld.nvim](https://dotfyle.com/plugins/dgox16/oldworld.nvim)
++ [Mofiqul/dracula.nvim](https://dotfyle.com/plugins/Mofiqul/dracula.nvim)
++ [Mofiqul/vscode.nvim](https://dotfyle.com/plugins/Mofiqul/vscode.nvim)
++ [projekt0n/github-nvim-theme](https://dotfyle.com/plugins/projekt0n/github-nvim-theme)
++ [killitar/obscure.nvim](https://dotfyle.com/plugins/killitar/obscure.nvim)
++ [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
 
 ### plugin-manager
 
