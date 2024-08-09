@@ -26,14 +26,14 @@ NVIM_APPNAME=PlumpAlbert/nvim/ nvim
 
 ### colorscheme
 
-+ [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
-+ [loctvl842/monokai-pro.nvim](https://dotfyle.com/plugins/loctvl842/monokai-pro.nvim)
-+ [dgox16/oldworld.nvim](https://dotfyle.com/plugins/dgox16/oldworld.nvim)
-+ [Mofiqul/dracula.nvim](https://dotfyle.com/plugins/Mofiqul/dracula.nvim)
-+ [Mofiqul/vscode.nvim](https://dotfyle.com/plugins/Mofiqul/vscode.nvim)
-+ [projekt0n/github-nvim-theme](https://dotfyle.com/plugins/projekt0n/github-nvim-theme)
-+ [killitar/obscure.nvim](https://dotfyle.com/plugins/killitar/obscure.nvim)
-+ [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
++ [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
++ [loctvl842/monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim)
++ [dgox16/oldworld.nvim](https://github.com/dgox16/oldworld.nvim)
++ [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
++ [Mofiqul/vscode.nvim](https://github.com/Mofiqul/vscode.nvim)
++ [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
++ [killitar/obscure.nvim](https://github.com/killitar/obscure.nvim)
++ [rose-pine/neovim](https://github.com/rose-pine/neovim)
 
 ### plugin-manager
 
