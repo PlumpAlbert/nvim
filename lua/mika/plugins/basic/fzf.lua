@@ -6,12 +6,20 @@ local M = {
 		require("fzf-lua").setup({
 			"max-perf",
 			fzf_colors = true,
+			files = {
+				git_icons = false,
+				file_icons = false,
+			},
+			previewers = {
+				bat = { theme = "ansi" },
+				bat_native = { theme = "ansi" },
+			},
 			winopts = {
 				border = "border",
 				title = false,
 				fullscreen = true,
 				preview = {
-					default = "builtin",
+					default = "bat_native",
 				},
 			},
 			keymap = {
@@ -74,6 +82,7 @@ M.keys = {
 		end,
 		desc = "LSP references",
 	},
+	-- definitions
 	{
 		"<leader>ld",
 		function()
@@ -81,10 +90,45 @@ M.keys = {
 		end,
 		desc = "LSP definitions",
 	},
+	-- workspace symbols
 	{
-		"<leader>ld",
+		"<leader>lS",
 		function()
 			require("fzf-lua").lsp_workspace_symbols()
+		end,
+		desc = "LSP workspace symbols",
+	},
+	-- code actions
+	{
+		"<leader>la",
+		function()
+			require("fzf-lua").lsp_code_actions({
+				winopts = {
+					border = "border",
+					title = false,
+					fullscreen = false,
+					preview = {
+						default = "builtin",
+					},
+				},
+			})
+		end,
+		desc = "LSP workspace symbols",
+	},
+	-- type definitions
+	{
+		"<leader>lt",
+		function()
+			require("fzf-lua").lsp_typedefs({
+				winopts = {
+					border = "border",
+					title = false,
+					fullscreen = false,
+					preview = {
+						default = "builtin",
+					},
+				},
+			})
 		end,
 		desc = "LSP workspace symbols",
 	},
