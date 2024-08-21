@@ -114,7 +114,7 @@ M.config = function(_, opts)
 		end,
 
 		jsonls = function(server_name)
-			zero.configure(server_name, {
+			require("lspconfig")[server_name].setup({
 				settings = {
 					json = {
 						schemas = require("schemastore").json.schemas(),
@@ -122,11 +122,10 @@ M.config = function(_, opts)
 					},
 				},
 			})
-			require("lspconfig")[server_name].setup({})
 		end,
 
 		yamlls = function(server_name)
-			zero.configure(server_name, {
+			require("lspconfig")[server_name].setup({
 				settings = {
 					json = {
 						schemaStore = {
@@ -137,8 +136,6 @@ M.config = function(_, opts)
 					},
 				},
 			})
-
-			require("lspconfig")[server_name].setup({})
 		end,
 	})
 
