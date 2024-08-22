@@ -1,6 +1,6 @@
 {
 	"options": {
-		"theme": "github_dark"
+		"theme": "default"
 	},
 	"formatters": {
 		"lua": [
