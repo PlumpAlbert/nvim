@@ -3,7 +3,7 @@ return {
 	config = true,
 	event = "VeryLazy",
 	opts = {
-		retirementAgeMins = 10,
+		retirementAgeMins = 3,
 		minimumBufferNum = 3,
 		ignoreUnsavedChangesBufs = false,
 		ignoreSpecialBuftypes = true,
