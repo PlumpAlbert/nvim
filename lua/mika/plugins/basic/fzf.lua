@@ -19,7 +19,7 @@ local M = {
 				title = false,
 				fullscreen = true,
 				preview = {
-					default = "bat_native",
+					default = "builtin",
 				},
 			},
 			keymap = {
