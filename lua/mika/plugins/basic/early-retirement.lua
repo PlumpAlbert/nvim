@@ -1,7 +1,7 @@
 return {
 	"chrisgrieser/nvim-early-retirement",
 	config = true,
-	event = "VeryLazy",
+	event = { "BufEnter" },
 	opts = {
 		retirementAgeMins = 3,
 		minimumBufferNum = 3,

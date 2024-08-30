@@ -1,7 +1,7 @@
 local M = {
 	"folke/neoconf.nvim",
 	lazy = false,
-	priority = 999,
+	priority = 100,
 	config = true,
 }
 
