@@ -1,6 +1,6 @@
 local M = {
 	"hrsh7th/nvim-cmp",
-	event = "VeryLazy",
+	event = { "BufEnter", "BufRead", "BufNewFile" },
 	dependencies = {
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-cmdline",

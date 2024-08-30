@@ -7,7 +7,7 @@ local defaultLinters = {}
 local M = {
 	"mfussenegger/nvim-lint",
 	dependencies = { "folke/neoconf.nvim" },
-	event = { "BufRead", "BufNewFile" },
+	event = { "BufRead", "BufNewFile", "BufEnter" },
 }
 
 M.keys = {

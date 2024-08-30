@@ -1,7 +1,7 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
 	enabled = true,
-	event = "VeryLazy",
+	event = { "BufNewFile", "BufRead", "BufEnter" },
 	config = true,
 	opts = {
 		options = {

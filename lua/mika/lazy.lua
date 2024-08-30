@@ -19,6 +19,9 @@ require("lazy").setup({
 		-- import your plugins
 		{ import = "mika.plugins" },
 	},
+	defaults = {
+		lazy = true,
+	},
 	concurrency = vim.uv.available_parallelism(),
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.

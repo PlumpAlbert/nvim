@@ -1,6 +1,6 @@
 return {
 	"onsails/lspkind.nvim",
-	event = "VeryLazy",
+	event = { "BufNewFile", "BufRead", "BufEnter" },
 	config = true,
 	opts = {
 		mode = "symbol_text",
