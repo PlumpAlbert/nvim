@@ -7,7 +7,7 @@ return {
 		transparent = true,
 		term_colors = vim.o.termguicolors,
 		ending_tildes = false,
-		cmp_itemkind_reverse = true,
+		cmp_itemkind_reverse = false,
 
 		code_style = {
 			comments = "italic",
