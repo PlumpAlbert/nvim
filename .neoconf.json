@@ -1,6 +1,6 @@
 {
 	"options": {
-		"theme": "default"
+		"theme": "onedark"
 	},
 	"formatters": {
 		"lua": [
