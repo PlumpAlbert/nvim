@@ -1,10 +1,24 @@
 local M = {
 	"tzachar/cmp-ai",
-	dependencies = "nvim-lua/plenary.nvim",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"folke/neoconf.nvim",
+	},
 }
+
+M.init = function()
+	require("neoconf.plugins").register({
+		name = "llm",
+		on_schema = function(schema)
+			schema:set("llm", { type = "string" })
+		end,
+	})
+end
 
 M.config = function()
 	local ai = require("cmp_ai.config")
+
+	local model = require("neoconf").get("llm", "phi3:mini")
 
 	ai:setup({
 		max_lines = 100,
@@ -13,15 +27,7 @@ M.config = function()
 		notify_callback = function(msg)
 			vim.notify(msg, vim.log.levels.INFO)
 		end,
-		provider_options = {
-			model = "codellama:7b-code",
-			prompt = function(lines_before, lines_after)
-				return lines_before
-			end,
-			suffix = function(lines_after)
-				return lines_after
-			end,
-		},
+		provider_options = { model = model },
 	})
 end
 
