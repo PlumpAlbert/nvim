@@ -44,6 +44,19 @@ if vim.fn.has("win32") == 1 then
 	vim.opt.shell = "C:\\Windows\\System32\\cmd.exe"
 end
 
+if os.getenv("WSL_INTEROP") ~= nil then
+	vim.g.clipboard = {
+		name = "WslClipboard",
+		copy = {
+			["+"] = "clip.exe",
+		},
+		paste = {
+			["+"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		},
+		cache_enabled = 0,
+	}
+end
+
 vim.cmd("autocmd CmdlineEnter /,?,: :set hlsearch")
 vim.cmd("autocmd CmdlineLeave /,?,: :set nohlsearch")
 
