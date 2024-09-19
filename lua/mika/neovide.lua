@@ -28,3 +28,8 @@ vim.keymap.set({ "n", "i" }, "<C-->", function()
 	size = size - 1
 	vim.o.guifont = get_font()
 end, { desc = "Increase font size" })
+
+-- toggle fullscreen
+vim.keymap.set({ "n", "i", "v" }, "<F11>", function()
+	vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+end, { desc = "Toggle fullscreen" })
