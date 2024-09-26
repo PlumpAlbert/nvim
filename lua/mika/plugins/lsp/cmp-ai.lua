@@ -1,5 +1,6 @@
 local M = {
 	"tzachar/cmp-ai",
+	enabled = vim.fn.has("unix") == 1 and vim.fn.has("wsl") == 0,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"folke/neoconf.nvim",
@@ -18,7 +19,7 @@ end
 M.config = function()
 	local ai = require("cmp_ai.config")
 
-	local model = require("neoconf").get("llm", "phi3:mini")
+	local model = require("neoconf").get("llm", "codegemma:2b")
 
 	ai:setup({
 		max_lines = 100,
