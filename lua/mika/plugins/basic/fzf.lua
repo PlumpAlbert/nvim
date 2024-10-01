@@ -105,15 +105,15 @@ M.keys = {
 			require("fzf-lua").lsp_code_actions({
 				winopts = {
 					border = "border",
-					title = false,
+					width = 100,
+					height = 10,
+					title = "Code actions",
 					fullscreen = false,
-					preview = {
-						default = "builtin",
-					},
+					previewer = false,
 				},
 			})
 		end,
-		desc = "LSP workspace symbols",
+		desc = "LSP code actions",
 	},
 	-- type definitions
 	{
