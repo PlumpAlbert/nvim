@@ -9,7 +9,7 @@ local function get_font()
 end
 
 vim.o.guifont = get_font()
-vim.g.neovide_transparency = 0.92
+vim.g.neovide_transparency = 0.96
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_cursor_vfx_mode = "wireframe"
 vim.g.neovide_maximized = true
