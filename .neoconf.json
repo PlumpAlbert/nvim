@@ -2,6 +2,9 @@
 	"options": {
 		"theme": "onedark"
 	},
+	"llm": {
+		"model": "codestral"
+	},
 	"formatters": {
 		"lua": [
 			"stylua"
