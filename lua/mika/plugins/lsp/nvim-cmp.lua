@@ -1,5 +1,7 @@
 local M = {
-	"hrsh7th/nvim-cmp",
+	-- "hrsh7th/nvim-cmp",
+	"iguanacucumber/magazine.nvim",
+	name = "nvim-cmp",
 	event = { "BufEnter", "BufRead", "BufNewFile" },
 	dependencies = {
 		"saadparwaiz1/cmp_luasnip",
@@ -47,9 +49,9 @@ M.config = function()
 			["<C-b>"] = action.luasnip_jump_backward(),
 			["<C-.>"] = cmp.mapping.complete({
 				config = {
-					sources = cmp.config.sources({
+					sources = {
 						{ name = "cmp_ai" },
-					}),
+					},
 				},
 			}),
 		}),
