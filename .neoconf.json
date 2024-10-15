@@ -1,6 +1,6 @@
 {
 	"options": {
-		"theme": "onedark"
+		"theme": "base16-onedark"
 	},
 	"llm": {
 		"model": "codestral"
