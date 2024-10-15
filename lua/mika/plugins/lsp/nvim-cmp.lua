@@ -5,7 +5,6 @@ local M = {
 	event = { "BufEnter", "BufRead", "BufNewFile" },
 	dependencies = {
 		"saadparwaiz1/cmp_luasnip",
-		"tzachar/cmp-ai",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
@@ -47,13 +46,6 @@ M.config = function()
 		mapping = cmp.mapping.preset.insert({
 			["<C-f>"] = action.luasnip_jump_forward(),
 			["<C-b>"] = action.luasnip_jump_backward(),
-			["<C-.>"] = cmp.mapping.complete({
-				config = {
-					sources = {
-						{ name = "cmp_ai" },
-					},
-				},
-			}),
 		}),
 		snippet = {
 			expand = function(args)
