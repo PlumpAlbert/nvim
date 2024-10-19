@@ -43,7 +43,7 @@ M.config = function(_, linters_by_ft)
 
 	vim.api.nvim_create_autocmd({
 		"BufEnter",
-		"ModeChanged",
+		"InsertLeave",
 		"FileWritePost",
 	}, {
 		group = vim.api.nvim_create_augroup("linting", { clear = true }),
