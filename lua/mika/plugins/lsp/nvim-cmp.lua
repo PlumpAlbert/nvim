@@ -9,7 +9,6 @@ local M = {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
 		"onsails/lspkind.nvim",
-		"rafamadriz/friendly-snippets",
 		"L3MON4D3/LuaSnip",
 	},
 }
@@ -18,8 +17,6 @@ M.config = function()
 	local zero = require("lsp-zero")
 	local cmp = require("cmp")
 	local action = zero.cmp_action()
-
-	require("luasnip.loaders.from_vscode").lazy_load()
 
 	cmp.setup({
 		formatting = {
@@ -44,8 +41,8 @@ M.config = function()
 			completeopt = "menu,menuone,noinsert,popup",
 		},
 		mapping = cmp.mapping.preset.insert({
-			["<C-f>"] = action.luasnip_jump_forward(),
-			["<C-b>"] = action.luasnip_jump_backward(),
+			["<C-l>"] = action.luasnip_jump_forward(),
+			["<C-h>"] = action.luasnip_jump_backward(),
 		}),
 		snippet = {
 			expand = function(args)
@@ -53,10 +50,10 @@ M.config = function()
 			end,
 		},
 		sources = cmp.config.sources({
+			{ name = "luasnip", keyword_length = 2 },
 			{ name = "lazydev" },
 			{ name = "nvim_lsp" },
 			{ name = "path" },
-			{ name = "luasnip", keyword_length = 2 },
 			{ name = "buffer", keyword_length = 3 },
 		}),
 	})
