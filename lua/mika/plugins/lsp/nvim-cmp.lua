@@ -50,11 +50,12 @@ M.config = function()
 			end,
 		},
 		sources = cmp.config.sources({
-			{ name = "luasnip", keyword_length = 2 },
 			{ name = "lazydev" },
 			{ name = "nvim_lsp" },
-			{ name = "path" },
+		}, {
+			{ name = "luasnip", keyword_length = 2 },
 			{ name = "buffer", keyword_length = 3 },
+			{ name = "path" },
 		}),
 	})
 end
