@@ -63,6 +63,21 @@ M.keys = {
 		end,
 		desc = "Resume fzf",
 	},
+	-- colorschemes
+	{
+		"<leader>c",
+		function()
+			require("fzf-lua").colorschemes({
+				winopts = {
+					fullscreen = false,
+					width = 80,
+					height = 20,
+					col = 1,
+				},
+			})
+		end,
+		desc = "Resume fzf",
+	},
 	--#region GIT
 	{
 		"<leader>gl",
