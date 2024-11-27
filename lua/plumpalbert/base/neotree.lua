@@ -1,4 +1,17 @@
-local get_filepath = require("mika.utils.get_filepath")
+local function get_filepath()
+	local reveal_file = vim.fn.expand("%:p")
+	if reveal_file == "" then
+		return vim.fn.getcwd()
+	else
+		local f = io.open(reveal_file, "r")
+		if f then
+			f.close(f)
+		else
+			return vim.fn.getcwd()
+		end
+	end
+	return reveal_file
+end
 
 local M = {
 	"nvim-neo-tree/neo-tree.nvim",
