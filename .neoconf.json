@@ -1,6 +1,6 @@
 {
 	"options": {
-		"theme": "onedark"
+		"theme": "habamax"
 	},
 	"llm": {
 		"model": "codestral"
