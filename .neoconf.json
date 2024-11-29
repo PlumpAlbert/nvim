@@ -1,6 +1,8 @@
 {
 	"options": {
-		"theme": "base16-onedark"
+		"transparent": true,
+		"theme": "base16-onedark",
+		"lineNumbers": true
 	},
 	"llm": {
 		"model": "codestral"

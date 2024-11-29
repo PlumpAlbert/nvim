@@ -1,6 +1,9 @@
 return {
-	url = "https://git.plumpalbert.xyz/akadmin/options.nvim",
-	dependencies = { "folke/neoconf.nvim" },
+	"plumpalbert/options.nvim",
+	dependencies = {
+		"folke/neoconf.nvim",
+		"xiyaowong/transparent.nvim",
+	},
 	lazy = false,
 	config = true,
 }
