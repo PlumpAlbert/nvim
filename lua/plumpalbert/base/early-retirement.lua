@@ -5,10 +5,10 @@ return {
 	opts = {
 		retirementAgeMins = 3,
 		minimumBufferNum = 3,
-		ignoreUnsavedChangesBufs = false,
+		ignoreUnsavedChangesBufs = true,
 		ignoreSpecialBuftypes = true,
 		ignoreVisibleBufs = true,
-		ignoreUnloadedBufs = false,
+		ignoreUnloadedBufs = true,
 		notificationOnAutoClose = true,
 		deleteBufferWhenFileDeleted = true,
 	},
