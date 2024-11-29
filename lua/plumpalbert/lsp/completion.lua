@@ -8,6 +8,7 @@ return {
 		{ "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
 		{ 'L3MON4D3/LuaSnip' },
 		{ 'saadparwaiz1/cmp_luasnip' },
+		{ 'folke/lazydev.nvim' },
 	},
 	config = function ()
 		local cmp = require("cmp")
@@ -24,6 +25,7 @@ return {
 				['<CR>'] = cmp.mapping.confirm({ select = true })
 			}),
 			sources = cmp.config.sources({
+				{name = 'lazydev', group_index = 0},
 				{name = 'nvim_lsp'},
 				{name = 'luasnip'},
 			}, {
@@ -40,6 +42,13 @@ return {
 			}),
 			matching = {
 				disallow_symbol_nonprefix_matching = false
+			}
+		})
+
+		cmp.setup.cmdline({'/','?'}, {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = 'buffer' }
 			}
 		})
 	end
