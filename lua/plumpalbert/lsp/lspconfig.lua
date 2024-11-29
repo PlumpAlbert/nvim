@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		{ "williamboman/mason.nvim", config = true },
 		"williamboman/mason-lspconfig.nvim",
-		"saghen/blink.cmp",
+		"iguanacucumber/magazine.nvim",
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -34,17 +34,13 @@ return {
 			end,
 		})
 
-		local capabilities = require("blink.cmp").get_lsp_capabilities(
-			vim.lsp.protocol.make_client_capabilities()
-		)
-
 		require("mason").setup()
 
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
 					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
+						capabilities = require("cmp_nvim_lsp").default_capabilities(),
 					})
 				end,
 			},
