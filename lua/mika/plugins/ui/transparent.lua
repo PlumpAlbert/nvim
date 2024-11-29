@@ -12,6 +12,8 @@ return {
 		})
 		if config.enabled then
 			vim.cmd("TransparentEnable")
+		else
+			vim.cmd("TransparentDisable")
 		end
 	end,
 	init = function()
