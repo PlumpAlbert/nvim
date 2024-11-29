@@ -1,6 +1,7 @@
 {
 	"options": {
-		"theme": "habamax"
+		"theme": "base16-default-dark",
+		"transparent": true
 	},
 	"llm": {
 		"model": "codestral"
