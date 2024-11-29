@@ -1,7 +1,8 @@
 {
 	"options": {
 		"theme": "base16-default-dark",
-		"transparent": true
+		"transparent": true,
+		"lineNumbers": "normalOnly"
 	},
 	"llm": {
 		"model": "codestral"
