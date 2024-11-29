@@ -1,3 +1,5 @@
+require("plumpalbert.options")
+require("plumpalbert.keymaps")
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -36,6 +38,7 @@ require("lazy").setup({
 		{ import = "plumpalbert.lsp" },
 		{ import = "plumpalbert.mini" },
 		{ import = "plumpalbert.themes" },
+		{ import = "plumpalbert.treesitter" },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
