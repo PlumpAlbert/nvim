@@ -90,6 +90,10 @@ local function on_attach(client, bufnr)
 	)
 
 	setup_ufo(bufnr)
+
+	vim.diagnostic.config({
+		virtual_text = false,
+	})
 end
 
 M.config = function(_, opts)
