@@ -4,6 +4,7 @@ return {
 	event = { "BufNewFile", "BufRead", "BufEnter" },
 	config = true,
 	opts = {
+		preset = "ghost",
 		options = {
 			softwrap = 30,
 			overflow = {
