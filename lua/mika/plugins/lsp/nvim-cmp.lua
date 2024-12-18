@@ -1,6 +1,7 @@
 local M = {
 	-- "hrsh7th/nvim-cmp",
 	"iguanacucumber/magazine.nvim",
+	enabled = false,
 	name = "nvim-cmp",
 	event = { "BufEnter", "BufRead", "BufNewFile" },
 	dependencies = {

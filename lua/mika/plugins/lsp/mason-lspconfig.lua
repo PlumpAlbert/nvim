@@ -3,7 +3,7 @@ local M = {
 	event = { "VeryLazy" },
 	dependencies = {
 		"folke/neoconf.nvim",
-		"hrsh7th/cmp-nvim-lsp",
+		-- "hrsh7th/cmp-nvim-lsp",
 		"kevinhwang91/nvim-ufo",
 		"b0o/schemastore.nvim",
 		"neovim/nvim-lspconfig",
@@ -14,7 +14,7 @@ local M = {
 local function get_capabilities()
 	local ufo_options = require("neoconf").get("ufo", { enable = true })
 
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 	if ufo_options.enable then
 		capabilities = vim.tbl_deep_extend("force", capabilities, {
