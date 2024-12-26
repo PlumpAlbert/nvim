@@ -5,6 +5,8 @@ return {
 		{ "L3MON4D3/LuaSnip", version = "v2.*" },
 	},
 	version = "v0.*",
+	---@module "blink.cmp"
+	---@type blink.cmp.Config
 	opts = {
 		keymap = { preset = "default" },
 		appearance = {
@@ -29,7 +31,18 @@ return {
 			documentation = {
 				auto_show = true,
 			},
-			ghost_text = { enabled = true },
+			ghost_text = {
+				enabled = false,
+			},
+			list = {
+				selection = function(ctx)
+					if ctx.mode == "cmdline" then
+						return "auto_insert"
+					end
+
+					return "preselect"
+				end,
+			},
 		},
 		signature = { enabled = true },
 		sources = {
