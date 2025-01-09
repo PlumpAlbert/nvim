@@ -16,7 +16,6 @@ local M = {
 			},
 			winopts = {
 				border = "border",
-				title = false,
 				fullscreen = true,
 				preview = {
 					default = "builtin",
