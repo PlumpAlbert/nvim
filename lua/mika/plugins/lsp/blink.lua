@@ -8,25 +8,15 @@ return {
 	---@module "blink.cmp"
 	---@type blink.cmp.Config
 	opts = {
-		keymap = { preset = "default" },
+		keymap = {
+			preset = "default",
+			["<C-n>"] = { "select_next", "show" },
+		},
 		appearance = {
 			use_nvim_cmp_as_default = true,
 			nerd_font_variant = "mono",
 		},
-		snippets = {
-			expand = function(snippet)
-				require("luasnip").lsp_expand(snippet)
-			end,
-			active = function(filter)
-				if filter and filter.direction then
-					return require("luasnip").jumpable(filter.direction)
-				end
-				return require("luasnip").in_snippet()
-			end,
-			jump = function(direction)
-				require("luasnip").jump(direction)
-			end,
-		},
+		snippets = { preset = "luasnip" },
 		completion = {
 			documentation = {
 				auto_show = true,
@@ -35,18 +25,19 @@ return {
 				enabled = false,
 			},
 			list = {
-				selection = function(ctx)
-					if ctx.mode == "cmdline" then
-						return "auto_insert"
-					end
-
-					return "preselect"
-				end,
+				selection = {
+					preselect = function(ctx)
+						return ctx.mode ~= "cmdline"
+					end,
+					auto_insert = function(ctx)
+						return ctx.mode == "cmdline"
+					end,
+				},
 			},
 		},
 		signature = { enabled = true },
 		sources = {
-			default = { "lsp", "path", "luasnip", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer" },
 		},
 	},
 }
