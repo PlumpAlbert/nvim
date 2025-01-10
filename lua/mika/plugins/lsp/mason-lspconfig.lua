@@ -29,8 +29,8 @@ local function get_capabilities()
 
 	capabilities = vim.tbl_deep_extend(
 		"force",
-		capabilities,
-		require("lsp-file-operations").default_capabilities()
+		require("lsp-file-operations").default_capabilities(),
+		capabilities
 	)
 
 	return capabilities
@@ -93,6 +93,14 @@ local function on_attach(client, bufnr)
 
 	vim.diagnostic.config({
 		virtual_text = false,
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = "✘",
+				[vim.diagnostic.severity.WARN] = "▲",
+				[vim.diagnostic.severity.HINT] = "⚑",
+				[vim.diagnostic.severity.INFO] = "»",
+			},
+		},
 	})
 end
 
