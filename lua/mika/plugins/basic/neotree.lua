@@ -10,7 +10,6 @@ M.dependencies = {
 	"echasnovski/mini.icons",
 	"MunifTanjim/nui.nvim",
 	"s1n7ax/nvim-window-picker",
-	"saifulapm/neotree-file-nesting-config",
 }
 
 M.keys = {
@@ -58,9 +57,6 @@ M.keys = {
 
 M.config = function(_, opts)
 	require("neo-tree").setup(vim.tbl_deep_extend("force", {
-		nesting_rules = require("neotree-file-nesting-config").nesting_rules,
-		hide_root_node = true,
-		retain_hidden_root_indent = true,
 		popup_border_style = "rounded",
 		enable_git_status = true,
 		enable_diagnostics = false,
@@ -84,11 +80,6 @@ M.config = function(_, opts)
 				staged = "",
 				conflict = "",
 			},
-			indent = {
-				with_expanders = true,
-				expander_collapsed = "",
-				expander_expanded = "",
-			},
 		},
 		window = {
 			position = "float",
@@ -106,10 +97,6 @@ M.config = function(_, opts)
 				hide_dotfiles = false,
 				hide_gitignored = true,
 				hide_hidden = false,
-				show_hidden_count = false,
-				never_show = {
-					".DS_Store",
-				},
 				hide_by_name = {
 					".venv",
 					"node_modules",
