@@ -60,6 +60,7 @@ require('lazy').setup({
 	},
 	install = { colorscheme = { 'retrobox', 'habamax', 'default' } },
 	checker = { enabled = false },
+	change_detection = { enabled = false },
 	defaults = { 
 		lazy = true,
 		config = true,
