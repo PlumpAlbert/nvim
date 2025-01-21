@@ -4,6 +4,11 @@ return {
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
     lazy = false,
+    init = function()
+      vim.opt.foldenable = true
+      vim.opt.foldmethod = 'expr'
+      vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    end,
     opts = {
       ensure_installed = { 'markdown', 'markdown_inline', 'lua', 'bash' },
       auto_install = true,
