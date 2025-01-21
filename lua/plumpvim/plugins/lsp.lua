@@ -32,7 +32,7 @@ return {
         end,
       })
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       require('mason-tool-installer').setup { ensure_installed = { 'stylua', 'lua_ls' } }
 
@@ -46,6 +46,54 @@ return {
         },
       }
     end,
+  },
+  {
+    'saghen/blink.cmp',
+    dependencies = 'rafamadriz/friendly-snippets',
+    version = 'v0.10.x',
+    opts = {
+      keymap = {
+        preset = 'default',
+        ['<C-n>'] = { 'show', 'select_next', 'fallback' },
+        ['<C-p>'] = { 'show', 'select_prev', 'fallback' },
+      },
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono',
+      },
+      sources = {
+        default = { 'lsp', 'snippets', 'buffer' },
+      },
+      completion = {
+        list = {
+          selection = {
+            preselect = function(ctx)
+              return ctx.mode == 'cmdline'
+            end,
+            auto_insert = function(ctx)
+              return ctx.mode ~= 'cmdline'
+            end,
+          },
+        },
+        accept = {
+          auto_brackets = { enabled = false },
+        },
+        menu = {
+          enabled = true,
+          min_width = 16,
+          max_height = 8,
+          border = 'none',
+          draw = {
+            columns = {
+              { 'kind_icon' },
+              { 'label', gap = 1 },
+            },
+          },
+        },
+        documentation = { auto_show = true },
+        ghost_text = { enabled = false },
+      },
+    },
   },
   {
     'stevearc/conform.nvim',
