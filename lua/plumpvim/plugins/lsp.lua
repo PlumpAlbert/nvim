@@ -10,8 +10,12 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
+    -- wait until neoconf.nvim resolves issue
+    -- https://github.com/folke/neoconf.nvim/issues/104
+    commit = '71eac2ab32b22bf6c2b430632761e5d1930fe81e',
     event = 'VeryLazy',
     dependencies = {
+      'folke/neoconf.nvim',
       { 'williamboman/mason.nvim', opts = {} },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -32,6 +36,22 @@ return {
         end,
       })
 
+      require('neoconf').setup {
+        live_reload = false,
+        filetype_jsonc = true,
+        plugins = {
+          lspconfig = { enabled = true },
+          jsonls = {
+            enabled = true,
+            configured_servers_only = true,
+          },
+          lua_ls = {
+            enabled_for_neovim_config = true,
+            enabled = true,
+          },
+        },
+      }
+
       local capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       require('mason-tool-installer').setup { ensure_installed = { 'stylua', 'lua_ls' } }
@@ -51,6 +71,8 @@ return {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
     version = 'v0.10.x',
+    ---@module "blink-cmp"
+    ---@type blink.cmp.Config
     opts = {
       keymap = {
         preset = 'default',
@@ -68,10 +90,10 @@ return {
         list = {
           selection = {
             preselect = function(ctx)
-              return ctx.mode == 'cmdline'
+              return ctx.mode ~= 'cmdline'
             end,
             auto_insert = function(ctx)
-              return ctx.mode ~= 'cmdline'
+              return ctx.mode == 'cmdline'
             end,
           },
         },
