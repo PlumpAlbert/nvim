@@ -38,22 +38,55 @@ return {
         use_as_default_explorer = true,
       },
       windows = {
-        max_number = math.huge,
+        max_number = 3,
         preview = false,
         width_focus = 50,
         width_nofocus = 10,
         width_preview = 25,
       },
-    },
-    keys = {
-      {
-        '<leader>e',
-        function()
-          MiniFiles.open()
-        end,
-        desc = 'Open file',
+      mappings = {
+        go_in = '',
+        go_in_plus = 'l',
       },
     },
+    keys = function()
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'MiniFilesBufferCreate',
+        callback = function(args)
+          local bufnr = args.data.buf_id
+
+          local function rhs(direction)
+            local cur_target = MiniFiles.get_explorer_state().target_window
+            local new_target = vim.api.nvim_win_call(cur_target, function()
+              vim.cmd(direction .. ' split')
+              return vim.api.nvim_get_current_win()
+            end)
+
+            MiniFiles.set_target_window(new_target)
+            MiniFiles.go_in { close_on_file = true }
+          end
+
+          vim.keymap.set('n', '<C-v>', function()
+            rhs 'belowright vertical'
+          end, { desc = 'Split vertically', buffer = bufnr })
+
+          vim.keymap.set('n', '<C-s>', function()
+            rhs 'belowright horizontal'
+          end, { desc = 'Split horizontally', buffer = bufnr })
+        end,
+      })
+      return {
+        {
+          '<leader>e',
+          function()
+            if not MiniFiles.close() then
+              MiniFiles.open()
+            end
+          end,
+          desc = 'Open file',
+        },
+      }
+    end,
   },
   {
     'echasnovski/mini.icons',
