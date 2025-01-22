@@ -109,4 +109,28 @@ return {
       vim.notify = MiniNotify.make_notify()
     end,
   },
+  {
+    'echasnovski/mini.statusline',
+    event = 'VeryLazy',
+    opts = {
+      content = {
+        active = function()
+          local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
+          local git = MiniStatusline.section_git { trunc_width = 40 }
+          local filename = MiniStatusline.section_filename { trunc_width = 30 }
+          local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 30 }
+
+          return MiniStatusline.combine_groups {
+            { hl = mode_hl, strings = { mode } },
+            { hl = 'MiniStatuslineDevinfo', strings = { git } },
+            '%<',
+            { hl = 'MiniStatuslineFilename', strings = { filename } },
+            '%=',
+            { hl = mode_hl, strings = { fileinfo } },
+          }
+        end,
+        inactive = nil,
+      },
+    },
+  },
 }
