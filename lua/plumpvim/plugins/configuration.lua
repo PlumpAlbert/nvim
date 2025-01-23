@@ -9,4 +9,8 @@ return {
       'xiyaowong/transparent.nvim',
     },
   },
+  {
+    'wakatime/vim-wakatime',
+    lazy = false,
+  },
 }
