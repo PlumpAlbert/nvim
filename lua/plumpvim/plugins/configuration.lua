@@ -97,4 +97,73 @@ return {
       command = 'silicon',
     },
   },
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'echasnovski/mini.icons',
+      'MunifTanjim/nui.nvim',
+      's1n7ax/nvim-window-picker',
+    },
+    main = 'neo-tree',
+    keys = {
+      {
+        '<leader>e',
+        function()
+          require('neo-tree.command').execute {
+            action = 'focus',
+            source = 'filesystem',
+            toggle = true,
+            reveal = true,
+          }
+        end,
+      },
+    },
+    opts = {
+      close_if_last_window = false,
+      popup_border_style = 'rounded',
+      enable_git_status = false,
+      enable_diagnostics = false,
+      window = {
+        position = 'float',
+      },
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = true,
+          always_show = {
+            '.gitignored',
+            '.gitignore',
+            '.neoconf.json',
+          },
+          always_show_by_pattern = {
+            '.env*',
+          },
+          never_show = {
+            'node_modules',
+            '.DS_Store',
+            'thumbs.db',
+            '.git',
+          },
+        },
+      },
+    },
+  },
+  {
+    's1n7ax/nvim-window-picker',
+    version = '2.*',
+    main = 'window-picker',
+    opts = {
+      hint = 'floating-letter',
+      filter_rules = {
+        include_current_win = false,
+        autoselect_one = true,
+        bo = {
+          filetype = { 'neo-tree', 'neo-tree-popup', 'notify' },
+          buftype = { 'terminal', 'quickfix' },
+        },
+      },
+    },
+  },
 }

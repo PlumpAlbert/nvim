@@ -30,6 +30,7 @@ return {
   },
   {
     'echasnovski/mini.files',
+    enabled = false,
     version = '*',
     lazy = false,
     opts = {
