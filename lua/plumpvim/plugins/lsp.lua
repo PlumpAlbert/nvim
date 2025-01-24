@@ -10,9 +10,6 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    -- wait until neoconf.nvim resolves issue
-    -- https://github.com/folke/neoconf.nvim/issues/104
-    commit = '71eac2ab32b22bf6c2b430632761e5d1930fe81e',
     event = 'VeryLazy',
     dependencies = {
       'folke/neoconf.nvim',
@@ -84,7 +81,7 @@ return {
         nerd_font_variant = 'mono',
       },
       sources = {
-        default = { 'lsp', 'snippets', 'buffer' },
+        default = { 'lsp', 'snippets', 'buffer', 'path' },
       },
       completion = {
         list = {
