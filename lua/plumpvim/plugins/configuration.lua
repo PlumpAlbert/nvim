@@ -152,13 +152,13 @@ return {
   },
   {
     's1n7ax/nvim-window-picker',
+    name = 'window-picker',
     version = '2.*',
-    main = 'window-picker',
     opts = {
       hint = 'floating-letter',
       filter_rules = {
-        include_current_win = false,
         autoselect_one = true,
+        include_current_win = false,
         bo = {
           filetype = { 'neo-tree', 'neo-tree-popup', 'notify' },
           buftype = { 'terminal', 'quickfix' },
