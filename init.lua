@@ -5,7 +5,7 @@ vim.g.have_nerd_font = true
 
 vim.opt.mouse = 'a'
 vim.opt.number = true
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.showmode = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
