@@ -19,6 +19,7 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
+      'L3MON4D3/LuaSnip',
       'saghen/blink.cmp',
     },
     config = function()
@@ -84,7 +85,10 @@ return {
   -- saghen/blink.cmp
   {
     'saghen/blink.cmp',
-    dependencies = 'rafamadriz/friendly-snippets',
+    dependencies = {
+      'L3MON4D3/LuaSnip',
+      'rafamadriz/friendly-snippets',
+    },
     version = 'v0.10.x',
     ---@module "blink-cmp"
     ---@type blink.cmp.Config
@@ -113,6 +117,7 @@ return {
           },
         },
         accept = {
+          create_undo_point = true,
           auto_brackets = { enabled = false },
         },
         menu = {
@@ -121,6 +126,7 @@ return {
           max_height = 8,
           border = 'none',
           draw = {
+            align_to = 'cursor',
             columns = {
               { 'kind_icon' },
               { 'label', gap = 1 },
@@ -130,7 +136,24 @@ return {
         documentation = { auto_show = true },
         ghost_text = { enabled = false },
       },
+      snippets = { preset = 'luasnip' },
     },
+  },
+  -- L3MON4D3/LuaSnip
+  {
+    'L3MON4D3/LuaSnip',
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+    },
+    version = 'v2.*',
+    config = function()
+      vim.notify 'luasnip loading'
+      require('luasnip.loaders.from_vscode').lazy_load {}
+      require('luasnip.loaders.from_vscode').load_standalone {
+        lazy = true,
+        path = '.vscode/project.code-snippets',
+      }
+    end,
   },
   -- stevearc/conform.nvim
   {
