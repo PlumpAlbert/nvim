@@ -15,6 +15,7 @@ local function trim_filepath(path)
 end
 
 return {
+  -- PlumpAlbert/options.nvim
   {
     'PlumpAlbert/options.nvim',
     lazy = false,
@@ -25,10 +26,12 @@ return {
       'xiyaowong/transparent.nvim',
     },
   },
+  -- wakatime/vim-wakatime
   {
     'wakatime/vim-wakatime',
     lazy = false,
   },
+  -- michaelrommel/nvim-silicon
   {
     'michaelrommel/nvim-silicon',
     lazy = true,
@@ -97,6 +100,7 @@ return {
       command = 'silicon',
     },
   },
+  -- nvim-neo-tree/neo-tree.nvim
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -150,6 +154,7 @@ return {
       },
     },
   },
+  -- s1n7ax/nvim-window-picker
   {
     's1n7ax/nvim-window-picker',
     name = 'window-picker',
