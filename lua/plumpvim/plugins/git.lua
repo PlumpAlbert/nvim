@@ -37,6 +37,14 @@ return {
         end, { desc = '[Git] Blame line' })
 
         map('n', '<leader>gp', gs.preview_hunk, { desc = '[Git] Preview changes' })
+
+        map('n', ']c', function()
+          gs.nav_hunk 'next'
+        end, { desc = '[Git] Next hunk' })
+
+        map('n', '[c', function()
+          gs.nav_hunk 'prev'
+        end, { desc = '[Git] Previous hunk' })
       end,
     },
   },
