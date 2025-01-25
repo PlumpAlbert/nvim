@@ -1,13 +1,18 @@
 {
-	"options": {
-		"wrap": false,
-		"theme": "retrobox",
-		"indent": 2,
-		"transparent": false,
-		"rulers": [
-			120
-		],
-		"useTabs": false,
-		"lineNumbers": "both"
-	}
+  "options": {
+    "wrap": false,
+    "theme": "retrobox",
+    "indent": 2,
+    "transparent": false,
+    "rulers": [
+      120
+    ],
+    "useTabs": false,
+    "lineNumbers": "both"
+  },
+  "formatters": {
+    "lua": [
+      "stylua"
+    ]
+  }
 }
