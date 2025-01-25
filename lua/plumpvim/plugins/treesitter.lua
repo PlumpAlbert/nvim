@@ -1,4 +1,5 @@
 return {
+  -- nvim-treesitter/nvim-treesitter
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -19,6 +20,7 @@ return {
       indent = { enable = true, disable = { 'ruby' } },
     },
   },
+  -- windwp/nvim-ts-autotag
   {
     'windwp/nvim-ts-autotag',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
@@ -31,6 +33,7 @@ return {
       },
     },
   },
+  -- HiPhish/rainbow-delimiters.nvim
   {
     'HiPhish/rainbow-delimiters.nvim',
     lazy = false,
