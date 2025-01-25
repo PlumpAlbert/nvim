@@ -1,4 +1,5 @@
 return {
+  -- folke/lazydev.nvim
   {
     'folke/lazydev.nvim',
     ft = 'lua',
@@ -8,6 +9,7 @@ return {
       },
     },
   },
+  -- neovim/nvim-lspconfig
   {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
@@ -20,6 +22,21 @@ return {
       'saghen/blink.cmp',
     },
     config = function()
+      vim.diagnostic.config {
+        virtual_text = true,
+        underline = false,
+        float = true,
+        severity_sort = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '󰃤',
+            [vim.diagnostic.severity.WARN] = '󱈸',
+            [vim.diagnostic.severity.INFO] = '󰙎',
+            [vim.diagnostic.severity.HINT] = '',
+          },
+        },
+      }
+
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('plumpvim-lsp-attach', { clear = true }),
         callback = function(event)
@@ -64,6 +81,7 @@ return {
       }
     end,
   },
+  -- saghen/blink.cmp
   {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
@@ -114,6 +132,7 @@ return {
       },
     },
   },
+  -- stevearc/conform.nvim
   {
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
@@ -122,7 +141,10 @@ return {
       {
         '<leader>lf',
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          require('conform').format {
+            async = true,
+            lsp_format = 'fallback',
+          }
         end,
         mode = '',
         desc = '[LSP] Format document',
@@ -130,7 +152,7 @@ return {
     },
     opts = {
       notify_on_error = true,
-      format_on_save = function(bufnr)
+      format_on_save = function()
         return {
           timeout_ms = 500,
           lsp_format = 'fallback',
