@@ -147,7 +147,6 @@ return {
     },
     version = 'v2.*',
     config = function()
-      vim.notify 'luasnip loading'
       require('luasnip.loaders.from_vscode').lazy_load {}
       require('luasnip.loaders.from_vscode').load_standalone {
         lazy = true,
