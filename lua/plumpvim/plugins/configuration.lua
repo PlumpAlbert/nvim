@@ -171,4 +171,19 @@ return {
       },
     },
   },
+  -- folke/which-key.nvim
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    opts = { preset = 'helix' },
+    keys = {
+      {
+        '<leader>?',
+        function()
+          require('which-key').show { global = false }
+        end,
+        desc = 'Buffer local keymaps',
+      },
+    },
+  },
 }
