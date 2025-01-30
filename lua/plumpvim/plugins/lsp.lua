@@ -48,6 +48,8 @@ return {
 
           map('K', vim.lsp.buf.hover, 'Hover info')
           map('gd', vim.lsp.buf.definition, 'Hover info')
+          map('<C-k>', vim.lsp.buf.signature_help, 'Signature help', 'i')
+          map('<F2>', vim.lsp.buf.rename, 'Rename')
         end,
       })
 
