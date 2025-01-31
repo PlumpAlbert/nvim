@@ -184,4 +184,29 @@ return {
       },
     },
   },
+  -- Bekaboo/dropbar.nvim
+  {
+    'Bekaboo/dropbar.nvim',
+    keys = function()
+      local api = require 'dropbar.api'
+
+      return {
+        {
+          '<leader>;',
+          api.pick,
+          desc = 'Pick symbols in winbar',
+        },
+        {
+          '[;',
+          api.goto_context_start,
+          desc = 'Go to context start',
+        },
+        {
+          '];',
+          api.select_next_context,
+          desc = 'Select next context',
+        },
+      }
+    end,
+  },
 }
