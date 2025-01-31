@@ -1,4 +1,5 @@
 return {
+  -- lewis6991/gitsigns.nvim
   {
     'lewis6991/gitsigns.nvim',
     event = { 'BufEnter' },
@@ -14,7 +15,7 @@ return {
         changedelete = { text = '~' },
       },
       current_line_blame = true,
-      current_line_blame_formatter = '<author> 󰁥 <summary>',
+      current_line_blame_formatter = '(<author>)@ <summary>',
       current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = 'eol',
