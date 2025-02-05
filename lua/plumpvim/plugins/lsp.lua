@@ -24,7 +24,7 @@ return {
     },
     config = function()
       vim.diagnostic.config {
-        virtual_text = true,
+        virtual_lines = true,
         underline = false,
         float = true,
         severity_sort = true,
