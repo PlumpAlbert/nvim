@@ -9,6 +9,9 @@ vim.opt.cmdheight = 1
 vim.opt.showmode = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 0
+vim.opt.numberwidth = 3
+vim.opt.signcolumn = 'yes:1'
+vim.opt.statuscolumn = '%l%s'
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
