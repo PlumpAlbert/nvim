@@ -71,7 +71,11 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = '[LSP] ' .. desc })
           end
 
-          map('K', vim.lsp.buf.hover, 'Hover info')
+          map('K', function()
+            vim.lsp.buf.hover {
+              border = 'single',
+            }
+          end, 'Hover info')
           map('gd', vim.lsp.buf.definition, 'Hover info')
           map('<C-k>', vim.lsp.buf.signature_help, 'Signature help', 'i')
           map('<F2>', vim.lsp.buf.rename, 'Rename')
