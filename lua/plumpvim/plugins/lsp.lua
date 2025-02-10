@@ -1,3 +1,19 @@
+---@type vim.diagnostic.Opts
+local diagnostic_config = {
+  virtual_lines = { current_line = true },
+  underline = false,
+  float = true,
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '󰃤',
+      [vim.diagnostic.severity.WARN] = '󱈸',
+      [vim.diagnostic.severity.INFO] = '󰙎',
+      [vim.diagnostic.severity.HINT] = '',
+    },
+  },
+}
+
 return {
   -- folke/lazydev.nvim
   {
@@ -22,21 +38,30 @@ return {
       'L3MON4D3/LuaSnip',
       'saghen/blink.cmp',
     },
+    keys = {
+      {
+        '<leader>d',
+        function()
+          local current = vim.diagnostic.config()
+          if current ~= nil and (current.virtual_lines ~= nil and current.virtual_lines ~= false) then
+            vim.diagnostic.config( --
+              vim.tbl_deep_extend(
+                'force', --
+                current,
+                {
+                  virtual_lines = false,
+                }
+              )
+            )
+          else
+            vim.diagnostic.config(diagnostic_config)
+          end
+        end,
+        desc = '[LSP] Toggle diagnostics',
+      },
+    },
     config = function()
-      vim.diagnostic.config {
-        virtual_lines = { current_line = true },
-        underline = false,
-        float = true,
-        severity_sort = true,
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = '󰃤',
-            [vim.diagnostic.severity.WARN] = '󱈸',
-            [vim.diagnostic.severity.INFO] = '󰙎',
-            [vim.diagnostic.severity.HINT] = '',
-          },
-        },
-      }
+      vim.diagnostic.config(diagnostic_config)
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('plumpvim-lsp-attach', { clear = true }),
