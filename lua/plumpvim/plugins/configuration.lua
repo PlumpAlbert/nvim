@@ -186,4 +186,32 @@ return {
       },
     },
   },
+  -- bbjornstad/pretty-fold.nvim
+  {
+    'bbjornstad/pretty-fold.nvim',
+    event = 'VeryLazy',
+    config = true,
+    opts = {
+      sections = {
+        left = { 'content' },
+        right = {
+          ' ',
+          'number_of_folded_lines',
+          ' ',
+          function(config)
+            return config.fill_char:rep(3)
+          end,
+        },
+      },
+      fill_char = '-',
+      remove_fold_markers = true,
+      keep_indentation = true,
+      process_comment_signs = 'spaces',
+      stop_words = {
+        '@brief%s*',
+      },
+      add_close_pattern = true,
+      ft_ignore = { 'neorg' },
+    },
+  },
 }
