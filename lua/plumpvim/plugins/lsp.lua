@@ -188,7 +188,7 @@ return {
   -- stevearc/conform.nvim
   {
     'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
+    event = 'BufEnter',
     cmd = { 'ConformInfo' },
     keys = {
       {
@@ -199,19 +199,24 @@ return {
             lsp_format = 'fallback',
           }
         end,
-        mode = '',
         desc = '[LSP] Format document',
       },
     },
-    opts = {
-      notify_on_error = true,
-      format_after_save = {
-        lsp_format = 'fallback',
-      },
-      formatters_by_ft = {
-        lua = { 'stylua' },
-      },
-    },
+    config = function()
+      require('conform').setup {
+        log_level = vim.log.levels.DEBUG,
+        notify_on_error = true,
+        default_format_opts = {
+          lsp_format = 'fallback',
+          stop_after_first = true,
+          timeout_ms = 5000,
+        },
+        format_after_save = {},
+        formatters_by_ft = {
+          lua = { 'stylua' },
+        },
+      }
+    end,
   },
   -- Bekaboo/dropbar.nvim
   {
