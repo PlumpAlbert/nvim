@@ -18,7 +18,7 @@ M.opts = {
   previewers = {
     bat = {
       cmd = 'bat',
-      args = '--theme base16-256 --color=always --style=numbers,changes',
+      args = '--theme base16 --color=always --style=numbers,changes',
     },
   },
 }
