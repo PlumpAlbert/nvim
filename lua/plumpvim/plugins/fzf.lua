@@ -25,6 +25,13 @@ M.opts = {
 
 M.keys = {
   {
+    '<leader>q',
+    function()
+      require('fzf-lua').quickfix()
+    end,
+    desc = 'Search project files',
+  },
+  {
     '<leader><Space>',
     function()
       require('fzf-lua').files()
@@ -52,13 +59,6 @@ M.keys = {
     end,
     desc = 'Search commits',
   },
-  {
-    '<leader>gl',
-    function()
-      require('fzf-lua').git_bcommits()
-    end,
-    desc = 'Search commits',
-  },
   ---#region LSP
   {
     '<leader>la',
@@ -68,7 +68,7 @@ M.keys = {
     desc = '[LSP] Code actions',
   },
   {
-    '<leader>ld',
+    '<leader>lD',
     function()
       require('fzf-lua').lsp_definitions()
     end,
@@ -84,7 +84,7 @@ M.keys = {
   {
     '<leader>ls',
     function()
-      require('fzf-lua').lsp_references()
+      require('fzf-lua').lsp_finder()
     end,
     desc = '[LSP] Go to references',
   },
@@ -94,13 +94,6 @@ M.keys = {
       require('fzf-lua').lsp_document_diagnostics()
     end,
     desc = '[LSP] Diagnostics',
-  },
-  {
-    'gd',
-    function()
-      require('fzf-lua').lsp_finder()
-    end,
-    desc = '[LSP] Find usages',
   },
   ---#endregion
 }
