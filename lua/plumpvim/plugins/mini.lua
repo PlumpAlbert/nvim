@@ -1,10 +1,12 @@
 return {
+  -- echasnovski/mini.pairs
   {
     'echasnovski/mini.pairs',
     version = '*',
     event = { 'BufEnter' },
     opts = {},
   },
+  -- echasnovski/mini.surround
   {
     'echasnovski/mini.surround',
     version = '*',
@@ -28,6 +30,7 @@ return {
       silent = true,
     },
   },
+  -- echasnovski/mini.files
   {
     'echasnovski/mini.files',
     enabled = false,
@@ -89,6 +92,7 @@ return {
       }
     end,
   },
+  -- echasnovski/mini.icons
   {
     'echasnovski/mini.icons',
     version = '*',
@@ -98,6 +102,7 @@ return {
       MiniIcons.mock_nvim_web_devicons()
     end,
   },
+  -- echasnovski/mini.notify
   {
     'echasnovski/mini.notify',
     version = '*',
@@ -110,13 +115,14 @@ return {
       vim.notify = MiniNotify.make_notify()
     end,
   },
+  -- echasnovski/mini.statusline
   {
     'echasnovski/mini.statusline',
     event = 'VeryLazy',
     opts = {
       content = {
         active = function()
-          local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
+          local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 10000 }
           local git = MiniStatusline.section_git { trunc_width = 10000 }
           local filename = MiniStatusline.section_filename { trunc_width = 10000 }
           local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 10000 }
