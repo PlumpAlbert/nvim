@@ -86,6 +86,13 @@ M.keys = {
     function()
       require('fzf-lua').lsp_finder()
     end,
+    desc = '[LSP] Finder',
+  },
+  {
+    '<leader>lr',
+    function()
+      require('fzf-lua').lsp_references()
+    end,
     desc = '[LSP] Go to references',
   },
   {
