@@ -37,6 +37,7 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
       'L3MON4D3/LuaSnip',
       'saghen/blink.cmp',
+      'b0o/schemastore.nvim',
     },
     keys = {
       {
@@ -102,12 +103,41 @@ return {
 
       require('mason-tool-installer').setup { ensure_installed = { 'stylua', 'lua_ls' } }
 
+      local function default_handler(name, opts)
+        require('lspconfig')[name].setup(vim.tbl_extend('keep', {
+          capabilities = capabilities,
+        }, opts))
+      end
+
       require('mason-lspconfig').setup {
         handlers = {
           function(name)
-            require('lspconfig')[name].setup {
-              capabilities = capabilities,
-            }
+            default_handler(name, {})
+          end,
+
+          jsonls = function()
+            default_handler('jsonls', {
+              settings = {
+                json = {
+                  schemas = require('schemastore').json.schemas(),
+                  validate = { enable = true },
+                },
+              },
+            })
+          end,
+
+          yamlls = function()
+            default_handler('yamlls', {
+              settings = {
+                yaml = {
+                  schemaStore = {
+                    enable = false,
+                    url = '',
+                  },
+                  schemas = require('schemastore').yaml.schemas(),
+                },
+              },
+            })
           end,
         },
       }
@@ -116,11 +146,11 @@ return {
   -- saghen/blink.cmp
   {
     'saghen/blink.cmp',
+    version = '*',
     dependencies = {
       'L3MON4D3/LuaSnip',
       'rafamadriz/friendly-snippets',
     },
-    version = 'v0.10.x',
     ---@module "blink-cmp"
     ---@type blink.cmp.Config
     opts = {
@@ -197,6 +227,7 @@ return {
           require('conform').format {
             async = true,
             lsp_format = 'fallback',
+            stop_after_first = false,
           }
         end,
         desc = '[LSP] Format document',
