@@ -3,12 +3,15 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs',
     lazy = false,
     init = function()
       vim.opt.foldenable = true
       vim.opt.foldmethod = 'expr'
       vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+      vim.filetype.add {
+        extension = { mdx = 'mdx' },
+      }
     end,
     opts = {
       ensure_installed = { 'markdown', 'markdown_inline', 'lua', 'bash' },
@@ -19,6 +22,10 @@ return {
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
+      vim.treesitter.language.register('markdown', 'mdx')
+    end,
   },
   -- windwp/nvim-ts-autotag
   {
