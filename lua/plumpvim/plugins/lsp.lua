@@ -150,6 +150,7 @@ return {
     dependencies = {
       'L3MON4D3/LuaSnip',
       'rafamadriz/friendly-snippets',
+      'milanglacier/minuet-ai.nvim',
     },
     ---@module "blink-cmp"
     ---@type blink.cmp.Config
@@ -158,13 +159,21 @@ return {
         preset = 'default',
         ['<C-n>'] = { 'show', 'select_next', 'fallback' },
         ['<C-p>'] = { 'show', 'select_prev', 'fallback' },
+        ['<C-i>'] = require('minuet').make_blink_map(),
       },
       appearance = {
         use_nvim_cmp_as_default = true,
         nerd_font_variant = 'mono',
       },
       sources = {
-        default = { 'lsp', 'snippets', 'buffer', 'path' },
+        default = { 'lsp', 'snippets', 'buffer', 'path', 'minuet' },
+        providers = {
+          minuet = {
+            name = 'minuet',
+            module = 'minuet.blink',
+            score_offset = 8,
+          },
+        },
       },
       completion = {
         list = {
@@ -196,6 +205,9 @@ return {
         },
         documentation = { auto_show = true },
         ghost_text = { enabled = false },
+        trigger = {
+          prefetch_on_insert = false,
+        },
       },
       snippets = { preset = 'luasnip' },
     },
