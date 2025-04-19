@@ -10,7 +10,15 @@ return {
       vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
       vim.filetype.add {
-        extension = { mdx = 'mdx' },
+        extension = {
+          mdx = 'mdx',
+          gotmpl = 'gotmpl',
+        },
+        pattern = {
+          ['.*/templates/.*%.tpl'] = 'helm',
+          ['.*/templates/.*%.ya?ml'] = 'helm',
+          ['helmfile.*%.ya?ml'] = 'helm',
+        },
       }
     end,
     opts = {
