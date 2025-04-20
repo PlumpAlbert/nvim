@@ -9,7 +9,7 @@ return {
         enable_auto_complete = false,
       },
       blink = {
-        enable_auto_complete = false,
+        enable_auto_complete = true,
       },
       provider = 'openai_fim_compatible',
       context_window = 2000,

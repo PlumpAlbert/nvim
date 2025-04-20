@@ -161,7 +161,7 @@ return {
         ['<C-n>'] = { 'show', 'select_next', 'fallback' },
         ['<C-p>'] = { 'show', 'select_prev', 'fallback' },
         ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
-        ['<C-i>'] = require('minuet').make_blink_map(),
+        ['<M-i>'] = require('minuet').make_blink_map(),
       },
       appearance = {
         use_nvim_cmp_as_default = true,
