@@ -78,7 +78,6 @@ return {
             }
           end, 'Hover info')
           map('gd', vim.lsp.buf.definition, 'Hover info')
-          map('<C-k>', vim.lsp.buf.signature_help, 'Signature help', 'i')
           map('<F2>', vim.lsp.buf.rename, 'Rename')
         end,
       })
@@ -159,6 +158,7 @@ return {
         preset = 'default',
         ['<C-n>'] = { 'show', 'select_next', 'fallback' },
         ['<C-p>'] = { 'show', 'select_prev', 'fallback' },
+        ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
         ['<C-i>'] = require('minuet').make_blink_map(),
       },
       appearance = {
