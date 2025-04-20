@@ -156,6 +156,8 @@ return {
     opts = {
       keymap = {
         preset = 'default',
+        ['<Tab>'] = {},
+        ['<S-Tab>'] = {},
         ['<C-n>'] = { 'show', 'select_next', 'fallback' },
         ['<C-p>'] = { 'show', 'select_prev', 'fallback' },
         ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
@@ -169,12 +171,14 @@ return {
         },
       },
       sources = {
-        default = { 'lsp', 'snippets', 'buffer', 'path', 'minuet' },
+        default = { 'lsp', 'snippets', 'buffer', 'path' },
         providers = {
           minuet = {
             name = 'minuet',
             module = 'minuet.blink',
-            score_offset = 8,
+            async = true,
+            score_offset = 50,
+            timeout_ms = 3000,
           },
         },
       },

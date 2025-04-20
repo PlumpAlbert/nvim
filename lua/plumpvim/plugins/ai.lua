@@ -5,6 +5,12 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     main = 'minuet',
     opts = {
+      cmp = {
+        enable_auto_complete = false,
+      },
+      blink = {
+        enable_auto_complete = false,
+      },
       provider = 'openai_fim_compatible',
       context_window = 2000,
       provider_options = {
@@ -12,7 +18,6 @@ return {
           api_key = 'TERM',
           name = 'Ollama',
           end_point = 'http://localhost:11434/v1/completions',
-          -- model = 'qwen2.5-coder:7b',
           model = 'deepseek-coder-v2:16b',
           optional = {
             max_tokens = 1024,
