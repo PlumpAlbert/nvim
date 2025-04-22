@@ -1,4 +1,5 @@
 return {
+  -- milanglacier/minuet-ai.nvim
   {
     'milanglacier/minuet-ai.nvim',
     event = 'VeryLazy',
@@ -12,16 +13,16 @@ return {
         enable_auto_complete = true,
       },
       provider = 'openai_fim_compatible',
-      context_window = 2000,
+      context_window = 2048,
       provider_options = {
         openai_fim_compatible = {
           api_key = 'TERM',
           name = 'Ollama',
           end_point = 'http://localhost:11434/v1/completions',
-          model = 'deepseek-coder-v2:16b',
+          model = 'qwen2.5-coder:1.5b',
           optional = {
             max_tokens = 1024,
-            stop = { '\n\n' },
+            top_p = 0.9,
           },
         },
       },
