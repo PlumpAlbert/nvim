@@ -171,7 +171,7 @@ return {
         },
       },
       sources = {
-        default = { 'lsp', 'snippets', 'buffer', 'path' },
+        default = { 'lsp', 'snippets', 'buffer', 'path', 'minuet' },
         providers = {
           minuet = {
             name = 'minuet',
