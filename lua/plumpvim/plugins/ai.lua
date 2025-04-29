@@ -64,7 +64,7 @@ return {
               You are a helpful coding assistant.
               Your task is to generate a concise docstring comment for the provided code snippet.
               Pay close attention to the programming language specified.
-              Use standard docstring conventions for that language.
+              Use standard docstring conventions for {{filetype}} programming language.
 
               **Code Snippet:**
               ```{{filetype}}
