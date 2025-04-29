@@ -158,6 +158,7 @@ return {
   {
     's1n7ax/nvim-window-picker',
     name = 'window-picker',
+    lazy = true,
     version = '2.*',
     opts = {
       hint = 'floating-letter',
@@ -189,7 +190,7 @@ return {
   -- bbjornstad/pretty-fold.nvim
   {
     'bbjornstad/pretty-fold.nvim',
-    event = 'VeryLazy',
+    event = { 'BufReadPre', 'BufEnter' },
     config = true,
     opts = {
       sections = {
@@ -217,7 +218,7 @@ return {
   -- NvChad/nvim-colorizer.lua
   {
     'NvChad/nvim-colorizer.lua',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufEnter' },
     opts = {
       user_default_options = {
         mode = 'virtualtext',

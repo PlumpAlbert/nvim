@@ -2,7 +2,7 @@ return {
   -- lewis6991/gitsigns.nvim
   {
     'lewis6991/gitsigns.nvim',
-    event = { 'BufEnter' },
+    event = { 'BufReadPre', 'BufEnter' },
     opts = {
       attach_to_untracked = true,
       signcolumn = true,

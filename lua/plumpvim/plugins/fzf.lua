@@ -1,5 +1,6 @@
 local M = {
   'ibhagwan/fzf-lua',
+  lazy = true,
   dependencies = { 'echasnovski/mini.icons' },
 }
 

@@ -237,7 +237,7 @@ return {
   -- stevearc/conform.nvim
   {
     'stevearc/conform.nvim',
-    event = 'BufEnter',
+    event = { 'BufReadPre', 'BufEnter' },
     cmd = { 'ConformInfo' },
     keys = {
       {

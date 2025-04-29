@@ -22,7 +22,7 @@ return {
       }
     end,
     opts = {
-      ensure_installed = { 'markdown', 'markdown_inline', 'lua', 'bash' },
+      ensure_installed = { 'markdown', 'markdown_inline', 'lua', 'bash', 'vim' },
       auto_install = true,
       highlight = {
         enable = true,
