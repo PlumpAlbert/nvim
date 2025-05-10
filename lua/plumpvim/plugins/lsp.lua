@@ -293,4 +293,13 @@ return {
       }
     end,
   },
+  -- MagicDuck/grug-far.nvim
+  {
+    'MagicDuck/grug-far.nvim',
+    config = true,
+    keys = {
+      { '<leader>fr', ':GrugFar<CR>', desc = 'Find & Replace' },
+      { '<leader>fr', ':GrugFarWithin<CR>', desc = 'Find & Replace', mode = { 's' } },
+    },
+  },
 }
