@@ -2,17 +2,12 @@
   "options": {
     "wrap": false,
     "theme": "retrobox",
-    "indent": 2,
-    "transparent": false,
-    "rulers": [
-      120
-    ],
-    "useTabs": false,
+    "indent": 4,
+    "rulers": [120],
+    "useTabs": true,
     "lineNumbers": "both"
   },
   "formatters": {
-    "lua": [
-      "stylua"
-    ]
+    "lua": ["stylua"]
   }
 }
