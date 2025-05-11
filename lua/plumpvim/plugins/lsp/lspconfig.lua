@@ -19,13 +19,27 @@ return {
 	event = 'VeryLazy',
 	dependencies = {
 		'folke/neoconf.nvim',
-		{ 'williamboman/mason.nvim', opts = {} },
-		'williamboman/mason-lspconfig.nvim',
-		'WhoIsSethDaniel/mason-tool-installer.nvim',
-		{ 'j-hui/fidget.nvim', opts = {} },
 		'L3MON4D3/LuaSnip',
 		'saghen/blink.cmp',
 		'b0o/schemastore.nvim',
+		{
+			'mason-org/mason.nvim',
+			config = true,
+			opts = {},
+		},
+		{
+			'mason-org/mason-lspconfig.nvim',
+			config = true,
+			dependencies = { 'mason-org/mason.nvim' },
+			opts = {
+				ensure_installed = { 'jsonls', 'lua_ls' },
+			},
+		},
+		{
+			'j-hui/fidget.nvim',
+			config = true,
+			opts = {},
+		},
 	},
 	keys = {
 		{
@@ -50,6 +64,22 @@ return {
 		},
 	},
 	config = function()
+		require('neoconf').setup {
+			live_reload = true,
+			filetype_jsonc = true,
+			plugins = {
+				lspconfig = { enabled = true },
+				jsonls = {
+					enabled = true,
+					configured_servers_only = true,
+				},
+				lua_ls = {
+					enabled_for_neovim_config = true,
+					enabled = true,
+				},
+			},
+		}
+
 		vim.diagnostic.config(diagnostic_config)
 
 		vim.api.nvim_create_autocmd('LspAttach', {
@@ -70,63 +100,32 @@ return {
 			end,
 		})
 
-		require('neoconf').setup {
-			live_reload = true,
-			filetype_jsonc = false,
-			plugins = {
-				lspconfig = { enabled = true },
-				jsonls = {
-					enabled = true,
-					configured_servers_only = true,
-				},
-				lua_ls = {
-					enabled_for_neovim_config = true,
-					enabled = true,
-				},
-			},
-		}
-
 		local capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-		require('mason-tool-installer').setup { ensure_installed = { 'stylua', 'lua_ls' } }
+		-- default LSP options
+		vim.lsp.config('*', {
+			capabilities = capabilities,
+		})
 
-		local function default_handler(name, opts)
-			require('lspconfig')[name].setup(vim.tbl_extend('keep', {
-				capabilities = capabilities,
-			}, opts))
-		end
-
-		require('mason-lspconfig').setup {
-			handlers = {
-				function(name)
-					default_handler(name, {})
-				end,
-
-				jsonls = function()
-					default_handler('jsonls', {
-						settings = {
-							json = {
-								schemas = require('schemastore').json.schemas(),
-								validate = { enable = true },
-							},
-						},
-					})
-				end,
-
-				yamlls = function()
-					default_handler('yamlls', {
-						settings = {
-							yaml = {
-								schemaStore = {
-									enable = false,
-									url = '',
-								},
-								schemas = require('schemastore').yaml.schemas(),
-							},
-						},
-					})
-				end,
+		vim.lsp.config('jsonls', {
+			settings = {
+				json = {
+					schemas = require('schemastore').json.schemas(),
+					validate = { enable = true },
+				},
 			},
-		}
+		})
+
+		vim.lsp.config('yamlls', {
+			settings = {
+				yaml = {
+					schemaStore = {
+						enable = false,
+						url = '',
+					},
+					schemas = require('schemastore').yaml.schemas(),
+				},
+			},
+		})
 	end,
 }
