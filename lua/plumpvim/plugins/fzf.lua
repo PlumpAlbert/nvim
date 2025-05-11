@@ -2,19 +2,21 @@ local M = {
   'ibhagwan/fzf-lua',
   lazy = true,
   dependencies = { 'echasnovski/mini.icons' },
+  cmd = 'FzfLua',
 }
 
 M.opts = {
   'fzf-tmux',
   winopts = {
     preview = {
-      layout = 'vertical',
-      vertical = 'down:75%',
+      layout = 'flex',
+      vertical = 'down:85%',
+      horizontal = 'right:75%',
     },
   },
   fzf_opts = {
-    ['--border'] = 'rounded',
-    ['--tmux'] = 'center,90%,90%',
+    ['--border'] = 'bold',
+    ['--tmux'] = 'center,100%,border-native',
   },
   previewers = {
     bat = {
