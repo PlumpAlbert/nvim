@@ -111,6 +111,7 @@ return {
 			's1n7ax/nvim-window-picker',
 		},
 		main = 'neo-tree',
+		lazy = false,
 		keys = {
 			{
 				'<leader>e',
@@ -118,19 +119,56 @@ return {
 					require('neo-tree.command').execute {
 						action = 'focus',
 						source = 'filesystem',
-						toggle = true,
 						reveal = true,
 					}
 				end,
 			},
 		},
+		---@module "neo-tree"
+		---@type neotree.Config?
 		opts = {
 			close_if_last_window = false,
-			popup_border_style = 'rounded',
-			enable_git_status = false,
+			popup_border_style = '',
+			enable_git_status = true,
 			enable_diagnostics = false,
+			open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' },
+			open_files_using_relative_paths = true,
+			default_component_configs = {
+				container = { enable_character_fade = true },
+				indent = {
+					indent_size = 2,
+					padding = 1,
+					with_markers = true,
+				},
+				modified = {
+					symbol = '~',
+					highlight = 'DiffChange',
+				},
+				name = {
+					trailing_slash = true,
+					use_git_status_colors = true,
+				},
+				git_status = {
+					added = '',
+					modified = '',
+					deleted = '✖',
+					renamed = '󰁕',
+					untracked = '',
+					ignored = '',
+					unstaged = '󰄱',
+					staged = '',
+					conflict = '',
+				},
+				file_size = { enabled = false },
+				type = { enabled = false },
+				created = { enabled = false },
+			},
 			window = {
-				position = 'float',
+				position = 'left',
+				width = 40,
+				mappings = {
+					['Z'] = 'expand_all_subnodes',
+				},
 			},
 			filesystem = {
 				filtered_items = {
