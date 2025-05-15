@@ -1,3 +1,8 @@
+if vim.g.vscode then
+	require 'neocode'
+	return
+end
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
