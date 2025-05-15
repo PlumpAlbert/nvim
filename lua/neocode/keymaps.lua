@@ -40,6 +40,21 @@ keymap({ 'n', 'v' }, '<leader>cp', "<cmd>lua require('vscode').action('workbench
 keymap({ 'n', 'v' }, '<leader>pr', "<cmd>lua require('vscode').action('code-runner.run')<CR>")
 keymap({ 'n', 'v' }, '<leader>lf', "<cmd>lua require('vscode').action('editor.action.formatDocument')<CR>")
 
+-- folding
+keymap({ 'n' }, 'zm', "<cmd>lua require('vscode').action('editor.foldAll')<CR>")
+keymap({ 'n' }, 'zM', "<cmd>lua require('vscode').action('editor.foldAll')<CR>")
+keymap({ 'n' }, 'zr', "<cmd>lua require('vscode').action('editor.unfoldAll')<CR>")
+keymap({ 'n' }, 'zR', "<cmd>lua require('vscode').action('editor.unfoldAll')<CR>")
+
+keymap({ 'n' }, 'zc', "<cmd>lua require('vscode').action('editor.fold')<CR>")
+keymap({ 'n' }, 'zC', "<cmd>lua require('vscode').action('editor.foldRecursively')<CR>")
+keymap({ 'n' }, 'zo', "<cmd>lua require('vscode').action('editor.unfold')<CR>")
+keymap({ 'n' }, 'zO', "<cmd>lua require('vscode').action('editor.unfoldRecursively')<CR>")
+keymap({ 'n' }, 'za', "<cmd>lua require('vscode').action('editor.toggleFold')<CR>")
+
+vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = false, silent = true })
+
 -- harpoon keymaps
 keymap({ 'n', 'v' }, '<leader>ha', "<cmd>lua require('vscode').action('vscode-harpoon.addEditor')<CR>")
 keymap({ 'n', 'v' }, '<leader>ho', "<cmd>lua require('vscode').action('vscode-harpoon.editorQuickPick')<CR>")
