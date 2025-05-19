@@ -117,9 +117,9 @@ return {
 				'<leader>e',
 				function()
 					require('neo-tree.command').execute {
-						action = 'focus',
 						source = 'filesystem',
 						reveal = true,
+						toggle = true,
 					}
 				end,
 			},
@@ -164,13 +164,18 @@ return {
 				created = { enabled = false },
 			},
 			window = {
-				position = 'left',
+				position = 'current',
 				width = 40,
 				mappings = {
 					['Z'] = 'expand_all_subnodes',
 				},
 			},
 			filesystem = {
+				bind_to_cwd = true,
+				cwd_target = {
+					sidebar = 'tab',
+					current = 'window',
+				},
 				filtered_items = {
 					hide_dotfiles = false,
 					hide_gitignored = true,
@@ -188,6 +193,20 @@ return {
 						'thumbs.db',
 						'.git',
 					},
+				},
+			},
+			source_selector = {
+				truncation_character = '…',
+				statusline = false,
+				winbar = false,
+				content_layout = 'start',
+			},
+			event_handlers = {
+				{
+					event = 'file_opened',
+					handler = function()
+						require('neo-tree.command').execute { action = 'close' }
+					end,
 				},
 			},
 		},
