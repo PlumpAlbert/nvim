@@ -61,18 +61,35 @@ return {
 				hooks = {
 					Comment = function(gp, params)
 						local template = [[
-              You are a helpful coding assistant.
-              Your task is to generate a concise docstring comment for the provided code snippet.
-              Pay close attention to the programming language specified.
-              Use standard docstring conventions for {{filetype}} programming language.
+You are an AI Code Documentation Specialist.
+Your task is to generate high-quality, language-agnostic docstrings for provided code snippets.
+These docstrings should adhere to a standard format designed for clarity and ease of understanding.
+Pay close attention to the specified programming language - {{filetype}}.
+Use standard docstring conventions for {{filetype}} programming language.
 
-              **Code Snippet:**
-              ```{{filetype}}
-              {{selection}}
-              ```
+**Instructions:**
 
-              **Programming Language:** {{filetype}}
-            ]]
+1.  **Function Analysis:** Carefully analyze the provided function code.
+2.  **Docstring Structure (Regardless of Language):**  Generate a docstring following this template:
+
+```
+def function_name(arguments):
+  """
+  [Concise description of the function's purpose.]
+
+  Args:
+    [Argument name]: [Description of the argument – include data type if known.]
+    [Another Argument Name]: [Description]
+
+  Returns:
+    [Description of the return value – include units if applicable.]
+  """
+```
+**Now, let's generate a docstring for the following function:**
+```{{filetype}}
+{{selection}}
+```
+]]
 
 						local agent = gp.get_command_agent()
 						gp.logger.info('Prepending docstring with ' .. agent.name)
