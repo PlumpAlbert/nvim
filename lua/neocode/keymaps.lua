@@ -54,6 +54,8 @@ keymap({ 'n' }, 'za', "<cmd>lua require('vscode').action('editor.toggleFold')<CR
 
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', '<Down>', 'gj', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', '<Up>', 'gk', { noremap = false, silent = true })
 
 -- harpoon keymaps
 keymap({ 'n', 'v' }, '<leader>ha', "<cmd>lua require('vscode').action('vscode-harpoon.addEditor')<CR>")
