@@ -52,6 +52,9 @@ keymap({ 'n' }, 'zo', "<cmd>lua require('vscode').action('editor.unfold')<CR>")
 keymap({ 'n' }, 'zO', "<cmd>lua require('vscode').action('editor.unfoldRecursively')<CR>")
 keymap({ 'n' }, 'za', "<cmd>lua require('vscode').action('editor.toggleFold')<CR>")
 
+keymap({ 'n' }, 'zk', "<cmd>lua require('vscode').action('editor.gotoPreviousFold')<CR>")
+keymap({ 'n' }, 'zj', "<cmd>lua require('vscode').action('editor.gotoNextFold')<CR>")
+
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', '<Down>', 'gj', { noremap = false, silent = true })
