@@ -1,6 +1,6 @@
 return {
 	'saghen/blink.cmp',
-	version = '*',
+	version = '1.*',
 	dependencies = {
 		'L3MON4D3/LuaSnip',
 		'rafamadriz/friendly-snippets',
@@ -62,7 +62,7 @@ return {
 					align_to = 'cursor',
 					columns = {
 						{ 'kind_icon' },
-						{ 'label', gap = 1 },
+						{ 'label',    gap = 1 },
 					},
 				},
 			},
