@@ -1,13 +1,7 @@
 {
-  "options": {
-    "wrap": false,
-    "theme": "retrobox",
-    "indent": 4,
-    "rulers": [120],
-    "useTabs": true,
-    "lineNumbers": "both"
-  },
-  "formatters": {
-    "lua": ["stylua"]
-  }
+	"formatters": {
+		"lua": [
+			"stylua"
+		]
+	}
 }

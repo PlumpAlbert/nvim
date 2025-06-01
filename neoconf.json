@@ -1,0 +1,12 @@
+{
+	"options": {
+		"wrap": false,
+		"theme": "base16-catppuccin",
+		"indent": 4,
+		"rulers": [
+			120
+		],
+		"useTabs": true,
+		"lineNumbers": "both"
+	}
+}
