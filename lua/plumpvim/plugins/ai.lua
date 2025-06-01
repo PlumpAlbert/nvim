@@ -93,7 +93,7 @@ def function_name(arguments):
 
 						local agent = gp.get_command_agent()
 						gp.logger.info('Prepending docstring with ' .. agent.name)
-						gp.Prompt(params, gp.Target.rewrite, agent, template, nil)
+						gp.Prompt(params, gp.Target.prepend, agent, template, nil)
 					end,
 				},
 			}
