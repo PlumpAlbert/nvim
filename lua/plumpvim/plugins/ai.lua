@@ -19,7 +19,7 @@ return {
 					api_key = 'TERM',
 					name = 'Ollama',
 					end_point = 'http://localhost:11434/v1/completions',
-					model = 'qwen2.5-coder:1.5b',
+					model = 'qwen2.5-coder:3b',
 					optional = {
 						max_tokens = 1024,
 						top_p = 0.9,
@@ -50,7 +50,7 @@ return {
 						chat = false,
 						command = true,
 						model = {
-							model = 'qwen2.5-coder:1.5b',
+							model = 'qwen2.5-coder:3b',
 							temperature = 0.4,
 							top_p = 1,
 							min_p = 0.05,
