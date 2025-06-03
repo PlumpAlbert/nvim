@@ -1,6 +1,8 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+local vscode = require('vscode')
+
 -- #region basic keys
 -- remap leader key
 keymap('n', '<Space>', '', opts)
@@ -20,6 +22,15 @@ keymap('v', 'J', ':m .+1<CR>==', opts)
 keymap('v', 'K', ':m .-2<CR>==', opts)
 keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
 keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
+
+vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', '<Down>', 'gj', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', '<Up>', 'gk', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('s', 'j', 'gj', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('s', 'k', 'gk', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('s', '<Down>', 'gj', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('s', '<Up>', 'gk', { noremap = false, silent = true })
 
 -- preserve clipboard on paste
 keymap('v', 'p', '"_dP', opts)
@@ -97,11 +108,6 @@ keymap({ 'n' }, 'zj', function()
 	require('vscode').action('editor.gotoNextFold')
 end)
 
-vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', '<Down>', 'gj', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', '<Up>', 'gk', { noremap = false, silent = true })
-
 -- harpoon keymaps
 keymap({ 'n', 'v' }, '<leader>ha', function()
 	require('vscode').action('vscode-harpoon.addEditor')
@@ -151,3 +157,7 @@ keymap({ 'n', 'v' }, '<leader>pe', function()
 	require('vscode').action('projectManager.editProjects')
 end)
 --#endregion
+
+vim.keymap.set('n', '<M-y>', function()
+	vscode.action('yandex-code-assist.acceptDiffBlock')
+end)
