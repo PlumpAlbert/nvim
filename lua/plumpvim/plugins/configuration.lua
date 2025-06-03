@@ -123,6 +123,17 @@ return {
 					}
 				end,
 			},
+			{
+				'<leader>E',
+				function()
+					require('neo-tree.command').execute {
+						source = 'filesystem',
+						reveal = true,
+						toggle = true,
+						position = 'float',
+					}
+				end,
+			},
 		},
 		---@module "neo-tree"
 		---@type neotree.Config?
