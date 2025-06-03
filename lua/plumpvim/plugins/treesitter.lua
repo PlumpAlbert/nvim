@@ -1,14 +1,24 @@
+local augroup = vim.api.nvim_create_augroup('plumpalbert-treesitter', { clear = true })
+
+vim.api.nvim_create_autocmd('FileType', {
+	group = augroup,
+	desc = 'Start treesitter',
+	callback = function()
+		vim.opt.foldenable = true
+		vim.opt.foldmethod = 'expr'
+		vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})
+
 return {
 	-- nvim-treesitter/nvim-treesitter
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
+		branch = 'main',
 		lazy = false,
 		init = function()
-			vim.opt.foldenable = true
-			vim.opt.foldmethod = 'expr'
-			vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-
 			vim.filetype.add {
 				extension = {
 					mdx = 'mdx',
