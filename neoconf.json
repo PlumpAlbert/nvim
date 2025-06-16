@@ -8,5 +8,30 @@
 		],
 		"useTabs": true,
 		"lineNumbers": "both"
+	},
+	"formatters": {
+		"typescript": [
+			"prettier"
+		],
+		"typescriptreact": [
+			"prettier"
+		],
+		"javascript": [
+			"prettier"
+		],
+		"javascriptreact": [
+			"prettier"
+		],
+		"json": [
+			"prettier"
+		],
+		"jsonc": [
+			"prettier"
+		]
+	},
+	"lspconfig": {
+		"vtsls": {
+			"vtsls.autoUseWorkspaceTsdk": true
+		}
 	}
 }
