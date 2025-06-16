@@ -10,7 +10,7 @@ M.opts = {
 	winopts = {
 		preview = {
 			layout = 'flex',
-			vertical = 'down:85%',
+			vertical = 'down:65%',
 			horizontal = 'right:75%',
 		},
 	},
