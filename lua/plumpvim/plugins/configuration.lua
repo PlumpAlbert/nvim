@@ -1,5 +1,9 @@
----Trim filepath
----@param path string
+---
+---Trims the filepath by reducing each directory name to its first two characters.
+---@param path string The original filepath string.
+---
+---@return string - The modified filepath with trimmed directory names.
+---
 local function trim_filepath(path)
 	local split = vim.split(path, '/', {
 		trimempty = true,
