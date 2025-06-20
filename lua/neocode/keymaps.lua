@@ -27,10 +27,10 @@ vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', '<Down>', 'gj', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', '<Up>', 'gk', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('s', 'j', 'gj', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('s', 'k', 'gk', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('s', '<Down>', 'gj', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('s', '<Up>', 'gk', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('v', 'j', 'gj', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('v', 'k', 'gk', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('v', '<Down>', 'gj', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('v', '<Up>', 'gk', { noremap = false, silent = true })
 
 -- preserve clipboard on paste
 keymap('v', 'p', '"_dP', opts)
@@ -69,6 +69,22 @@ keymap({ 'n', 'v' }, '<leader>pr', function()
 end)
 keymap({ 'n', 'v' }, '<leader>lf', function()
 	require('vscode').action('editor.action.formatDocument')
+end)
+
+-- diagnostics
+keymap({ 'n', 'v' }, ']d', function()
+	require('vscode').action('editor.action.marker.next')
+end)
+keymap({ 'n', 'v' }, '[d', function()
+	require('vscode').action('editor.action.marker.prev')
+end)
+
+-- source control
+keymap({ 'n', 'v' }, ']c', function()
+	require('vscode').action('workbench.action.editor.nextChange')
+end)
+keymap({ 'n', 'v' }, '[c', function()
+	require('vscode').action('workbench.action.editor.previousChange')
 end)
 
 -- folding
@@ -158,6 +174,6 @@ keymap({ 'n', 'v' }, '<leader>pe', function()
 end)
 --#endregion
 
-vim.keymap.set('n', '<M-y>', function()
+vim.keymap.set({ 'i', 'x' }, '<C-y>', function()
 	vscode.action('yandex-code-assist.acceptDiffBlock')
 end)
