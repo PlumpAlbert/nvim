@@ -177,3 +177,9 @@ end)
 vim.keymap.set({ 'i', 'x' }, '<C-y>', function()
 	vscode.action('yandex-code-assist.acceptDiffBlock')
 end)
+
+vim.keymap.set(
+	'n',
+	'<leader>/',
+	function() vscode.action('workbench.action.findInFiles') end
+)
