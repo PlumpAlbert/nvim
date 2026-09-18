@@ -1,4 +1,4 @@
-local plugin_dir = "/Users/plumpalbert/arcadia/junk/a-matveev9/gitsigns.arc.nvim"
+local plugin_dir = os.getenv("HOME") .. "/arcadia/junk/a-matveev9/gitsigns.arc.nvim"
 
 if not vim.uv.fs_stat(plugin_dir) then
   return {}
