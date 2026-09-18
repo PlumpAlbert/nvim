@@ -18,6 +18,34 @@ return {
     config = function()
       local cmp = require("cmp")
 
+      local kind_icons = {
+        Text = " ",
+        Method = " ",
+        Function = "󰊕 ",
+        Constructor = " ",
+        Field = " ",
+        Variable = " ",
+        Class = " ",
+        Interface = " ",
+        Module = " ",
+        Property = " ",
+        Unit = " ",
+        Value = " ",
+        Enum = " ",
+        Keyword = " ",
+        Snippet = " ",
+        Color = " ",
+        File = " ",
+        Reference = " ",
+        Folder = " ",
+        EnumMember = " ",
+        Constant = " ",
+        Struct = " ",
+        Event = " ",
+        Operator = " ",
+        TypeParameter = " ",
+      }
+
       cmp.setup({
         completion = { completeopt = "menu,menuone,noselect" },
         snippet = {
@@ -56,6 +84,20 @@ return {
           { name = "path" },
           { name = "buffer" },
         }),
+        formatting = {
+          fields = { "kind", "abbr", "menu" },
+          format = function(entry, item)
+            local icon = kind_icons[item.kind] or " "
+            item.kind = icon .. item.kind
+            item.menu = ({
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              path = "[Path]",
+              buffer = "[Buffer]",
+            })[entry.source.name]
+            return item
+          end,
+        },
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
