@@ -42,7 +42,8 @@ set -g focus-events on
 - Treesitter: подсветка, indent и folding для популярных языков.
 - Folding: native Lua `foldexpr` на Neovim 0.13 + LSP `foldtext`.
 - LSP: native `vim.lsp.config`/`vim.lsp.enable` + Mason/Mason LSPConfig.
-- Completion: `nvim-cmp` с LSP/path/buffer sources.
+- Completion: `nvim-cmp` с LSP/path/buffer/snippet sources.
+- Snippets: `LuaSnip` + `friendly-snippets`.
 - fzf: `fzf-lua` для файлов, grep, буферов, help и `vim.ui.select`.
 - Keymap hints: `which-key.nvim` для подсказок по `<leader>` mappings.
 - Tmux/split navigation: `smart-splits.nvim` с tmux integration.
