@@ -35,7 +35,7 @@ set -g focus-events on
 ## Структура
 
 - `lua/config/` — базовые настройки, keymaps, icons и bootstrap lazy.nvim.
-- `lua/plugins/` — отдельные plugin specs для lazy.nvim: Treesitter, LSP/Mason, fzf-lua, pi-nvim.
+- `lua/plugins/` — отдельные plugin specs для lazy.nvim: Treesitter, LSP/Mason, fzf-lua, gitsigns.arc.nvim, pi-nvim.
 
 ## Что включено
 
@@ -47,6 +47,7 @@ set -g focus-events on
 - Realtime `autoread`, scroll padding и wrapped diagnostic virtual lines.
 - Nerd Font symbols для diagnostics, fold column, fill/list chars и fzf prompts.
 - File explorer: встроенный Neovim 0.13 `dir` plugin; legacy netrw отключён.
+- Git/Arc signs: если существует `/Users/plumpalbert/arcadia/junk/a-matveev9/gitsigns.arc.nvim`, он подгружается как local plugin.
 - Pi coding assistant: `pi-nvim` bridge для отправки промптов, файлов, буферов и выделений в running pi session.
 
 ## Основные хоткеи
@@ -58,6 +59,11 @@ set -g focus-events on
 - `<leader>ee` — открыть explorer в директории текущего файла.
 - `<leader>ew` — открыть explorer в working directory.
 - `<leader>ff` — поиск файлов.
+- `]c` / `[c` — next/previous hunk.
+- `<leader>hp` — preview hunk.
+- `<leader>hb` — blame line.
+- `<leader>hB` — toggle current line blame.
+- `<leader>hs` / `<leader>hr` — stage/reset hunk.
 - `<leader>fg` — live grep.
 - `<leader>fb` — буферы.
 - `<leader>p` — открыть dialog `pi-nvim`.
