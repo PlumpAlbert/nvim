@@ -23,3 +23,9 @@ map("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", { desc = "Live grep" })
 map("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
 map("n", "<leader>fh", "<cmd>FzfLua help_tags<cr>", { desc = "Help" })
 map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", { desc = "Recent files" })
+
+-- git pickers
+map("n", "<leader>gs", "<cmd>FzfLua git_status<cr>", { desc = "Git status" })
+map("n", "<leader>gc", "<cmd>FzfLua git_commits<cr>", { desc = "Git commits" })
+map("n", "<leader>gC", "<cmd>FzfLua git_bcommits<cr>", { desc = "Git buffer commits" })
+map("n", "<leader>gb", "<cmd>FzfLua git_branches<cr>", { desc = "Git branches" })

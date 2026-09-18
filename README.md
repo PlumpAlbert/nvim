@@ -73,6 +73,9 @@ set -g focus-events on
 - `<leader>hs` / `<leader>hr` — stage/reset hunk.
 - `<leader>fg` — live grep.
 - `<leader>fb` — буферы.
+- `<leader>gs` — git status picker.
+- `<leader>gc` / `<leader>gC` — git commits / buffer commits picker.
+- `<leader>gb` — git branches picker.
 - `<leader>p` — открыть dialog `pi-nvim`.
 - `<leader>pp` — отправить prompt в pi.
 - `<leader>pf` — отправить текущий file path + prompt.
