@@ -45,6 +45,7 @@ set -g focus-events on
 - Completion: `nvim-cmp` с LSP/path/buffer/snippet sources.
 - Snippets: `LuaSnip` + `friendly-snippets`.
 - Editing QoL: `mini.ai`, `mini.surround`, `mini.comment`, `mini.pairs`.
+- Markdown UI: `render-markdown.nvim`.
 - fzf: `fzf-lua` для файлов, grep, буферов, help и `vim.ui.select`.
 - Keymap hints: `which-key.nvim` для подсказок по `<leader>` mappings.
 - Tmux/split navigation: `smart-splits.nvim` с tmux integration.
