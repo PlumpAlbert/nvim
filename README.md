@@ -44,6 +44,7 @@ set -g focus-events on
 - LSP: native `vim.lsp.config`/`vim.lsp.enable` + Mason/Mason LSPConfig.
 - Completion: `nvim-cmp` с LSP/path/buffer/snippet sources.
 - Snippets: `LuaSnip` + `friendly-snippets`.
+- Editing QoL: `mini.ai`, `mini.surround`, `mini.comment`, `mini.pairs`.
 - fzf: `fzf-lua` для файлов, grep, буферов, help и `vim.ui.select`.
 - Keymap hints: `which-key.nvim` для подсказок по `<leader>` mappings.
 - Tmux/split navigation: `smart-splits.nvim` с tmux integration.
