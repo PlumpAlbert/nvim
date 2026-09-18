@@ -43,6 +43,7 @@ set -g focus-events on
 - Folding: native Lua `foldexpr` на Neovim 0.13 + LSP `foldtext`.
 - LSP: native `vim.lsp.config`/`vim.lsp.enable` + Mason/Mason LSPConfig.
 - fzf: `fzf-lua` для файлов, grep, буферов, help и `vim.ui.select`.
+- Keymap hints: `which-key.nvim` для подсказок по `<leader>` mappings.
 - Formatting: `conform.nvim` с выбором frontend formatter по root-pattern (`biome`, `deno`, `prettier`).
 - Realtime `autoread`, scroll padding и wrapped diagnostic virtual lines.
 - Nerd Font symbols для diagnostics, fold column, fill/list chars и fzf prompts.
