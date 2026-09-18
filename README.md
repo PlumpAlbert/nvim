@@ -49,6 +49,7 @@ set -g focus-events on
 - Keymap hints: `which-key.nvim` для подсказок по `<leader>` mappings.
 - Tmux/split navigation: `smart-splits.nvim` с tmux integration.
 - Formatting: `conform.nvim` с выбором frontend formatter по root-pattern (`biome`, `deno`, `prettier`).
+- Linting: `nvim-lint` с root-pattern выбором (`biome`, `eslint`, `ruff`, `shellcheck`).
 - Realtime `autoread`, scroll padding и wrapped diagnostic virtual lines.
 - Nerd Font symbols для diagnostics, fold column, fill/list chars и fzf prompts.
 - File explorer: встроенный Neovim 0.13 `dir` plugin; legacy netrw отключён.
@@ -84,7 +85,7 @@ set -g focus-events on
 - `<leader>pi` — проверить соединение с pi.
 - `<leader>pl` — список running pi sessions.
 
-Команды: `:Mason`, `:ConformInfo`, `:Format`, `:FormatDisable`, `:FormatDisable!`, `:FormatEnable`, `:Pi`, `:PiSend`, `:PiSendFile`, `:PiSendSelection`, `:PiSendBuffer`, `:PiPing`, `:PiSessions`.
+Команды: `:Mason`, `:ConformInfo`, `:Format`, `:FormatDisable`, `:FormatDisable!`, `:FormatEnable`, `:Lint`, `:LintDisable`, `:LintDisable!`, `:LintEnable`, `:Pi`, `:PiSend`, `:PiSendFile`, `:PiSendSelection`, `:PiSendBuffer`, `:PiPing`, `:PiSessions`.
 
 Formatter selection for JS/TS/frontend files:
 
