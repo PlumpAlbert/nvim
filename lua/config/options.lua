@@ -18,9 +18,6 @@ opt.autoread = true
 opt.title = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-if vim.fn.exists("&scrolloffpad") == 1 then
-  opt.scrolloffpad = 8
-end
 
 opt.expandtab = true
 opt.shiftwidth = 2
