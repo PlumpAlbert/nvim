@@ -11,10 +11,10 @@ map("n", "<leader>ee", function()
   if dir == "" then
     dir = vim.fn.getcwd()
   end
-  vim.cmd.edit(vim.fn.fnameescape(dir))
+  require("mini.files").open(dir, false)
 end, { desc = "Explorer: current file directory" })
 map("n", "<leader>ew", function()
-  vim.cmd.edit(vim.fn.fnameescape(vim.fn.getcwd()))
+  require("mini.files").open(vim.fn.getcwd(), false)
 end, { desc = "Explorer: working directory" })
 
 -- fzf-lua

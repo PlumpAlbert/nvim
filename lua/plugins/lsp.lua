@@ -1,14 +1,3 @@
-local servers = {
-  "bashls",
-  "cssls",
-  "gopls",
-  "html",
-  "jsonls",
-  "lua_ls",
-  "ts_ls",
-  "yamlls",
-}
-
 local function capabilities()
   local caps = vim.lsp.protocol.make_client_capabilities()
   local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -16,23 +5,6 @@ local function capabilities()
     caps = cmp_nvim_lsp.default_capabilities(caps)
   end
   return caps
-end
-
-local function server_opts(server)
-  local opts = {
-    capabilities = capabilities(),
-  }
-
-  if server == "lua_ls" then
-    opts.settings = {
-      Lua = {
-        diagnostics = { globals = { "vim" } },
-        workspace = { checkThirdParty = false },
-      },
-    }
-  end
-
-  return opts
 end
 
 return {
@@ -43,19 +15,11 @@ return {
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     config = function()
       require("mason").setup()
+      vim.lsp.config("*", { capabilities = capabilities() })
       require("mason-lspconfig").setup({
-        ensure_installed = servers,
-        automatic_enable = false, -- configs are enabled explicitly via vim.lsp.config/enable below
+        ensure_installed = {}, -- install servers manually via :Mason
+        automatic_enable = true, -- enable installed servers with nvim-lspconfig defaults
       })
-
-      for _, server in ipairs(servers) do
-        if vim.lsp.config and vim.lsp.enable then
-          vim.lsp.config(server, server_opts(server))
-          vim.lsp.enable(server)
-        else
-          require("lspconfig")[server].setup(server_opts(server))
-        end
-      end
     end,
   },
 

@@ -1,9 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Use Neovim's built-in 0.13 directory browser instead of netrw.
+-- Use mini.files instead of the built-in directory browsers.
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_nvim_dir_plugin = true
 
 require("config.remote")
 require("config.options")

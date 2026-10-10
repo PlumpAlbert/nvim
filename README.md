@@ -8,7 +8,8 @@ Neovim-конфигурация для `NVIM_APPNAME=newvim`.
 NVIM_APPNAME=newvim nvim
 ```
 
-При первом запуске `lazy.nvim` установит плагины автоматически. LSP-серверы ставятся через Mason.
+При первом запуске `lazy.nvim` установит плагины автоматически. Нужные LSP-серверы устанавливай вручную через `:Mason`.
+Установленные через Mason серверы включаются автоматически для подходящих типов файлов со стандартными конфигами `nvim-lspconfig` и поддержкой completion. Автоустановка LSP отключена.
 
 ## Remote / tmux
 
@@ -41,7 +42,7 @@ set -g focus-events on
 
 - Treesitter: подсветка, indent и folding для популярных языков.
 - Folding: native Lua `foldexpr` на Neovim 0.13 + LSP `foldtext`.
-- LSP: native `vim.lsp.config`/`vim.lsp.enable` + Mason/Mason LSPConfig.
+- LSP: native `vim.lsp.config`/`vim.lsp.enable` + Mason/Mason LSPConfig; ручная установка серверов, автоматическое подключение со стандартными конфигами.
 - Completion: `nvim-cmp` с LSP/path/buffer/snippet sources и VSCode-like Nerd Font kind icons.
 - Snippets: `LuaSnip` + `friendly-snippets`.
 - Editing QoL: `mini.ai`, `mini.surround`, `mini.comment`, `mini.pairs`.
@@ -54,7 +55,7 @@ set -g focus-events on
 - Linting: `nvim-lint` с root-pattern выбором (`biome`, `eslint`, `ruff`, `shellcheck`).
 - Realtime `autoread`, scroll padding и wrapped diagnostic virtual lines.
 - Nerd Font symbols для diagnostics, fold column, fill/list chars и fzf prompts.
-- File explorer: встроенный Neovim 0.13 `dir` plugin; legacy netrw отключён.
+- File explorer: `mini.files` с предпросмотром и редактированием файлов/папок; встроенные `dir` и netrw отключены.
 - Git/Arc signs: если существует `/Users/plumpalbert/arcadia/junk/a-matveev9/gitsigns.arc.nvim`, он подгружается как local plugin.
 - Pi coding assistant: `pi-nvim` bridge для отправки промптов, файлов, буферов и выделений в running pi session.
 
@@ -66,8 +67,8 @@ set -g focus-events on
 - `gr` — references через `fzf-lua` window.
 - `<leader>lf` — format через `conform.nvim`.
 - `<leader>lF` — raw LSP format.
-- `<leader>ee` — открыть explorer в директории текущего файла.
-- `<leader>ew` — открыть explorer в working directory.
+- `<leader>ee` — открыть `mini.files` в директории текущего файла.
+- `<leader>ew` — открыть `mini.files` в working directory.
 - `<leader>ff` — поиск файлов.
 - `]c` / `[c` — next/previous hunk.
 - `<leader>hp` — preview hunk.
@@ -86,6 +87,10 @@ set -g focus-events on
 - Visual `<leader>ps` — отправить выделение + prompt.
 - `<leader>pi` — проверить соединение с pi.
 - `<leader>pl` — список running pi sessions.
+
+В `mini.files`: `h` / `l` — переход между каталогами, `L` — открыть файл и закрыть проводник, `q` — закрыть, `g?` — помощь.
+Для создания файла добавь строку с его именем (`o` → `file.ts` → `<Esc>`), для папки — с `/` на конце (`folder/`).
+Нажми `=` и подтверди операции, чтобы применить изменения. Переименование и удаление выполняются редактированием и удалением строк с последующим `=`.
 
 Команды: `:Mason`, `:ConformInfo`, `:Format`, `:FormatDisable`, `:FormatDisable!`, `:FormatEnable`, `:Lint`, `:LintDisable`, `:LintDisable!`, `:LintEnable`, `:Pi`, `:PiSend`, `:PiSendFile`, `:PiSendSelection`, `:PiSendBuffer`, `:PiPing`, `:PiSessions`.
 
