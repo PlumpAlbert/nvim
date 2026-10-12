@@ -11,25 +11,15 @@ NVIM_APPNAME=newvim nvim
 При первом запуске `lazy.nvim` установит плагины автоматически. Нужные LSP-серверы устанавливай вручную через `:Mason`.
 Установленные через Mason серверы включаются автоматически для подходящих типов файлов со стандартными конфигами `nvim-lspconfig` и поддержкой completion. Автоустановка LSP отключена.
 
-## Remote / tmux
+## Remote / SSH
 
-Конфиг определяет SSH/tmux окружение в `lua/config/remote.lua` и включает:
+Конфиг определяет SSH-окружение в `lua/config/remote.lua` и включает:
 
-- OSC52 clipboard provider (`vim.g.clipboard = "osc52"`) для копирования из remote/tmux в локальный clipboard.
+- OSC52 clipboard provider (`vim.g.clipboard = "osc52"`) для копирования из SSH-сессии в локальный clipboard.
 - `clipboard=unnamedplus`.
-- Маленький escape timeout (`ttimeoutlen=10`) для отзывчивых Alt/Esc mappings в tmux.
+- Маленький escape timeout (`ttimeoutlen=10`) для отзывчивых Alt/Esc mappings в терминале.
 - `title`, `autoread`, mouse/mousemove events.
-- Отключение лишних runtime providers на remote/tmux для более быстрого старта: node/perl/python3/ruby.
-
-Рекомендуемый минимум для `~/.tmux.conf` на remote host:
-
-```tmux
-set -g default-terminal "tmux-256color"
-set -as terminal-features ",xterm-256color:RGB,screen-256color:RGB,tmux-256color:RGB"
-set -g set-clipboard on
-set -sg escape-time 10
-set -g focus-events on
-```
+- Отключение лишних runtime providers в SSH-сессии для более быстрого старта: node/perl/python3/ruby.
 
 Для OSC52 также должен разрешать clipboard твой локальный terminal emulator.
 
@@ -45,40 +35,46 @@ set -g focus-events on
 - LSP: native `vim.lsp.config`/`vim.lsp.enable` + Mason/Mason LSPConfig; ручная установка серверов, автоматическое подключение со стандартными конфигами.
 - Completion: `nvim-cmp` с LSP/path/buffer/snippet sources и VSCode-like Nerd Font kind icons.
 - Snippets: `LuaSnip` + `friendly-snippets`.
-- Editing QoL: `mini.ai`, `mini.surround`, `mini.comment`, `mini.pairs`.
+- Editing QoL: `mini.ai`, `mini.surround` (`gz` mappings), `mini.comment`, `mini.pairs`.
 - Markdown UI: `render-markdown.nvim`.
 - Highlight yanked text.
 - fzf: `fzf-lua` для файлов, grep, буферов, help и `vim.ui.select`.
 - Keymap hints: `which-key.nvim` для подсказок по `<leader>` mappings.
-- Tmux/split navigation: `smart-splits.nvim` с tmux integration.
+- Split navigation: `smart-splits.nvim` для локальных Neovim splits; внутри Herdr (`HERDR_ENV=1`) — `herdr-splits.nvim` для Neovim splits и Herdr panes. Herdr-side plugin и keybindings установлены в Herdr config.
 - Formatting: `conform.nvim` с выбором frontend formatter по root-pattern (`biome`, `deno`, `prettier`).
-- Linting: `nvim-lint` с root-pattern выбором (`biome`, `eslint`, `ruff`, `shellcheck`).
+- Linting: `nvim-lint` с root-pattern выбором (`biome`, `eslint`, `ruff`, `shellcheck`); отсутствующие исполняемые файлы линтеров пропускаются.
 - Realtime `autoread`, scroll padding и wrapped diagnostic virtual lines.
 - Nerd Font symbols для diagnostics, fold column, fill/list chars и fzf prompts.
-- File explorer: `mini.files` с предпросмотром и редактированием файлов/папок; встроенные `dir` и netrw отключены.
+- File explorer обычного Neovim: `mini.files` с предпросмотром и редактированием файлов/папок; в VS Code используется его Explorer. Встроенные `dir` и netrw отключены.
 - Git/Arc signs: если существует `/Users/plumpalbert/arcadia/junk/a-matveev9/gitsigns.arc.nvim`, он подгружается как local plugin.
 - Pi coding assistant: `pi-nvim` bridge для отправки промптов, файлов, буферов и выделений в running pi session.
 
 ## Основные хоткеи
 
-- `<C-h/j/k/l>` — навигация между Neovim splits и tmux panes.
-- `<A-h/j/k/l>` — resize splits.
+- `<C-h/j/k/l>` — навигация по Neovim splits; внутри Herdr на краю редактора — переход в соседний pane.
+- `<A-h/j/k/l>` — resize split; внутри Herdr также меняет размер pane, когда редактор занимает его целиком.
 - `za` — toggle fold, `zR` — открыть все folds, `zM` — закрыть все folds.
-- `gr` — references через `fzf-lua` window.
+- `s` — стандартная замена символа с переходом в insert mode.
+- `Y` — копировать в системный clipboard.
+- `gza` / `gzd` / `gzr` — добавить / удалить / заменить окружающие скобки или кавычки (`mini.surround`).
+- `gzf` / `gzF` / `gzh` — найти справа / найти слева / подсветить окружающие скобки или кавычки; `gzn` обновляет область поиска.
+- `<C-s>` — сохранить все файлы.
+- Визуальный режим: `<` / `>` меняют отступ и сохраняют выделение; `J` / `K` перемещают выделенные строки; `p` вставляет, не заменяя clipboard.
+- `j` / `k` перемещают курсор по экранным строкам с учётом переноса текста.
+- `<leader><Space>` / `<leader>/` / `<leader>,` — поиск файлов / поиск по тексту / список буферов.
+- `<leader>r` — продолжить последний picker.
+- `<leader>ls` / `<leader>ld` / `<leader>lS` / `<leader>la` / `<leader>lt` — LSP references / определения / символы проекта / code actions / определения типов.
 - `<leader>lf` — format через `conform.nvim`.
 - `<leader>lF` — raw LSP format.
 - `<leader>ee` — открыть `mini.files` в директории текущего файла.
 - `<leader>ew` — открыть `mini.files` в working directory.
-- `<leader>ff` — поиск файлов.
 - `]c` / `[c` — next/previous hunk.
 - `<leader>hp` — preview hunk.
 - `<leader>hb` — blame line.
 - `<leader>hB` — toggle current line blame.
 - `<leader>hs` / `<leader>hr` — stage/reset hunk.
-- `<leader>fg` — live grep.
-- `<leader>fb` — буферы.
 - `<leader>gs` — git status picker.
-- `<leader>gc` / `<leader>gC` — git commits / buffer commits picker.
+- `<leader>gc` / `<leader>gl` — git commits / buffer commits picker.
 - `<leader>gb` — git branches picker.
 - `<leader>p` — открыть dialog `pi-nvim`.
 - `<leader>pp` — отправить prompt в pi.
@@ -92,7 +88,11 @@ set -g focus-events on
 Для создания файла добавь строку с его именем (`o` → `file.ts` → `<Esc>`), для папки — с `/` на конце (`folder/`).
 Нажми `=` и подтверди операции, чтобы применить изменения. Переименование и удаление выполняются редактированием и удалением строк с последующим `=`.
 
-Команды: `:Mason`, `:ConformInfo`, `:Format`, `:FormatDisable`, `:FormatDisable!`, `:FormatEnable`, `:Lint`, `:LintDisable`, `:LintDisable!`, `:LintEnable`, `:Pi`, `:PiSend`, `:PiSendFile`, `:PiSendSelection`, `:PiSendBuffer`, `:PiPing`, `:PiSessions`.
+Настройки редакторных действий для `vscode-neovim` изолированы в `lua/config/keymaps/vscode.lua`; настройки обычного Neovim находятся в `lua/config/keymaps/neovim.lua`. В профиле VS Code отключены Neovim LSP, Mason, nvim-cmp, nvim-lint, Conform, Gitsigns, smart-splits и herdr-splits; completion, diagnostics и formatting остаются за VS Code. Clipboard использует provider расширения.
+
+В режиме `vscode-neovim` сочетания `<leader>e`, `<leader><Space>`, `<leader>/`, `<leader>,`, `<leader>t`, `<leader>b`, `<leader>sp`, `<leader>cn` и `<leader>cp` управляют Explorer, поиском файлов, поиском по проекту, списком редакторов, терминалом, breakpoint, Problems, уведомлениями и Command Palette. LSP-действия и `<leader>lf` используют команды VS Code. Группы редакторов переключаются встроенными командами расширения через `<C-w>h/j/k/l`; размер меняется через `<C-w><` / `<C-w>>` и `<C-w>-` / `<C-w>+`. Split-плагины в этом профиле не загружаются. `<C-s>` сохраняет файлы и требует passthrough в пользовательском `keybindings.json`.
+
+В обычном Neovim доступны команды `:Mason`, `:ConformInfo`, `:Format`, `:FormatDisable`, `:FormatDisable!`, `:FormatEnable`, `:Lint`, `:LintDisable`, `:LintDisable!`, `:LintEnable`. Команды Pi: `:Pi`, `:PiSend`, `:PiSendFile`, `:PiSendSelection`, `:PiSendBuffer`, `:PiPing`, `:PiSessions`.
 
 Formatter selection for JS/TS/frontend files:
 

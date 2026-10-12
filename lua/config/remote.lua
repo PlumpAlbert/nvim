@@ -1,13 +1,17 @@
 local M = {}
 
 M.is_ssh = vim.env.SSH_TTY ~= nil or vim.env.SSH_CONNECTION ~= nil or vim.env.SSH_CLIENT ~= nil
-M.is_tmux = vim.env.TMUX ~= nil
-M.is_remote_like = M.is_ssh or M.is_tmux
 
-if M.is_remote_like then
-  -- Reliable clipboard inside SSH/tmux. Requires terminal/tmux OSC52 support.
+if vim.g.vscode and vim.g.vscode_clipboard then
+  vim.g.clipboard = vim.g.vscode_clipboard
+end
+
+if M.is_ssh then
+  -- Reliable clipboard over SSH. Requires terminal OSC52 support.
   -- Must be set before clipboard provider initialization.
-  vim.g.clipboard = "osc52"
+  if not (vim.g.vscode and vim.g.vscode_clipboard) then
+    vim.g.clipboard = "osc52"
+  end
 
   -- Keep startup snappy on remote machines unless these providers are explicitly needed.
   vim.g.loaded_node_provider = 0

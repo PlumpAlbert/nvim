@@ -2,30 +2,29 @@ local map = vim.keymap.set
 
 map("n", "<leader>w", "<cmd>write<cr>", { desc = "Save" })
 map("n", "<leader>q", "<cmd>quit<cr>", { desc = "Quit" })
+map({ "n", "i" }, "<C-s>", "<esc>:wa<cr>", { desc = "Save all changes" })
+map({ "n", "v" }, "Y", '"+y', { desc = "Copy to system clipboard" })
 map("n", "<esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
-map("n", "zR", "zR", { desc = "Open all folds" })
-map("n", "zM", "zM", { desc = "Close all folds" })
-map("n", "za", "za", { desc = "Toggle fold" })
-map("n", "<leader>ee", function()
-  local dir = vim.fn.expand("%:p:h")
-  if dir == "" then
-    dir = vim.fn.getcwd()
-  end
-  require("mini.files").open(dir, false)
-end, { desc = "Explorer: current file directory" })
-map("n", "<leader>ew", function()
-  require("mini.files").open(vim.fn.getcwd(), false)
-end, { desc = "Explorer: working directory" })
+map("n", "j", "gj", { desc = "Move down by display line" })
+map("n", "k", "gk", { desc = "Move up by display line" })
+map("v", "j", "gj", { desc = "Move down by display line" })
+map("v", "k", "gk", { desc = "Move up by display line" })
+map("v", "<", "<gv", { desc = "Indent selection left" })
+map("v", ">", ">gv", { desc = "Indent selection right" })
+map("v", "p", '"_dP', { desc = "Paste without replacing clipboard" })
+map("v", "J", ":m .+1<CR>==", { desc = "Move selection down" })
+map("v", "K", ":m .-2<CR>==", { desc = "Move selection up" })
+map("x", "J", ":move '>+1<CR>gv-gv", { desc = "Move selection down" })
+map("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move selection up" })
 
--- fzf-lua
-map("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Find files" })
-map("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", { desc = "Live grep" })
-map("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
-map("n", "<leader>fh", "<cmd>FzfLua help_tags<cr>", { desc = "Help" })
-map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", { desc = "Recent files" })
+if vim.g.vscode then
+  require("config.keymaps.vscode")
+else
+  require("config.keymaps.neovim")
+end
 
--- git pickers
+-- Git pickers are shared by both profiles.
 map("n", "<leader>gs", "<cmd>FzfLua git_status<cr>", { desc = "Git status" })
 map("n", "<leader>gc", "<cmd>FzfLua git_commits<cr>", { desc = "Git commits" })
-map("n", "<leader>gC", "<cmd>FzfLua git_bcommits<cr>", { desc = "Git buffer commits" })
+map("n", "<leader>gl", "<cmd>FzfLua git_bcommits<cr>", { desc = "Git buffer commits" })
 map("n", "<leader>gb", "<cmd>FzfLua git_branches<cr>", { desc = "Git branches" })

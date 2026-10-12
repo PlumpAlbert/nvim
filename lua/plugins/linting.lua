@@ -91,7 +91,12 @@ local function lint_buffer(bufnr)
 
   local linters = selector(bufnr)
   if #linters > 0 then
-    require("lint").try_lint(linters)
+    require("lint").try_lint(linters, {
+      filter = function(linter)
+        local cmd = type(linter.cmd) == "function" and linter.cmd() or linter.cmd
+        return vim.fn.executable(cmd) == 1
+      end,
+    })
   end
 end
 
@@ -99,6 +104,7 @@ return {
   {
     "mfussenegger/nvim-lint",
     event = { "BufReadPost", "BufNewFile" },
+    cond = not vim.g.vscode,
     config = function()
       local group = vim.api.nvim_create_augroup("NewvimLint", { clear = true })
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

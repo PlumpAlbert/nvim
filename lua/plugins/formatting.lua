@@ -67,6 +67,7 @@ return {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
+    cond = not vim.g.vscode,
     keys = {
       {
         "<leader>lf",

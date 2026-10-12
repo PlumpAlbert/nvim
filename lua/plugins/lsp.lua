@@ -8,11 +8,12 @@ local function capabilities()
 end
 
 return {
-  { "williamboman/mason.nvim", cmd = "Mason", opts = {} },
+  { "williamboman/mason.nvim", cmd = "Mason", opts = {}, cond = not vim.g.vscode },
 
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+    cond = not vim.g.vscode,
     config = function()
       require("mason").setup()
       vim.lsp.config("*", { capabilities = capabilities() })
@@ -26,6 +27,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
+    cond = not vim.g.vscode,
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(event)
@@ -36,10 +38,8 @@ return {
           vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
           map("n", "gd", vim.lsp.buf.definition, "Go to definition")
           map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-          map("n", "gr", "<cmd>FzfLua lsp_references<cr>", "References")
           map("n", "K", vim.lsp.buf.hover, "Hover")
           map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
-          map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
           map("n", "<leader>e", vim.diagnostic.open_float, "Line diagnostics")
           map("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
           map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")

@@ -12,6 +12,7 @@ return {
         { "<leader>l", group = "lsp/format" },
         { "<leader>p", group = "pi" },
         { "<leader>e", group = "explorer/diagnostics" },
+        { "gz", group = "surround" },
       },
     },
   },

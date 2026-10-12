@@ -1,6 +1,6 @@
 local plugin_dir = os.getenv("HOME") .. "/arcadia/junk/a-matveev9/gitsigns.arc.nvim"
 
-if not vim.uv.fs_stat(plugin_dir) then
+if vim.g.vscode or not vim.uv.fs_stat(plugin_dir) then
   return {}
 end
 
