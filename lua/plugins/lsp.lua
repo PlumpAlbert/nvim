@@ -8,6 +8,13 @@ local function capabilities()
 end
 
 return {
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = { "nvim-dap-ui" },
+    },
+  },
   { "williamboman/mason.nvim", cmd = "Mason", opts = {}, cond = not vim.g.vscode },
 
   {
@@ -17,6 +24,19 @@ return {
     config = function()
       require("mason").setup()
       vim.lsp.config("*", { capabilities = capabilities() })
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },
+            workspace = {
+              checkThirdParty = false,
+              library = { vim.env.VIMRUNTIME },
+            },
+            telemetry = { enable = false },
+          },
+        },
+      })
       require("mason-lspconfig").setup({
         ensure_installed = {}, -- install servers manually via :Mason
         automatic_enable = true, -- enable installed servers with nvim-lspconfig defaults
