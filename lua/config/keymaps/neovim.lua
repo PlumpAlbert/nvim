@@ -1,16 +1,5 @@
 local map = vim.keymap.set
 
-map("n", "<leader>ee", function()
-  local dir = vim.fn.expand("%:p:h")
-  if dir == "" then
-    dir = vim.fn.getcwd()
-  end
-  require("mini.files").open(dir, false)
-end, { desc = "Explorer: current file directory" })
-map("n", "<leader>ew", function()
-  require("mini.files").open(vim.fn.getcwd(), false)
-end, { desc = "Explorer: working directory" })
-
 map("n", "zR", "zR", { desc = "Open all folds" })
 map("n", "zM", "zM", { desc = "Close all folds" })
 map("n", "za", "za", { desc = "Toggle fold" })

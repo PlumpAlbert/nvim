@@ -60,7 +60,7 @@ return {
           map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
           map("n", "K", vim.lsp.buf.hover, "Hover")
           map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
-          map("n", "<leader>e", vim.diagnostic.open_float, "Line diagnostics")
+          map("n", "<leader>de", vim.diagnostic.open_float, "Line diagnostics")
           map("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
           map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
           map("n", "<leader>lF", function()

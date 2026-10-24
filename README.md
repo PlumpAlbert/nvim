@@ -1,11 +1,11 @@
-# newvim
+# nvim
 
-Neovim-конфигурация для `NVIM_APPNAME=newvim`.
+Конфигурация Neovim.
 
 ## Запуск
 
 ```bash
-NVIM_APPNAME=newvim nvim
+nvim
 ```
 
 При первом запуске `lazy.nvim` установит плагины автоматически. Нужные LSP-серверы устанавливай вручную через `:Mason`.
@@ -35,7 +35,7 @@ NVIM_APPNAME=newvim nvim
 - LSP: native `vim.lsp.config`/`vim.lsp.enable` + Mason/Mason LSPConfig; ручная установка серверов, автоматическое подключение со стандартными конфигами.
 - Completion: `nvim-cmp` с LSP/path/buffer/snippet sources и VSCode-like Nerd Font kind icons.
 - Snippets: `LuaSnip` + `friendly-snippets`.
-- Editing QoL: `mini.ai`, `mini.surround` (`gz` mappings), `mini.comment`, `mini.pairs`.
+- Editing QoL: `mini.ai`, `mini.surround` (`gz` mappings), `mini.comment`, `mini.pairs`, `mini.icons`.
 - Markdown UI: `render-markdown.nvim`.
 - Highlight yanked text.
 - fzf: `fzf-lua` для файлов, grep, буферов, help и `vim.ui.select`.
@@ -45,7 +45,7 @@ NVIM_APPNAME=newvim nvim
 - Linting: `nvim-lint` с root-pattern выбором (`biome`, `eslint`, `ruff`, `shellcheck`); отсутствующие исполняемые файлы линтеров пропускаются.
 - Realtime `autoread`, scroll padding и wrapped diagnostic virtual lines.
 - Nerd Font symbols для diagnostics, fold column, fill/list chars и fzf prompts.
-- File explorer обычного Neovim: `mini.files` с предпросмотром и редактированием файлов/папок; в VS Code используется его Explorer. Встроенные `dir` и netrw отключены.
+- File explorer обычного Neovim: `neo-tree.nvim` в плавающем окне, с иконками `mini.icons` и выбором окна через `nvim-window-picker`; в VS Code используется его Explorer. Встроенные `dir` и netrw отключены.
 - Git/Arc signs: если существует `/Users/plumpalbert/arcadia/junk/a-matveev9/gitsigns.arc.nvim`, он подгружается как local plugin.
 - Pi coding assistant: `pi-nvim` bridge для отправки промптов, файлов, буферов и выделений в running pi session.
 
@@ -66,8 +66,10 @@ NVIM_APPNAME=newvim nvim
 - `<leader>ls` / `<leader>ld` / `<leader>lS` / `<leader>la` / `<leader>lt` — LSP references / определения / символы проекта / code actions / определения типов.
 - `<leader>lf` — format через `conform.nvim`.
 - `<leader>lF` — raw LSP format.
-- `<leader>ee` — открыть `mini.files` в директории текущего файла.
-- `<leader>ew` — открыть `mini.files` в working directory.
+- `<leader>e` — открыть плавающее файловое дерево Neo-tree.
+- `<leader>E` — показать текущий файл в дереве или закрыть его.
+- `<leader>de` — открыть диагностику текущей строки.
+- `<leader>.` — открыть список буферов в Neo-tree.
 - `]c` / `[c` — next/previous hunk.
 - `<leader>hp` — preview hunk.
 - `<leader>hb` — blame line.
@@ -84,9 +86,7 @@ NVIM_APPNAME=newvim nvim
 - `<leader>pi` — проверить соединение с pi.
 - `<leader>pl` — список running pi sessions.
 
-В `mini.files`: `h` / `l` — переход между каталогами, `L` — открыть файл и закрыть проводник, `q` — закрыть, `g?` — помощь.
-Для создания файла добавь строку с его именем (`o` → `file.ts` → `<Esc>`), для папки — с `/` на конце (`folder/`).
-Нажми `=` и подтверди операции, чтобы применить изменения. Переименование и удаление выполняются редактированием и удалением строк с последующим `=`.
+В Neo-tree клавиша `?` показывает доступные действия файлового проводника.
 
 Настройки редакторных действий для `vscode-neovim` изолированы в `lua/config/keymaps/vscode.lua`; настройки обычного Neovim находятся в `lua/config/keymaps/neovim.lua`. В профиле VS Code отключены Neovim LSP, Mason, nvim-cmp, nvim-lint, Conform, Gitsigns, smart-splits и herdr-splits; completion, diagnostics и formatting остаются за VS Code. Clipboard использует provider расширения.
 

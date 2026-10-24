@@ -18,11 +18,7 @@ return {
       })
       require("mini.comment").setup()
       require("mini.pairs").setup()
-      if not vim.g.vscode then
-        require("mini.files").setup({
-          windows = { preview = true },
-        })
-      end
+      require("mini.icons").setup()
     end,
   },
 }
